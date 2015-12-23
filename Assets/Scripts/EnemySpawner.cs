@@ -4,7 +4,7 @@ using System.Collections;
 public class EnemySpawner : MonoBehaviour
 {
 	[SerializeField] GameObject enemyPrefab;
-	[SerializeField] float waitTime;
+	[SerializeField] float spawnLoopWait;
 	int spawnCount = 1;
 
 	public void SpawnEnemies(int spawnEnemyCount, float spawnInitialWait)
@@ -22,7 +22,7 @@ public class EnemySpawner : MonoBehaviour
 			clone.name = gameObject.name + spawnCount;
 			spawnCount++;
 
-			yield return new WaitForSeconds(waitTime);
+			yield return new WaitForSeconds(spawnLoopWait);
 		}
 	}
 }

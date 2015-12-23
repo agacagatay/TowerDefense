@@ -6,6 +6,13 @@ public class EnemySpawnerController : MonoBehaviour
 	[SerializeField] EnemySpawnWave[] enemySpawnerWaves;
 	int enemyWaveNumber = 0;
 
+	public static EnemySpawnerController instance;
+
+	void Awake()
+	{
+		instance = this;
+	}
+
 	void Start()
 	{
 		enemySpawnerWaves[enemyWaveNumber].TriggerEnemyWave(enemyWaveNumber);

@@ -38,7 +38,7 @@ public class EnemyTurretController : MonoBehaviour
 			newVerRotation.y = 0f;
 			newVerRotation.z = 0f;
 
-			horPivot.localRotation = Quaternion.Lerp(horPivot.localRotation, newHorRotation, Time.deltaTime * horLookSpeed);
+			horPivot.rotation = Quaternion.Lerp(horPivot.rotation, newHorRotation, Time.deltaTime * horLookSpeed);
 			verPivot.localRotation = Quaternion.Lerp(verPivot.localRotation, newVerRotation, Time.deltaTime * verLookSpeed);
 
 			Vector3 targetDir = targetTransform.position - horPivot.position;

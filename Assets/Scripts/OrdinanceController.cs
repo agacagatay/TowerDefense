@@ -3,6 +3,7 @@ using System.Collections;
 
 public class OrdinanceController : MonoBehaviour
 {
+	[SerializeField] bool allyOrdinance;
 	[SerializeField] float travelSpeed;
 	[SerializeField] float turnSpeed;
 	[SerializeField] int damage;
@@ -29,7 +30,7 @@ public class OrdinanceController : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.tag == "Enemy")
+		if (allyOrdinance && other.gameObject.tag == "Enemy")
 		{
 			if (!splashDamage)
 			{
@@ -46,6 +47,27 @@ public class OrdinanceController : MonoBehaviour
 					{
 						EnemyUnitVariables enemyUnitVariables = hitCollider.GetComponent<EnemyUnitVariables>();
 						enemyUnitVariables.DamageUnit(damage);
+					}
+				}
+			}
+		}
+		else if (!allyOrdinance && other.gameObject.tag == "Ally")
+		{
+			if (!splashDamage)
+			{
+				AllyStructureVariables allyStructureVariables = other.GetComponent<AllyStructureVariables>();
+				allyStructureVariables.DamageStructure(damage);
+			}
+			else
+			{
+				Collider[] hitColliders = Physics.OverlapSphere(transform.position, splashDamageRange);
+
+				foreach (Collider hitCollider in hitColliders)
+				{
+					if (hitCollider.gameObject.tag == "Ally")
+					{
+						AllyStructureVariables allyStructureVariables = hitCollider.GetComponent<AllyStructureVariables>();
+						allyStructureVariables.DamageStructure(damage);
 					}
 				}
 			}

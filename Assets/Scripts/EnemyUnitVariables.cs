@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyUnitVariables : MonoBehaviour
 {
 	[SerializeField] string enemyUnitType;
+	int unitHealth = 100;
 
 	void Start()
 	{
@@ -24,5 +25,13 @@ public class EnemyUnitVariables : MonoBehaviour
 			SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Remove(gameObject);
 			Destroy(gameObject);
 		}
+	}
+
+	public void DamageUnit(int damageValue)
+	{
+		unitHealth -= damageValue;
+
+		if (unitHealth <= 0)
+			Destroy(gameObject);
 	}
 }

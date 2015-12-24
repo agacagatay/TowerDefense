@@ -9,7 +9,11 @@ public class TurretController : MonoBehaviour
 	[SerializeField] float verLookSpeed;
 	[SerializeField] float turretRange;
 	[SerializeField] string priorityTargetTag;
+	[SerializeField] GameObject ordinancePrefab;
+	[SerializeField] Transform[] ordinanceSpawnTransforms;
+	[SerializeField] float fireRate;
 	Transform targetTransform;
+	bool canFire = true;
 
 	void Start()
 	{
@@ -30,6 +34,17 @@ public class TurretController : MonoBehaviour
 
 			horPivot.localRotation = Quaternion.Lerp(horPivot.localRotation, newHorRotation, Time.deltaTime * horLookSpeed);
 			verPivot.localRotation = Quaternion.Lerp(verPivot.localRotation, newVerRotation, Time.deltaTime * verLookSpeed);
+
+			Vector3 targetDir = targetTransform.position - horPivot.position;
+			targetDir.y = 0f;
+			Vector3 forward = horPivot.forward;
+			float angle = Vector3.Angle(targetDir, forward);
+
+			if (angle < 10f)
+			{
+				if (canFire)
+					StartCoroutine(FireWeapon());
+			}
 		}
 	}
 	
@@ -66,5 +81,19 @@ public class TurretController : MonoBehaviour
 			if (!targetAcquired)
 				targetTransform = null;
 		}
+	}
+
+	IEnumerator FireWeapon()
+	{
+		canFire = false;
+
+		int randomTransform = Random.Range(0, ordinanceSpawnTransforms.Length);
+		GameObject ordinanceClone = (GameObject)Instantiate(ordinancePrefab, ordinanceSpawnTransforms[randomTransform].position, ordinanceSpawnTransforms[randomTransform].rotation);
+		OrdinanceController ordinanceController = ordinanceClone.GetComponent<OrdinanceController>();
+		ordinanceController.TargetTransform = targetTransform;
+
+		yield return new WaitForSeconds(fireRate);
+
+		canFire = true;
 	}
 }

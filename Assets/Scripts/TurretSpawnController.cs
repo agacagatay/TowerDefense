@@ -30,7 +30,9 @@ public class TurretSpawnController : MonoBehaviour
 	{
 		if (gesture.pickedObject == gameObject)
 		{
-			Instantiate(turretPrefab, spawnTransform.position, spawnTransform.rotation);
+			GameObject turretClone =  (GameObject)Instantiate(turretPrefab, spawnTransform.position, spawnTransform.rotation);
+			AllyStructureVariables allyStructureVariables = turretClone.GetComponent<AllyStructureVariables>();
+			allyStructureVariables.TurretSpawnObject = gameObject;
 			gameObject.SetActive(false);
 		}
 	}

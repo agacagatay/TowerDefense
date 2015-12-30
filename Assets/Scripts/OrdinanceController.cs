@@ -55,8 +55,8 @@ public class OrdinanceController : MonoBehaviour
 		{
 			if (!splashDamage)
 			{
-				AllyStructureVariables allyStructureVariables = other.GetComponent<AllyStructureVariables>();
-				allyStructureVariables.DamageStructure(damage);
+				AllyStructureController allyStructureController = other.GetComponent<AllyStructureController>();
+				allyStructureController.DamageStructure(damage);
 			}
 			else
 			{
@@ -66,14 +66,14 @@ public class OrdinanceController : MonoBehaviour
 				{
 					if (hitCollider.gameObject.tag == "Ally")
 					{
-						AllyStructureVariables allyStructureVariables = hitCollider.GetComponent<AllyStructureVariables>();
-						allyStructureVariables.DamageStructure(damage);
+						AllyStructureController allyStructureController = hitCollider.GetComponent<AllyStructureController>();
+						allyStructureController.DamageStructure(damage);
 					}
 				}
 			}
 		}
 
-		if (other.gameObject.tag != "Turret" && other.gameObject.tag != "Ordinance")
+		if (other.gameObject.tag != "Turret" && other.gameObject.tag != "Ordinance" && other.gameObject.tag != "Ignore")
 			Destroy(gameObject);
 	}
 }

@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
-public class AllyStructureVariables : MonoBehaviour
+public class AllyStructureController : MonoBehaviour
 {
 	[SerializeField] string allyStructureType;
 	[SerializeField] int structureHealth = 100;
 	[SerializeField] bool isTurret = false;
+	[SerializeField] bool isBarrier = false;
 	GameObject turretSpawnObject;
+	List<GameObject> stoppedEnemyUnits = new List<GameObject>();
 	public GameObject TurretSpawnObject { get { return turretSpawnObject; } set { turretSpawnObject = value; }}
 
 	void Start()
@@ -23,7 +26,26 @@ public class AllyStructureVariables : MonoBehaviour
 			if (isTurret)
 				TurretSpawnObject.SetActive(true);
 
+			if (isBarrier)
+			{
+				foreach (GameObject stoppedEnemyUnit in stoppedEnemyUnits)
+				{
+					if (stoppedEnemyUnit != null)
+					{
+						EnemyNavController enemyNavController = stoppedEnemyUnit.GetComponent<EnemyNavController>();
+						enemyNavController.EnableMovement();
+					}
+				}
+
+				stoppedEnemyUnits.Clear();
+			}
+
 			Destroy(gameObject);
 		}
+	}
+
+	public void BarrierPerimeterTrigger(GameObject enemyUnitObject)
+	{
+		stoppedEnemyUnits.Add(enemyUnitObject);
 	}
 }

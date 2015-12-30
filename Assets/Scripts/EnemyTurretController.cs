@@ -12,6 +12,7 @@ public class EnemyTurretController : MonoBehaviour
 	[SerializeField] GameObject ordinancePrefab;
 	[SerializeField] Transform[] ordinanceSpawnTransforms;
 	[SerializeField] float fireRate;
+	[SerializeField] LayerMask turretLayerMask;
 	Transform targetTransform;
 	bool canFire = true;
 	bool turretReset = true;
@@ -41,15 +42,14 @@ public class EnemyTurretController : MonoBehaviour
 			horPivot.rotation = Quaternion.Lerp(horPivot.rotation, newHorRotation, Time.deltaTime * horLookSpeed);
 			verPivot.localRotation = Quaternion.Lerp(verPivot.localRotation, newVerRotation, Time.deltaTime * verLookSpeed);
 
-			Vector3 targetDir = targetTransform.position - horPivot.position;
-			targetDir.y = 0f;
-			Vector3 forward = horPivot.forward;
-			float angle = Vector3.Angle(targetDir, forward);
+			RaycastHit hit;
 
-			if (angle < 10f)
+			if (Physics.Raycast(ordinanceSpawnTransforms[0].position, verPivot.forward, out hit, 100f, turretLayerMask))
 			{
-				if (canFire)
+				if (hit.transform.gameObject == targetTransform.gameObject && canFire)
+				{
 					StartCoroutine(FireWeapon());
+				}
 			}
 		}
 	}

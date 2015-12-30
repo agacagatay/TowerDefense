@@ -8,10 +8,14 @@ public class CameraController : MonoBehaviour
 	[SerializeField] Vector3 maxPos;
 	[SerializeField] float panSpeed = 80f;
 	[SerializeField] float zoomSpeed = 2f;
+	[SerializeField] float momentumMultiplier = 1f;
+	[SerializeField] float momentumSpeed = 1f;
 	Vector3 deltaPos;
 	Vector3 oldPos;
 	Vector3 panOrigin;
 	bool canPan = true;
+	Vector2 cameraVelocity;
+	float deltaValue;
 
 	void Start()
 	{
@@ -71,6 +75,9 @@ public class CameraController : MonoBehaviour
 				deltaPos.z = maxPos.z;
 
 			transform.localPosition = deltaPos;
+
+			cameraVelocity = (gesture.deltaPosition / gesture.deltaTime);
+			deltaValue = 0f;
 		}
 	}
 
@@ -92,6 +99,31 @@ public class CameraController : MonoBehaviour
 	void On_PinchEnd (Gesture gesture)
 	{
 		StartCoroutine(MovementRelease());
+	}
+
+	void Update()
+	{
+		if (deltaValue < 1f)
+			deltaValue += Time.deltaTime * momentumSpeed;
+		
+		Vector2 lerpCameraVelocity = Vector2.Lerp(cameraVelocity * momentumMultiplier, new Vector2(0f, 0f), deltaValue);
+
+		if (cameraVelocity.x > 0f || cameraVelocity.y > 0f)
+			transform.localPosition -= new Vector3(lerpCameraVelocity.x, 0f, lerpCameraVelocity.y);
+
+		Vector3 cameraPosition = transform.localPosition;
+
+		if (cameraPosition.x < minPos.x)
+			cameraPosition.x = minPos.x;
+		else if (cameraPosition.x > maxPos.x)
+			cameraPosition.x = maxPos.x;
+
+		if (cameraPosition.z < minPos.z)
+			cameraPosition.z = minPos.z;
+		else if (cameraPosition.z > maxPos.z)
+			cameraPosition.z = maxPos.z;
+
+		transform.localPosition = cameraPosition;
 	}
 
 	IEnumerator MovementRelease()

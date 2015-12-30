@@ -1,9 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class TurretSpawnController : MonoBehaviour
+public class AllySpawnerController : MonoBehaviour
 {
 	[SerializeField] GameObject turretPrefab;
+	[SerializeField] int turretCost;
 	[SerializeField] Transform spawnTransform;
 
 	void OnEnable()
@@ -31,8 +32,12 @@ public class TurretSpawnController : MonoBehaviour
 		if (gesture.pickedObject == gameObject)
 		{
 			GameObject turretClone =  (GameObject)Instantiate(turretPrefab, spawnTransform.position, spawnTransform.rotation);
-			AllyStructureVariables allyStructureVariables = turretClone.GetComponent<AllyStructureVariables>();
+			AllyStructureController allyStructureVariables = turretClone.GetComponent<AllyStructureController>();
 			allyStructureVariables.TurretSpawnObject = gameObject;
+
+			ResourcesController.instance.Shards -= turretCost;
+			ResourcesController.instance.UpdateShards();
+
 			gameObject.SetActive(false);
 		}
 	}

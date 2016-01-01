@@ -3,12 +3,14 @@ using System.Collections;
 
 public class EnemyUnitVariables : MonoBehaviour
 {
-	[SerializeField] string enemyUnitType;
+	[SerializeField] int priorityValue = 0;
 	[SerializeField] int unitHealth = 100;
+	[SerializeField] bool isAirUnit = false;
+	public bool IsAirUnit { get { return isAirUnit; }}
 
 	void Start()
 	{
-		SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Add(gameObject, enemyUnitType);
+		SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Add(gameObject, priorityValue);
 	}
 
 	public void DamageUnit(int damageValue)

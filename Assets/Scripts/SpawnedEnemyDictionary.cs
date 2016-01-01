@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class SpawnedEnemyDictionary : MonoBehaviour
 {
-	public Dictionary<GameObject, string> spawnedEnemyDictionary = new Dictionary<GameObject, string>();
+	public Dictionary<GameObject, int> spawnedEnemyDictionary = new Dictionary<GameObject, int>();
 	public static SpawnedEnemyDictionary instance;
 
 	void Awake()

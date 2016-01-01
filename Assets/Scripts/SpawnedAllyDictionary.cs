@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class SpawnedAllyDictionary : MonoBehaviour
 {
-	public Dictionary<GameObject, string> spawnedAllyDictionary = new Dictionary<GameObject, string>();
+	public Dictionary<GameObject, int> spawnedAllyDictionary = new Dictionary<GameObject, int>();
 	public static SpawnedAllyDictionary instance;
 
 	void Awake()

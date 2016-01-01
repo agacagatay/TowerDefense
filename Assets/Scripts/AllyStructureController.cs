@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class AllyStructureController : MonoBehaviour
 {
-	[SerializeField] string allyStructureType;
+	[SerializeField] int priorityValue;
 	[SerializeField] int structureHealth = 100;
 	[SerializeField] bool isTurret = false;
 	[SerializeField] bool isBarrier = false;
@@ -14,7 +14,7 @@ public class AllyStructureController : MonoBehaviour
 
 	void Start()
 	{
-		SpawnedAllyDictionary.instance.spawnedAllyDictionary.Add(gameObject, allyStructureType);
+		SpawnedAllyDictionary.instance.spawnedAllyDictionary.Add(gameObject, priorityValue);
 	}
 
 	public void DamageStructure(int damageValue)

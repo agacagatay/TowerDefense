@@ -7,7 +7,7 @@ public class BarrierPerimeter : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (other.gameObject.tag == "Enemy")
+		if (other.gameObject.tag == "EnemyGround")
 		{
 			EnemyNavController enemyNavController = other.GetComponent<EnemyNavController>();
 			enemyNavController.DisableMovement();

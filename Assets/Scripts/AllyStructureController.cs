@@ -5,9 +5,10 @@ using System.Collections.Generic;
 public class AllyStructureController : MonoBehaviour
 {
 	[SerializeField] int priorityValue;
-	[SerializeField] int structureHealth = 100;
+	[SerializeField] int initialStructureHealth = 100;
 	[SerializeField] bool isTurret = false;
 	[SerializeField] bool isBarrier = false;
+	int structureHealth;
 	GameObject turretSpawnObject;
 	List<GameObject> stoppedEnemyUnits = new List<GameObject>();
 	public GameObject TurretSpawnObject { get { return turretSpawnObject; } set { turretSpawnObject = value; }}
@@ -15,6 +16,7 @@ public class AllyStructureController : MonoBehaviour
 	void Start()
 	{
 		SpawnedAllyDictionary.instance.spawnedAllyDictionary.Add(gameObject, priorityValue);
+		structureHealth = initialStructureHealth;
 	}
 
 	public void DamageStructure(int damageValue)
@@ -42,6 +44,16 @@ public class AllyStructureController : MonoBehaviour
 
 			Destroy(gameObject);
 		}
+	}
+
+	public void FortifyStructure(int fortifyValue)
+	{
+		structureHealth += fortifyValue;
+	}
+
+	public void RepairStructure()
+	{
+		structureHealth = initialStructureHealth;
 	}
 
 	public void BarrierPerimeterTrigger(GameObject enemyUnitObject)

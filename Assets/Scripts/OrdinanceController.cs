@@ -30,7 +30,7 @@ public class OrdinanceController : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (allyOrdinance && other.gameObject.tag == "Enemy")
+		if (allyOrdinance && (other.gameObject.tag == "EnemyGround" || other.gameObject.tag == "EnemyAir"))
 		{
 			if (!splashDamage)
 			{
@@ -43,7 +43,7 @@ public class OrdinanceController : MonoBehaviour
 
 				foreach (Collider hitCollider in hitColliders)
 				{
-					if (hitCollider.gameObject.tag == "Enemy")
+					if ((other.gameObject.tag == "EnemyGround" || other.gameObject.tag == "EnemyAir"))
 					{
 						EnemyUnitVariables enemyUnitVariables = hitCollider.GetComponent<EnemyUnitVariables>();
 						enemyUnitVariables.DamageUnit(damage);

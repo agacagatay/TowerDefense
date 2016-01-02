@@ -67,19 +67,16 @@ public class AllyTurretController : MonoBehaviour
 		if (groundRange > 0f)
 			groundHitColliders = Physics.OverlapSphere(transform.position, groundRange);
 
-		if (groundHitColliders != null && groundHitColliders.Length > 0)
+		if (groundRange > 0f && groundHitColliders != null && groundHitColliders.Length > 0)
 		{
 			foreach (Collider groundHitCollider in groundHitColliders)
 			{
-				if (groundHitCollider.gameObject.tag == "Enemy")
+				if (groundHitCollider.gameObject.tag == "EnemyGround")
 				{
 					int priorityValue;
 					
 					if (SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.TryGetValue(groundHitCollider.gameObject, out priorityValue))
 					{
-						EnemyUnitVariables enemyUnitVaribles = groundHitCollider.GetComponent<EnemyUnitVariables>();
-						bool isAirUnit = enemyUnitVaribles.IsAirUnit;
-
 						if (priorityValue >= targetPriorityValue)
 						{
 							targetPriorityValue = priorityValue;
@@ -88,15 +85,18 @@ public class AllyTurretController : MonoBehaviour
 						foreach(KeyValuePair<GameObject, int> keyValue in SpawnedEnemyDictionary.instance.spawnedEnemyDictionary)
 						{
 							if (keyValue.Value == targetPriorityValue)
-								highestPriorityTargets.Add(keyValue.Key);
+							{
+								if (keyValue.Key != null && keyValue.Key.tag == "EnemyGround")
+									highestPriorityTargets.Add(keyValue.Key);
+							}
 						}
-
+						
 						foreach (GameObject priorityTarget in highestPriorityTargets)
 						{
 							if (priorityTarget != null)
 							{
-								if (!isAirUnit && (targetTransform == null || Vector3.Distance(priorityTarget.transform.position, transform.position) < 
-									Vector3.Distance(targetTransform.position, transform.position)))
+								if (targetTransform == null || Vector3.Distance(priorityTarget.transform.position, transform.position) < 
+									Vector3.Distance(targetTransform.position, transform.position))
 								{
 									targetAcquired = true;
 									targetTransform = priorityTarget.transform;
@@ -108,19 +108,17 @@ public class AllyTurretController : MonoBehaviour
 			}
 		}
 
-		if (!targetAcquired && airHitColliders != null && airHitColliders.Length > 0)
+		if (airRange > 0f && !targetAcquired && airHitColliders != null && airHitColliders.Length > 0)
 		{
 			foreach (Collider airHitCollider in airHitColliders)
 			{
-				if (airHitCollider.gameObject.tag == "Enemy")
+				if (airHitCollider.gameObject.tag == "EnemyAir")
 				{
 					int priorityValue;
+					Debug.Log(airHitCollider.tag + " : " + airHitCollider.name);
 
 					if (SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.TryGetValue(airHitCollider.gameObject, out priorityValue))
 					{
-						EnemyUnitVariables enemyUnitVaribles = airHitCollider.GetComponent<EnemyUnitVariables>();
-						bool isAirUnit = enemyUnitVaribles.IsAirUnit;
-
 						if (priorityValue >= targetPriorityValue)
 						{
 							targetPriorityValue = priorityValue;
@@ -129,15 +127,18 @@ public class AllyTurretController : MonoBehaviour
 						foreach(KeyValuePair<GameObject, int> keyValue in SpawnedEnemyDictionary.instance.spawnedEnemyDictionary)
 						{
 							if (keyValue.Value == targetPriorityValue)
-								highestPriorityTargets.Add(keyValue.Key);
+							{
+								if (keyValue.Key != null && keyValue.Key.tag == "EnemyAir")
+									highestPriorityTargets.Add(keyValue.Key);
+							}
 						}
 
 						foreach (GameObject priorityTarget in highestPriorityTargets)
 						{
 							if (priorityTarget != null)
 							{
-								if (isAirUnit && (targetTransform == null || Vector3.Distance(priorityTarget.transform.position, transform.position) < 
-									Vector3.Distance(targetTransform.position, transform.position)))
+								if (targetTransform == null || Vector3.Distance(priorityTarget.transform.position, transform.position) < 
+									Vector3.Distance(targetTransform.position, transform.position))
 								{
 									targetAcquired = true;
 									targetTransform = priorityTarget.transform;

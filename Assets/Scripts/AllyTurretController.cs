@@ -73,6 +73,7 @@ public class AllyTurretController : MonoBehaviour
 			{
 				if (groundHitCollider.gameObject.tag == "EnemyGround")
 				{
+					targetAcquired = true;
 					int priorityValue;
 					
 					if (SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.TryGetValue(groundHitCollider.gameObject, out priorityValue))
@@ -98,7 +99,6 @@ public class AllyTurretController : MonoBehaviour
 								if (targetTransform == null || Vector3.Distance(priorityTarget.transform.position, transform.position) < 
 									Vector3.Distance(targetTransform.position, transform.position))
 								{
-									targetAcquired = true;
 									targetTransform = priorityTarget.transform;
 								}
 							}
@@ -108,14 +108,13 @@ public class AllyTurretController : MonoBehaviour
 			}
 		}
 
-		if (airRange > 0f && !targetAcquired && airHitColliders != null && airHitColliders.Length > 0)
+		if (!targetAcquired && airRange > 0f && airHitColliders != null && airHitColliders.Length > 0)
 		{
 			foreach (Collider airHitCollider in airHitColliders)
 			{
 				if (airHitCollider.gameObject.tag == "EnemyAir")
 				{
 					int priorityValue;
-					Debug.Log(airHitCollider.tag + " : " + airHitCollider.name);
 
 					if (SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.TryGetValue(airHitCollider.gameObject, out priorityValue))
 					{

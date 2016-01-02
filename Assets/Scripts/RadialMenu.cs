@@ -21,11 +21,6 @@ public class RadialMenu : MonoBehaviour
 		ringCount = normalButtons.Length;
 		angle = 360f / ringCount;
 
-		centerRect.x = center.x - centerButton.width * 0.5f;
-		centerRect.y = center.y - centerButton.height * 0.5f;
-		centerRect.width = centerButton.width;
-		centerRect.height = centerButton.height;
-
 		ringRects = new Rect[ringCount];
 
 		var w = normalButtons[0].width;
@@ -34,7 +29,8 @@ public class RadialMenu : MonoBehaviour
 
 		Vector2 v = new Vector2(radius, 0f);
 
-		for (var i = 0; i < ringCount; i++) {
+		for (int i = 0; i < ringCount; i++)
+		{
 			rect.x = center.x + v.x - w * 0.5f;
 			rect.y = center.y + v.y - h * 0.5f;
 			ringRects[i] = rect;

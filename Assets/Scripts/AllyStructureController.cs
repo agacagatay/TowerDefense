@@ -26,7 +26,10 @@ public class AllyStructureController : MonoBehaviour
 		if (structureHealth <= 0)
 		{
 			if (isTurret)
-				TurretSpawnObject.SetActive(true);
+			{
+				AllySpawnerPosition allySpawnerPosition = turretSpawnObject.GetComponent<AllySpawnerPosition>();
+				allySpawnerPosition.EnableSpawnerPosition();
+			}
 
 			if (isBarrier)
 			{

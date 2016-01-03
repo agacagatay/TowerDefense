@@ -76,7 +76,7 @@ public class CameraController : MonoBehaviour
 
 			transform.localPosition = deltaPos;
 
-			cameraVelocity = (gesture.deltaPosition / gesture.deltaTime);
+			cameraVelocity = (gesture.deltaPosition / Time.deltaTime);
 			deltaValue = 0f;
 		}
 	}
@@ -107,9 +107,7 @@ public class CameraController : MonoBehaviour
 			deltaValue += Time.deltaTime * momentumSpeed;
 		
 		Vector2 lerpCameraVelocity = Vector2.Lerp(cameraVelocity * momentumMultiplier, new Vector2(0f, 0f), deltaValue);
-
-		if (cameraVelocity.x > 0f || cameraVelocity.y > 0f)
-			transform.localPosition -= new Vector3(lerpCameraVelocity.x, 0f, lerpCameraVelocity.y);
+		transform.localPosition -= new Vector3(lerpCameraVelocity.x, 0f, lerpCameraVelocity.y);
 
 		Vector3 cameraPosition = transform.localPosition;
 

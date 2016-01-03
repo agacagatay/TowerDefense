@@ -101,7 +101,7 @@ public class CameraController : MonoBehaviour
 		StartCoroutine(MovementRelease());
 	}
 
-	void Update()
+	void FixedUpdate()
 	{
 		if (deltaValue < 1f)
 			deltaValue += Time.deltaTime * momentumSpeed;

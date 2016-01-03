@@ -17,6 +17,7 @@ public class EnemyTurretController : MonoBehaviour
 	Transform targetTransform;
 	bool canFire = true;
 	bool turretReset = true;
+	List<GameObject> potentialTargets = new List<GameObject>();
 	List<GameObject> highestPriorityTargets = new List<GameObject>();
 
 	void Start()
@@ -60,6 +61,7 @@ public class EnemyTurretController : MonoBehaviour
 	{
 		targetTransform = null;
 		turretReset = true;
+		int priorityValue;
 		int targetPriorityValue = 0;
 		Collider[] hitColliders = Physics.OverlapSphere(transform.position, turretRange);
 
@@ -68,36 +70,42 @@ public class EnemyTurretController : MonoBehaviour
 			if (hitCollider.gameObject.tag == "Ally")
 			{
 				turretReset = false;
-				int priorityValue;
 
 				if (SpawnedAllyDictionary.instance.spawnedAllyDictionary.TryGetValue(hitCollider.gameObject, out priorityValue))
 				{
 					if (priorityValue >= targetPriorityValue)
 					{
 						targetPriorityValue = priorityValue;
-					}
-
-					foreach(KeyValuePair<GameObject, int> keyValue in SpawnedAllyDictionary.instance.spawnedAllyDictionary)
-					{
-						if (keyValue.Value == targetPriorityValue)
-							highestPriorityTargets.Add(keyValue.Key);
-					}
-
-					foreach (GameObject priorityTarget in highestPriorityTargets)
-					{
-						if (priorityTarget != null)
-						{
-							if (targetTransform == null || Vector3.Distance(priorityTarget.transform.position, transform.position) < 
-								Vector3.Distance(targetTransform.position, transform.position))
-							{
-								targetTransform = priorityTarget.transform;
-							}
-						}
+						potentialTargets.Add(hitCollider.gameObject);
 					}
 				}
 			}
 		}
 
+		foreach (GameObject potentialTarget in potentialTargets)
+		{
+			if (SpawnedAllyDictionary.instance.spawnedAllyDictionary.TryGetValue(potentialTarget, out priorityValue))
+			{
+				if (priorityValue == targetPriorityValue)
+				{
+					highestPriorityTargets.Add(potentialTarget);
+				}
+			}
+		}
+
+		foreach (GameObject priorityTarget in highestPriorityTargets)
+		{
+			if (priorityTarget != null)
+			{
+				if (targetTransform == null || Vector3.Distance(priorityTarget.transform.position, transform.position) < 
+					Vector3.Distance(targetTransform.position, transform.position))
+				{
+					targetTransform = priorityTarget.transform;
+				}
+			}
+		}
+
+		potentialTargets.Clear();
 		highestPriorityTargets.Clear();
 	}
 

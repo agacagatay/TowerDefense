@@ -13,9 +13,9 @@ public class CameraController : MonoBehaviour
 	Vector3 deltaPos;
 	Vector3 oldPos;
 	Vector3 panOrigin;
-	bool canPan = true;
 	Vector2 cameraVelocity;
 	float deltaValue;
+	bool canPan = true;
 
 	void Start()
 	{
@@ -27,7 +27,6 @@ public class CameraController : MonoBehaviour
 		EasyTouch.On_DragStart += On_DragStart;
 		EasyTouch.On_Drag += On_Drag;
 		EasyTouch.On_Pinch += On_Pinch;
-		EasyTouch.On_PinchEnd += On_PinchEnd;
 	}
 
 	void OnDisable()
@@ -45,12 +44,11 @@ public class CameraController : MonoBehaviour
 		EasyTouch.On_DragStart -= On_DragStart;
 		EasyTouch.On_Drag -= On_Drag;
 		EasyTouch.On_Pinch -= On_Pinch;
-		EasyTouch.On_PinchEnd -= On_PinchEnd;
 	}
 
 	void On_DragStart(Gesture gesture)
 	{
-		if (canPan && gesture.touchCount == 1)
+		if (canPan)
 		{
 			oldPos = transform.localPosition;
 			panOrigin = Camera.main.ScreenToViewportPoint(Input.mousePosition);
@@ -59,7 +57,7 @@ public class CameraController : MonoBehaviour
 
 	void On_Drag(Gesture gesture)
 	{
-		if (canPan && gesture.touchCount == 1)
+		if (canPan)
 		{
 			Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition) - panOrigin;
 			deltaPos = new Vector3(oldPos.x + -pos.x * panSpeed, transform.localPosition.y, oldPos.z + -pos.y * panSpeed);
@@ -83,8 +81,6 @@ public class CameraController : MonoBehaviour
 
 	void On_Pinch(Gesture gesture)
 	{
-		StopCoroutine(MovementRelease());
-		canPan = false;
 		float zoom = (Time.deltaTime * gesture.deltaPinch) * zoomSpeed;
 		deltaPos = new Vector3(transform.localPosition.x, transform.localPosition.y - zoom, transform.localPosition.z);
 
@@ -96,9 +92,12 @@ public class CameraController : MonoBehaviour
 		transform.localPosition = deltaPos;
 	}
 
-	void On_PinchEnd (Gesture gesture)
+	void Update()
 	{
-		StartCoroutine(MovementRelease());
+		if (canPan && EasyTouch.GetTouchCount() == 2)
+			canPan = false;
+		else if (!canPan && EasyTouch.GetTouchCount() == 0)
+			canPan = true;
 	}
 
 	void FixedUpdate()
@@ -122,11 +121,5 @@ public class CameraController : MonoBehaviour
 			cameraPosition.z = maxPos.z;
 
 		transform.localPosition = cameraPosition;
-	}
-
-	IEnumerator MovementRelease()
-	{
-		yield return new WaitForSeconds(0.1f);
-		canPan = true;
 	}
 }

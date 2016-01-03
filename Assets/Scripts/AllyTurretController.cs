@@ -18,6 +18,7 @@ public class AllyTurretController : MonoBehaviour
 	Collider[] airHitColliders;
 	Collider[] groundHitColliders;
 	bool canFire = true;
+	List<GameObject> potentialTargets = new List<GameObject>();
 	List<GameObject> highestPriorityTargets = new List<GameObject>();
 
 	void Start()
@@ -69,40 +70,44 @@ public class AllyTurretController : MonoBehaviour
 
 		if (groundRange > 0f && groundHitColliders != null && groundHitColliders.Length > 0)
 		{
+			int priorityValue;
+
 			foreach (Collider groundHitCollider in groundHitColliders)
 			{
 				if (groundHitCollider.gameObject.tag == "EnemyGround")
 				{
 					targetAcquired = true;
-					int priorityValue;
 					
 					if (SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.TryGetValue(groundHitCollider.gameObject, out priorityValue))
 					{
 						if (priorityValue >= targetPriorityValue)
 						{
 							targetPriorityValue = priorityValue;
+							potentialTargets.Add(groundHitCollider.gameObject);
 						}
+					}
+				}
+			}
 
-						foreach(KeyValuePair<GameObject, int> keyValue in SpawnedEnemyDictionary.instance.spawnedEnemyDictionary)
-						{
-							if (keyValue.Value == targetPriorityValue)
-							{
-								if (keyValue.Key != null && keyValue.Key.tag == "EnemyGround")
-									highestPriorityTargets.Add(keyValue.Key);
-							}
-						}
-						
-						foreach (GameObject priorityTarget in highestPriorityTargets)
-						{
-							if (priorityTarget != null)
-							{
-								if (targetTransform == null || Vector3.Distance(priorityTarget.transform.position, transform.position) < 
-									Vector3.Distance(targetTransform.position, transform.position))
-								{
-									targetTransform = priorityTarget.transform;
-								}
-							}
-						}
+			foreach (GameObject potentialTarget in potentialTargets)
+			{
+				if (SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.TryGetValue(potentialTarget, out priorityValue))
+				{
+					if (priorityValue == targetPriorityValue)
+					{
+						highestPriorityTargets.Add(potentialTarget);
+					}
+				}
+			}
+			
+			foreach (GameObject priorityTarget in highestPriorityTargets)
+			{
+				if (priorityTarget != null)
+				{
+					if (targetTransform == null || Vector3.Distance(priorityTarget.transform.position, transform.position) < 
+						Vector3.Distance(targetTransform.position, transform.position))
+					{
+						targetTransform = priorityTarget.transform;
 					}
 				}
 			}
@@ -110,45 +115,49 @@ public class AllyTurretController : MonoBehaviour
 
 		if (!targetAcquired && airRange > 0f && airHitColliders != null && airHitColliders.Length > 0)
 		{
+			int priorityValue;
+
 			foreach (Collider airHitCollider in airHitColliders)
 			{
 				if (airHitCollider.gameObject.tag == "EnemyAir")
 				{
-					int priorityValue;
-
 					if (SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.TryGetValue(airHitCollider.gameObject, out priorityValue))
 					{
 						if (priorityValue >= targetPriorityValue)
 						{
 							targetPriorityValue = priorityValue;
+							potentialTargets.Add(airHitCollider.gameObject);
 						}
+					}
+				}
+			}
 
-						foreach(KeyValuePair<GameObject, int> keyValue in SpawnedEnemyDictionary.instance.spawnedEnemyDictionary)
-						{
-							if (keyValue.Value == targetPriorityValue)
-							{
-								if (keyValue.Key != null && keyValue.Key.tag == "EnemyAir")
-									highestPriorityTargets.Add(keyValue.Key);
-							}
-						}
+			foreach (GameObject potentialTarget in potentialTargets)
+			{
+				if (SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.TryGetValue(potentialTarget, out priorityValue))
+				{
+					if (priorityValue == targetPriorityValue)
+					{
+						highestPriorityTargets.Add(potentialTarget);
+					}
+				}
+			}
 
-						foreach (GameObject priorityTarget in highestPriorityTargets)
-						{
-							if (priorityTarget != null)
-							{
-								if (targetTransform == null || Vector3.Distance(priorityTarget.transform.position, transform.position) < 
-									Vector3.Distance(targetTransform.position, transform.position))
-								{
-									targetAcquired = true;
-									targetTransform = priorityTarget.transform;
-								}
-							}
-						}
+			foreach (GameObject priorityTarget in highestPriorityTargets)
+			{
+				if (priorityTarget != null)
+				{
+					if (targetTransform == null || Vector3.Distance(priorityTarget.transform.position, transform.position) < 
+						Vector3.Distance(targetTransform.position, transform.position))
+					{
+						targetAcquired = true;
+						targetTransform = priorityTarget.transform;
 					}
 				}
 			}
 		}
 
+		potentialTargets.Clear();
 		highestPriorityTargets.Clear();
 	}
 

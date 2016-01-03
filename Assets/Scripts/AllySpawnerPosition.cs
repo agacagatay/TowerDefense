@@ -7,42 +7,8 @@ public class AllySpawnerPosition : MonoBehaviour
 	[SerializeField] int turretCost;
 	[SerializeField] Transform spawnTransform;
 	[SerializeField] string[] spawnOptions;
+	public Transform SpawnTransform { get { return spawnTransform; }}
 	public string[] SpawnOptions { get { return spawnOptions; }}
-
-	void OnEnable()
-	{
-		EasyTouch.On_SimpleTap += On_SimpleTap;
-	}
-
-	void OnDisable()
-	{
-		UnsubscribeEvent();
-	}
-
-	void OnDestroy()
-	{
-		UnsubscribeEvent();
-	}
-
-	void UnsubscribeEvent()
-	{
-		EasyTouch.On_SimpleTap -= On_SimpleTap;	
-	}
-
-	private void On_SimpleTap(Gesture gesture)
-	{
-		if (gesture.pickedObject == gameObject)
-		{
-			GameObject turretClone =  (GameObject)Instantiate(turretPrefab, spawnTransform.position, spawnTransform.rotation);
-			AllyStructureController allyStructureVariables = turretClone.GetComponent<AllyStructureController>();
-			allyStructureVariables.TurretSpawnObject = gameObject;
-
-			ResourcesController.instance.Shards -= turretCost;
-			ResourcesController.instance.UpdateShards();
-
-			DisableSpawnerPosition();
-		}
-	}
 
 	public void EnableSpawnerPosition()
 	{

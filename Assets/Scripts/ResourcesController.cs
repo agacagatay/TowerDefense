@@ -15,11 +15,12 @@ public class ResourcesController : MonoBehaviour
 
 	void Start()
 	{
-		//Debug.Log("Shards: " + Shards);
+		Shards += 1000;
+		Debug.Log("Shards: " + Shards);
 	}
 
 	public void UpdateShards()
 	{
-		//Debug.Log("Shards: " + Shards);
+		Debug.Log("Shards: " + Shards);
 	}
 }

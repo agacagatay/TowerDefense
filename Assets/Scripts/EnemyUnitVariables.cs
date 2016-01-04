@@ -16,10 +16,6 @@ public class EnemyUnitVariables : MonoBehaviour
 		unitHealth -= damageValue;
 
 		if (unitHealth <= 0)
-		{
-			ResourcesController.instance.Shards += 100;
-			ResourcesController.instance.UpdateShards();
 			Destroy(gameObject);
-		}
 	}
 }

@@ -5,19 +5,18 @@ using System.Collections.Generic;
 public class AllySpawnerController : MonoBehaviour
 {
 	[SerializeField] UIWidget uiWidget;
+	[SerializeField] GameObject spawnTimer;
 	[SerializeField] GameObject turretPrefab;
 	[SerializeField] GameObject turretBranch;
-	[SerializeField] int turretCost;
+	[SerializeField] float turretSpawnTime;
 	[SerializeField] GameObject missileBatteryPrefab;
 	[SerializeField] GameObject missileBatteryBranch;
-	[SerializeField] int missileBatteryCost;
+	[SerializeField] float missileBatterySpawnTime;
 	bool spawnerDisplayEnabled = false;
 	AllySpawnerPosition selectedSpawnerPosition;
 	List<GameObject> spawnBranchOptions = new List<GameObject>();
 	List<GameObject> spawnBranchObjects = new List<GameObject>();
 	public AllySpawnerPosition SelectedSpawnerPosition { get { return selectedSpawnerPosition; }}
-	public int TurretCost { get { return turretCost; }}
-	public int MissileBatteryCost { get { return missileBatteryCost; }}
 
 	public static AllySpawnerController instance;
 
@@ -73,10 +72,26 @@ public class AllySpawnerController : MonoBehaviour
 			switch(spawnOption)
 			{
 			case "Turret":
-				spawnBranchOptions.Add(turretBranch);
+				GameObject turretBranchClone = turretBranch as GameObject;
+				UITexture turretSprite = turretBranchClone.GetComponentInChildren<UITexture>();
+
+				if (ResourcesController.instance.TurretQuota > 0)
+					turretSprite.alpha = 1f;
+				else
+					turretSprite.alpha = 0.3f;
+
+				spawnBranchOptions.Add(turretBranchClone);
 				break;
 			case "Missile Battery":
-				spawnBranchOptions.Add(missileBatteryBranch);
+				GameObject missileBatteryBranchClone = missileBatteryBranch as GameObject;
+				UITexture missileBatterySprite = missileBatteryBranchClone.GetComponentInChildren<UITexture>();
+
+				if (ResourcesController.instance.MissileBatteryQuota > 0)
+					missileBatterySprite.alpha = 1f;
+				else
+					missileBatterySprite.alpha = 0.3f;
+
+				spawnBranchOptions.Add(missileBatteryBranchClone);
 				break;
 			default:
 				Debug.LogError("Invalid branch specified from spawner position");
@@ -118,6 +133,43 @@ public class AllySpawnerController : MonoBehaviour
 
 	public void SpawnTurret(string prefabName)
 	{
+		switch(prefabName)
+		{
+		case "Turret":
+			StartCoroutine(ToggleTurretSpawn("Turret", turretSpawnTime));
+			break;
+		case "Missile Battery":
+			StartCoroutine(ToggleTurretSpawn("Missile Battery", missileBatterySpawnTime));
+			break;
+		}
+
+		selectedSpawnerPosition.DisableSpawnerPosition();
+		HideSpawnerOptions();
+	}
+
+	IEnumerator ToggleTurretSpawn(string prefabName, float spawnTime)
+	{
+		AllySpawnerPosition spawnPosition = selectedSpawnerPosition;
+
+		GameObject timerClone = (GameObject)Instantiate(spawnTimer, transform.position, transform.rotation);
+		timerClone.transform.parent = uiWidget.transform;
+		timerClone.transform.localScale = new Vector3(0.2f, 0.5f, 0.2f);
+
+		UIWidget timerWidget = timerClone.GetComponent<UIWidget>();
+		timerWidget.SetAnchor(spawnPosition.transform);
+
+		UISprite timerSprite = timerClone.GetComponentInChildren<UISprite>();
+		float fillValue = 0f;
+
+		while (fillValue < 1f)
+		{
+			timerSprite.fillAmount = fillValue;
+			fillValue += Time.deltaTime/spawnTime;
+			yield return null;
+		}
+
+		Destroy(timerClone);
+
 		GameObject turretClone;
 		AllyStructureController allyStructureVariables;
 
@@ -125,26 +177,21 @@ public class AllySpawnerController : MonoBehaviour
 		{
 		case "Turret":
 			turretClone = (GameObject)Instantiate(turretPrefab, 
-				selectedSpawnerPosition.SpawnTransform.position, selectedSpawnerPosition.SpawnTransform.rotation);
+				spawnPosition.SpawnTransform.position, spawnPosition.SpawnTransform.rotation);
 
 			allyStructureVariables = turretClone.GetComponent<AllyStructureController>();
-			allyStructureVariables.TurretSpawnObject = selectedSpawnerPosition.gameObject;
-
+			allyStructureVariables.TurretSpawnObject = spawnPosition.gameObject;
 			break;
 		case "Missile Battery":
 			turretClone = (GameObject)Instantiate(missileBatteryPrefab, 
-				selectedSpawnerPosition.SpawnTransform.position, selectedSpawnerPosition.SpawnTransform.rotation);
+				spawnPosition.SpawnTransform.position, spawnPosition.SpawnTransform.rotation);
 
 			allyStructureVariables = turretClone.GetComponent<AllyStructureController>();
-			allyStructureVariables.TurretSpawnObject = selectedSpawnerPosition.gameObject;
-
+			allyStructureVariables.TurretSpawnObject = spawnPosition.gameObject;
+			break;
+		default:
+			Debug.LogError("Invalid prefab name");
 			break;
 		}
-
-		ResourcesController.instance.Shards -= turretCost;
-		ResourcesController.instance.UpdateShards();
-
-		selectedSpawnerPosition.DisableSpawnerPosition();
-		HideSpawnerOptions();
 	}
 }

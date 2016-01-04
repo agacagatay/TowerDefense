@@ -3,24 +3,24 @@ using System.Collections;
 
 public class ResourcesController : MonoBehaviour
 {
-	int shards;
-	public int Shards { get { return shards; } set { shards = value; }}
+	[SerializeField] int turretQuota;
+	[SerializeField] UILabel turretText;
+	[SerializeField] int missileBatteryQuota;
+	[SerializeField] UILabel missileBatteryText;
+	public int TurretQuota { get { return turretQuota; } set { turretQuota = value; }}
+	public int MissileBatteryQuota { get { return missileBatteryQuota; } set { missileBatteryQuota = value; }}
 
 	public static ResourcesController instance;
 
 	void Awake()
 	{
 		instance = this;
+		UpdateResources();
 	}
 
-	void Start()
+	public void UpdateResources()
 	{
-		Shards += 1000;
-		Debug.Log("Shards: " + Shards);
-	}
-
-	public void UpdateShards()
-	{
-		Debug.Log("Shards: " + Shards);
+		turretText.text = turretQuota.ToString("N0");
+		missileBatteryText.text = missileBatteryQuota.ToString("N0");
 	}
 }

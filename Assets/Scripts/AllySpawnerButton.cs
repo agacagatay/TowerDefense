@@ -8,29 +8,27 @@ public class AllySpawnerButton : MonoBehaviour
 		switch(gameObject.tag)
 		{
 		case "TabTurret":
-			if (ResourcesController.instance.Shards >= AllySpawnerController.instance.TurretCost)
+			if (ResourcesController.instance.TurretQuota > 0)
 			{
-				ResourcesController.instance.Shards -= AllySpawnerController.instance.TurretCost;
-				ResourcesController.instance.UpdateShards();
-
+				--ResourcesController.instance.TurretQuota;
 				AllySpawnerController.instance.SpawnTurret("Turret");
 			}
 			else
-				Debug.Log("Insufficient Shards");
+				Debug.Log("Turret Limit Reached");
 			
 			break;
 		case "TabMissileBattery":
-			if (ResourcesController.instance.Shards >= AllySpawnerController.instance.MissileBatteryCost)
+			if (ResourcesController.instance.MissileBatteryQuota > 0)
 			{
-				ResourcesController.instance.Shards -= AllySpawnerController.instance.MissileBatteryCost;
-				ResourcesController.instance.UpdateShards();
-
+				--ResourcesController.instance.MissileBatteryQuota;
 				AllySpawnerController.instance.SpawnTurret("Missile Battery");
 			}
 			else
-				Debug.Log("Insufficient Shards");
+				Debug.Log("Missile Battery Limit Reached");
 			
 			break;
 		}
+
+		ResourcesController.instance.UpdateResources();
 	}
 }

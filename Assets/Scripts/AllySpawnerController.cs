@@ -12,8 +12,12 @@ public class AllySpawnerController : MonoBehaviour
 	[SerializeField] GameObject missileBatteryPrefab;
 	[SerializeField] GameObject missileBatteryBranch;
 	[SerializeField] float missileBatterySpawnTime;
+	[SerializeField] GameObject turretSelectMenu;
 	bool spawnerDisplayEnabled = false;
+	bool turretSelectDisplayEnabled = false;
 	AllySpawnerPosition selectedSpawnerPosition;
+	UIWidget turretSelectWidget;
+	AllyDestroyTurret destroyTurretTab;
 	List<GameObject> spawnBranchOptions = new List<GameObject>();
 	List<GameObject> spawnBranchObjects = new List<GameObject>();
 	public AllySpawnerPosition SelectedSpawnerPosition { get { return selectedSpawnerPosition; }}
@@ -23,6 +27,10 @@ public class AllySpawnerController : MonoBehaviour
 	void Awake()
 	{
 		instance = this;
+
+		turretSelectWidget = turretSelectMenu.GetComponent<UIWidget>();
+		destroyTurretTab = turretSelectMenu.GetComponentInChildren<AllyDestroyTurret>();
+		HideTurretSelectTab();
 	}
 
 	void OnEnable()
@@ -50,17 +58,33 @@ public class AllySpawnerController : MonoBehaviour
 		if (spawnerDisplayEnabled)
 			HideSpawnerOptions();
 
+		if (turretSelectDisplayEnabled)
+			HideTurretSelectTab();
+
 		if (gesture.pickedObject.tag == "SpawnPosition")
 		{
 			AllySpawnerPosition allySpawnerPosition = gesture.pickedObject.GetComponent<AllySpawnerPosition>();
 			ShowSpawnerOptions(allySpawnerPosition);
 		}
+		if (gesture.pickedObject.tag == "Ally")
+		{
+			AllyStructureController structureController = gesture.pickedObject.GetComponent<AllyStructureController>();
+
+			if (structureController.IsTurret)
+			{
+				destroyTurretTab.StructureController = gesture.pickedObject.GetComponentInChildren<AllyStructureController>();
+				turretSelectWidget.SetAnchor(gesture.pickedObject.transform);
+				ShowTurretSelectTab();
+			}
+
+		}
 	}
 
 	void ShowSpawnerOptions(AllySpawnerPosition allySpawnerPosition)
 	{
-		selectedSpawnerPosition = allySpawnerPosition;
 		spawnerDisplayEnabled = true;
+
+		selectedSpawnerPosition = allySpawnerPosition;
 		uiWidget.SetAnchor(allySpawnerPosition.transform);
 
 		int spawnBranches = allySpawnerPosition.SpawnOptions.Length;
@@ -129,6 +153,18 @@ public class AllySpawnerController : MonoBehaviour
 		spawnBranchOptions.Clear();
 		spawnBranchObjects.Clear();
 		spawnerDisplayEnabled = false;
+	}
+
+	void ShowTurretSelectTab()
+	{
+		turretSelectDisplayEnabled = true;
+		turretSelectMenu.SetActive(true);
+	}
+
+	public void HideTurretSelectTab()
+	{
+		turretSelectMenu.SetActive(false);
+		turretSelectDisplayEnabled = false;
 	}
 
 	public void SpawnTurret(string prefabName)

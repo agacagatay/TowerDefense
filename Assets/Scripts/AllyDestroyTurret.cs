@@ -8,7 +8,7 @@ public class AllyDestroyTurret : MonoBehaviour
 
 	void OnClick()
 	{
-		StructureController.SetSelectTurretAlpha(0f);
+		AllySpawnerController.instance.HideTurretSelectTab();
 		StructureController.DamageStructure(1000);
 	}
 }

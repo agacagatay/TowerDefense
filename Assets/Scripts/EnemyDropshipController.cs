@@ -25,6 +25,7 @@ public class EnemyDropshipController : MonoBehaviour
 		else if (bugOutTriggered && Vector3.Distance(unitNavAgent.destination, transform.position) <= 
 			unitNavAgent.stoppingDistance)
 		{
+			SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Remove(gameObject);
 			Destroy(gameObject);
 		}
 	}

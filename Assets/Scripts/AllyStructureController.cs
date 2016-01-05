@@ -57,6 +57,7 @@ public class AllyStructureController : MonoBehaviour
 				stoppedEnemyUnits.Clear();
 			}
 
+			SpawnedAllyDictionary.instance.spawnedAllyDictionary.Remove(gameObject);
 			Destroy(gameObject);
 		}
 	}

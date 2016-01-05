@@ -16,6 +16,13 @@ public class EnemyUnitVariables : MonoBehaviour
 		unitHealth -= damageValue;
 
 		if (unitHealth <= 0)
+		{
+			SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Remove(gameObject);
+
+			if (SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Count == 0)
+				EnemySpawnerController.instance.SpawnNextEnemyWave();
+
 			Destroy(gameObject);
+		}
 	}
 }

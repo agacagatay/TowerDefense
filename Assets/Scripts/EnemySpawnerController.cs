@@ -17,6 +17,16 @@ public class EnemySpawnerController : MonoBehaviour
 	{
 		enemySpawnerWaves[enemyWaveNumber].TriggerEnemyWave(enemyWaveNumber);
 	}
+
+	public void SpawnNextEnemyWave()
+	{
+		++enemyWaveNumber;
+
+		if (enemyWaveNumber == enemySpawnerWaves.Length)
+			Debug.Log("VICTORY!");
+		else
+			enemySpawnerWaves[enemyWaveNumber].TriggerEnemyWave(enemyWaveNumber);
+	}
 }
 
 [System.Serializable]

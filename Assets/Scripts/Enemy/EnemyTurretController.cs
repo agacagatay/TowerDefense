@@ -45,14 +45,17 @@ public class EnemyTurretController : MonoBehaviour
 			horPivot.rotation = Quaternion.Lerp(horPivot.rotation, newHorRotation, Time.deltaTime * horLookSpeed);
 			verPivot.localRotation = Quaternion.Lerp(verPivot.localRotation, newVerRotation, Time.deltaTime * verLookSpeed);
 
-			RaycastHit hit;
+			Vector3 targetDir = targetTransform.position - horPivot.position;
+			targetDir.y = 0f;
+			Vector3 forward = horPivot.forward;
+			float angle = Vector3.Angle(targetDir, forward);
 
-			if (Physics.Raycast(ordinanceSpawnTransforms[0].position, verPivot.forward, out hit, 100f, turretLayerMask))
+			if (angle < 10f)
 			{
-				if (hit.transform.gameObject == targetTransform.gameObject && canFire)
-				{
+				RaycastHit hit;
+
+				if (!Physics.Linecast(ordinanceSpawnTransforms[0].position, targetTransform.position, out hit, turretLayerMask) && canFire)
 					StartCoroutine(FireWeapon());
-				}
 			}
 		}
 	}

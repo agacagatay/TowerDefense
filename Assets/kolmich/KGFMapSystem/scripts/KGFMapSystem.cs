@@ -2614,7 +2614,7 @@ public class KGFMapSystem : KGFModule, KGFICustomGUI, KGFIValidator
 		MeshRenderer aMeshRenderer = aMiniMapPlane.gameObject.AddComponent<MeshRenderer>();
 		aMeshRenderer.material = new Material(theShader);
 		aMeshRenderer.material.mainTexture = theTexture;
-		aMeshRenderer.castShadows = false;
+		aMeshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
 		aMeshRenderer.receiveShadows = false;
 		
 		return aGameObject;
@@ -2641,7 +2641,7 @@ public class KGFMapSystem : KGFModule, KGFICustomGUI, KGFIValidator
 		aMiniMapPlane.mesh = GeneratePlaneMeshXZ();
 		
 		MeshRenderer aMeshRenderer = aMiniMapPlane.gameObject.AddComponent<MeshRenderer>();
-		aMeshRenderer.castShadows = false;
+		aMeshRenderer.shadowCastingMode = UnityEngine.Rendering.ShadowCastingMode.Off;
 		aMeshRenderer.receiveShadows = false;
 		
 		Material aMaterial = new Material(itsDataModuleMinimap.itsShaders.itsShaderPhotoPlane);

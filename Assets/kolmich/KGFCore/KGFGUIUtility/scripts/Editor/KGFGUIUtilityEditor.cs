@@ -99,7 +99,8 @@ public class KGFGUIUtilityEditor
 		#endregion
 		
 		//set the look to Unity default
-		EditorGUIUtility.LookLikeControls();
+		EditorGUIUtility.labelWidth = 0;
+		EditorGUIUtility.fieldWidth = 0;
 		
 		KGFGUIUtility.BeginVerticalBox(KGFGUIUtility.eStyleBox.eBoxDecorated, GUILayout.ExpandHeight(false), GUILayout.ExpandWidth(true));
 		{

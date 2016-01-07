@@ -73,7 +73,7 @@ public class OrdinanceController : MonoBehaviour
 			}
 		}
 
-		if (other.gameObject.tag != "Turret" && other.gameObject.tag != "Ordinance" && other.gameObject.tag != "Ignore")
+		if (other.gameObject.tag != "Turret" && other.gameObject.tag != "Ordinance" && other.gameObject.tag != "SpawnPosition" && other.gameObject.tag != "Ignore")
 			Destroy(gameObject);
 	}
 }

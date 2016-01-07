@@ -1,12 +1,15 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public class WaypointController : MonoBehaviour
 {
-	[SerializeField] Transform groundWaypoint;
+	[SerializeField] Transform primaryStructure;
+	[SerializeField] List<Transform> secondaryStructures = new List<Transform>();
 	[SerializeField] Transform[] airWaypoints;
 	[SerializeField] Transform bugOutWaypoint;
-	public Transform GroundWaypoint { get { return groundWaypoint; }}
+	public Transform PrimaryStructure { get { return primaryStructure; }}
+	public List<Transform> SecondaryStructures { get { return secondaryStructures; } set { secondaryStructures = value; }}
 	public Transform[] AirWaypoints { get { return airWaypoints; }}
 	public Transform BugOutWaypoint { get { return bugOutWaypoint; }}
 

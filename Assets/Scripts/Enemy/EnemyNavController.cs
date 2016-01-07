@@ -7,11 +7,12 @@ public class EnemyNavController : MonoBehaviour
 	[SerializeField] bool groundUnit = false;
 	[SerializeField] bool followNavSlope = false;
 	[SerializeField] float heightOffset;
+	Transform targetTransform;
 
 	void Start()
 	{
 		if (groundUnit)
-			unitNavAgent.SetDestination(WaypointController.instance.GroundWaypoint.transform.position);
+			InvokeRepeating("SetNavDestination", 0f, 0.5f);
 		else
 			SetNewAirWayoint();
 	}
@@ -30,11 +31,6 @@ public class EnemyNavController : MonoBehaviour
 
 		if (!groundUnit && Vector3.Distance(unitNavAgent.destination, transform.position) <= unitNavAgent.stoppingDistance)
 			SetNewAirWayoint();
-
-		if (Input.GetKeyDown(KeyCode.I))
-		{
-			unitNavAgent.SetDestination(WaypointController.instance.GroundWaypoint.transform.position);
-		}
 	}
 
 	void SetNewAirWayoint()
@@ -43,13 +39,40 @@ public class EnemyNavController : MonoBehaviour
 		unitNavAgent.SetDestination(WaypointController.instance.AirWaypoints[randomWaypoint].transform.position);
 	}
 
+	public void EnableMovement()
+	{
+		InvokeRepeating("SetNavDestination", 0f, 0.5f);
+	}
+
 	public void DisableMovement()
 	{
+		CancelInvoke("SetNavDestination");
 		unitNavAgent.SetDestination(transform.position);
 	}
 
-	public void EnableMovement()
+	void SetNavDestination()
 	{
-		unitNavAgent.SetDestination(WaypointController.instance.GroundWaypoint.transform.position);
+		if (WaypointController.instance.SecondaryStructures.Count > 0)
+		{
+			float smallestDistance = 0f;
+
+			foreach (Transform structureTransform in WaypointController.instance.SecondaryStructures)
+			{
+				if (structureTransform != null)
+				{
+					float structureDistance = Vector3.Distance(structureTransform.position, transform.position);
+
+					if (smallestDistance == 0f || structureDistance < smallestDistance)
+						targetTransform = structureTransform;
+				}
+			}
+		}
+		else if (WaypointController.instance.PrimaryStructure != null)
+			targetTransform = WaypointController.instance.PrimaryStructure;
+
+		if (targetTransform != null)
+			unitNavAgent.SetDestination(targetTransform.position);
+		else
+			DisableMovement();
 	}
 }

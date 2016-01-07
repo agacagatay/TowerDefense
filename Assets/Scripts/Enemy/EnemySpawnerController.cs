@@ -23,7 +23,7 @@ public class EnemySpawnerController : MonoBehaviour
 		++enemyWaveNumber;
 
 		if (enemyWaveNumber == enemySpawnerWaves.Length)
-			Debug.Log("VICTORY!");
+			GameController.instance.GameWin();
 		else
 			enemySpawnerWaves[enemyWaveNumber].TriggerEnemyWave(enemyWaveNumber);
 	}

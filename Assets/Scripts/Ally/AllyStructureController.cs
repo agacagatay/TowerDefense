@@ -9,7 +9,9 @@ public class AllyStructureController : MonoBehaviour
 	[SerializeField] bool isTurret = false;
 	[SerializeField] string turretType;
 	[SerializeField] GameObject turretSelectTab;
-	[SerializeField] bool isBarrier = false;
+	[SerializeField] bool hasPerimeter = false;
+	[SerializeField] bool isPrimaryStructure = false;
+	[SerializeField] bool isSecondaryStructure = false;
 	int structureHealth;
 	GameObject turretSpawnObject;
 	List<GameObject> stoppedEnemyUnits = new List<GameObject>();
@@ -43,7 +45,7 @@ public class AllyStructureController : MonoBehaviour
 				allySpawnerPosition.EnableSpawnerPosition();
 			}
 
-			if (isBarrier)
+			if (hasPerimeter)
 			{
 				foreach (GameObject stoppedEnemyUnit in stoppedEnemyUnits)
 				{
@@ -56,6 +58,11 @@ public class AllyStructureController : MonoBehaviour
 
 				stoppedEnemyUnits.Clear();
 			}
+
+			if (isSecondaryStructure)
+				WaypointController.instance.SecondaryStructures.Remove(transform);
+			else if (isPrimaryStructure)
+				GameController.instance.GameLose();
 
 			SpawnedAllyDictionary.instance.spawnedAllyDictionary.Remove(gameObject);
 			Destroy(gameObject);

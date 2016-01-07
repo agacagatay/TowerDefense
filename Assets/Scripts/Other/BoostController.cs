@@ -10,6 +10,13 @@ public class BoostController : MonoBehaviour
 
 	public static BoostController instance;
 
+	// Boost Ideas (Allow Boost Upgrades):
+	// - Percision Strike (High damage guided missiles)
+	// - EMP Detonation (Temporarily disables enemy units)
+	// - Destroyer Support (Temporary High-Altitude Air Support)
+	// - Repair Kit (Repair damaged barriers/structures)
+	// - Overdrive (For a limited time, turrets fire faster and ordinance deals increased damage)
+
 	void Awake()
 	{
 		instance = this;

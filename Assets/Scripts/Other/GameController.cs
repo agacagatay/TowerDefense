@@ -10,6 +10,13 @@ public class GameController : MonoBehaviour
 
 	public static GameController instance;
 
+	// Game Score
+	// - Mission Success (5,000)
+	// - Secondary Structures Intact (1,000 each)
+	// - Barrier Structures Intact (500 each)
+	// - Enemies Destroyed (200 each)
+	// - Turrets Spawned (100 each)
+
 	void Awake()
 	{
 		instance = this;

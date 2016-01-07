@@ -48,9 +48,7 @@ public class AllyTurretController : MonoBehaviour
 
 			if (angle < 10f)
 			{
-				RaycastHit hit;
-
-				if (!Physics.Linecast(ordinanceSpawnTransforms[0].position, targetTransform.position, out hit, turretLayerMask) && canFire)
+				if (angle < 10f && canFire)
 					StartCoroutine(FireWeapon());
 			}
 		}
@@ -79,14 +77,19 @@ public class AllyTurretController : MonoBehaviour
 			{
 				if (groundHitCollider.gameObject.tag == "EnemyGround")
 				{
-					targetAcquired = true;
-					
-					if (SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.TryGetValue(groundHitCollider.gameObject, out priorityValue))
+					RaycastHit hit;
+
+					if (!Physics.Linecast(verPivot.position, groundHitCollider.transform.position, out hit, turretLayerMask))
 					{
-						if (priorityValue >= targetPriorityValue)
+						targetAcquired = true;
+						
+						if (SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.TryGetValue(groundHitCollider.gameObject, out priorityValue))
 						{
-							targetPriorityValue = priorityValue;
-							potentialTargets.Add(groundHitCollider.gameObject);
+							if (priorityValue >= targetPriorityValue)
+							{
+								targetPriorityValue = priorityValue;
+								potentialTargets.Add(groundHitCollider.gameObject);
+							}
 						}
 					}
 				}
@@ -124,12 +127,17 @@ public class AllyTurretController : MonoBehaviour
 			{
 				if (airHitCollider.gameObject.tag == "EnemyAir")
 				{
-					if (SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.TryGetValue(airHitCollider.gameObject, out priorityValue))
+					RaycastHit hit;
+
+					if (!Physics.Linecast(verPivot.position, airHitCollider.transform.position, out hit, turretLayerMask))
 					{
-						if (priorityValue >= targetPriorityValue)
+						if (SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.TryGetValue(airHitCollider.gameObject, out priorityValue))
 						{
-							targetPriorityValue = priorityValue;
-							potentialTargets.Add(airHitCollider.gameObject);
+							if (priorityValue >= targetPriorityValue)
+							{
+								targetPriorityValue = priorityValue;
+								potentialTargets.Add(airHitCollider.gameObject);
+							}
 						}
 					}
 				}

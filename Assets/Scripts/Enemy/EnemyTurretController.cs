@@ -50,12 +50,9 @@ public class EnemyTurretController : MonoBehaviour
 			Vector3 forward = horPivot.forward;
 			float angle = Vector3.Angle(targetDir, forward);
 
-			if (angle < 10f)
+			if (angle < 10f && canFire)
 			{
-				RaycastHit hit;
-
-				if (!Physics.Linecast(ordinanceSpawnTransforms[0].position, targetTransform.position, out hit, turretLayerMask) && canFire)
-					StartCoroutine(FireWeapon());
+				StartCoroutine(FireWeapon());
 			}
 		}
 	}
@@ -72,14 +69,19 @@ public class EnemyTurretController : MonoBehaviour
 		{
 			if (hitCollider.gameObject.tag == "Ally")
 			{
-				turretReset = false;
+				RaycastHit hit;
 
-				if (SpawnedAllyDictionary.instance.spawnedAllyDictionary.TryGetValue(hitCollider.gameObject, out priorityValue))
+				if (!Physics.Linecast(verPivot.position, hitCollider.transform.position, out hit, turretLayerMask))
 				{
-					if (priorityValue >= targetPriorityValue)
+					turretReset = false;
+					
+					if (SpawnedAllyDictionary.instance.spawnedAllyDictionary.TryGetValue(hitCollider.gameObject, out priorityValue))
 					{
-						targetPriorityValue = priorityValue;
-						potentialTargets.Add(hitCollider.gameObject);
+						if (priorityValue >= targetPriorityValue)
+						{
+							targetPriorityValue = priorityValue;
+							potentialTargets.Add(hitCollider.gameObject);
+						}
 					}
 				}
 			}

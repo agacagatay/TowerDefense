@@ -3,11 +3,12 @@ using System.Collections;
 
 public class GameController : MonoBehaviour
 {
-	public static GameController instance;
 	bool isVictory = false;
 	bool isDefeat = false;
 	public bool IsVictory { get { return isVictory; }}
 	public bool IsDefeat { get { return isDefeat; }}
+
+	public static GameController instance;
 
 	void Awake()
 	{

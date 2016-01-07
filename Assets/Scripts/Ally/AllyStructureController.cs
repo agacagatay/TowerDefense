@@ -15,6 +15,8 @@ public class AllyStructureController : MonoBehaviour
 	int structureHealth;
 	GameObject turretSpawnObject;
 	List<GameObject> stoppedEnemyUnits = new List<GameObject>();
+	public int InitialStructureHealth { get { return initialStructureHealth; }}
+	public int StructureHealth { get { return structureHealth; }}
 	public bool IsTurret { get { return isTurret; }}
 	public string TurretType { get { return turretType; }}
 	public GameObject TurretSpawnObject { get { return turretSpawnObject; } set { turretSpawnObject = value; }}
@@ -64,9 +66,14 @@ public class AllyStructureController : MonoBehaviour
 			else if (isPrimaryStructure)
 				GameController.instance.GameLose();
 
+			if (isPrimaryStructure || isSecondaryStructure)
+				HUDController.instance.UpdateBaseDisplay();
+
 			SpawnedAllyDictionary.instance.spawnedAllyDictionary.Remove(gameObject);
 			Destroy(gameObject);
 		}
+		else if (isPrimaryStructure || isSecondaryStructure)
+			HUDController.instance.UpdateBaseDisplay();
 	}
 
 	public void FortifyStructure(int fortifyValue)

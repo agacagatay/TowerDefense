@@ -10,7 +10,9 @@ public class OrdinanceController : MonoBehaviour
 	[SerializeField] bool splashDamage = false;
 	[SerializeField] float splashDamageRange;
 	Transform targetTransform;
+	bool overdriveActive = false;
 	public Transform TargetTransform { get { return targetTransform; } set { targetTransform = value; }}
+	public bool OverdriveActive { get { return overdriveActive; } set { overdriveActive = value; }}
 
 	void Start()
 	{
@@ -35,7 +37,11 @@ public class OrdinanceController : MonoBehaviour
 			if (!splashDamage)
 			{
 				EnemyUnitVariables enemyUnitVariables = other.GetComponent<EnemyUnitVariables>();
-				enemyUnitVariables.DamageUnit(damage);
+
+				if (OverdriveActive)
+					enemyUnitVariables.DamageUnit(damage * 2);
+				else
+					enemyUnitVariables.DamageUnit(damage);
 			}
 			else
 			{
@@ -48,12 +54,17 @@ public class OrdinanceController : MonoBehaviour
 						EnemyUnitVariables enemyUnitVariables = hitCollider.GetComponent<EnemyUnitVariables>();
 
 						if (enemyUnitVariables != null)
-							enemyUnitVariables.DamageUnit(damage);
+						{
+							if (OverdriveActive)
+								enemyUnitVariables.DamageUnit(damage * 2);
+							else
+								enemyUnitVariables.DamageUnit(damage);
+						}
 					}
 				}
 			}
 		}
-		else if (!allyOrdinance && other.gameObject.tag == "Ally")
+		else if (!allyOrdinance && (other.gameObject.tag == "Ally" || other.gameObject.tag == "PrimaryStructure"))
 		{
 			if (!splashDamage)
 			{

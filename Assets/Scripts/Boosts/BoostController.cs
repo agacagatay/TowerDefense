@@ -3,17 +3,11 @@ using System.Collections;
 
 public class BoostController : MonoBehaviour
 {
-	// Boost Ideas (Allow Boost Upgrades):
-	// [DONE] - Precision Strike (High damage guided missiles)
-	// - EMP Blast (Temporarily disables enemy units)
-	// - Destroyer Support (Temporary High-Altitude Air Support)
-	// - Combat Engineers (Repair damaged barriers/structures)
-	// - Systems Overdrive (For a limited time, turrets fire faster and ordinance deals increased damage)
-
 	[SerializeField] BoostContainer[] boostContainers;
 	int enabledBoost;
 	bool canActivate = true;
-	float boostCooldown = 4f;
+	float boostCooldown;
+	public int EnabledBoost { get { return enabledBoost; } set { enabledBoost = value; }}
 	public bool CanActivate { get { return canActivate; } set { canActivate = value; }}
 	public float BoostCooldown { get { return boostCooldown; }}
 
@@ -22,12 +16,12 @@ public class BoostController : MonoBehaviour
 	void Awake()
 	{
 		instance = this;
-		enabledBoost = 0;
-		boostCooldown = boostContainers[enabledBoost].BoostCooldown;
 	}
 
 	public void ActivateBoost()
 	{
+		boostCooldown = boostContainers[enabledBoost].BoostCooldown;
+
 		if (canActivate)
 			Instantiate(boostContainers[enabledBoost].BoostPrefab, boostContainers[enabledBoost].BoostSpawnTransform.position,
 				boostContainers[enabledBoost].BoostSpawnTransform.rotation);

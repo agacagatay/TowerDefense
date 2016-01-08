@@ -18,8 +18,10 @@ public class AllyTurretController : MonoBehaviour
 	Collider[] airHitColliders;
 	Collider[] groundHitColliders;
 	bool canFire = true;
+	bool overdriveActive = false;
 	List<GameObject> potentialTargets = new List<GameObject>();
 	List<GameObject> highestPriorityTargets = new List<GameObject>();
+	public bool OverdriveActive { get { return overdriveActive; } set { overdriveActive = value; }}
 
 	void Start()
 	{
@@ -181,7 +183,13 @@ public class AllyTurretController : MonoBehaviour
 		OrdinanceController ordinanceController = ordinanceClone.GetComponent<OrdinanceController>();
 		ordinanceController.TargetTransform = targetTransform;
 
-		yield return new WaitForSeconds(fireRate);
+		if (OverdriveActive)
+		{
+			ordinanceController.OverdriveActive = true;
+			yield return new WaitForSeconds(fireRate * 0.5f);
+		}
+		else
+			yield return new WaitForSeconds(fireRate);
 
 		canFire = true;
 	}

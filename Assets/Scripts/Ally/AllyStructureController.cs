@@ -76,14 +76,12 @@ public class AllyStructureController : MonoBehaviour
 			HUDController.instance.UpdateBaseDisplay();
 	}
 
-	public void FortifyStructure(int fortifyValue)
+	public void RepairStructure(int repairValue)
 	{
-		structureHealth += fortifyValue;
-	}
+		structureHealth += repairValue;
 
-	public void RepairStructure()
-	{
-		structureHealth = initialStructureHealth;
+		if (structureHealth > initialStructureHealth)
+			structureHealth = initialStructureHealth;
 	}
 
 	public void BarrierPerimeterTrigger(GameObject enemyUnitObject)

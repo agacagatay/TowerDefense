@@ -25,6 +25,13 @@ public class AllyStructureController : MonoBehaviour
 	{
 		SpawnedAllyDictionary.instance.spawnedAllyDictionary.Add(gameObject, priorityValue);
 		structureHealth = initialStructureHealth;
+
+		if (isSecondaryStructure)
+			GameController.instance.secondaryStructures.Add(gameObject);
+		else if (IsTurret)
+			GameController.instance.TurretsSpawned++;
+		else
+			GameController.instance.barrierStructures.Add(gameObject);
 	}
 
 	public void DamageStructure(int damageValue)
@@ -62,9 +69,14 @@ public class AllyStructureController : MonoBehaviour
 			}
 
 			if (isSecondaryStructure)
+			{
 				WaypointController.instance.SecondaryStructures.Remove(transform);
+				GameController.instance.secondaryStructures.Remove(gameObject);
+			}
 			else if (isPrimaryStructure)
 				GameController.instance.GameLose();
+			else if (!IsTurret)
+				GameController.instance.barrierStructures.Remove(gameObject);
 
 			if (isPrimaryStructure || isSecondaryStructure)
 				HUDController.instance.UpdateBaseDisplay();

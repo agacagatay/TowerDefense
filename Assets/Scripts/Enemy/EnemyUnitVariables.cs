@@ -17,6 +17,7 @@ public class EnemyUnitVariables : MonoBehaviour
 
 		if (unitHealth <= 0)
 		{
+			GameController.instance.EnemiesKilled++;
 			SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Remove(gameObject);
 
 			if (SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Count == 0 && EnemySpawnerController.instance.SpawnWaveComplete())

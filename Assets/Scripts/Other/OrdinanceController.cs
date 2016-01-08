@@ -46,7 +46,9 @@ public class OrdinanceController : MonoBehaviour
 					if ((other.gameObject.tag == "EnemyGround" || other.gameObject.tag == "EnemyAir"))
 					{
 						EnemyUnitVariables enemyUnitVariables = hitCollider.GetComponent<EnemyUnitVariables>();
-						enemyUnitVariables.DamageUnit(damage);
+
+						if (enemyUnitVariables != null)
+							enemyUnitVariables.DamageUnit(damage);
 					}
 				}
 			}
@@ -67,7 +69,9 @@ public class OrdinanceController : MonoBehaviour
 					if (hitCollider.gameObject.tag == "Ally")
 					{
 						AllyStructureController allyStructureController = hitCollider.GetComponent<AllyStructureController>();
-						allyStructureController.DamageStructure(damage);
+
+						if (allyStructureController != null)
+							allyStructureController.DamageStructure(damage);
 					}
 				}
 			}

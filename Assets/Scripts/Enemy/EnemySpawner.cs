@@ -6,6 +6,8 @@ public class EnemySpawner : MonoBehaviour
 	[SerializeField] GameObject enemyPrefab;
 	[SerializeField] float spawnLoopWait;
 	int spawnCount = 1;
+	bool spawnComplete = false;
+	public bool SpawnComplete { get { return spawnComplete; }}
 
 	public void SpawnEnemies(int spawnEnemyCount, float spawnInitialWait)
 	{
@@ -24,5 +26,7 @@ public class EnemySpawner : MonoBehaviour
 
 			yield return new WaitForSeconds(spawnLoopWait);
 		}
+
+		spawnComplete = true;
 	}
 }

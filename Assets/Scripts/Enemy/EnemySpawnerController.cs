@@ -18,6 +18,11 @@ public class EnemySpawnerController : MonoBehaviour
 		enemySpawnerWaves[enemyWaveNumber].TriggerEnemyWave(enemyWaveNumber);
 	}
 
+	public bool SpawnWaveComplete()
+	{
+		return enemySpawnerWaves[enemyWaveNumber].SpawnWaveComplete();
+	}
+
 	public void SpawnNextEnemyWave()
 	{
 		++enemyWaveNumber;
@@ -41,6 +46,19 @@ public class EnemySpawnWave
 			enemySpawnWaveContainer.TriggerEnemyWave();
 		}
 	}
+
+	public bool SpawnWaveComplete()
+	{
+		bool isComplete = true;
+
+		foreach (EnemySpawnWaveContainer enemySpawnWaveContainer in enemySpawnWaveContainers)
+		{
+			if (!enemySpawnWaveContainer.EnemySpawnerScript.SpawnComplete)
+				isComplete = false;
+		}
+
+		return isComplete;
+	}
 }
 
 [System.Serializable]
@@ -49,6 +67,7 @@ public class EnemySpawnWaveContainer
 	[SerializeField] EnemySpawner enemySpawner;
 	[SerializeField] int spawnCount;
 	[SerializeField] float spawnWait;
+	public EnemySpawner EnemySpawnerScript { get { return enemySpawner; }}
 
 	public void TriggerEnemyWave()
 	{

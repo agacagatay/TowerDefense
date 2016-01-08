@@ -67,20 +67,23 @@ public class EnemyTurretController : MonoBehaviour
 
 		foreach (Collider hitCollider in hitColliders)
 		{
-			if (hitCollider.gameObject.tag == "Ally")
+			if (hitCollider.gameObject.tag == "Ally" || hitCollider.gameObject.tag == "PrimaryStructure")
 			{
-				RaycastHit hit;
-
-				if (!Physics.Linecast(verPivot.position, hitCollider.transform.position, out hit, turretLayerMask))
+				if (!(hitCollider.gameObject.tag == "PrimaryStructure" && WaypointController.instance.SecondaryStructures.Count > 0))
 				{
-					turretReset = false;
-					
-					if (SpawnedAllyDictionary.instance.spawnedAllyDictionary.TryGetValue(hitCollider.gameObject, out priorityValue))
+					RaycastHit hit;
+
+					if (!Physics.Linecast(verPivot.position, hitCollider.transform.position, out hit, turretLayerMask))
 					{
-						if (priorityValue >= targetPriorityValue)
+						turretReset = false;
+						
+						if (SpawnedAllyDictionary.instance.spawnedAllyDictionary.TryGetValue(hitCollider.gameObject, out priorityValue))
 						{
-							targetPriorityValue = priorityValue;
-							potentialTargets.Add(hitCollider.gameObject);
+							if (priorityValue >= targetPriorityValue)
+							{
+								targetPriorityValue = priorityValue;
+								potentialTargets.Add(hitCollider.gameObject);
+							}
 						}
 					}
 				}

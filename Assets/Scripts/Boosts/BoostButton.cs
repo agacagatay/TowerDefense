@@ -8,7 +8,7 @@ public class BoostButton : MonoBehaviour
 
 	void OnClick()
 	{
-		if (BoostController.instance.CanActivate)
+		if (BoostController.instance.CanActivate && SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Count > 0)
 			StartCoroutine(ActivateBoost(BoostController.instance.BoostCooldown));
 	}
 

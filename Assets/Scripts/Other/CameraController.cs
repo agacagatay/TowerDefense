@@ -10,9 +10,7 @@ public class CameraController : MonoBehaviour
 	[SerializeField] float zoomSpeed = 2f;
 	[SerializeField] float momentumMultiplier = 1f;
 	[SerializeField] float momentumSpeed = 1f;
-	Vector3 deltaPos;
-	Vector3 oldPos;
-	Vector3 panOrigin;
+	Transform deltaPos;
 	Vector2 cameraVelocity;
 	float deltaValue;
 	bool canPan = true;
@@ -24,9 +22,9 @@ public class CameraController : MonoBehaviour
 
 	void OnEnable()
 	{
-		EasyTouch.On_DragStart += On_DragStart;
 		EasyTouch.On_Drag += On_Drag;
 		EasyTouch.On_Pinch += On_Pinch;
+		EasyTouch.On_Twist += On_Twist;
 	}
 
 	void OnDisable()
@@ -41,38 +39,30 @@ public class CameraController : MonoBehaviour
 
 	void UnsubscribeEvent()
 	{
-		EasyTouch.On_DragStart -= On_DragStart;
 		EasyTouch.On_Drag -= On_Drag;
 		EasyTouch.On_Pinch -= On_Pinch;
-	}
-
-	void On_DragStart(Gesture gesture)
-	{
-		if (canPan)
-		{
-			oldPos = transform.localPosition;
-			panOrigin = Camera.main.ScreenToViewportPoint(Input.mousePosition);
-		}
+		EasyTouch.On_Twist -= On_Twist;
 	}
 
 	void On_Drag(Gesture gesture)
 	{
 		if (canPan)
 		{
-			Vector3 pos = Camera.main.ScreenToViewportPoint(Input.mousePosition) - panOrigin;
-			deltaPos = new Vector3(oldPos.x + -pos.x * panSpeed, transform.localPosition.y, oldPos.z + -pos.y * panSpeed);
+			transform.Translate(new Vector3(-gesture.deltaPosition.x * panSpeed, 0f, -gesture.deltaPosition.y * panSpeed));
 
-			if (deltaPos.x < minPos.x)
-				deltaPos.x = minPos.x;
-			else if (deltaPos.x > maxPos.x)
-				deltaPos.x = maxPos.x;
+			Vector3 cameraPosition = transform.localPosition;
 
-			if (deltaPos.z < minPos.z)
-				deltaPos.z = minPos.z;
-			else if (deltaPos.z > maxPos.z)
-				deltaPos.z = maxPos.z;
+			if (cameraPosition.x < minPos.x)
+				cameraPosition.x = minPos.x;
+			else if (cameraPosition.x > maxPos.x)
+				cameraPosition.x = maxPos.x;
 
-			transform.localPosition = deltaPos;
+			if (cameraPosition.z < minPos.z)
+				cameraPosition.z = minPos.z;
+			else if (cameraPosition.z > maxPos.z)
+				cameraPosition.z = maxPos.z;
+
+			transform.localPosition = cameraPosition;
 
 			cameraVelocity = (gesture.deltaPosition / Time.deltaTime);
 			deltaValue = 0f;
@@ -81,15 +71,22 @@ public class CameraController : MonoBehaviour
 
 	void On_Pinch(Gesture gesture)
 	{
-		float zoom = (Time.deltaTime * gesture.deltaPinch) * zoomSpeed;
-		deltaPos = new Vector3(transform.localPosition.x, transform.localPosition.y - zoom, transform.localPosition.z);
+		float zoom = gesture.deltaPinch * zoomSpeed;
+		transform.Translate(new Vector3(0f, -zoom, 0f));
 
-		if (deltaPos.y < minPos.y)
-			deltaPos.y = minPos.y;
-		else if (deltaPos.y > maxPos.y)
-			deltaPos.y = maxPos.y;
+		Vector3 cameraPosition = transform.localPosition;
 
-		transform.localPosition = deltaPos;
+		if (cameraPosition.y < minPos.y)
+			cameraPosition.y = minPos.y;
+		else if (cameraPosition.y > maxPos.y)
+			cameraPosition.y = maxPos.y;
+
+		transform.localPosition = cameraPosition;
+	}
+
+	void On_Twist(Gesture gesture)
+	{
+		transform.eulerAngles += new Vector3(0f, gesture.twistAngle, 0f);
 	}
 
 	void Update()
@@ -106,7 +103,7 @@ public class CameraController : MonoBehaviour
 			deltaValue += Time.deltaTime * momentumSpeed;
 		
 		Vector2 lerpCameraVelocity = Vector2.Lerp(cameraVelocity * momentumMultiplier, new Vector2(0f, 0f), deltaValue);
-		transform.localPosition -= new Vector3(lerpCameraVelocity.x, 0f, lerpCameraVelocity.y);
+		transform.Translate(new Vector3(-lerpCameraVelocity.x, 0f, -lerpCameraVelocity.y));
 
 		Vector3 cameraPosition = transform.localPosition;
 

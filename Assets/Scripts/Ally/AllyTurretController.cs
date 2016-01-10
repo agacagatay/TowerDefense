@@ -22,6 +22,8 @@ public class AllyTurretController : MonoBehaviour
 	List<GameObject> potentialTargets = new List<GameObject>();
 	List<GameObject> highestPriorityTargets = new List<GameObject>();
 	public bool OverdriveActive { get { return overdriveActive; } set { overdriveActive = value; }}
+	public float AirRange { get { return airRange; }}
+	public float GroundRange { get { return groundRange; }}
 
 	void Start()
 	{

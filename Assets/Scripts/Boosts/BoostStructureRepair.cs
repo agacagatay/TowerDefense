@@ -13,7 +13,10 @@ public class BoostStructureRepair : MonoBehaviour
 			AllyStructureController allyStructureController = allyKeyValuePair.Key.GetComponent<AllyStructureController>();
 
 			if (!allyStructureController.IsTurret)
+			{
 				allyStructureController.RepairStructure(repairValue);
+				HealthBarController.instance.UpdateHealthBar(allyStructureController);
+			}
 		}
 
 		Destroy(gameObject);

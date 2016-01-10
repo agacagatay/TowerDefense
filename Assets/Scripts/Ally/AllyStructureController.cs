@@ -12,6 +12,7 @@ public class AllyStructureController : MonoBehaviour
 	[SerializeField] bool hasPerimeter = false;
 	[SerializeField] bool isPrimaryStructure = false;
 	[SerializeField] bool isSecondaryStructure = false;
+	[SerializeField] string structureName;
 	int structureHealth;
 	GameObject turretSpawnObject;
 	List<GameObject> stoppedEnemyUnits = new List<GameObject>();
@@ -20,6 +21,9 @@ public class AllyStructureController : MonoBehaviour
 	public bool IsTurret { get { return isTurret; }}
 	public string TurretType { get { return turretType; }}
 	public GameObject TurretSpawnObject { get { return turretSpawnObject; } set { turretSpawnObject = value; }}
+	public bool IsPrimaryStructure { get { return isPrimaryStructure; }}
+	public bool IsSecondaryStructure { get { return isSecondaryStructure; }}
+	public string StructureName { get { return structureName; }}
 
 	void Start()
 	{
@@ -37,6 +41,7 @@ public class AllyStructureController : MonoBehaviour
 	public void DamageStructure(int damageValue)
 	{
 		structureHealth -= damageValue;
+		HealthBarController.instance.UpdateHealthBar(this);
 
 		if (structureHealth <= 0)
 		{
@@ -68,18 +73,28 @@ public class AllyStructureController : MonoBehaviour
 				stoppedEnemyUnits.Clear();
 			}
 
-			if (isSecondaryStructure)
+			if (isPrimaryStructure)
+				GameController.instance.GameLose();
+			else if (isSecondaryStructure)
 			{
 				WaypointController.instance.SecondaryStructures.Remove(transform);
 				GameController.instance.secondaryStructures.Remove(gameObject);
 			}
-			else if (isPrimaryStructure)
-				GameController.instance.GameLose();
+			else if (IsTurret)
+			{
+				if (AllySpawnerController.instance.StructureController == this)
+					AllySpawnerController.instance.HideTurretSelectTab();
+					
+				TargetAreaSphere.instance.DestroyAreaSphere(gameObject);
+			}
 			else if (!IsTurret)
 				GameController.instance.barrierStructures.Remove(gameObject);
 
 			if (isPrimaryStructure || isSecondaryStructure)
 				HUDController.instance.UpdateBaseDisplay();
+
+			if (HealthBarController.instance.StructureController == this)
+				HealthBarController.instance.DisableAllHealthBars();
 
 			SpawnedAllyDictionary.instance.spawnedAllyDictionary.Remove(gameObject);
 			Destroy(gameObject);

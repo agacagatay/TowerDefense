@@ -72,7 +72,7 @@ public class CameraController : MonoBehaviour
 	void On_Pinch(Gesture gesture)
 	{
 		float zoom = gesture.deltaPinch * zoomSpeed;
-		transform.Translate(new Vector3(0f, -zoom, 0f));
+		transform.Translate(Vector3.up * -zoom);
 
 		Vector3 cameraPosition = transform.localPosition;
 
@@ -86,7 +86,7 @@ public class CameraController : MonoBehaviour
 
 	void On_Twist(Gesture gesture)
 	{
-		transform.eulerAngles += new Vector3(0f, gesture.twistAngle, 0f);
+		transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y + gesture.twistAngle, 0f);
 	}
 
 	void Update()

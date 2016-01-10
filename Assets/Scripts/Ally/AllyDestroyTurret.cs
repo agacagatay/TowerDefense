@@ -9,6 +9,7 @@ public class AllyDestroyTurret : MonoBehaviour
 	void OnClick()
 	{
 		AllySpawnerController.instance.HideTurretSelectTab();
+		TargetAreaSphere.instance.DestroyAreaSphere(StructureController.gameObject);
 		StructureController.DamageStructure(1000);
 		GameController.instance.TurretsSpawned--;
 	}

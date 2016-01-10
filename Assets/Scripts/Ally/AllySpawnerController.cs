@@ -16,11 +16,13 @@ public class AllySpawnerController : MonoBehaviour
 	bool spawnerDisplayEnabled = false;
 	bool turretSelectDisplayEnabled = false;
 	AllySpawnerPosition selectedSpawnerPosition;
+	AllyStructureController structureController;
 	UIWidget turretSelectWidget;
 	AllyDestroyTurret destroyTurretTab;
 	List<GameObject> spawnBranchOptions = new List<GameObject>();
 	List<GameObject> spawnBranchObjects = new List<GameObject>();
 	public AllySpawnerPosition SelectedSpawnerPosition { get { return selectedSpawnerPosition; }}
+	public AllyStructureController StructureController { get { return structureController; }}
 
 	public static AllySpawnerController instance;
 
@@ -68,7 +70,7 @@ public class AllySpawnerController : MonoBehaviour
 		}
 		if (gesture.pickedObject.tag == "Ally")
 		{
-			AllyStructureController structureController = gesture.pickedObject.GetComponent<AllyStructureController>();
+			structureController = gesture.pickedObject.GetComponent<AllyStructureController>();
 
 			if (structureController.IsTurret)
 			{

@@ -20,7 +20,10 @@ public class EnemySpawnerController : MonoBehaviour
 
 	public bool SpawnWaveComplete()
 	{
-		return enemySpawnerWaves[enemyWaveNumber].SpawnWaveComplete();
+		if (enemyWaveNumber < enemySpawnerWaves.Length)
+			return enemySpawnerWaves[enemyWaveNumber].SpawnWaveComplete();
+		else
+			return false;
 	}
 
 	public void SpawnNextEnemyWave()

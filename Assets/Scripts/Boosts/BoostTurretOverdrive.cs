@@ -4,7 +4,6 @@ using System.Collections.Generic;
 
 public class BoostTurretOverdrive : MonoBehaviour
 {
-	[SerializeField] GameObject timerPrefab;
 	[SerializeField] float activeTime;
 
 	void Start()
@@ -14,13 +13,9 @@ public class BoostTurretOverdrive : MonoBehaviour
 
 	IEnumerator TriggerOverdrive()
 	{
-		GameObject timerPrefabClone = GameObject.FindGameObjectWithTag("TurretOverdriveTimer");
-		UISprite timerPrefabSprite = timerPrefabClone.GetComponentInChildren<UISprite>();
-		timerPrefabSprite.fillAmount = 1f;
-		float initialTime = activeTime;
-
-		UILabel timerLabel = timerPrefabClone.GetComponent<UILabel>();
-		timerLabel.alpha = 1f;
+		GameObject turretTimerObject = GameObject.FindGameObjectWithTag("TurretOverdriveTimer");
+		TurretOverdriveTimer turretOverdriveTimer = turretTimerObject.GetComponent<TurretOverdriveTimer>();
+		turretOverdriveTimer.ToggleTurretTimer(activeTime);
 
 		foreach(KeyValuePair<GameObject, int> allyKeyValuePair in SpawnedAllyDictionary.instance.spawnedAllyDictionary)
 		{
@@ -30,12 +25,7 @@ public class BoostTurretOverdrive : MonoBehaviour
 				allyTurretController.OverdriveActive = true;
 		}
 
-		while (activeTime > 0f)
-		{
-			activeTime -= Time.deltaTime;
-			timerPrefabSprite.fillAmount = activeTime / initialTime;
-			yield return null;
-		}
+		yield return new WaitForSeconds(activeTime);
 
 		foreach(KeyValuePair<GameObject, int> allyKeyValuePair in SpawnedAllyDictionary.instance.spawnedAllyDictionary)
 		{
@@ -45,7 +35,6 @@ public class BoostTurretOverdrive : MonoBehaviour
 				allyTurretController.OverdriveActive = false;
 		}
 
-		timerLabel.alpha = 0f;
 		Destroy(gameObject);
 	}
 }

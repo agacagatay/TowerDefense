@@ -15,6 +15,9 @@ public class EnemySpawnerController : MonoBehaviour
 
 	void Start()
 	{
+		NoticeController.instance.DisplayTwoString("Enemy Wave Incoming", "Wave " + (1 + enemyWaveNumber).ToString("N0") + 
+			" of " + enemySpawnerWaves.Length.ToString("N0"), 2f, 2f);
+
 		enemySpawnerWaves[enemyWaveNumber].TriggerEnemyWave(enemyWaveNumber);
 	}
 
@@ -30,6 +33,12 @@ public class EnemySpawnerController : MonoBehaviour
 	{
 		++enemyWaveNumber;
 
+		if (enemyWaveNumber < enemySpawnerWaves.Length)
+		{
+			NoticeController.instance.DisplayTwoString("Enemy Wave Incoming", "Wave " + (1 + enemyWaveNumber).ToString("N0") + 
+				" of " + enemySpawnerWaves.Length.ToString("N0"), 2f, 2f);
+		}
+
 		if (enemyWaveNumber == enemySpawnerWaves.Length)
 			GameController.instance.GameWin();
 		else
@@ -40,6 +49,7 @@ public class EnemySpawnerController : MonoBehaviour
 [System.Serializable]
 public class EnemySpawnWave
 {
+	[SerializeField] string waveName;
 	[SerializeField] EnemySpawnWaveContainer[] enemySpawnWaveContainers;
 
 	public void TriggerEnemyWave(int enemyWaveNumber)
@@ -67,13 +77,14 @@ public class EnemySpawnWave
 [System.Serializable]
 public class EnemySpawnWaveContainer
 {
+	[SerializeField] string spawnerName;
 	[SerializeField] EnemySpawner enemySpawner;
 	[SerializeField] int spawnCount;
-	[SerializeField] float spawnWait;
+	[SerializeField] float spawnInitialWait;
 	public EnemySpawner EnemySpawnerScript { get { return enemySpawner; }}
 
 	public void TriggerEnemyWave()
 	{
-		enemySpawner.SpawnEnemies(spawnCount, spawnWait);
+		enemySpawner.SpawnEnemies(spawnCount, spawnInitialWait);
 	}
 }

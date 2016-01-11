@@ -13,10 +13,12 @@ public class GameController : MonoBehaviour
 
 	bool isVictory = false;
 	bool isDefeat = false;
+	bool gameOver = false;
 	int enemiesKilled;
 	int turretsSpawned;
 	public bool IsVictory { get { return isVictory; }}
 	public bool IsDefeat { get { return isDefeat; }}
+	public bool GameOver { get { return gameOver; }}
 	public int EnemiesKilled { get { return enemiesKilled; } set { enemiesKilled = value; }}
 	public int TurretsSpawned { get { return turretsSpawned; } set { turretsSpawned = value; }}
 	public List<GameObject> secondaryStructures = new List<GameObject>();
@@ -34,6 +36,7 @@ public class GameController : MonoBehaviour
 		if (!isDefeat)
 		{
 			Debug.Log("VICTORY");
+			gameOver = true;
 			isVictory = true;
 			CalculateScore();
 		}
@@ -44,6 +47,7 @@ public class GameController : MonoBehaviour
 		if (!isVictory)
 		{
 			Debug.Log("DEFEAT");
+			gameOver = true;
 			isDefeat = true;
 			CalculateScore();
 		}

@@ -25,7 +25,7 @@ public class BoostButton : MonoBehaviour
 			break;
 		}
 
-		if (!BoostController.instance.ReturnBoostActivation(BoostController.instance.EnabledBoost) && SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Count > 0)
+		if (!BoostController.instance.ReturnBoostActivation(BoostController.instance.EnabledBoost) && !GameController.instance.GameOver)
 		{
 			StartCoroutine(ActivateBoost());
 		}

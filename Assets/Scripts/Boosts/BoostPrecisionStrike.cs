@@ -27,28 +27,31 @@ public class BoostPrecisionStrike : MonoBehaviour
 
 		enemyUnits.Clear();
 
-		foreach(KeyValuePair<GameObject, int> enemyKeyValuePair in SpawnedEnemyDictionary.instance.spawnedEnemyDictionary)
-		{
-			enemyUnits.Add(enemyKeyValuePair.Key);
-		}
-
 		if (SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Count > 0)
 		{
-			float randomX = transform.position.x + Random.Range(-spawnRandomRadius, spawnRandomRadius);
-			float randomZ = transform.position.z + Random.Range(-spawnRandomRadius, spawnRandomRadius);
-			Vector3 randomSpawnPosition = new Vector3(randomX, transform.position.y, randomZ);
+			foreach(KeyValuePair<GameObject, int> enemyKeyValuePair in SpawnedEnemyDictionary.instance.spawnedEnemyDictionary)
+			{
+				enemyUnits.Add(enemyKeyValuePair.Key);
+			}
 
-			int randomInt = Random.Range(0, enemyUnits.Count);
+			if (SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Count > 0)
+			{
+				float randomX = transform.position.x + Random.Range(-spawnRandomRadius, spawnRandomRadius);
+				float randomZ = transform.position.z + Random.Range(-spawnRandomRadius, spawnRandomRadius);
+				Vector3 randomSpawnPosition = new Vector3(randomX, transform.position.y, randomZ);
 
-			GameObject ordinanceClone = (GameObject)Instantiate(ordinancePrefab, randomSpawnPosition, transform.rotation);
-			OrdinanceController ordinanceController = ordinanceClone.GetComponent<OrdinanceController>();
-			ordinanceController.TargetTransform = enemyUnits[randomInt].transform;
-			ordinanceNumber++;
+				int randomInt = Random.Range(0, enemyUnits.Count);
 
-			float randomShootWait = Random.Range(minShootWait, maxShootWait);
-			yield return new WaitForSeconds(randomShootWait);
+				GameObject ordinanceClone = (GameObject)Instantiate(ordinancePrefab, randomSpawnPosition, transform.rotation);
+				OrdinanceController ordinanceController = ordinanceClone.GetComponent<OrdinanceController>();
+				ordinanceController.TargetTransform = enemyUnits[randomInt].transform;
+				ordinanceNumber++;
 
-			StartCoroutine(FireOrdinance());
+				float randomShootWait = Random.Range(minShootWait, maxShootWait);
+				yield return new WaitForSeconds(randomShootWait);
+
+				StartCoroutine(FireOrdinance());
+			}
 		}
 		else
 			Destroy(gameObject);

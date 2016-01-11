@@ -48,13 +48,13 @@ public class AllyStructureController : MonoBehaviour
 			if (isTurret)
 			{
 				if (turretType == "Turret")
-					++ResourcesController.instance.TurretQuota;
+					++HUDController.instance.TurretQuota;
 				else if (turretType == "Missile Battery")
-					++ResourcesController.instance.MissileBatteryQuota;
+					++HUDController.instance.MissileBatteryQuota;
 				else
 					Debug.LogError("Invalid turret type specified");
 
-				ResourcesController.instance.UpdateResources();
+				HUDController.instance.UpdateResources();
 				AllySpawnerPosition allySpawnerPosition = turretSpawnObject.GetComponent<AllySpawnerPosition>();
 				allySpawnerPosition.EnableSpawnerPosition();
 			}

@@ -13,9 +13,7 @@ public class BoostTurretOverdrive : MonoBehaviour
 
 	IEnumerator TriggerOverdrive()
 	{
-		GameObject turretTimerObject = GameObject.FindGameObjectWithTag("TurretOverdriveTimer");
-		TurretOverdriveTimer turretOverdriveTimer = turretTimerObject.GetComponent<TurretOverdriveTimer>();
-		turretOverdriveTimer.ToggleTurretTimer(activeTime);
+		HUDController.instance.ToggleTurretTimer(activeTime);
 
 		foreach(KeyValuePair<GameObject, int> allyKeyValuePair in SpawnedAllyDictionary.instance.spawnedAllyDictionary)
 		{

@@ -19,6 +19,7 @@ public class BoostStructureRepair : MonoBehaviour
 			}
 		}
 
+		HUDController.instance.UpdateBaseDisplay();
 		Destroy(gameObject);
 	}
 }

@@ -8,9 +8,9 @@ public class AllySpawnerButton : MonoBehaviour
 		switch(gameObject.tag)
 		{
 		case "TabTurret":
-			if (ResourcesController.instance.TurretQuota > 0)
+			if (HUDController.instance.TurretQuota > 0)
 			{
-				--ResourcesController.instance.TurretQuota;
+				--HUDController.instance.TurretQuota;
 				AllySpawnerController.instance.SpawnTurret("Turret");
 			}
 			else
@@ -18,9 +18,9 @@ public class AllySpawnerButton : MonoBehaviour
 			
 			break;
 		case "TabMissileBattery":
-			if (ResourcesController.instance.MissileBatteryQuota > 0)
+			if (HUDController.instance.MissileBatteryQuota > 0)
 			{
-				--ResourcesController.instance.MissileBatteryQuota;
+				--HUDController.instance.MissileBatteryQuota;
 				AllySpawnerController.instance.SpawnTurret("Missile Battery");
 			}
 			else
@@ -29,6 +29,6 @@ public class AllySpawnerButton : MonoBehaviour
 			break;
 		}
 
-		ResourcesController.instance.UpdateResources();
+		HUDController.instance.UpdateResources();
 	}
 }

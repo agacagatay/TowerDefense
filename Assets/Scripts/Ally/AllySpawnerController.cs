@@ -101,7 +101,7 @@ public class AllySpawnerController : MonoBehaviour
 				GameObject turretBranchClone = turretBranch as GameObject;
 				UITexture turretSprite = turretBranchClone.GetComponentInChildren<UITexture>();
 
-				if (ResourcesController.instance.TurretQuota > 0)
+				if (HUDController.instance.TurretQuota > 0)
 					turretSprite.alpha = 1f;
 				else
 					turretSprite.alpha = 0.3f;
@@ -112,7 +112,7 @@ public class AllySpawnerController : MonoBehaviour
 				GameObject missileBatteryBranchClone = missileBatteryBranch as GameObject;
 				UITexture missileBatterySprite = missileBatteryBranchClone.GetComponentInChildren<UITexture>();
 
-				if (ResourcesController.instance.MissileBatteryQuota > 0)
+				if (HUDController.instance.MissileBatteryQuota > 0)
 					missileBatterySprite.alpha = 1f;
 				else
 					missileBatterySprite.alpha = 0.3f;

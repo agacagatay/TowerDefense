@@ -15,7 +15,7 @@ public class EnemySpawnerController : MonoBehaviour
 
 	void Start()
 	{
-		NoticeController.instance.DisplayTwoString("Enemy Wave Incoming", "Wave " + (1 + enemyWaveNumber).ToString("N0") + 
+		HUDController.instance.DisplayTwoString("Enemy Wave Incoming", "Wave " + (1 + enemyWaveNumber).ToString("N0") + 
 			" of " + enemySpawnerWaves.Length.ToString("N0"), 2f, 2f);
 
 		enemySpawnerWaves[enemyWaveNumber].TriggerEnemyWave(enemyWaveNumber);
@@ -35,7 +35,7 @@ public class EnemySpawnerController : MonoBehaviour
 
 		if (enemyWaveNumber < enemySpawnerWaves.Length)
 		{
-			NoticeController.instance.DisplayTwoString("Enemy Wave Incoming", "Wave " + (1 + enemyWaveNumber).ToString("N0") + 
+			HUDController.instance.DisplayTwoString("Enemy Wave Incoming", "Wave " + (1 + enemyWaveNumber).ToString("N0") + 
 				" of " + enemySpawnerWaves.Length.ToString("N0"), 2f, 2f);
 		}
 

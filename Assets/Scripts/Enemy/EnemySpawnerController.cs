@@ -15,6 +15,16 @@ public class EnemySpawnerController : MonoBehaviour
 
 	void Start()
 	{
+		StartCoroutine(SpawnFirstWave());
+	}
+
+	IEnumerator SpawnFirstWave()
+	{
+		HUDController.instance.DisplayTwoString("Level Started", "Enemies Spawn In " + enemySpawnerWaves[enemyWaveNumber].WaveInitialWait.ToString("N0") + 
+			" Seconds", 2f, 2f);
+
+		yield return new WaitForSeconds(enemySpawnerWaves[enemyWaveNumber].WaveInitialWait);
+
 		HUDController.instance.DisplayTwoString("Enemy Wave Incoming", "Wave " + (1 + enemyWaveNumber).ToString("N0") + 
 			" of " + enemySpawnerWaves.Length.ToString("N0"), 2f, 2f);
 
@@ -31,10 +41,20 @@ public class EnemySpawnerController : MonoBehaviour
 
 	public void SpawnNextEnemyWave()
 	{
+		StartCoroutine(SpawnEnemyWave());
+	}
+
+	IEnumerator SpawnEnemyWave()
+	{
 		++enemyWaveNumber;
 
 		if (enemyWaveNumber < enemySpawnerWaves.Length)
 		{
+			HUDController.instance.DisplayTwoString("Enemy Wave Defeated", "Next Wave In " + enemySpawnerWaves[enemyWaveNumber].WaveInitialWait.ToString("N0") + 
+				" Seconds", 2f, 2f);
+				
+			yield return new WaitForSeconds(enemySpawnerWaves[enemyWaveNumber].WaveInitialWait);
+
 			HUDController.instance.DisplayTwoString("Enemy Wave Incoming", "Wave " + (1 + enemyWaveNumber).ToString("N0") + 
 				" of " + enemySpawnerWaves.Length.ToString("N0"), 2f, 2f);
 		}
@@ -50,7 +70,9 @@ public class EnemySpawnerController : MonoBehaviour
 public class EnemySpawnWave
 {
 	[SerializeField] string waveName;
+	[SerializeField] float waveInitialWait;
 	[SerializeField] EnemySpawnWaveContainer[] enemySpawnWaveContainers;
+	public float WaveInitialWait { get { return waveInitialWait; }}
 
 	public void TriggerEnemyWave(int enemyWaveNumber)
 	{

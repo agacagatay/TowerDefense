@@ -52,27 +52,30 @@ public class EnemyNavController : MonoBehaviour
 
 	void SetNavDestination()
 	{
-		if (WaypointController.instance.SecondaryStructures.Count > 0)
+		if (unitNavAgent.velocity.magnitude < 0.1f)
 		{
-			float smallestDistance = 0f;
-
-			foreach (Transform structureTransform in WaypointController.instance.SecondaryStructures)
+			if (WaypointController.instance.SecondaryStructures.Count > 0)
 			{
-				if (structureTransform != null)
-				{
-					float structureDistance = Vector3.Distance(structureTransform.position, transform.position);
+				float smallestDistance = 0f;
 
-					if (smallestDistance == 0f || structureDistance < smallestDistance)
-						targetTransform = structureTransform;
+				foreach (Transform structureTransform in WaypointController.instance.SecondaryStructures)
+				{
+					if (structureTransform != null)
+					{
+						float structureDistance = Vector3.Distance(structureTransform.position, transform.position);
+
+						if (smallestDistance == 0f || structureDistance < smallestDistance)
+							targetTransform = structureTransform;
+					}
 				}
 			}
-		}
-		else if (WaypointController.instance.PrimaryStructure != null)
-			targetTransform = WaypointController.instance.PrimaryStructure;
+			else if (WaypointController.instance.PrimaryStructure != null)
+				targetTransform = WaypointController.instance.PrimaryStructure;
 
-		if (targetTransform != null)
-			unitNavAgent.SetDestination(targetTransform.position);
-		else
-			DisableMovement();
+			if (targetTransform != null)
+				unitNavAgent.SetDestination(targetTransform.position);
+			else
+				DisableMovement();
+		}
 	}
 }

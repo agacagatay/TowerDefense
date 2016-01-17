@@ -24,7 +24,9 @@ public class CameraController : MonoBehaviour
 	{
 		EasyTouch.On_Drag += On_Drag;
 		EasyTouch.On_Pinch += On_Pinch;
+		EasyTouch.On_PinchEnd += On_PinchEnd;
 		EasyTouch.On_Twist += On_Twist;
+		EasyTouch.On_TwistEnd += On_TwistEnd;
 	}
 
 	void OnDisable()
@@ -41,7 +43,9 @@ public class CameraController : MonoBehaviour
 	{
 		EasyTouch.On_Drag -= On_Drag;
 		EasyTouch.On_Pinch -= On_Pinch;
+		EasyTouch.On_PinchEnd -= On_PinchEnd;
 		EasyTouch.On_Twist -= On_Twist;
+		EasyTouch.On_TwistEnd -= On_TwistEnd;
 	}
 
 	void On_Drag(Gesture gesture)
@@ -71,6 +75,8 @@ public class CameraController : MonoBehaviour
 
 	void On_Pinch(Gesture gesture)
 	{
+		canPan = false;
+
 		float zoom = gesture.deltaPinch * zoomSpeed;
 		transform.Translate(Vector3.up * -zoom);
 
@@ -84,17 +90,20 @@ public class CameraController : MonoBehaviour
 		transform.localPosition = cameraPosition;
 	}
 
+	void On_PinchEnd (Gesture gesture)
+	{
+		canPan = true;
+	}
+
 	void On_Twist(Gesture gesture)
 	{
+		canPan = false;
 		transform.rotation = Quaternion.Euler(0f, transform.rotation.eulerAngles.y + gesture.twistAngle, 0f);
 	}
 
-	void Update()
+	void On_TwistEnd (Gesture gesture)
 	{
-		if (canPan && EasyTouch.GetTouchCount() == 2)
-			canPan = false;
-		else if (!canPan && EasyTouch.GetTouchCount() == 0)
-			canPan = true;
+		canPan = true;
 	}
 
 	void FixedUpdate()

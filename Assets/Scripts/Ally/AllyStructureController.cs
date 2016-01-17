@@ -30,11 +30,11 @@ public class AllyStructureController : MonoBehaviour
 		SpawnedAllyDictionary.instance.spawnedAllyDictionary.Add(gameObject, priorityValue);
 		structureHealth = initialStructureHealth;
 
-		if (isSecondaryStructure)
+		if (IsSecondaryStructure)
 			GameController.instance.secondaryStructures.Add(gameObject);
 		else if (IsTurret)
 			GameController.instance.TurretsSpawned++;
-		else
+		else if (!IsPrimaryStructure)
 			GameController.instance.barrierStructures.Add(gameObject);
 	}
 

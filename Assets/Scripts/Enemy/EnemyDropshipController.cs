@@ -32,8 +32,8 @@ public class EnemyDropshipController : MonoBehaviour
 	
 	void SetNewAirWayoint()
 	{
-		int randomWaypoint = Random.Range(0, WaypointController.instance.AirWaypoints.Length);
-		unitNavAgent.SetDestination(WaypointController.instance.AirWaypoints[randomWaypoint].transform.position);
+		int randomWaypoint = Random.Range(0, WaypointController.instance.AirdropWaypoints.Length);
+		unitNavAgent.SetDestination(WaypointController.instance.AirdropWaypoints[randomWaypoint].transform.position);
 	}
 
 	void DeployUnits()

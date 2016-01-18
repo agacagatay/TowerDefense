@@ -7,10 +7,12 @@ public class WaypointController : MonoBehaviour
 	[SerializeField] Transform primaryStructure;
 	[SerializeField] List<Transform> secondaryStructures = new List<Transform>();
 	[SerializeField] Transform[] airWaypoints;
+	[SerializeField] Transform[] airdropWaypoints;
 	[SerializeField] Transform bugOutWaypoint;
 	public Transform PrimaryStructure { get { return primaryStructure; }}
 	public List<Transform> SecondaryStructures { get { return secondaryStructures; } set { secondaryStructures = value; }}
 	public Transform[] AirWaypoints { get { return airWaypoints; }}
+	public Transform[] AirdropWaypoints { get { return airdropWaypoints; }}
 	public Transform BugOutWaypoint { get { return bugOutWaypoint; }}
 
 	public static WaypointController instance;

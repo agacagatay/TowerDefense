@@ -54,7 +54,7 @@ public class EnemyNavController : MonoBehaviour
 
 	void SetNavDestination()
 	{
-		if (unitNavAgent.velocity.magnitude < 0.1f)
+		if (targetTransform == null)
 		{
 			if (WaypointController.instance.SecondaryStructures.Count > 0)
 			{
@@ -64,10 +64,13 @@ public class EnemyNavController : MonoBehaviour
 				{
 					if (structureTransform != null)
 					{
-						float structureDistance = Vector3.Distance(structureTransform.position, transform.position);
+						float structureDistance = CalculatePathLength(structureTransform.position);
 
 						if (smallestDistance == 0f || structureDistance < smallestDistance)
+						{
+							smallestDistance = structureDistance;
 							targetTransform = structureTransform;
+						}
 					}
 				}
 			}
@@ -79,5 +82,31 @@ public class EnemyNavController : MonoBehaviour
 			else
 				DisableMovement();
 		}
+	}
+
+	float CalculatePathLength(Vector3 targetPosition)
+	{
+		NavMeshPath path = new NavMeshPath();
+
+		if (unitNavAgent.enabled)
+			NavMesh.CalculatePath(transform.position, targetPosition, NavMesh.AllAreas, path);
+
+		Vector3[] allWayPoints = new Vector3[path.corners.Length + 2];
+		allWayPoints[0] = transform.position;
+		allWayPoints[allWayPoints.Length - 1] = targetPosition;
+
+		for(int i = 0; i < path.corners.Length; i++)
+		{
+			allWayPoints[i + 1] = path.corners[i];
+		}
+
+		float pathLength = 0;
+
+		for(int i = 0; i < allWayPoints.Length - 1; i++)
+		{
+			pathLength += Vector3.Distance(allWayPoints[i], allWayPoints[i + 1]);
+		}
+
+		return pathLength;
 	}
 }

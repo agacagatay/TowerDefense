@@ -45,7 +45,7 @@ public class HealthBarController : MonoBehaviour
 	{
 		DisableAllHealthBars();
 
-		if (gesture.pickedObject.layer == 10)
+		if (gesture.pickedObject != null && gesture.pickedObject.layer == 10)
 		{
 			structureController = gesture.pickedObject.GetComponent<AllyStructureController>();
 

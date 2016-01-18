@@ -47,7 +47,9 @@ public class EnemyNavController : MonoBehaviour
 	public void DisableMovement()
 	{
 		CancelInvoke("SetNavDestination");
-		unitNavAgent.SetDestination(transform.position);
+
+		if (unitNavAgent.enabled)
+			 unitNavAgent.SetDestination(transform.position);
 	}
 
 	void SetNavDestination()

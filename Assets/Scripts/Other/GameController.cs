@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
 	{
 		if (!isDefeat)
 		{
-			Debug.Log("VICTORY");
+			HUDController.instance.DisplayOneString("VICTORY!", 2f, 2f);
 			gameOver = true;
 			isVictory = true;
 			CalculateScore();
@@ -46,7 +46,7 @@ public class GameController : MonoBehaviour
 	{
 		if (!isVictory)
 		{
-			Debug.Log("DEFEAT");
+			HUDController.instance.DisplayOneString("DEFEAT", 2f, 2f);
 			gameOver = true;
 			isDefeat = true;
 			CalculateScore();

@@ -92,6 +92,7 @@ public class HUDController : MonoBehaviour
 		announcementLabel.text = noticeMessage;
 		tweenAlpha.delay = holdTime;
 		tweenAlpha.duration = fadeTime;
+		announcementLabel.gameObject.SetActive(true);
 		noticePrimaryLabel.gameObject.SetActive(false);
 		noticeSecondaryLabel.gameObject.SetActive(false);
 		tweenAlpha.gameObject.SetActive(true);
@@ -107,6 +108,8 @@ public class HUDController : MonoBehaviour
 		tweenAlpha.delay = holdTime;
 		tweenAlpha.duration = fadeTime;
 		announcementLabel.gameObject.SetActive(false);
+		noticePrimaryLabel.gameObject.SetActive(true);
+		noticeSecondaryLabel.gameObject.SetActive(true);
 		tweenAlpha.gameObject.SetActive(true);
 		tweenAlpha.PlayForward();
 		StartCoroutine(WaitAndReset(holdTime + fadeTime));

@@ -12,6 +12,7 @@ public class AllyTurretController : MonoBehaviour
 	[SerializeField] float groundRange;
 	[SerializeField] GameObject ordinancePrefab;
 	[SerializeField] Transform[] ordinanceSpawnTransforms;
+	[SerializeField] bool fireSequentially = false;
 	[SerializeField] float fireRate;
 	[SerializeField] LayerMask turretLayerMask;
 	Transform targetTransform;
@@ -19,6 +20,7 @@ public class AllyTurretController : MonoBehaviour
 	Collider[] groundHitColliders;
 	bool canFire = true;
 	bool overdriveActive = false;
+	int sequenceVal = 0;
 	List<GameObject> potentialTargets = new List<GameObject>();
 	List<GameObject> highestPriorityTargets = new List<GameObject>();
 	public bool OverdriveActive { get { return overdriveActive; } set { overdriveActive = value; }}
@@ -179,9 +181,22 @@ public class AllyTurretController : MonoBehaviour
 	IEnumerator FireWeapon()
 	{
 		canFire = false;
+		GameObject ordinanceClone;
 
-		int randomTransform = Random.Range(0, ordinanceSpawnTransforms.Length);
-		GameObject ordinanceClone = (GameObject)Instantiate(ordinancePrefab, ordinanceSpawnTransforms[randomTransform].position, ordinanceSpawnTransforms[randomTransform].rotation);
+		if (fireSequentially)
+		{
+			ordinanceClone = (GameObject)Instantiate(ordinancePrefab, ordinanceSpawnTransforms[sequenceVal].position, ordinanceSpawnTransforms[sequenceVal].rotation);
+			sequenceVal++;
+
+			if (sequenceVal >= ordinanceSpawnTransforms.Length)
+				sequenceVal = 0;
+		}
+		else
+		{
+			int randomTransform = Random.Range(0, ordinanceSpawnTransforms.Length);
+			ordinanceClone = (GameObject)Instantiate(ordinancePrefab, ordinanceSpawnTransforms[randomTransform].position, ordinanceSpawnTransforms[randomTransform].rotation);
+		}
+
 		OrdinanceController ordinanceController = ordinanceClone.GetComponent<OrdinanceController>();
 		ordinanceController.TargetTransform = targetTransform;
 

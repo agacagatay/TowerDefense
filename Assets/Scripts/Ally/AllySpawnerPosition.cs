@@ -3,7 +3,6 @@ using System.Collections;
 
 public class AllySpawnerPosition : MonoBehaviour
 {
-	[SerializeField] GameObject turretPrefab;
 	[SerializeField] GameObject mapIconPrefab;
 	[SerializeField] int turretCost;
 	[SerializeField] Transform spawnTransform;

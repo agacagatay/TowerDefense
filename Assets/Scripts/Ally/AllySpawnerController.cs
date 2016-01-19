@@ -217,7 +217,7 @@ public class AllySpawnerController : MonoBehaviour
 			turretClone = (GameObject)Instantiate(turretPrefab, 
 				spawnPosition.SpawnTransform.position, spawnPosition.SpawnTransform.rotation);
 
-			allyStructureVariables = turretClone.GetComponent<AllyStructureController>();
+			allyStructureVariables = turretClone.GetComponentInChildren<AllyStructureController>();
 			allyStructureVariables.TurretSpawnObject = spawnPosition.gameObject;
 			break;
 		case "Missile Battery":

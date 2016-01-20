@@ -19,6 +19,9 @@ public class AllySpawnerController : MonoBehaviour
 	[SerializeField] GameObject missileBatteryBranch;
 	[SerializeField] float missileBatterySpawnTime;
 	[SerializeField] GameObject turretSelectMenu;
+	[SerializeField] GameObject spawnEffect2;
+	[SerializeField] GameObject spawnEffect3;
+	[SerializeField] GameObject spawnEffect4;
 	bool spawnerDisplayEnabled = false;
 	bool turretSelectDisplayEnabled = false;
 	AllySpawnerPosition selectedSpawnerPosition;
@@ -202,15 +205,19 @@ public class AllySpawnerController : MonoBehaviour
 		switch(prefabName)
 		{
 		case "Artillary":
+			ToggleSpawnEffect(4);
 			StartCoroutine(ToggleTurretSpawn("Artillary", artillarySpawnTime));
 			break;
 		case "Minigun":
+			ToggleSpawnEffect(2);
 			StartCoroutine(ToggleTurretSpawn("Minigun", minigunSpawnTime));
 			break;
 		case "Turret":
+			ToggleSpawnEffect(3);
 			StartCoroutine(ToggleTurretSpawn("Turret", turretSpawnTime));
 			break;
 		case "Missile Battery":
+			ToggleSpawnEffect(4);
 			StartCoroutine(ToggleTurretSpawn("Missile Battery", missileBatterySpawnTime));
 			break;
 		default:
@@ -220,6 +227,28 @@ public class AllySpawnerController : MonoBehaviour
 
 		selectedSpawnerPosition.DisableSpawnerPosition();
 		HideSpawnerOptions();
+	}
+
+	void ToggleSpawnEffect(int effectLength)
+	{
+		AllySpawnerPosition spawnPosition = selectedSpawnerPosition;
+		Vector3 modifiedPos = new Vector3(spawnPosition.SpawnTransform.position.x, spawnPosition.SpawnTransform.position.y + 15f, spawnPosition.SpawnTransform.position.z);
+
+		switch (effectLength)
+		{
+		case 2:
+			Instantiate(spawnEffect2, modifiedPos, spawnEffect2.transform.rotation);
+			break;
+		case 3:
+			Instantiate(spawnEffect3, modifiedPos, spawnEffect3.transform.rotation);
+			break;
+		case 4:
+			Instantiate(spawnEffect4, modifiedPos, spawnEffect4.transform.rotation);
+			break;
+		default:
+			Debug.LogError("Invalid length specified");
+			break;
+		}
 	}
 
 	IEnumerator ToggleTurretSpawn(string prefabName, float spawnTime)

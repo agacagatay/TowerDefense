@@ -51,7 +51,7 @@ public class F3DPulsewave : MonoBehaviour
         // Set required flags and set delayed fade flag using timer 
         isEnabled = true;
         isFadeOut = false;
-        timerID = F3DTime.time.AddTimer(FadeOutDelay, OnFadeOut);
+		timerID = F3DTime.time.AddTimer(FadeOutDelay, OnFadeOut);
 
         // Reset default color
         meshRenderer.material.SetColor(tintColorRef, defaultColor);

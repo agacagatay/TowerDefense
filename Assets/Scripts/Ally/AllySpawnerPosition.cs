@@ -7,6 +7,7 @@ public class AllySpawnerPosition : MonoBehaviour
 	[SerializeField] int turretCost;
 	[SerializeField] Transform spawnTransform;
 	[SerializeField] string[] spawnOptions;
+	[SerializeField] GameObject[] particleObjects;
 	GameObject mapIcon;
 	public Transform SpawnTransform { get { return spawnTransform; }}
 	public string[] SpawnOptions { get { return spawnOptions; }}
@@ -18,6 +19,9 @@ public class AllySpawnerPosition : MonoBehaviour
 
 	public void EnableSpawnerPosition()
 	{
+		foreach (GameObject particleObject in particleObjects)
+			particleObject.SetActive(true);
+
 		Collider spawnerPositionCollider = gameObject.GetComponent<Collider>();
 		spawnerPositionCollider.enabled = true;
 
@@ -30,6 +34,9 @@ public class AllySpawnerPosition : MonoBehaviour
 
 	public void DisableSpawnerPosition()
 	{
+		foreach (GameObject particleObject in particleObjects)
+			particleObject.SetActive(false);
+
 		Collider spawnerPositionCollider = gameObject.GetComponent<Collider>();
 		spawnerPositionCollider.enabled = false;
 

@@ -52,10 +52,9 @@ public class AllyTurretController : MonoBehaviour
 			Vector3 forward = horPivot.forward;
 			float angle = Vector3.Angle(targetDir, forward);
 
-			if (angle < 10f)
+			if (angle < 10f && canFire)
 			{
-				if (angle < 10f && canFire)
-					StartCoroutine(FireWeapon());
+				StartCoroutine(FireWeapon());
 			}
 		}
 	}

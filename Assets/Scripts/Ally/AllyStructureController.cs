@@ -13,6 +13,7 @@ public class AllyStructureController : MonoBehaviour
 	[SerializeField] bool isPrimaryStructure = false;
 	[SerializeField] bool isSecondaryStructure = false;
 	[SerializeField] string structureName;
+	[SerializeField] GameObject deathExplosion;
 	int structureHealth;
 	GameObject turretSpawnObject;
 	List<GameObject> stoppedEnemyUnits = new List<GameObject>();
@@ -59,8 +60,6 @@ public class AllyStructureController : MonoBehaviour
 					Debug.LogError("Invalid turret type specified");
 
 				HUDController.instance.UpdateResources();
-				AllySpawnerPosition allySpawnerPosition = turretSpawnObject.GetComponent<AllySpawnerPosition>();
-				allySpawnerPosition.EnableSpawnerPosition();
 			}
 
 			if (hasPerimeter)
@@ -101,10 +100,27 @@ public class AllyStructureController : MonoBehaviour
 				HealthBarController.instance.DisableAllHealthBars();
 
 			SpawnedAllyDictionary.instance.spawnedAllyDictionary.Remove(gameObject);
-			Destroy(gameObject);
+
+			if (deathExplosion != null)
+				Instantiate(deathExplosion, transform.position, transform.rotation);
+
+			StartCoroutine(WaitAndDestroy(0.5f));
 		}
 		else if (isPrimaryStructure || isSecondaryStructure)
 			HUDController.instance.UpdateBaseDisplay();
+	}
+
+	IEnumerator WaitAndDestroy(float waitTime)
+	{
+		yield return new WaitForSeconds(waitTime);
+
+		if (TurretSpawnObject != null)
+		{
+			AllySpawnerPosition allySpawnerPosition = turretSpawnObject.GetComponent<AllySpawnerPosition>();
+			allySpawnerPosition.EnableSpawnerPosition();
+		}
+
+		Destroy(gameObject);
 	}
 
 	public void RepairStructure(int repairValue)

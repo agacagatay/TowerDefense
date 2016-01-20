@@ -145,8 +145,9 @@ public class HealthBarController : MonoBehaviour
 		secondaryHealthBar.gameObject.SetActive(false);
 		barrierHealthBar.gameObject.SetActive(false);
 		turretHealthBar.gameObject.SetActive(false);
+		enemyHealthBar.gameObject.SetActive(false);
 	}
-
+		
 	public void DisableEnemyHealthBar(GameObject enemyUnit)
 	{
 		if (AdversaryUnitVariables != null && enemyUnit == AdversaryUnitVariables.gameObject)

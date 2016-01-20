@@ -29,9 +29,10 @@ public class EnemySpawner : MonoBehaviour
 			clone.name = gameObject.name + spawnCount;
 			spawnCount++;
 
-			yield return new WaitForSeconds(spawnLoopWait);
+			if (i == spawnEnemyCount)
+				spawnComplete = true;
+			else
+				yield return new WaitForSeconds(spawnLoopWait);
 		}
-
-		spawnComplete = true;
 	}
 }

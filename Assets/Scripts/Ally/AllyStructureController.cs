@@ -47,7 +47,11 @@ public class AllyStructureController : MonoBehaviour
 		{
 			if (isTurret)
 			{
-				if (turretType == "Turret")
+				if (turretType == "Artillary")
+					++HUDController.instance.ArtillaryQuota;
+				else if (turretType == "Minigun")
+					++HUDController.instance.MinigunQuota;
+				else if (turretType == "Turret")
 					++HUDController.instance.TurretQuota;
 				else if (turretType == "Missile Battery")
 					++HUDController.instance.MissileBatteryQuota;

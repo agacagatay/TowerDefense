@@ -6,6 +6,12 @@ public class AllySpawnerController : MonoBehaviour
 {
 	[SerializeField] UIWidget uiWidget;
 	[SerializeField] GameObject spawnTimer;
+	[SerializeField] GameObject artillaryPrefab;
+	[SerializeField] GameObject artillaryBranch;
+	[SerializeField] float artillarySpawnTime;
+	[SerializeField] GameObject minigunPrefab;
+	[SerializeField] GameObject minigunBranch;
+	[SerializeField] float minigunSpawnTime;
 	[SerializeField] GameObject turretPrefab;
 	[SerializeField] GameObject turretBranch;
 	[SerializeField] float turretSpawnTime;
@@ -97,6 +103,28 @@ public class AllySpawnerController : MonoBehaviour
 		{
 			switch(spawnOption)
 			{
+			case "Artillary":
+				GameObject artillaryBranchClone = artillaryBranch as GameObject;
+				UITexture artillarySprite = artillaryBranchClone.GetComponentInChildren<UITexture>();
+
+				if (HUDController.instance.ArtillaryQuota > 0)
+					artillarySprite.alpha = 1f;
+				else
+					artillarySprite.alpha = 0.3f;
+
+				spawnBranchOptions.Add(artillaryBranchClone);
+				break;
+			case "Minigun":
+				GameObject minigunBranchClone = minigunBranch as GameObject;
+				UITexture minigunSprite = minigunBranchClone.GetComponentInChildren<UITexture>();
+
+				if (HUDController.instance.MinigunQuota > 0)
+					minigunSprite.alpha = 1f;
+				else
+					minigunSprite.alpha = 0.3f;
+
+				spawnBranchOptions.Add(minigunBranchClone);
+				break;
 			case "Turret":
 				GameObject turretBranchClone = turretBranch as GameObject;
 				UITexture turretSprite = turretBranchClone.GetComponentInChildren<UITexture>();
@@ -173,11 +201,20 @@ public class AllySpawnerController : MonoBehaviour
 	{
 		switch(prefabName)
 		{
+		case "Artillary":
+			StartCoroutine(ToggleTurretSpawn("Artillary", artillarySpawnTime));
+			break;
+		case "Minigun":
+			StartCoroutine(ToggleTurretSpawn("Minigun", minigunSpawnTime));
+			break;
 		case "Turret":
 			StartCoroutine(ToggleTurretSpawn("Turret", turretSpawnTime));
 			break;
 		case "Missile Battery":
 			StartCoroutine(ToggleTurretSpawn("Missile Battery", missileBatterySpawnTime));
+			break;
+		default:
+			Debug.LogError("No proper turret prefab type specified");
 			break;
 		}
 
@@ -213,11 +250,25 @@ public class AllySpawnerController : MonoBehaviour
 
 		switch(prefabName)
 		{
+		case "Artillary":
+			turretClone = (GameObject)Instantiate(artillaryPrefab, 
+				spawnPosition.SpawnTransform.position, spawnPosition.SpawnTransform.rotation);
+
+			allyStructureVariables = turretClone.GetComponent<AllyStructureController>();
+			allyStructureVariables.TurretSpawnObject = spawnPosition.gameObject;
+			break;
+		case "Minigun":
+			turretClone = (GameObject)Instantiate(minigunPrefab, 
+				spawnPosition.SpawnTransform.position, spawnPosition.SpawnTransform.rotation);
+
+			allyStructureVariables = turretClone.GetComponent<AllyStructureController>();
+			allyStructureVariables.TurretSpawnObject = spawnPosition.gameObject;
+			break;
 		case "Turret":
 			turretClone = (GameObject)Instantiate(turretPrefab, 
 				spawnPosition.SpawnTransform.position, spawnPosition.SpawnTransform.rotation);
 
-			allyStructureVariables = turretClone.GetComponentInChildren<AllyStructureController>();
+			allyStructureVariables = turretClone.GetComponent<AllyStructureController>();
 			allyStructureVariables.TurretSpawnObject = spawnPosition.gameObject;
 			break;
 		case "Missile Battery":

@@ -11,6 +11,12 @@ public class AllySpawnerTab : MonoBehaviour
 	{
 		switch (gameObject.tag)
 		{
+		case "TabArtillary":
+			labelText = "Artillary";
+			break;
+		case "TabMinigun":
+			labelText = "Minigun";
+			break;
 		case "TabTurret":
 			labelText = "Turret";
 			break;

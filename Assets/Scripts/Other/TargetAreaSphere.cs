@@ -50,9 +50,9 @@ public class TargetAreaSphere : MonoBehaviour
 				sphereScale = 0f;
 
 				if (allyTurretController.GroundRange > 0f)
-					sphereScale = allyTurretController.GroundRange;
+					sphereScale = allyTurretController.GroundRange * 2f;
 				else if (allyTurretController.AirRange > 0f)
-					sphereScale = allyTurretController.AirRange;
+					sphereScale = allyTurretController.AirRange * 2f;
 
 				if (sphereScale > 0f)
 				{

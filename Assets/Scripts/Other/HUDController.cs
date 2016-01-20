@@ -5,6 +5,10 @@ public class HUDController : MonoBehaviour
 {
 	[SerializeField] UISprite primaryStructureHealth;
 	[SerializeField] UISprite secondaryStructureHealth;
+	[SerializeField] int artillaryQuota;
+	[SerializeField] UILabel artillaryText;
+	[SerializeField] int minigunQuota;
+	[SerializeField] UILabel minigunText;
 	[SerializeField] int turretQuota;
 	[SerializeField] UILabel turretText;
 	[SerializeField] int missileBatteryQuota;
@@ -16,8 +20,12 @@ public class HUDController : MonoBehaviour
 	[SerializeField] UISprite turretOverdriveTimer;
 	AllyStructureController primaryStructureController;
 	float totalSecondaryHealth;
+	int maxArtillary;
+	int maxMinigun;
 	int maxTurrets;
 	int maxMissileBatteries;
+	public int ArtillaryQuota { get { return artillaryQuota; } set { artillaryQuota = value; }}
+	public int MinigunQuota { get { return minigunQuota; } set { minigunQuota = value; }}
 	public int TurretQuota { get { return turretQuota; } set { turretQuota = value; }}
 	public int MissileBatteryQuota { get { return missileBatteryQuota; } set { missileBatteryQuota = value; }}
 
@@ -27,8 +35,10 @@ public class HUDController : MonoBehaviour
 	{
 		instance = this;
 
-		maxTurrets = turretQuota;
-		maxMissileBatteries = missileBatteryQuota;
+		maxArtillary = ArtillaryQuota;
+		maxMinigun = MinigunQuota;
+		maxTurrets = TurretQuota;
+		maxMissileBatteries = MissileBatteryQuota;
 
 		UpdateResources();
 	}
@@ -76,14 +86,22 @@ public class HUDController : MonoBehaviour
 
 	public void UpdateResources()
 	{
+		if (ArtillaryQuota > maxArtillary)
+			ArtillaryQuota = maxArtillary;
+
+		if (MinigunQuota > maxMinigun)
+			MinigunQuota = maxMinigun;
+
 		if (TurretQuota > maxTurrets)
 			TurretQuota = maxTurrets;
 
 		if (MissileBatteryQuota > maxMissileBatteries)
 			MissileBatteryQuota = maxMissileBatteries;
 
-		turretText.text = turretQuota.ToString("N0");
-		missileBatteryText.text = missileBatteryQuota.ToString("N0");
+		artillaryText.text = ArtillaryQuota.ToString("N0");
+		minigunText.text = MinigunQuota.ToString("N0");
+		turretText.text = TurretQuota.ToString("N0");
+		missileBatteryText.text = MissileBatteryQuota.ToString("N0");
 	}
 
 	public void DisplayOneString(string noticeMessage, float holdTime, float fadeTime)

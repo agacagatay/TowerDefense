@@ -23,7 +23,7 @@ public class EnemyNavController : MonoBehaviour
 		{
 			NavMeshHit hit;
 			
-			if (NavMesh.SamplePosition(transform.position + transform.forward, out hit, 1f, 1))
+			if (NavMesh.SamplePosition(new Vector3(transform.position.x, transform.position.y - heightOffset, transform.position.z) + transform.forward, out hit, 1f, NavMesh.AllAreas))
 			{
 				transform.LookAt(new Vector3(hit.position.x, hit.position.y + heightOffset, hit.position.z));
 			}
@@ -56,12 +56,14 @@ public class EnemyNavController : MonoBehaviour
 	{
 		if (targetTransform == null)
 		{
-			if (WaypointController.instance.SecondaryStructures.Count > 0)
+			if (GameController.instance.SecondaryStructures.Count > 0)
 			{
 				float smallestDistance = 0f;
 
-				foreach (Transform structureTransform in WaypointController.instance.SecondaryStructures)
+				foreach (GameObject structureObject in GameController.instance.SecondaryStructures)
 				{
+					Transform structureTransform = structureObject.transform;
+
 					if (structureTransform != null)
 					{
 						float structureDistance = CalculatePathLength(structureTransform.position);
@@ -74,8 +76,8 @@ public class EnemyNavController : MonoBehaviour
 					}
 				}
 			}
-			else if (WaypointController.instance.PrimaryStructure != null)
-				targetTransform = WaypointController.instance.PrimaryStructure;
+			else if (GameController.instance.PrimaryStructure != null)
+				targetTransform = GameController.instance.PrimaryStructure.transform;
 
 			if (targetTransform != null)
 				unitNavAgent.SetDestination(targetTransform.position);

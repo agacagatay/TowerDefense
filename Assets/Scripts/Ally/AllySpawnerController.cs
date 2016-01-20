@@ -66,28 +66,30 @@ public class AllySpawnerController : MonoBehaviour
 
 	private void On_SimpleTap(Gesture gesture)
 	{
-		if (spawnerDisplayEnabled)
-			HideSpawnerOptions();
-
-		if (turretSelectDisplayEnabled)
-			HideTurretSelectTab();
-
-		if (gesture.pickedObject.tag == "SpawnPosition")
+		if (gesture.pickedObject != null)
 		{
-			AllySpawnerPosition allySpawnerPosition = gesture.pickedObject.GetComponent<AllySpawnerPosition>();
-			ShowSpawnerOptions(allySpawnerPosition);
-		}
-		if (gesture.pickedObject.tag == "Ally")
-		{
-			structureController = gesture.pickedObject.GetComponent<AllyStructureController>();
+			if (spawnerDisplayEnabled)
+				HideSpawnerOptions();
 
-			if (structureController.IsTurret)
+			if (turretSelectDisplayEnabled)
+				HideTurretSelectTab();
+
+			if (gesture.pickedObject.tag == "SpawnPosition")
 			{
-				destroyTurretTab.StructureController = gesture.pickedObject.GetComponentInChildren<AllyStructureController>();
-				turretSelectWidget.SetAnchor(gesture.pickedObject.transform);
-				ShowTurretSelectTab();
+				AllySpawnerPosition allySpawnerPosition = gesture.pickedObject.GetComponent<AllySpawnerPosition>();
+				ShowSpawnerOptions(allySpawnerPosition);
 			}
+			if (gesture.pickedObject.tag == "Ally")
+			{
+				structureController = gesture.pickedObject.GetComponent<AllyStructureController>();
 
+				if (structureController.IsTurret)
+				{
+					destroyTurretTab.StructureController = gesture.pickedObject.GetComponentInChildren<AllyStructureController>();
+					turretSelectWidget.SetAnchor(gesture.pickedObject.transform);
+					ShowTurretSelectTab();
+				}
+			}
 		}
 	}
 

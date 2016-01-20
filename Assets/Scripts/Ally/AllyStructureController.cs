@@ -31,16 +31,21 @@ public class AllyStructureController : MonoBehaviour
 		SpawnedAllyDictionary.instance.spawnedAllyDictionary.Add(gameObject, priorityValue);
 		structureHealth = initialStructureHealth;
 
-		if (IsSecondaryStructure)
-			GameController.instance.secondaryStructures.Add(gameObject);
+		if (IsPrimaryStructure)
+			GameController.instance.PrimaryStructure = gameObject;
+		else if (IsSecondaryStructure)
+			GameController.instance.SecondaryStructures.Add(gameObject);
 		else if (IsTurret)
 			GameController.instance.TurretsSpawned++;
 		else if (!IsPrimaryStructure)
-			GameController.instance.barrierStructures.Add(gameObject);
+			GameController.instance.BarrierStructures.Add(gameObject);
 	}
 
 	public void DamageStructure(int damageValue)
 	{
+		if (isPrimaryStructure && GameController.instance.SecondaryStructures.Count > 0f)
+			return;
+		
 		structureHealth -= damageValue;
 		HealthBarController.instance.UpdateHealthBar(this);
 
@@ -80,8 +85,7 @@ public class AllyStructureController : MonoBehaviour
 				GameController.instance.GameLose();
 			else if (isSecondaryStructure)
 			{
-				WaypointController.instance.SecondaryStructures.Remove(transform);
-				GameController.instance.secondaryStructures.Remove(gameObject);
+				GameController.instance.SecondaryStructures.Remove(gameObject);
 			}
 			else if (IsTurret)
 			{
@@ -91,7 +95,7 @@ public class AllyStructureController : MonoBehaviour
 				TargetAreaSphere.instance.DestroyAreaSphere(gameObject);
 			}
 			else if (!IsTurret)
-				GameController.instance.barrierStructures.Remove(gameObject);
+				GameController.instance.BarrierStructures.Remove(gameObject);
 
 			if (isPrimaryStructure || isSecondaryStructure)
 				HUDController.instance.UpdateBaseDisplay();

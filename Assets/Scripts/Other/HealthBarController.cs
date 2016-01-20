@@ -45,31 +45,34 @@ public class HealthBarController : MonoBehaviour
 	{
 		DisableAllHealthBars();
 
-		if (gesture.pickedObject != null && gesture.pickedObject.layer == 10)
+		if (gesture.pickedObject != null)
 		{
-			structureController = gesture.pickedObject.GetComponent<AllyStructureController>();
+			if (gesture.pickedObject.layer == 10)
+			{
+				structureController = gesture.pickedObject.GetComponent<AllyStructureController>();
 
-			if (structureController.IsPrimaryStructure)
-			{
-				EnablePrimaryHealthBar(gesture.pickedObject.transform, structureController);
+				if (structureController.IsPrimaryStructure)
+				{
+					EnablePrimaryHealthBar(gesture.pickedObject.transform, structureController);
+				}
+				else if (structureController.IsSecondaryStructure)
+				{
+					EnableSecondaryHealthBar(gesture.pickedObject.transform, structureController);
+				}
+				else if (structureController.IsTurret)
+				{
+					EnableTurretHealthBar(gesture.pickedObject.transform, structureController);
+				}
+				else
+				{
+					EnableBarrierHealthBar(gesture.pickedObject.transform, structureController);
+				}
 			}
-			else if (structureController.IsSecondaryStructure)
+			else if (gesture.pickedObject.tag == "EnemyGround" || gesture.pickedObject.tag == "EnemyAir")
 			{
-				EnableSecondaryHealthBar(gesture.pickedObject.transform, structureController);
+				adversaryUnitVariables = gesture.pickedObject.GetComponent<EnemyUnitVariables>();
+				EnableEnemyHealthBar(gesture.pickedObject.transform, adversaryUnitVariables);
 			}
-			else if (structureController.IsTurret)
-			{
-				EnableTurretHealthBar(gesture.pickedObject.transform, structureController);
-			}
-			else
-			{
-				EnableBarrierHealthBar(gesture.pickedObject.transform, structureController);
-			}
-		}
-		else if (gesture.pickedObject.tag == "EnemyGround" || gesture.pickedObject.tag == "EnemyAir")
-		{
-			adversaryUnitVariables = gesture.pickedObject.GetComponent<EnemyUnitVariables>();
-			EnableEnemyHealthBar(gesture.pickedObject.transform, adversaryUnitVariables);
 		}
 	}
 

@@ -11,6 +11,7 @@ public class GameController : MonoBehaviour
 	// - Enemies Killed (200 each)
 	// - Turrets Spawned (100 each)
 
+	GameObject primaryStructure;
 	bool isVictory = false;
 	bool isDefeat = false;
 	bool gameOver = false;
@@ -21,8 +22,9 @@ public class GameController : MonoBehaviour
 	public bool GameOver { get { return gameOver; }}
 	public int EnemiesKilled { get { return enemiesKilled; } set { enemiesKilled = value; }}
 	public int TurretsSpawned { get { return turretsSpawned; } set { turretsSpawned = value; }}
-	public List<GameObject> secondaryStructures = new List<GameObject>();
-	public List<GameObject> barrierStructures = new List<GameObject>();
+	public GameObject PrimaryStructure { get { return primaryStructure; } set { primaryStructure = value; }}
+	public List<GameObject> SecondaryStructures = new List<GameObject>();
+	public List<GameObject> BarrierStructures = new List<GameObject>();
 
 	public static GameController instance;
 
@@ -61,8 +63,8 @@ public class GameController : MonoBehaviour
 		if (IsVictory)
 			primaryStructureScore = 5000;
 
-		int secondaryStructureScore = secondaryStructures.Count * 1000;
-		int barrierStructureScore = barrierStructures.Count * 500;
+		int secondaryStructureScore = SecondaryStructures.Count * 1000;
+		int barrierStructureScore = BarrierStructures.Count * 500;
 		int enemiesKilledScore = EnemiesKilled * 200;
 		int turretsSpawnedScore = TurretsSpawned * 100;
 

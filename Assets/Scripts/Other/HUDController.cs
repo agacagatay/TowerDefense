@@ -45,11 +45,11 @@ public class HUDController : MonoBehaviour
 
 	void Start()
 	{
-		primaryStructureController = WaypointController.instance.PrimaryStructure.GetComponent<AllyStructureController>();
+		primaryStructureController = GameController.instance.PrimaryStructure.GetComponent<AllyStructureController>();
 
-		foreach(Transform secondaryStructureTransform in WaypointController.instance.SecondaryStructures)
+		foreach(GameObject secondaryStructureObject in GameController.instance.SecondaryStructures)
 		{
-			AllyStructureController secondaryStructureController = secondaryStructureTransform.GetComponent<AllyStructureController>();
+			AllyStructureController secondaryStructureController = secondaryStructureObject.GetComponent<AllyStructureController>();
 			totalSecondaryHealth += secondaryStructureController.InitialStructureHealth * 1f;
 		}
 	}
@@ -68,13 +68,13 @@ public class HUDController : MonoBehaviour
 		else
 			primaryStructureHealth.fillAmount = 0f;
 
-		if (WaypointController.instance.SecondaryStructures.Count > 0)
+		if (GameController.instance.SecondaryStructures.Count > 0)
 		{
 			float currentSecondaryHealth = 0f;
 
-			foreach(Transform secondaryStructureTransform in WaypointController.instance.SecondaryStructures)
+			foreach(GameObject secondaryStructureObject in GameController.instance.SecondaryStructures)
 			{
-				AllyStructureController secondaryStructureController = secondaryStructureTransform.GetComponent<AllyStructureController>();
+				AllyStructureController secondaryStructureController = secondaryStructureObject.GetComponent<AllyStructureController>();
 				currentSecondaryHealth += secondaryStructureController.StructureHealth * 1f;
 			}
 				

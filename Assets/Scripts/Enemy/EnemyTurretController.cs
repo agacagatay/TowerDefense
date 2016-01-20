@@ -12,11 +12,13 @@ public class EnemyTurretController : MonoBehaviour
 	[SerializeField] string priorityTargetTag;
 	[SerializeField] GameObject ordinancePrefab;
 	[SerializeField] Transform[] ordinanceSpawnTransforms;
+	[SerializeField] bool fireSequentially = false;
 	[SerializeField] float fireRate;
 	[SerializeField] LayerMask turretLayerMask;
 	Transform targetTransform;
 	bool canFire = true;
 	bool turretReset = true;
+	int sequenceVal = 0;
 	List<GameObject> potentialTargets = new List<GameObject>();
 	List<GameObject> highestPriorityTargets = new List<GameObject>();
 
@@ -69,7 +71,7 @@ public class EnemyTurretController : MonoBehaviour
 		{
 			if (hitCollider.gameObject.tag == "Ally" || hitCollider.gameObject.tag == "PrimaryStructure")
 			{
-				if (!(hitCollider.gameObject.tag == "PrimaryStructure" && WaypointController.instance.SecondaryStructures.Count > 0))
+				if (!(hitCollider.gameObject.tag == "PrimaryStructure" && GameController.instance.SecondaryStructures.Count > 0))
 				{
 					RaycastHit hit;
 
@@ -120,9 +122,22 @@ public class EnemyTurretController : MonoBehaviour
 	IEnumerator FireWeapon()
 	{
 		canFire = false;
+		GameObject ordinanceClone;
 
-		int randomTransform = Random.Range(0, ordinanceSpawnTransforms.Length);
-		GameObject ordinanceClone = (GameObject)Instantiate(ordinancePrefab, ordinanceSpawnTransforms[randomTransform].position, ordinanceSpawnTransforms[randomTransform].rotation);
+		if (fireSequentially)
+		{
+			ordinanceClone = (GameObject)Instantiate(ordinancePrefab, ordinanceSpawnTransforms[sequenceVal].position, ordinanceSpawnTransforms[sequenceVal].rotation);
+			sequenceVal++;
+
+			if (sequenceVal >= ordinanceSpawnTransforms.Length)
+				sequenceVal = 0;
+		}
+		else
+		{
+			int randomTransform = Random.Range(0, ordinanceSpawnTransforms.Length);
+			ordinanceClone = (GameObject)Instantiate(ordinancePrefab, ordinanceSpawnTransforms[randomTransform].position, ordinanceSpawnTransforms[randomTransform].rotation);
+		}
+
 		OrdinanceController ordinanceController = ordinanceClone.GetComponent<OrdinanceController>();
 		ordinanceController.TargetTransform = targetTransform;
 

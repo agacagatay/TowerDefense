@@ -40,7 +40,7 @@ public class TargetAreaSphere : MonoBehaviour
 		if (targetSphere != null)
 			Destroy(targetSphere);
 
-		if (gesture.pickedObject.tag == "Ally")
+		if (gesture.pickedObject != null && gesture.pickedObject.tag == "Ally")
 		{
 			AllyTurretController allyTurretController = gesture.pickedObject.GetComponent<AllyTurretController>();
 

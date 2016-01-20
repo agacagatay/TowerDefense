@@ -103,16 +103,19 @@ public class OrdinanceController : MonoBehaviour
 
 		if (other.gameObject.tag != "Turret" && other.gameObject.tag != "Ordinance" && other.gameObject.tag != "SpawnPosition" && other.gameObject.tag != "Ignore")
 		{
-			if (isMissile)
+			if ((allyOrdinance && other.gameObject.tag != "Ally") || ((!allyOrdinance && other.gameObject.tag != "EnemyGround") && (!allyOrdinance && other.gameObject.tag != "EnemyAir")))
 			{
-				MissileVFXDestroy missileVFXDestroy = missileVFXObject.GetComponent<MissileVFXDestroy>();
-				missileVFXDestroy.DisableEmmision();
+				if (isMissile)
+				{
+					MissileVFXDestroy missileVFXDestroy = missileVFXObject.GetComponent<MissileVFXDestroy>();
+					missileVFXDestroy.DisableEmmision();
+				}
+
+				if (explosionPrefab != null)
+					Instantiate(explosionPrefab, transform.position, transform.rotation);
+
+				Destroy(gameObject);
 			}
-
-			if (explosionPrefab != null)
-				Instantiate(explosionPrefab, transform.position, transform.rotation);
-
-			Destroy(gameObject);
 		}
 	}
 }

@@ -35,7 +35,7 @@ public class GameController : MonoBehaviour
 
 	public void GameWin()
 	{
-		if (!isDefeat)
+		if (!IsVictory && !IsDefeat)
 		{
 			HUDController.instance.DisplayOneString("VICTORY!", 2f, 2f);
 			gameOver = true;
@@ -46,7 +46,7 @@ public class GameController : MonoBehaviour
 
 	public void GameLose()
 	{
-		if (!isVictory)
+		if (!IsVictory && !IsDefeat)
 		{
 			HUDController.instance.DisplayOneString("DEFEAT", 2f, 2f);
 			gameOver = true;

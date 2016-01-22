@@ -6,15 +6,19 @@ public class AllySpawnerController : MonoBehaviour
 {
 	[SerializeField] UIWidget uiWidget;
 	[SerializeField] GameObject spawnTimer;
+	[SerializeField] int artillaryQuota;
 	[SerializeField] GameObject artillaryPrefab;
 	[SerializeField] GameObject artillaryBranch;
 	[SerializeField] float artillarySpawnTime;
+	[SerializeField] int minigunQuota;
 	[SerializeField] GameObject minigunPrefab;
 	[SerializeField] GameObject minigunBranch;
 	[SerializeField] float minigunSpawnTime;
+	[SerializeField] int turretQuota;
 	[SerializeField] GameObject turretPrefab;
 	[SerializeField] GameObject turretBranch;
 	[SerializeField] float turretSpawnTime;
+	[SerializeField] int missileBatteryQuota;
 	[SerializeField] GameObject missileBatteryPrefab;
 	[SerializeField] GameObject missileBatteryBranch;
 	[SerializeField] float missileBatterySpawnTime;
@@ -32,6 +36,10 @@ public class AllySpawnerController : MonoBehaviour
 	List<GameObject> spawnBranchObjects = new List<GameObject>();
 	public AllySpawnerPosition SelectedSpawnerPosition { get { return selectedSpawnerPosition; }}
 	public AllyStructureController StructureController { get { return structureController; }}
+	public int ArtillaryQuota { get { return artillaryQuota; } set { artillaryQuota = value; }}
+	public int MinigunQuota { get { return minigunQuota; } set { minigunQuota = value; }}
+	public int TurretQuota { get { return turretQuota; } set { turretQuota = value; }}
+	public int MissileBatteryQuota { get { return missileBatteryQuota; } set { missileBatteryQuota = value; }}
 
 	public static AllySpawnerController instance;
 
@@ -112,7 +120,7 @@ public class AllySpawnerController : MonoBehaviour
 				GameObject artillaryBranchClone = artillaryBranch as GameObject;
 				UITexture artillarySprite = artillaryBranchClone.GetComponentInChildren<UITexture>();
 
-				if (HUDController.instance.ArtillaryQuota > 0)
+				if (AllySpawnerController.instance.ArtillaryQuota > 0)
 					artillarySprite.alpha = 1f;
 				else
 					artillarySprite.alpha = 0.3f;
@@ -123,7 +131,7 @@ public class AllySpawnerController : MonoBehaviour
 				GameObject minigunBranchClone = minigunBranch as GameObject;
 				UITexture minigunSprite = minigunBranchClone.GetComponentInChildren<UITexture>();
 
-				if (HUDController.instance.MinigunQuota > 0)
+				if (AllySpawnerController.instance.MinigunQuota > 0)
 					minigunSprite.alpha = 1f;
 				else
 					minigunSprite.alpha = 0.3f;
@@ -134,7 +142,7 @@ public class AllySpawnerController : MonoBehaviour
 				GameObject turretBranchClone = turretBranch as GameObject;
 				UITexture turretSprite = turretBranchClone.GetComponentInChildren<UITexture>();
 
-				if (HUDController.instance.TurretQuota > 0)
+				if (AllySpawnerController.instance.TurretQuota > 0)
 					turretSprite.alpha = 1f;
 				else
 					turretSprite.alpha = 0.3f;
@@ -145,7 +153,7 @@ public class AllySpawnerController : MonoBehaviour
 				GameObject missileBatteryBranchClone = missileBatteryBranch as GameObject;
 				UITexture missileBatterySprite = missileBatteryBranchClone.GetComponentInChildren<UITexture>();
 
-				if (HUDController.instance.MissileBatteryQuota > 0)
+				if (AllySpawnerController.instance.MissileBatteryQuota > 0)
 					missileBatterySprite.alpha = 1f;
 				else
 					missileBatterySprite.alpha = 0.3f;

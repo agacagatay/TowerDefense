@@ -15,6 +15,7 @@ public class AllyStructureController : MonoBehaviour
 	[SerializeField] string structureName;
 	[SerializeField] GameObject deathExplosion;
 	int structureHealth;
+	bool structureDead = false;
 	GameObject turretSpawnObject;
 	List<GameObject> stoppedEnemyUnits = new List<GameObject>();
 	public int InitialStructureHealth { get { return initialStructureHealth; }}
@@ -43,75 +44,80 @@ public class AllyStructureController : MonoBehaviour
 
 	public void DamageStructure(int damageValue)
 	{
-		if (isPrimaryStructure && GameController.instance.SecondaryStructures.Count > 0f)
-			return;
-		
-		structureHealth -= damageValue;
-		HealthBarController.instance.UpdateHealthBar(this);
-
-		if (structureHealth <= 0)
+		if (!structureDead)
 		{
-			if (isTurret)
-			{
-				if (turretType == "Artillary")
-					++HUDController.instance.ArtillaryQuota;
-				else if (turretType == "Minigun")
-					++HUDController.instance.MinigunQuota;
-				else if (turretType == "Turret")
-					++HUDController.instance.TurretQuota;
-				else if (turretType == "Missile Battery")
-					++HUDController.instance.MissileBatteryQuota;
-				else
-					Debug.LogError("Invalid turret type specified");
+			if (isPrimaryStructure && GameController.instance.SecondaryStructures.Count > 0f)
+				return;
+			
+			structureHealth -= damageValue;
+			HealthBarController.instance.UpdateHealthBar(this);
 
-				HUDController.instance.UpdateResources();
-			}
-
-			if (hasPerimeter)
+			if (structureHealth <= 0)
 			{
-				foreach (GameObject stoppedEnemyUnit in stoppedEnemyUnits)
+				structureDead = true;
+
+				if (isTurret)
 				{
-					if (stoppedEnemyUnit != null)
-					{
-						EnemyNavController enemyNavController = stoppedEnemyUnit.GetComponent<EnemyNavController>();
-						enemyNavController.EnableMovement();
-					}
+					if (turretType == "Artillary")
+						++AllySpawnerController.instance.ArtillaryQuota;
+					else if (turretType == "Minigun")
+						++AllySpawnerController.instance.MinigunQuota;
+					else if (turretType == "Turret")
+						++AllySpawnerController.instance.TurretQuota;
+					else if (turretType == "Missile Battery")
+						++AllySpawnerController.instance.MissileBatteryQuota;
+					else
+						Debug.LogError("Invalid turret type specified");
+
+					HUDController.instance.UpdateResources();
 				}
 
-				stoppedEnemyUnits.Clear();
-			}
+				if (hasPerimeter)
+				{
+					foreach (GameObject stoppedEnemyUnit in stoppedEnemyUnits)
+					{
+						if (stoppedEnemyUnit != null)
+						{
+							EnemyNavController enemyNavController = stoppedEnemyUnit.GetComponent<EnemyNavController>();
+							enemyNavController.EnableMovement();
+						}
+					}
 
-			if (isPrimaryStructure)
-				GameController.instance.GameLose();
-			else if (isSecondaryStructure)
-			{
-				GameController.instance.SecondaryStructures.Remove(gameObject);
-			}
-			else if (IsTurret)
-			{
-				if (AllySpawnerController.instance.StructureController == this)
-					AllySpawnerController.instance.HideTurretSelectTab();
-					
-				TargetAreaSphere.instance.DestroyAreaSphere(gameObject);
-			}
-			else if (!IsTurret)
-				GameController.instance.BarrierStructures.Remove(gameObject);
+					stoppedEnemyUnits.Clear();
+				}
 
-			if (isPrimaryStructure || isSecondaryStructure)
+				if (isPrimaryStructure)
+					GameController.instance.GameLose();
+				else if (isSecondaryStructure)
+				{
+					GameController.instance.SecondaryStructures.Remove(gameObject);
+				}
+				else if (IsTurret)
+				{
+					if (AllySpawnerController.instance.StructureController == this)
+						AllySpawnerController.instance.HideTurretSelectTab();
+						
+					TargetAreaSphere.instance.DestroyAreaSphere(gameObject);
+				}
+				else if (!IsTurret)
+					GameController.instance.BarrierStructures.Remove(gameObject);
+
+				if (isPrimaryStructure || isSecondaryStructure)
+					HUDController.instance.UpdateBaseDisplay();
+
+				if (HealthBarController.instance.StructureController == this)
+					HealthBarController.instance.DisableAllHealthBars();
+
+				SpawnedAllyDictionary.instance.spawnedAllyDictionary.Remove(gameObject);
+
+				if (deathExplosion != null)
+					Instantiate(deathExplosion, transform.position, transform.rotation);
+
+				StartCoroutine(WaitAndDestroy(0.5f));
+			}
+			else if (isPrimaryStructure || isSecondaryStructure)
 				HUDController.instance.UpdateBaseDisplay();
-
-			if (HealthBarController.instance.StructureController == this)
-				HealthBarController.instance.DisableAllHealthBars();
-
-			SpawnedAllyDictionary.instance.spawnedAllyDictionary.Remove(gameObject);
-
-			if (deathExplosion != null)
-				Instantiate(deathExplosion, transform.position, transform.rotation);
-
-			StartCoroutine(WaitAndDestroy(0.5f));
 		}
-		else if (isPrimaryStructure || isSecondaryStructure)
-			HUDController.instance.UpdateBaseDisplay();
 	}
 
 	IEnumerator WaitAndDestroy(float waitTime)

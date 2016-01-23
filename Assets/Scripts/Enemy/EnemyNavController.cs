@@ -4,6 +4,7 @@ using System.Collections;
 public class EnemyNavController : MonoBehaviour
 {
 	[SerializeField] NavMeshAgent unitNavAgent;
+	[SerializeField] Transform unitMeshTransform;
 	[SerializeField] bool groundUnit = false;
 	[SerializeField] bool followNavSlope = false;
 	[SerializeField] float heightOffset;
@@ -25,7 +26,7 @@ public class EnemyNavController : MonoBehaviour
 			
 			if (NavMesh.SamplePosition(new Vector3(transform.position.x, transform.position.y - heightOffset, transform.position.z) + transform.forward, out hit, 1f, NavMesh.AllAreas))
 			{
-				transform.LookAt(new Vector3(hit.position.x, hit.position.y + heightOffset, hit.position.z));
+				unitMeshTransform.LookAt(new Vector3(hit.position.x, hit.position.y, hit.position.z));
 			}
 		}
 
@@ -47,6 +48,7 @@ public class EnemyNavController : MonoBehaviour
 	public void DisableMovement()
 	{
 		CancelInvoke("SetNavDestination");
+		targetTransform = null;
 
 		if (unitNavAgent.enabled)
 			 unitNavAgent.SetDestination(transform.position);

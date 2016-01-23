@@ -3,6 +3,7 @@ using System.Collections;
 
 public class EnemyUnitVariables : MonoBehaviour
 {
+	[SerializeField] GameObject spawnEffect;
 	[SerializeField] int priorityValue = 0;
 	[SerializeField] int unitHealth = 100;
 	[SerializeField] string unitName;
@@ -15,6 +16,9 @@ public class EnemyUnitVariables : MonoBehaviour
 
 	void Start()
 	{
+		if (spawnEffect != null)
+			Instantiate(spawnEffect, transform.position, transform.rotation);
+
 		SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Add(gameObject, priorityValue);
 		initialHealth = UnitHealth;
 	}

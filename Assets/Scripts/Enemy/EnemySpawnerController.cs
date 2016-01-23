@@ -21,7 +21,8 @@ public class EnemySpawnerController : MonoBehaviour
 	IEnumerator SpawnFirstWave()
 	{
 		HUDController.instance.DisplayTwoString("Level Started", "Enemies Spawn In " + enemySpawnerWaves[enemyWaveNumber].WaveInitialWait.ToString("N0") + 
-			" Seconds", 2f, 2f);
+			" Seconds", 4f, 2f);
+		HUDController.instance.ToggleEnemySpawnTimer(enemySpawnerWaves[enemyWaveNumber].WaveInitialWait);
 
 		yield return new WaitForSeconds(enemySpawnerWaves[enemyWaveNumber].WaveInitialWait);
 
@@ -52,6 +53,7 @@ public class EnemySpawnerController : MonoBehaviour
 		{
 			HUDController.instance.DisplayTwoString("Enemy Wave Defeated", "Next Wave In " + enemySpawnerWaves[enemyWaveNumber].WaveInitialWait.ToString("N0") + 
 				" Seconds", 2f, 2f);
+			HUDController.instance.ToggleEnemySpawnTimer(enemySpawnerWaves[enemyWaveNumber].WaveInitialWait);
 				
 			yield return new WaitForSeconds(enemySpawnerWaves[enemyWaveNumber].WaveInitialWait);
 

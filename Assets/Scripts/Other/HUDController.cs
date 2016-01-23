@@ -14,8 +14,11 @@ public class HUDController : MonoBehaviour
 	[SerializeField] UILabel noticeSecondaryLabel;
 	[SerializeField] TweenAlpha tweenAlpha;
 	[SerializeField] UISprite turretOverdriveTimer;
+	[SerializeField] UISprite timerSprite;
+	[SerializeField] UILabel timerLabel;
 	AllyStructureController primaryStructureController;
 	float totalSecondaryHealth;
+	float remainingTime;
 
 	public static HUDController instance;
 
@@ -130,5 +133,36 @@ public class HUDController : MonoBehaviour
 		}
 
 		turretOverdriveTimer.gameObject.SetActive(false);
+	}
+
+	public void ToggleEnemySpawnTimer(float timeUntilSpawn)
+	{
+		remainingTime = timeUntilSpawn;
+		timerLabel.text = FormatTime(remainingTime);
+		timerSprite.gameObject.SetActive(true);
+
+		InvokeRepeating("ReduceTime", 1f, 1f);
+	}
+
+	void ReduceTime()
+	{
+		--remainingTime;
+
+		if (remainingTime <= 0f)
+		{
+			CancelInvoke("ReduceTime");
+			timerSprite.gameObject.SetActive(false);
+		}
+		else
+			timerLabel.text = FormatTime(remainingTime);
+	}
+
+	string FormatTime(float timeToFormat)
+	{
+		int minutes = Mathf.FloorToInt(timeToFormat / 60f);
+		int seconds = Mathf.FloorToInt(timeToFormat - minutes * 60f);
+		string formattedTime = string.Format("{0:0}:{1:00}", minutes, seconds);
+
+		return formattedTime;
 	}
 }

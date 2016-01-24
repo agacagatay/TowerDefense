@@ -17,6 +17,8 @@ public class GameController : MonoBehaviour
 	bool gameOver = false;
 	int enemiesKilled;
 	int turretsSpawned;
+	int initialSecondary;
+	int initialBarriers;
 	public bool IsVictory { get { return isVictory; }}
 	public bool IsDefeat { get { return isDefeat; }}
 	public bool GameOver { get { return gameOver; }}
@@ -31,6 +33,12 @@ public class GameController : MonoBehaviour
 	void Awake()
 	{
 		instance = this;
+	}
+
+	void Start()
+	{
+		initialSecondary = SecondaryStructures.Count;
+		initialBarriers = BarrierStructures.Count;
 	}
 
 	public void GameWin()
@@ -69,6 +77,14 @@ public class GameController : MonoBehaviour
 		int turretsSpawnedScore = TurretsSpawned * 100;
 
 		int finalScore = primaryStructureScore + secondaryStructureScore + barrierStructureScore + enemiesKilledScore + turretsSpawnedScore;
-		Debug.Log("Final Score: " + finalScore.ToString("N0"));
+
+		if (SecondaryStructures.Count >= (initialSecondary * 0.75f))
+			Debug.Log("Score Rating: 3 Stars");
+		else if (SecondaryStructures.Count >= (initialSecondary * 0.5f))
+			Debug.Log("Score Rating: 2 Stars");
+		else if (IsVictory)
+			Debug.Log("Score Rating: 1 Star");
+		else
+			Debug.Log("Score Rating: 0 Stars");
 	}
 }

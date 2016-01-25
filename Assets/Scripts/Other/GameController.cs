@@ -18,7 +18,6 @@ public class GameController : MonoBehaviour
 	int enemiesKilled;
 	int turretsSpawned;
 	int initialSecondary;
-	int initialBarriers;
 	public bool IsVictory { get { return isVictory; }}
 	public bool IsDefeat { get { return isDefeat; }}
 	public bool GameOver { get { return gameOver; }}
@@ -38,14 +37,13 @@ public class GameController : MonoBehaviour
 	void Start()
 	{
 		initialSecondary = SecondaryStructures.Count;
-		initialBarriers = BarrierStructures.Count;
 	}
 
 	public void GameWin()
 	{
 		if (!IsVictory && !IsDefeat)
 		{
-			HUDController.instance.DisplayOneString("VICTORY!", 2f, 2f);
+			HUDController.instance.DisplayOneString("VICTORY!", 3f, 2f);
 			gameOver = true;
 			isVictory = true;
 			CalculateScore();
@@ -56,7 +54,7 @@ public class GameController : MonoBehaviour
 	{
 		if (!IsVictory && !IsDefeat)
 		{
-			HUDController.instance.DisplayOneString("DEFEAT", 2f, 2f);
+			HUDController.instance.DisplayOneString("DEFEAT", 3f, 2f);
 			gameOver = true;
 			isDefeat = true;
 			CalculateScore();
@@ -77,6 +75,7 @@ public class GameController : MonoBehaviour
 		int turretsSpawnedScore = TurretsSpawned * 100;
 
 		int finalScore = primaryStructureScore + secondaryStructureScore + barrierStructureScore + enemiesKilledScore + turretsSpawnedScore;
+		Debug.Log("Score: " + finalScore);
 
 		if (SecondaryStructures.Count >= (initialSecondary * 0.75f))
 			Debug.Log("Score Rating: 3 Stars");

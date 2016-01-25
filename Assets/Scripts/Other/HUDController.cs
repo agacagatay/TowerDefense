@@ -16,9 +16,11 @@ public class HUDController : MonoBehaviour
 	[SerializeField] UISprite turretOverdriveTimer;
 	[SerializeField] UISprite timerSprite;
 	[SerializeField] UILabel timerLabel;
+	[SerializeField] UILabel waveCounterLabel;
 	AllyStructureController primaryStructureController;
 	float totalSecondaryHealth;
 	float remainingTime;
+	public UILabel WaveCounterLabel { get { return waveCounterLabel; }}
 
 	public static HUDController instance;
 
@@ -164,5 +166,12 @@ public class HUDController : MonoBehaviour
 		string formattedTime = string.Format("{0:0}:{1:00}", minutes, seconds);
 
 		return formattedTime;
+	}
+
+	public void SetEnemyWaveLabel(string waveString)
+	{
+		//waveCounterLabel.text = "Enemy Wave " + (EnemySpawnerController.instance.EnemyWaveNumber + 1).ToString("N0") + " of " +
+		//	EnemySpawnerController.instance.TotalEnemyWaves.ToString("N0");
+		waveCounterLabel.text = waveString;
 	}
 }

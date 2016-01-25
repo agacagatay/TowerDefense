@@ -5,6 +5,8 @@ public class EnemySpawnerController : MonoBehaviour
 {
 	[SerializeField] EnemySpawnWave[] enemySpawnerWaves;
 	int enemyWaveNumber = 0;
+	public int EnemyWaveNumber { get { return enemyWaveNumber; }}
+	public int TotalEnemyWaves { get { return enemySpawnerWaves.Length; }}
 
 	public static EnemySpawnerController instance;
 
@@ -29,6 +31,9 @@ public class EnemySpawnerController : MonoBehaviour
 		HUDController.instance.DisplayTwoString("Enemy Wave Incoming", "Wave " + (1 + enemyWaveNumber).ToString("N0") + 
 			" of " + enemySpawnerWaves.Length.ToString("N0"), 2f, 2f);
 
+		HUDController.instance.SetEnemyWaveLabel("Enemy Wave " + (EnemyWaveNumber + 1).ToString("N0") + " of " +
+			TotalEnemyWaves.ToString("N0"));
+
 		enemySpawnerWaves[enemyWaveNumber].TriggerEnemyWave(enemyWaveNumber);
 	}
 
@@ -47,6 +52,7 @@ public class EnemySpawnerController : MonoBehaviour
 
 	IEnumerator SpawnEnemyWave()
 	{
+		HUDController.instance.SetEnemyWaveLabel(" ");
 		++enemyWaveNumber;
 
 		if (enemyWaveNumber < enemySpawnerWaves.Length)
@@ -59,12 +65,14 @@ public class EnemySpawnerController : MonoBehaviour
 
 			HUDController.instance.DisplayTwoString("Enemy Wave Incoming", "Wave " + (1 + enemyWaveNumber).ToString("N0") + 
 				" of " + enemySpawnerWaves.Length.ToString("N0"), 2f, 2f);
-		}
 
-		if (enemyWaveNumber == enemySpawnerWaves.Length)
-			GameController.instance.GameWin();
-		else
+			HUDController.instance.SetEnemyWaveLabel("Enemy Wave " + (EnemyWaveNumber + 1).ToString("N0") + " of " +
+				TotalEnemyWaves.ToString("N0"));
+
 			enemySpawnerWaves[enemyWaveNumber].TriggerEnemyWave(enemyWaveNumber);
+		}
+		else
+			GameController.instance.GameWin();
 	}
 }
 

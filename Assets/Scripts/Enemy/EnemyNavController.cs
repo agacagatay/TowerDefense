@@ -51,7 +51,7 @@ public class EnemyNavController : MonoBehaviour
 		targetTransform = null;
 
 		if (unitNavAgent.enabled)
-			 unitNavAgent.SetDestination(transform.position);
+			unitNavAgent.Stop();
 	}
 
 	void SetNavDestination()

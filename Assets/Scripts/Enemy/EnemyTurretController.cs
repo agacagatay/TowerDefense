@@ -9,7 +9,6 @@ public class EnemyTurretController : MonoBehaviour
 	[SerializeField] float horLookSpeed;
 	[SerializeField] float verLookSpeed;
 	[SerializeField] float turretRange;
-	[SerializeField] string priorityTargetTag;
 	[SerializeField] GameObject ordinancePrefab;
 	[SerializeField] Transform[] ordinanceSpawnTransforms;
 	[SerializeField] bool fireSequentially = false;

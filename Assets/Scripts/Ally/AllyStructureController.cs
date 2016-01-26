@@ -76,7 +76,9 @@ public class AllyStructureController : MonoBehaviour
 					foreach (KeyValuePair<GameObject, int> enemyUnit in SpawnedEnemyDictionary.instance.spawnedEnemyDictionary)
 					{
 						EnemyNavController enemyNavController = enemyUnit.Key.GetComponent<EnemyNavController>();
-						enemyNavController.EnableMovement();
+
+						if (enemyNavController != null)
+							enemyNavController.EnableMovement();
 					}
 				}
 

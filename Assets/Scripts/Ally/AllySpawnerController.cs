@@ -242,18 +242,17 @@ public class AllySpawnerController : MonoBehaviour
 	void ToggleSpawnEffect(int effectLength)
 	{
 		AllySpawnerPosition spawnPosition = selectedSpawnerPosition;
-		Vector3 modifiedPos = new Vector3(spawnPosition.SpawnTransform.position.x, spawnPosition.SpawnTransform.position.y + 15f, spawnPosition.SpawnTransform.position.z);
 
 		switch (effectLength)
 		{
 		case 2:
-			Instantiate(spawnEffect2, modifiedPos, spawnEffect2.transform.rotation);
+			Instantiate(spawnEffect2, spawnPosition.SpawnTransform.position, spawnEffect2.transform.rotation);
 			break;
 		case 3:
-			Instantiate(spawnEffect3, modifiedPos, spawnEffect3.transform.rotation);
+			Instantiate(spawnEffect3, spawnPosition.SpawnTransform.position, spawnEffect3.transform.rotation);
 			break;
 		case 4:
-			Instantiate(spawnEffect4, modifiedPos, spawnEffect4.transform.rotation);
+			Instantiate(spawnEffect4, spawnPosition.SpawnTransform.position, spawnEffect4.transform.rotation);
 			break;
 		default:
 			Debug.LogError("Invalid length specified");

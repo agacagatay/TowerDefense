@@ -17,7 +17,6 @@ public class AllyStructureController : MonoBehaviour
 	int structureHealth;
 	bool structureDead = false;
 	GameObject turretSpawnObject;
-	List<GameObject> stoppedEnemyUnits = new List<GameObject>();
 	public int InitialStructureHealth { get { return initialStructureHealth; }}
 	public int StructureHealth { get { return structureHealth; }}
 	public bool IsTurret { get { return isTurret; }}
@@ -74,16 +73,11 @@ public class AllyStructureController : MonoBehaviour
 
 				if (hasPerimeter)
 				{
-					foreach (GameObject stoppedEnemyUnit in stoppedEnemyUnits)
+					foreach (KeyValuePair<GameObject, int> enemyUnit in SpawnedEnemyDictionary.instance.spawnedEnemyDictionary)
 					{
-						if (stoppedEnemyUnit != null)
-						{
-							EnemyNavController enemyNavController = stoppedEnemyUnit.GetComponent<EnemyNavController>();
-							enemyNavController.EnableMovement();
-						}
+						EnemyNavController enemyNavController = enemyUnit.Key.GetComponent<EnemyNavController>();
+						enemyNavController.EnableMovement();
 					}
-
-					stoppedEnemyUnits.Clear();
 				}
 
 				if (isPrimaryStructure)
@@ -139,10 +133,5 @@ public class AllyStructureController : MonoBehaviour
 
 		if (structureHealth > initialStructureHealth)
 			structureHealth = initialStructureHealth;
-	}
-
-	public void BarrierPerimeterTrigger(GameObject enemyUnitObject)
-	{
-		stoppedEnemyUnits.Add(enemyUnitObject);
 	}
 }

@@ -11,7 +11,6 @@ public class BarrierPerimeter : MonoBehaviour
 		{
 			EnemyNavController enemyNavController = other.GetComponent<EnemyNavController>();
 			enemyNavController.DisableMovement();
-			allyStructureController.BarrierPerimeterTrigger(other.gameObject);
 		}
 	}
 }

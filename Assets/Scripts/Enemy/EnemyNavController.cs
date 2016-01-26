@@ -9,11 +9,12 @@ public class EnemyNavController : MonoBehaviour
 	[SerializeField] bool followNavSlope = false;
 	[SerializeField] float heightOffset;
 	Transform targetTransform;
+	bool unitStopped;
 
 	void Start()
 	{
 		if (groundUnit)
-			InvokeRepeating("SetNavDestination", 0f, 0.5f);
+			InvokeRepeating("SetNavDestination", 0f, 1f);
 		else
 			SetNewAirWayoint();
 	}
@@ -42,7 +43,7 @@ public class EnemyNavController : MonoBehaviour
 
 	public void EnableMovement()
 	{
-		InvokeRepeating("SetNavDestination", 0f, 0.5f);
+		InvokeRepeating("SetNavDestination", 0f, 1f);
 	}
 
 	public void DisableMovement()
@@ -51,7 +52,7 @@ public class EnemyNavController : MonoBehaviour
 		targetTransform = null;
 
 		if (unitNavAgent.enabled)
-			unitNavAgent.Stop();
+			unitNavAgent.SetDestination(transform.position);
 	}
 
 	void SetNavDestination()

@@ -82,7 +82,7 @@ public class EnemyNavController : MonoBehaviour
 			else if (GameController.instance.PrimaryStructure != null)
 				targetTransform = GameController.instance.PrimaryStructure.transform;
 
-			if (targetTransform != null)
+			if (targetTransform != null && unitNavAgent.isActiveAndEnabled)
 				unitNavAgent.SetDestination(targetTransform.position);
 			else
 				DisableMovement();

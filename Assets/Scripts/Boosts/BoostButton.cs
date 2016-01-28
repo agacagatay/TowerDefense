@@ -4,8 +4,8 @@ using System.Collections;
 public class BoostButton : MonoBehaviour
 {
 	[SerializeField] string boostName;
-	[SerializeField] UITexture boostIcon;
-	[SerializeField] UITexture boostDarkIcon;
+	[SerializeField] UISprite boostIcon;
+	[SerializeField] UISprite boostDarkIcon;
 	[SerializeField] UISprite overlaySprite;
 
 	void OnClick()

@@ -219,11 +219,11 @@ public class AllySpawnerController : MonoBehaviour
 			StartCoroutine(ToggleTurretSpawn("Artillary", artillarySpawnTime));
 			break;
 		case "Minigun":
-			ToggleSpawnEffect(2);
+			ToggleSpawnEffect(3);
 			StartCoroutine(ToggleTurretSpawn("Minigun", minigunSpawnTime));
 			break;
 		case "Turret":
-			ToggleSpawnEffect(3);
+			ToggleSpawnEffect(2);
 			StartCoroutine(ToggleTurretSpawn("Turret", turretSpawnTime));
 			break;
 		case "Missile Battery":

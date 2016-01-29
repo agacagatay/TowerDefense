@@ -6,14 +6,13 @@ public class MenuLoadLevel : MonoBehaviour
 {
 	[SerializeField] GameObject[] objectsToActivate;
 	[SerializeField] float waitBeforeSceneLoad;
-	[SerializeField] int levelToLoad;
 
-	void OnClick()
+	public void LoadLevel(int levelToLoad)
 	{
-		StartCoroutine(WaitAndLoadScene());
+		StartCoroutine(WaitAndLoadLevel(levelToLoad));
 	}
 
-	IEnumerator WaitAndLoadScene()
+	IEnumerator WaitAndLoadLevel(int levelToLoad)
 	{
 		foreach(GameObject objectToActivate in objectsToActivate)
 		{

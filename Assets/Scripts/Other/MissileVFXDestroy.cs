@@ -14,7 +14,8 @@ public class MissileVFXDestroy : MonoBehaviour
 	{
 		foreach (ParticleSystem particleSystem in particles)
 		{
-			particleSystem.enableEmission = false;
+			var ps = particleSystem.emission;
+			ps.enabled = false;
 		}
 	}
 
@@ -24,7 +25,8 @@ public class MissileVFXDestroy : MonoBehaviour
 
 		foreach (ParticleSystem particleSystem in particles)
 		{
-			particleSystem.enableEmission = false;
+			var ps = particleSystem.emission;
+			ps.enabled = false;
 		}
 
 		yield return new WaitForSeconds(5f);

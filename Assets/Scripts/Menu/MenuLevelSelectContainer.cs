@@ -43,7 +43,7 @@ public class MenuLevelSelectContainer : MonoBehaviour
 		int highScore = EncryptedPlayerPrefs.GetInt("HighScore" + levelNumberString, 0);
 		highScoreLabel.text = "High Score: " + highScore.ToString("N0");
 
-		int awardedStars = EncryptedPlayerPrefs.GetInt("StarsEarned" + levelNumberString, 0);
+		int awardedStars = EncryptedPlayerPrefs.GetInt("MedalsEarned" + levelNumberString, 0);
 
 		for (int i = 0; i < starIcons.Length; i++)
 		{

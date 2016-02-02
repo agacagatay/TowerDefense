@@ -9,7 +9,7 @@ public class MenuLevelSelectContainer : MonoBehaviour
 	[SerializeField] UILabel levelNameLabel;
 	[SerializeField] UILabel highScoreLabel;
 	[SerializeField] UILabel missionStatusLabel;
-	[SerializeField] GameObject[] starIcons;
+	[SerializeField] GameObject[] medalIcons;
 	[SerializeField] MenuLoadLevel menuLoadLevel;
 
 	void Awake()
@@ -45,9 +45,9 @@ public class MenuLevelSelectContainer : MonoBehaviour
 
 		int awardedStars = EncryptedPlayerPrefs.GetInt("MedalsEarned" + levelNumberString, 0);
 
-		for (int i = 0; i < starIcons.Length; i++)
+		for (int i = 0; i < medalIcons.Length; i++)
 		{
-			UISprite starSprite = starIcons[i].GetComponent<UISprite>();
+			UISprite starSprite = medalIcons[i].GetComponent<UISprite>();
 
 			if (i < awardedStars)
 				starSprite.color = Color.white;

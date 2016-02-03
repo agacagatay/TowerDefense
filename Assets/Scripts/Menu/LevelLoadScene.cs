@@ -10,6 +10,7 @@ public class LevelLoadScene : MonoBehaviour
 
 	void OnClick()
 	{
+		Time.timeScale = 1f;
 		StartCoroutine(WaitAndLoadMenu());
 	}
 

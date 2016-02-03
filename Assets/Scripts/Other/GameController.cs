@@ -73,7 +73,15 @@ public class GameController : MonoBehaviour
 		int primaryStructureScore = 0;
 
 		if (IsVictory)
+		{
 			primaryStructureScore = 20000;
+			EncryptedPlayerPrefs.SetInt("MissionStatus" + levelNumberString, 2);
+
+			if (levelNumberInt < 9)
+				EncryptedPlayerPrefs.SetInt("MissionStatus0" + (levelNumberInt + 1).ToString(), 1);
+			else
+				EncryptedPlayerPrefs.SetInt("MissionStatus" + (levelNumberInt + 1).ToString(), 1);
+		}
 
 		levelVictoryScoreLabel.text = primaryStructureScore.ToString("N0");
 

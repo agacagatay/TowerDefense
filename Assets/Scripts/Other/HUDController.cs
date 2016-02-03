@@ -14,8 +14,6 @@ public class HUDController : MonoBehaviour
 	[SerializeField] UILabel noticeSecondaryLabel;
 	[SerializeField] TweenAlpha tweenAlpha;
 	[SerializeField] UISprite turretOverdriveTimer;
-	[SerializeField] UISprite timerSprite;
-	[SerializeField] UILabel timerLabel;
 	[SerializeField] UILabel waveCounterLabel;
 	AllyStructureController primaryStructureController;
 	float totalSecondaryHealth;
@@ -140,8 +138,7 @@ public class HUDController : MonoBehaviour
 	public void ToggleEnemySpawnTimer(float timeUntilSpawn)
 	{
 		remainingTime = timeUntilSpawn;
-		timerLabel.text = FormatTime(remainingTime);
-		timerSprite.gameObject.SetActive(true);
+		waveCounterLabel.text = "Next Wave In " + FormatTime(remainingTime);
 
 		InvokeRepeating("ReduceTime", 1f, 1f);
 	}
@@ -153,10 +150,10 @@ public class HUDController : MonoBehaviour
 		if (remainingTime <= 0f)
 		{
 			CancelInvoke("ReduceTime");
-			timerSprite.gameObject.SetActive(false);
+			waveCounterLabel.text = " ";
 		}
 		else
-			timerLabel.text = FormatTime(remainingTime);
+			waveCounterLabel.text = "Next Wave In " + FormatTime(remainingTime);
 	}
 
 	string FormatTime(float timeToFormat)
@@ -164,14 +161,11 @@ public class HUDController : MonoBehaviour
 		int minutes = Mathf.FloorToInt(timeToFormat / 60f);
 		int seconds = Mathf.FloorToInt(timeToFormat - minutes * 60f);
 		string formattedTime = string.Format("{0:0}:{1:00}", minutes, seconds);
-
 		return formattedTime;
 	}
 
 	public void SetEnemyWaveLabel(string waveString)
 	{
-		//waveCounterLabel.text = "Enemy Wave " + (EnemySpawnerController.instance.EnemyWaveNumber + 1).ToString("N0") + " of " +
-		//	EnemySpawnerController.instance.TotalEnemyWaves.ToString("N0");
 		waveCounterLabel.text = waveString;
 	}
 }

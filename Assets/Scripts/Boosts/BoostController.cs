@@ -6,8 +6,10 @@ public class BoostController : MonoBehaviour
 	[SerializeField] BoostContainer[] boostContainers;
 	int enabledBoost;
 	float boostCooldown;
+	bool turretOverdriveEnabled = false;
 	public int EnabledBoost { get { return enabledBoost; } set { enabledBoost = value; }}
 	public float BoostCooldown { get { return boostCooldown; }}
+	public bool TurretOverdriveEnabled { get { return turretOverdriveEnabled; } set { turretOverdriveEnabled = value; }}
 
 	public static BoostController instance;
 

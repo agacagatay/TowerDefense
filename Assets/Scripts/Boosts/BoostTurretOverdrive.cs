@@ -14,6 +14,7 @@ public class BoostTurretOverdrive : MonoBehaviour
 	IEnumerator TriggerOverdrive()
 	{
 		HUDController.instance.ToggleTurretTimer(activeTime);
+		BoostController.instance.TurretOverdriveEnabled = true;
 
 		foreach(KeyValuePair<GameObject, int> allyKeyValuePair in SpawnedAllyDictionary.instance.spawnedAllyDictionary)
 		{
@@ -24,6 +25,7 @@ public class BoostTurretOverdrive : MonoBehaviour
 		}
 
 		yield return new WaitForSeconds(activeTime);
+		BoostController.instance.TurretOverdriveEnabled = false;
 
 		foreach(KeyValuePair<GameObject, int> allyKeyValuePair in SpawnedAllyDictionary.instance.spawnedAllyDictionary)
 		{

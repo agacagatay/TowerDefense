@@ -30,6 +30,9 @@ public class AllyTurretController : MonoBehaviour
 	void Start()
 	{
 		InvokeRepeating("FindEnemiesInRange", 0, 0.5f);
+
+		if (BoostController.instance.TurretOverdriveEnabled)
+			OverdriveActive = true;
 	}
 
 	void Update()

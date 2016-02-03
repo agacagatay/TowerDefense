@@ -4,13 +4,18 @@ using System.Collections.Generic;
 
 public class GameController : MonoBehaviour
 {
-	// Game Score
-	// - Mission Success (5,000)
-	// - Secondary Structures Intact (1,000 each)
-	// - Barrier Structures Intact (500 each)
-	// - Enemies Killed (200 each)
-	// - Turrets Spawned (100 each)
-
+	[SerializeField] int levelNumberInt;
+	[SerializeField] string levelNumberString;
+	[SerializeField] GameObject levelResultsObject;
+	[SerializeField] UILabel levelVictoryScoreLabel;
+	[SerializeField] UILabel secondaryStructuresScoreLabel;
+	[SerializeField] UILabel barrierStructuresScoreLabel;
+	[SerializeField] UILabel enemiesDestroyedScoreLabel;
+	[SerializeField] UILabel towersSpawnedScoreLabel;
+	[SerializeField] UILabel totalScoreLabel;
+	[SerializeField] GameObject newHighScoreObject;
+	[SerializeField] UISprite[] medalsObjects;
+	[SerializeField] UILabel medalsEarnedLabel;
 	GameObject primaryStructure;
 	bool isVictory = false;
 	bool isDefeat = false;
@@ -18,6 +23,7 @@ public class GameController : MonoBehaviour
 	int enemiesKilled;
 	int turretsSpawned;
 	int initialSecondary;
+	public int LevelNumberInt { get { return levelNumberInt; }}
 	public bool IsVictory { get { return isVictory; }}
 	public bool IsDefeat { get { return isDefeat; }}
 	public bool GameOver { get { return gameOver; }}
@@ -67,23 +73,75 @@ public class GameController : MonoBehaviour
 		int primaryStructureScore = 0;
 
 		if (IsVictory)
-			primaryStructureScore = 5000;
+			primaryStructureScore = 20000;
+
+		levelVictoryScoreLabel.text = primaryStructureScore.ToString("N0");
 
 		int secondaryStructureScore = SecondaryStructures.Count * 1000;
-		int barrierStructureScore = BarrierStructures.Count * 500;
-		int enemiesKilledScore = EnemiesKilled * 200;
-		int turretsSpawnedScore = TurretsSpawned * 100;
+		secondaryStructuresScoreLabel.text = secondaryStructureScore.ToString("N0");
 
-		int finalScore = primaryStructureScore + secondaryStructureScore + barrierStructureScore + enemiesKilledScore + turretsSpawnedScore;
-		Debug.Log("Score: " + finalScore);
+		int barrierStructureScore = BarrierStructures.Count * 500;
+		barrierStructuresScoreLabel.text = barrierStructureScore.ToString("N0");
+
+		int enemiesKilledScore = EnemiesKilled * 100;
+		enemiesDestroyedScoreLabel.text = enemiesKilledScore.ToString("N0");
+
+		int towersSpawnedScore = TurretsSpawned * 200;
+		towersSpawnedScoreLabel.text = towersSpawnedScore.ToString("N0");
+
+		int finalScore = primaryStructureScore + secondaryStructureScore + barrierStructureScore + enemiesKilledScore + towersSpawnedScore;
+		totalScoreLabel.text = finalScore.ToString("N0");
+
+		if (finalScore > EncryptedPlayerPrefs.GetInt("HighScore" + levelNumberString, 0))
+		{
+			EncryptedPlayerPrefs.SetInt("HighScore" + levelNumberString, finalScore);
+			newHighScoreObject.SetActive(true);
+		}
+
+		int earnedMedals;
 
 		if (SecondaryStructures.Count >= (initialSecondary * 0.75f))
-			Debug.Log("Score Rating: 3 Stars");
+		{
+			earnedMedals = 3;
+			medalsEarnedLabel.text = "Medals Earned - 3";
+			medalsObjects[0].color = Color.HSVToRGB(0f, 0f, 1f);
+			medalsObjects[1].color = Color.HSVToRGB(0f, 0f, 1f);
+			medalsObjects[2].color = Color.HSVToRGB(0f, 0f, 1f);
+		}
 		else if (SecondaryStructures.Count >= (initialSecondary * 0.5f))
-			Debug.Log("Score Rating: 2 Stars");
+		{
+			earnedMedals = 2;
+			medalsEarnedLabel.text = "Medals Earned - 2";
+			medalsObjects[0].color = Color.HSVToRGB(0f, 0f, 1f);
+			medalsObjects[1].color = Color.HSVToRGB(0f, 0f, 1f);
+			medalsObjects[2].color = Color.HSVToRGB(0f, 0f, 0.25f);
+		}
 		else if (IsVictory)
-			Debug.Log("Score Rating: 1 Star");
+		{
+			earnedMedals = 1;
+			medalsEarnedLabel.text = "Medals Earned - 1";
+			medalsObjects[0].color = Color.HSVToRGB(0f, 0f, 1f);
+			medalsObjects[1].color = Color.HSVToRGB(0f, 0f, 0.25f);
+			medalsObjects[2].color = Color.HSVToRGB(0f, 0f, 0.25f);
+		}
 		else
-			Debug.Log("Score Rating: 0 Stars");
+		{
+			earnedMedals = 0;
+			medalsEarnedLabel.text = "Medals Earned - 0";
+			medalsObjects[0].color = Color.HSVToRGB(0f, 0f, 0.25f);
+			medalsObjects[1].color = Color.HSVToRGB(0f, 0f, 0.25f);
+			medalsObjects[2].color = Color.HSVToRGB(0f, 0f, 0.25f);
+		}
+
+		int previousEarnedMedals = EncryptedPlayerPrefs.GetInt("MedalsEarned" + levelNumberString, 0);
+
+		if (earnedMedals > previousEarnedMedals)
+		{
+			EncryptedPlayerPrefs.SetInt("MedalsEarned" + levelNumberString, earnedMedals);
+			EncryptedPlayerPrefs.SetInt("TotalMedals", EncryptedPlayerPrefs.GetInt("TotalMedals", 0) + (earnedMedals - previousEarnedMedals));
+		}
+
+		PlayerPrefs.Save();
+		levelResultsObject.SetActive(true);
 	}
 }

@@ -14,7 +14,12 @@ public class MenuUpgradesContainer : MonoBehaviour
 	[SerializeField] TowerInformation[] towerInformation;
 	int currentTowerArrayPos;
 
-	void OnEnable()
+	void Start()
+	{
+		ToggleUpgradeMenu();
+	}
+
+	public void ToggleUpgradeMenu()
 	{
 		foreach(TowerInformation towerInfoHolder in towerInformation)
 		{
@@ -22,7 +27,7 @@ public class MenuUpgradesContainer : MonoBehaviour
 		}
 
 		currentTowerArrayPos = 0;
-		SetTowerInfo(0);
+		SetTowerInfo(currentTowerArrayPos);
 	}
 
 	public void IncreaseTowerArrayPos()
@@ -76,7 +81,7 @@ public class TowerInformation
 	[SerializeField] string towerName;
 	[SerializeField] string towerDescription;
 	[SerializeField] int[] towerDamage;
-	[SerializeField] int[] towerRange;
+	[SerializeField] float[] towerRange;
 	[SerializeField] float[] towerAttackSpeed;
 	[SerializeField] int[] towerUpgradeCost;
 	int towerTier;
@@ -85,7 +90,7 @@ public class TowerInformation
 	public string TowerDescription { get { return towerDescription; }}
 	public string TowerTierString { get { return TowerName + " Tier " + towerTier; }}
 	public int TowerDamage { get { return towerDamage[arrayPos]; }}
-	public int TowerRange { get { return towerRange[arrayPos]; }}
+	public float TowerRange { get { return towerRange[arrayPos]; }}
 	public float TowerAttackSpeed { get { return towerAttackSpeed[arrayPos]; }}
 	public int TowerUpgradeCost { get { return towerUpgradeCost[arrayPos]; }}
 
@@ -95,9 +100,9 @@ public class TowerInformation
 		arrayPos = towerTier - 1;
 
 		EncryptedPlayerPrefs.SetInt(towerName + " Damage", towerDamage[arrayPos]);
-		EncryptedPlayerPrefs.SetInt(towerName + " Range", towerDamage[arrayPos]);
-		EncryptedPlayerPrefs.SetInt(towerName + " Attack Speed", towerDamage[arrayPos]);
-		EncryptedPlayerPrefs.SetInt(towerName + " Upgrade Cost", towerDamage[arrayPos]);
+		EncryptedPlayerPrefs.SetFloat(towerName + " Range", towerRange[arrayPos]);
+		EncryptedPlayerPrefs.SetFloat(towerName + " Attack Speed", towerAttackSpeed[arrayPos]);
+		EncryptedPlayerPrefs.SetInt(towerName + " Upgrade Cost", towerUpgradeCost[arrayPos]);
 		PlayerPrefs.Save();
 	}
 }

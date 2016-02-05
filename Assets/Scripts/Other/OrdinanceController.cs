@@ -12,10 +12,12 @@ public class OrdinanceController : MonoBehaviour
 	[SerializeField] bool splashDamage = false;
 	[SerializeField] float splashDamageRange;
 	[SerializeField] GameObject explosionPrefab;
+	int overrideDamage = 0;
 	Transform targetTransform;
 	bool overdriveActive = false;
 	GameObject missileVFXObject;
 	public Transform TargetTransform { get { return targetTransform; } set { targetTransform = value; }}
+	public int OverrideDamage { get { return overrideDamage; } set { overrideDamage = value; }}
 	public bool OverdriveActive { get { return overdriveActive; } set { overdriveActive = value; }}
 
 	void Start()
@@ -47,6 +49,9 @@ public class OrdinanceController : MonoBehaviour
 	{
 		if (allyOrdinance && (other.gameObject.tag == "EnemyGround" || other.gameObject.tag == "EnemyAir"))
 		{
+			if (OverrideDamage != 0)
+				damage = OverrideDamage;
+
 			if (!splashDamage)
 			{
 				EnemyUnitVariables enemyUnitVariables = other.GetComponent<EnemyUnitVariables>();

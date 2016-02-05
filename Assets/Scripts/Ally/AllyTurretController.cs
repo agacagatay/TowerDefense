@@ -8,19 +8,23 @@ public class AllyTurretController : MonoBehaviour
 	[SerializeField] Transform verPivot;
 	[SerializeField] float horLookSpeed;
 	[SerializeField] float verLookSpeed;
-	[SerializeField] float airRange;
-	[SerializeField] float groundRange;
+	[SerializeField] bool attackAir;
+	[SerializeField] bool attackGround;
 	[SerializeField] GameObject ordinancePrefab;
 	[SerializeField] Transform[] ordinanceSpawnTransforms;
 	[SerializeField] bool fireSequentially = false;
-	[SerializeField] float fireRate;
 	[SerializeField] LayerMask turretLayerMask;
 	Transform targetTransform;
 	Collider[] airHitColliders;
 	Collider[] groundHitColliders;
+	float fireRate;
+	float airRange;
+	float groundRange;
+	int ordinanceDamage;
 	bool canFire = true;
 	bool overdriveActive = false;
 	int sequenceVal = 0;
+	string towerType;
 	List<GameObject> potentialTargets = new List<GameObject>();
 	List<GameObject> highestPriorityTargets = new List<GameObject>();
 	public bool OverdriveActive { get { return overdriveActive; } set { overdriveActive = value; }}
@@ -30,6 +34,23 @@ public class AllyTurretController : MonoBehaviour
 	void Start()
 	{
 		InvokeRepeating("FindEnemiesInRange", 0, 0.5f);
+
+		AllyStructureController allyStructureController = gameObject.GetComponent<AllyStructureController>();
+		towerType = allyStructureController.StructureName;
+
+		fireRate = EncryptedPlayerPrefs.GetFloat(towerType + " Attack Speed", 0f);
+		ordinanceDamage = EncryptedPlayerPrefs.GetInt(towerType + " Damage", 0);
+		float attackRange = EncryptedPlayerPrefs.GetFloat(towerType + " Range", 0f);
+
+		if (attackAir)
+			airRange = attackRange;
+		else
+			airRange = 0f;
+
+		if (attackGround)
+			groundRange = attackRange;
+		else
+			groundRange = 0f;
 
 		if (BoostController.instance.TurretOverdriveEnabled)
 			OverdriveActive = true;
@@ -201,6 +222,7 @@ public class AllyTurretController : MonoBehaviour
 
 		OrdinanceController ordinanceController = ordinanceClone.GetComponent<OrdinanceController>();
 		ordinanceController.TargetTransform = targetTransform;
+		ordinanceController.OverrideDamage = ordinanceDamage;
 
 		if (OverdriveActive)
 		{

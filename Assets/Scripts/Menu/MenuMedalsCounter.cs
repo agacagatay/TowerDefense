@@ -4,9 +4,11 @@ using System.Collections;
 public class MenuMedalsCounter : MonoBehaviour
 {
 	[SerializeField] UILabel medalCountLabel;
+	public static MenuMedalsCounter instance;
 
-	void Start()
+	void Awake()
 	{
+		instance = this;
 		UpdateMedalsCount();
 	}
 

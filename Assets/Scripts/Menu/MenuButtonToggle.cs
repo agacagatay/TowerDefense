@@ -8,6 +8,11 @@ public class MenuButtonToggle : MonoBehaviour
 
 	void OnClick()
 	{
+		ToggleMenu();
+	}
+
+	public void ToggleMenu()
+	{
 		foreach (GameObject objectToDisable in objectsToDisable)
 		{
 			objectToDisable.SetActive(false);

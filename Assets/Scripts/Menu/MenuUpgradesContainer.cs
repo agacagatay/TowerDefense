@@ -3,6 +3,8 @@ using System.Collections;
 
 public class MenuUpgradesContainer : MonoBehaviour
 {
+	[SerializeField] MenuButtonToggle storeMenuToggle;
+	[SerializeField] GameObject upgradeButton;
 	[SerializeField] UILabel towerNameLabel;
 	[SerializeField] UILabel towerTierLabel;
 	[SerializeField] UILabel towerDamageLabel;
@@ -13,6 +15,17 @@ public class MenuUpgradesContainer : MonoBehaviour
 	[SerializeField] GameObject[] towerMeshes;
 	[SerializeField] TowerInformation[] towerInformation;
 	int currentTowerArrayPos;
+
+	void Update()
+	{
+		if (Input.GetKeyDown(KeyCode.A))
+		{
+			int totalMedals = EncryptedPlayerPrefs.GetInt("TotalMedals", 0);
+			EncryptedPlayerPrefs.SetInt("TotalMedals", totalMedals + 1);
+			MenuMedalsCounter.instance.UpdateMedalsCount();
+			PlayerPrefs.Save();
+		}
+	}
 
 	void Start()
 	{
@@ -27,7 +40,7 @@ public class MenuUpgradesContainer : MonoBehaviour
 		}
 
 		currentTowerArrayPos = 0;
-		SetTowerInfo(currentTowerArrayPos);
+		SetTowerInfo();
 	}
 
 	public void IncreaseTowerArrayPos()
@@ -37,7 +50,7 @@ public class MenuUpgradesContainer : MonoBehaviour
 		if (currentTowerArrayPos >= towerMeshes.Length)
 			currentTowerArrayPos = 0;
 
-		SetTowerInfo(currentTowerArrayPos);
+		SetTowerInfo();
 	}
 
 	public void DecreaseTowerArrayPos()
@@ -47,31 +60,64 @@ public class MenuUpgradesContainer : MonoBehaviour
 		if (currentTowerArrayPos < 0)
 			currentTowerArrayPos = towerMeshes.Length - 1;
 
-		SetTowerInfo(currentTowerArrayPos);
+		SetTowerInfo();
 	}
 
-	public void SetTowerInfo(int towerArrayPos)
+	public void SetTowerInfo()
 	{
-		towerNameLabel.text = towerInformation[towerArrayPos].TowerName;
-		towerDescriptionLabel.text = towerInformation[towerArrayPos].TowerDescription;
-		towerTierLabel.text = towerInformation[towerArrayPos].TowerTierString;
-		towerDamageLabel.text = towerInformation[towerArrayPos].TowerDamage.ToString();
-		towerRangeLabel.text = towerInformation[towerArrayPos].TowerRange.ToString();
-		towerAttackSpeedLabel.text = towerInformation[towerArrayPos].TowerAttackSpeed.ToString() + " sec";
-		towerUpgradeCostLabel.text = towerInformation[towerArrayPos].TowerUpgradeCost.ToString();
+		towerNameLabel.text = towerInformation[currentTowerArrayPos].TowerName;
+		towerDescriptionLabel.text = towerInformation[currentTowerArrayPos].TowerDescription;
+		towerTierLabel.text = towerInformation[currentTowerArrayPos].TowerTierString;
+		towerDamageLabel.text = towerInformation[currentTowerArrayPos].TowerDamage.ToString();
+		towerRangeLabel.text = towerInformation[currentTowerArrayPos].TowerRange.ToString();
+		towerAttackSpeedLabel.text = towerInformation[currentTowerArrayPos].TowerAttackSpeed.ToString() + " sec";
+
+		if (towerInformation[currentTowerArrayPos].TowerTier < towerInformation[currentTowerArrayPos].TowerUpgradeLength)
+			towerUpgradeCostLabel.text = towerInformation[currentTowerArrayPos].TowerUpgradeCost.ToString();
+		else
+			towerUpgradeCostLabel.text = "--";
 
 		for (int i = 0; i < towerMeshes.Length; i++)
 		{
-			if (i == towerArrayPos)
+			if (i == currentTowerArrayPos)
 				towerMeshes[i].SetActive(true);
 			else
 				towerMeshes[i].SetActive(false);
 		}
+
+		if (towerInformation[currentTowerArrayPos].TowerTier < towerInformation[currentTowerArrayPos].TowerUpgradeLength)
+			upgradeButton.SetActive(true);
+		else
+			upgradeButton.SetActive(false);
 	}
 
 	public void TriggerUpgrade()
 	{
-		Debug.Log("Upgrade Triggered");
+		int totalMedals = EncryptedPlayerPrefs.GetInt("TotalMedals", 0);
+		string towerName = towerInformation[currentTowerArrayPos].TowerName;
+		int currentTowerTier = EncryptedPlayerPrefs.GetInt(towerName + " Tier", 1);
+
+		if (totalMedals >= towerInformation[currentTowerArrayPos].TowerUpgradeCost && currentTowerTier < towerInformation[currentTowerArrayPos].TowerUpgradeLength)
+		{
+			totalMedals -= towerInformation[currentTowerArrayPos].TowerUpgradeCost;
+			EncryptedPlayerPrefs.SetInt("TotalMedals", totalMedals);
+			MenuMedalsCounter.instance.UpdateMedalsCount();
+
+			EncryptedPlayerPrefs.SetInt(towerName + " Tier", currentTowerTier + 1);
+			PlayerPrefs.Save();
+
+			foreach(TowerInformation towerInfoHolder in towerInformation)
+			{
+				towerInfoHolder.SetInfo();
+			}
+
+			SetTowerInfo();
+		}
+		else if (currentTowerTier < towerInformation[currentTowerArrayPos].TowerUpgradeLength)
+		{
+			storeMenuToggle.ToggleMenu();
+		}
+			
 	}
 }
 
@@ -88,11 +134,13 @@ public class TowerInformation
 	int arrayPos;
 	public string TowerName { get { return towerName; }}
 	public string TowerDescription { get { return towerDescription; }}
-	public string TowerTierString { get { return TowerName + " Tier " + towerTier; }}
+	public int TowerTier { get { return towerTier; }}
+	public string TowerTierString { get { return TowerName + " Tier " + towerTier + "/" + TowerUpgradeLength.ToString(); }}
 	public int TowerDamage { get { return towerDamage[arrayPos]; }}
 	public float TowerRange { get { return towerRange[arrayPos]; }}
 	public float TowerAttackSpeed { get { return towerAttackSpeed[arrayPos]; }}
 	public int TowerUpgradeCost { get { return towerUpgradeCost[arrayPos]; }}
+	public int TowerUpgradeLength { get { return towerUpgradeCost.Length; }}
 
 	public void SetInfo()
 	{
@@ -102,7 +150,10 @@ public class TowerInformation
 		EncryptedPlayerPrefs.SetInt(towerName + " Damage", towerDamage[arrayPos]);
 		EncryptedPlayerPrefs.SetFloat(towerName + " Range", towerRange[arrayPos]);
 		EncryptedPlayerPrefs.SetFloat(towerName + " Attack Speed", towerAttackSpeed[arrayPos]);
-		EncryptedPlayerPrefs.SetInt(towerName + " Upgrade Cost", towerUpgradeCost[arrayPos]);
+
+		if (towerTier < TowerUpgradeLength)
+			EncryptedPlayerPrefs.SetInt(towerName + " Upgrade Cost", towerUpgradeCost[arrayPos]);
+		
 		PlayerPrefs.Save();
 	}
 }

@@ -5,6 +5,7 @@ using System.Collections.Generic;
 public class GameCenterController : MonoBehaviour
 {
 	// "leaderboard_points"
+	// "leaderboard_medals"
 
 	// "achievement_complete_tutorial_level"
 	// "achievement_complete_first_level"
@@ -16,6 +17,7 @@ public class GameCenterController : MonoBehaviour
 	// "achievement_earn_all_medals" [ASSUMING 15 LEVELS]
 
 	static bool IsInitialized = false;
+	public static GameCenterController instance;
 
 	//--------------------------------------
 	// INITIALIZE
@@ -23,6 +25,9 @@ public class GameCenterController : MonoBehaviour
 
 	void Awake()
 	{
+		instance = this;
+		DontDestroyOnLoad(this);
+
 		if (!IsInitialized)
 		{
 			//Achievement registration. If you skip this step GameCenterManager.achievements array will contain only achievements with reported progress 
@@ -214,7 +219,7 @@ public class GameCenterController : MonoBehaviour
 	//  EVENTS
 	//--------------------------------------
 
-	private void OnAchievementsLoaded(ISN_Result result)
+	void OnAchievementsLoaded(ISN_Result result)
 	{
 		Debug.Log("OnAchievementsLoaded");
 		Debug.Log(result.IsSucceeded);
@@ -288,24 +293,24 @@ public class GameCenterController : MonoBehaviour
 	{
 		if (result.IsSucceeded)
 		{
-			GK_Score score = result.Leaderboard.GetCurrentPlayerScore(GK_TimeSpan.ALL_TIME, GK_CollectionType.GLOBAL);
-			IOSNativePopUpManager.showMessage("Leaderboard " + score.LongScore, "Score: " + score.LongScore + "\n" + "Rank: " + score.Rank);
+			//GK_Score score = result.Leaderboard.GetCurrentPlayerScore(GK_TimeSpan.ALL_TIME, GK_CollectionType.GLOBAL);
+			//IOSNativePopUpManager.showMessage("Leaderboard " + score.LongScore, "Score: " + score.LongScore + "\n" + "Rank: " + score.Rank);
 		}
 	}
 
-	private void OnLeadrboardInfoLoaded(GK_LeaderboardResult result)
+	void OnLeadrboardInfoLoaded(GK_LeaderboardResult result)
 	{
 		if (result.IsSucceeded)
 		{
-			GK_Score score = result.Leaderboard.GetCurrentPlayerScore(GK_TimeSpan.ALL_TIME, GK_CollectionType.GLOBAL);
-			IOSNativePopUpManager.showMessage("Leaderboard " + score.LeaderboardId, "Score: " + score.LongScore + "\n" + "Rank: " + score.Rank);
+			//GK_Score score = result.Leaderboard.GetCurrentPlayerScore(GK_TimeSpan.ALL_TIME, GK_CollectionType.GLOBAL);
+			//IOSNativePopUpManager.showMessage("Leaderboard " + score.LeaderboardId, "Score: " + score.LongScore + "\n" + "Rank: " + score.Rank);
 
-			Debug.Log("double score representation: " + score.DecimalFloat_2);
-			Debug.Log("long score representation: " + score.LongScore);
+			//Debug.Log("double score representation: " + score.DecimalFloat_2);
+			//Debug.Log("long score representation: " + score.LongScore);
 		}
 	}
 
-	private void OnScoreSubmitted(ISN_Result result)
+	void OnScoreSubmitted(ISN_Result result)
 	{
 		GameCenterManager.OnScoreSubmitted -= OnScoreSubmitted;
 
@@ -323,12 +328,13 @@ public class GameCenterController : MonoBehaviour
 	{
 		if (res.IsSucceeded)
 		{
-			IOSNativePopUpManager.showMessage("Player Authed ", "ID: " + GameCenterManager.Player.Id + "\n" + "Alias: " + GameCenterManager.Player.Alias);
+			//IOSNativePopUpManager.showMessage("Player Authed ", "ID: " + GameCenterManager.Player.Id + "\n" + "Alias: " + GameCenterManager.Player.Alias);
 			GameCenterManager.LoadLeaderboardInfo("leaderboard_points");
+			GameCenterManager.LoadLeaderboardInfo("leaderboard_medals");
 		}
 		else
 		{
-			IOSNativePopUpManager.showMessage("Game Center ", "Player authentication failed");
+			//IOSNativePopUpManager.showMessage("Game Center ", "Player authentication failed");
 		}
 	}
 

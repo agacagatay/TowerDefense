@@ -101,9 +101,6 @@ public class AllyStructureController : MonoBehaviour
 				if (isPrimaryStructure || isSecondaryStructure)
 					HUDController.instance.UpdateBaseDisplay();
 
-				if (HealthBarController.instance.StructureController == this)
-					HealthBarController.instance.DisableAllHealthBars();
-
 				SpawnedAllyDictionary.instance.spawnedAllyDictionary.Remove(gameObject);
 
 				if (deathExplosion != null)
@@ -119,6 +116,9 @@ public class AllyStructureController : MonoBehaviour
 	IEnumerator WaitAndDestroy(float waitTime)
 	{
 		yield return new WaitForSeconds(waitTime);
+
+		if (HealthBarController.instance.StructureController == this)
+			HealthBarController.instance.DisableAllHealthBars();
 
 		if (TurretSpawnObject != null)
 		{

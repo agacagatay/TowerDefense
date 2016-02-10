@@ -165,6 +165,8 @@ public class GameController : MonoBehaviour
 				GameCenterManager.SubmitAchievement(100f, "achievement_earn_all_medals", true);
 		}
 
+		GameCenterManager.ReportScore(EncryptedPlayerPrefs.GetInt("TotalMedals", 0), "leaderboard_medals");
+
 		PlayerPrefs.Save();
 		levelResultsObject.SetActive(true);
 	}

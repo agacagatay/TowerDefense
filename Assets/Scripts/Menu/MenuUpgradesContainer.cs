@@ -16,17 +16,6 @@ public class MenuUpgradesContainer : MonoBehaviour
 	[SerializeField] TowerInformation[] towerInformation;
 	int currentTowerArrayPos;
 
-	void Update()
-	{
-		if (Input.GetKeyDown(KeyCode.A))
-		{
-			int totalMedals = EncryptedPlayerPrefs.GetInt("TotalMedals", 0);
-			EncryptedPlayerPrefs.SetInt("TotalMedals", totalMedals + 1);
-			MenuMedalsCounter.instance.UpdateMedalsCount();
-			PlayerPrefs.Save();
-		}
-	}
-
 	void Start()
 	{
 		ToggleUpgradeMenu();
@@ -135,7 +124,6 @@ public class MenuUpgradesContainer : MonoBehaviour
 		{
 			storeMenuToggle.ToggleMenu();
 		}
-			
 	}
 }
 

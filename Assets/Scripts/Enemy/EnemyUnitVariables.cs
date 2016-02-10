@@ -42,12 +42,18 @@ public class EnemyUnitVariables : MonoBehaviour
 			if (SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Count == 0 && EnemySpawnerController.instance.SpawnWaveComplete())
 				EnemySpawnerController.instance.SpawnNextEnemyWave();
 
-			HealthBarController.instance.DisableEnemyHealthBar(gameObject);
-
 			if (deathExplosion != null)
 				deathExplosionObject = (GameObject)Instantiate(deathExplosion, transform.position, transform.rotation);
 
-			Destroy(gameObject, 0.5f);
+			StartCoroutine(WaitAndDestroy(0.5f));
 		}
+	}
+
+	IEnumerator WaitAndDestroy(float waitTime)
+	{
+		yield return new WaitForSeconds(waitTime);
+
+		HealthBarController.instance.DisableEnemyHealthBar(gameObject);
+		Destroy(gameObject);
 	}
 }

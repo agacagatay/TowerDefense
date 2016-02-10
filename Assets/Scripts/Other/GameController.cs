@@ -115,11 +115,10 @@ public class GameController : MonoBehaviour
 			EncryptedPlayerPrefs.SetInt("HighScore" + levelNumberString, finalScore);
 			EncryptedPlayerPrefs.SetInt("TotalPoints", EncryptedPlayerPrefs.GetInt("TotalPoints", 0) + (finalScore - previousHighScore));
 
-			GameCenterManager.ReportScore(EncryptedPlayerPrefs.GetInt("TotalPoints", 0), "leaderboard_points");
-
 			newHighScoreObject.SetActive(true);
 		}
 
+		GameCenterManager.ReportScore(EncryptedPlayerPrefs.GetInt("TotalPoints", 0), "leaderboard_points");
 		int earnedMedals;
 
 		if (SecondaryStructures.Count >= (initialSecondary * 0.75f))

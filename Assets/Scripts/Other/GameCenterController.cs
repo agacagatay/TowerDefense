@@ -23,8 +23,6 @@ public class GameCenterController : MonoBehaviour
 
 	void Awake()
 	{
-		DontDestroyOnLoad(this);
-
 		if (!IsInitialized)
 		{
 			//Achievement registration. If you skip this step GameCenterManager.achievements array will contain only achievements with reported progress 

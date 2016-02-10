@@ -8,7 +8,7 @@ public class AllyStructureController : MonoBehaviour
 	[SerializeField] int initialStructureHealth = 100;
 	[SerializeField] bool isTurret = false;
 	[SerializeField] string turretType;
-	[SerializeField] GameObject turretSelectTab;
+	//[SerializeField] GameObject turretSelectTab;
 	[SerializeField] bool hasPerimeter = false;
 	[SerializeField] bool isPrimaryStructure = false;
 	[SerializeField] bool isSecondaryStructure = false;

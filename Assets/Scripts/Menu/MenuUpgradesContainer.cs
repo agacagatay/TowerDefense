@@ -99,17 +99,35 @@ public class MenuUpgradesContainer : MonoBehaviour
 
 		if (totalMedals >= towerInformation[currentTowerArrayPos].TowerUpgradeCost && currentTowerTier < towerInformation[currentTowerArrayPos].TowerUpgradeLength)
 		{
+			GameCenterManager.SubmitAchievement(1f, "achievement_tower_upgrade", true);
+
 			totalMedals -= towerInformation[currentTowerArrayPos].TowerUpgradeCost;
 			EncryptedPlayerPrefs.SetInt("TotalMedals", totalMedals);
 			MenuMedalsCounter.instance.UpdateMedalsCount();
 
 			EncryptedPlayerPrefs.SetInt(towerName + " Tier", currentTowerTier + 1);
-			PlayerPrefs.Save();
+			bool allTowersUpgraded = true;
+			bool towersFullyUpgraded = true;
 
 			foreach(TowerInformation towerInfoHolder in towerInformation)
 			{
 				towerInfoHolder.SetInfo();
+
+				if (towerInfoHolder.TowerTier == 1)
+				{
+					allTowersUpgraded = false;
+					towersFullyUpgraded = false;
+				}
+				else if (towerInfoHolder.TowerTier < towerInformation[currentTowerArrayPos].TowerUpgradeLength)
+				{
+					towersFullyUpgraded = false;
+				}
 			}
+
+			if (allTowersUpgraded)
+				GameCenterManager.SubmitAchievement(1f, "achievement_upgrade_all_towers", true);
+			else if (towersFullyUpgraded)
+				GameCenterManager.SubmitAchievement(1f, "achievement_fully_upgrade_towers", true);
 
 			SetTowerInfo();
 		}

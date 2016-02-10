@@ -18,6 +18,7 @@ public class MenuButtonToggle : MonoBehaviour
 			objectToDisable.SetActive(false);
 		}
 
-		objectToEnable.SetActive(true);
+		if (objectToEnable != null)
+			objectToEnable.SetActive(true);
 	}
 }

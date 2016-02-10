@@ -52,6 +52,14 @@ public class GameController : MonoBehaviour
 			HUDController.instance.DisplayOneString("VICTORY!", 3f, 2f);
 			gameOver = true;
 			isVictory = true;
+
+			if (levelNumberInt == 1)
+				GameCenterManager.SubmitAchievement(1f, "achievement_complete_tutorial_level", true);
+			else if (levelNumberInt == 2)
+				GameCenterManager.SubmitAchievement(1f, "achievement_complete_first_level", true);
+			else if (levelNumberInt == 16) // ASSUMING 15 TOTAL LEVELS
+				GameCenterManager.SubmitAchievement(1f, "achievement_complete_all_levels", true);
+
 			CalculateScore();
 		}
 	}
@@ -100,9 +108,15 @@ public class GameController : MonoBehaviour
 		int finalScore = primaryStructureScore + secondaryStructureScore + barrierStructureScore + enemiesKilledScore + towersSpawnedScore;
 		totalScoreLabel.text = finalScore.ToString("N0");
 
-		if (finalScore > EncryptedPlayerPrefs.GetInt("HighScore" + levelNumberString, 0))
+		int previousHighScore = EncryptedPlayerPrefs.GetInt("HighScore" + levelNumberString, 0);
+
+		if (finalScore > previousHighScore)
 		{
 			EncryptedPlayerPrefs.SetInt("HighScore" + levelNumberString, finalScore);
+			EncryptedPlayerPrefs.SetInt("TotalPoints", EncryptedPlayerPrefs.GetInt("TotalPoints", 0) + (finalScore - previousHighScore));
+
+			GameCenterManager.ReportScore(EncryptedPlayerPrefs.GetInt("TotalPoints", 0), "leaderboard_points");
+
 			newHighScoreObject.SetActive(true);
 		}
 
@@ -147,6 +161,9 @@ public class GameController : MonoBehaviour
 		{
 			EncryptedPlayerPrefs.SetInt("MedalsEarned" + levelNumberString, earnedMedals);
 			EncryptedPlayerPrefs.SetInt("TotalMedals", EncryptedPlayerPrefs.GetInt("TotalMedals", 0) + (earnedMedals - previousEarnedMedals));
+
+			if (EncryptedPlayerPrefs.GetInt("TotalMedals", 0) >= 45) // ASSUMING 15 TOTAL LEVELS, 3 MEDALS PER LEVEL
+				GameCenterManager.SubmitAchievement(1f, "achievement_earn_all_medals", true);
 		}
 
 		PlayerPrefs.Save();

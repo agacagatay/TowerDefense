@@ -54,11 +54,11 @@ public class GameController : MonoBehaviour
 			isVictory = true;
 
 			if (levelNumberInt == 1)
-				GameCenterManager.SubmitAchievement(1f, "achievement_complete_tutorial_level", true);
+				GameCenterManager.SubmitAchievement(100f, "achievement_complete_tutorial_level", true);
 			else if (levelNumberInt == 2)
-				GameCenterManager.SubmitAchievement(1f, "achievement_complete_first_level", true);
+				GameCenterManager.SubmitAchievement(100f, "achievement_complete_first_level", true);
 			else if (levelNumberInt == 16) // ASSUMING 15 TOTAL LEVELS
-				GameCenterManager.SubmitAchievement(1f, "achievement_complete_all_levels", true);
+				GameCenterManager.SubmitAchievement(100f, "achievement_complete_all_levels", true);
 
 			CalculateScore();
 		}
@@ -162,7 +162,7 @@ public class GameController : MonoBehaviour
 			EncryptedPlayerPrefs.SetInt("TotalMedals", EncryptedPlayerPrefs.GetInt("TotalMedals", 0) + (earnedMedals - previousEarnedMedals));
 
 			if (EncryptedPlayerPrefs.GetInt("TotalMedals", 0) >= 45) // ASSUMING 15 TOTAL LEVELS, 3 MEDALS PER LEVEL
-				GameCenterManager.SubmitAchievement(1f, "achievement_earn_all_medals", true);
+				GameCenterManager.SubmitAchievement(100f, "achievement_earn_all_medals", true);
 		}
 
 		PlayerPrefs.Save();

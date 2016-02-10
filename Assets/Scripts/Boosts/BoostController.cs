@@ -27,7 +27,7 @@ public class BoostController : MonoBehaviour
 			Instantiate(boostContainers[EnabledBoost].BoostPrefab, boostContainers[EnabledBoost].BoostSpawnTransform.position,
 				boostContainers[EnabledBoost].BoostSpawnTransform.rotation);
 
-			GameCenterManager.SubmitAchievement(1f, "achievement_activate_boost", true);
+			GameCenterManager.SubmitAchievement(100f, "achievement_activate_boost", true);
 		}
 	}
 

@@ -68,16 +68,16 @@ public class InAppPurchaseController : MonoBehaviour
 		switch(productIdentifier)
 		{
 		case "mini_medal_pack":
-			totalMedals += 8;
+			totalMedals += 3;
 			break;
 		case "minor_medal_pack":
-			totalMedals += 12;
+			totalMedals += 8;
 			break;
 		case "major_medal_pack":
-			totalMedals += 18;
+			totalMedals += 20;
 			break;
 		case "grand_medal_pack":
-			totalMedals += 30;
+			totalMedals += 50;
 			break;
 		}
 

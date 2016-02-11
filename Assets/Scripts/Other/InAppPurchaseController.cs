@@ -98,7 +98,7 @@ public class InAppPurchaseController : MonoBehaviour
 			//Our product been succsesly purchased or restored
 			//So we need to provide content to our user depends on productIdentifier
 			UnlockProducts(result.ProductIdentifier);
-			IOSNativePopUpManager.showMessage("Transaction Complete", "Thank you for your purchase!");
+			//IOSNativePopUpManager.showMessage("Transaction Complete", "Thank you for your purchase!");
 			break;
 		case InAppPurchaseState.Deferred:
 			//iOS 8 introduces Ask to Buy, which lets parents approve any purchases initiated by children
@@ -111,7 +111,7 @@ public class InAppPurchaseController : MonoBehaviour
 			//We can unlock interface and repor user that the purchase is failed.
 			//Debug.Log("Transaction failed with error, code: " + result.Error.Code);
 			//Debug.Log("Transaction failed with error, description: " + result.Error.Description);
-			IOSNativePopUpManager.showMessage("Transaction Failed", result.Error.Code + ": " + result.Error.Description);
+			IOSNativePopUpManager.showMessage("Transaction Failed", result.Error.Description);
 			break;
 		}
 

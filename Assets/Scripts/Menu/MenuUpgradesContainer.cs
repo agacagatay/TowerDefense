@@ -105,9 +105,9 @@ public class MenuUpgradesContainer : MonoBehaviour
 				if (towerInfoHolder.TowerTier == 1)
 				{
 					allTowersUpgraded = false;
-					towersFullyUpgraded = false;
 				}
-				else if (towerInfoHolder.TowerTier < towerInformation[currentTowerArrayPos].TowerUpgradeLength)
+
+				if (towerInfoHolder.TowerTier < towerInformation[currentTowerArrayPos].TowerUpgradeLength)
 				{
 					towersFullyUpgraded = false;
 				}
@@ -115,7 +115,8 @@ public class MenuUpgradesContainer : MonoBehaviour
 
 			if (allTowersUpgraded)
 				GameCenterManager.SubmitAchievement(100f, "achievement_upgrade_all_towers", true);
-			else if (towersFullyUpgraded)
+
+			if (towersFullyUpgraded)
 				GameCenterManager.SubmitAchievement(100f, "achievement_fully_upgrade_towers", true);
 
 			SetTowerInfo();

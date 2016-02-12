@@ -17,19 +17,23 @@ public class GameController : MonoBehaviour
 	[SerializeField] UISprite[] medalsObjects;
 	[SerializeField] UILabel medalsEarnedLabel;
 	GameObject primaryStructure;
+	bool gamePaused = false;
 	bool isVictory = false;
 	bool isDefeat = false;
 	bool gameOver = false;
 	int enemiesKilled;
 	int turretsSpawned;
 	int initialSecondary;
+	float sessionPlayTime;
 	public int LevelNumberInt { get { return levelNumberInt; }}
+	public bool GamePaused { get { return gamePaused; } set { gamePaused = value; }}
 	public bool IsVictory { get { return isVictory; }}
 	public bool IsDefeat { get { return isDefeat; }}
 	public bool GameOver { get { return gameOver; }}
 	public int EnemiesKilled { get { return enemiesKilled; } set { enemiesKilled = value; }}
 	public int TurretsSpawned { get { return turretsSpawned; } set { turretsSpawned = value; }}
 	public GameObject PrimaryStructure { get { return primaryStructure; } set { primaryStructure = value; }}
+	public float SessionPlayTime { get { return sessionPlayTime; }}
 	public List<GameObject> SecondaryStructures = new List<GameObject>();
 	public List<GameObject> BarrierStructures = new List<GameObject>();
 
@@ -42,8 +46,15 @@ public class GameController : MonoBehaviour
 
 	void Start()
 	{
+		sessionPlayTime = 0f;
 		initialSecondary = SecondaryStructures.Count;
 		EveryplayController.instance.StartRecording();
+	}
+
+	void Update()
+	{
+		if (!GamePaused)
+			sessionPlayTime += Time.deltaTime;
 	}
 
 	public void GameWin()
@@ -74,12 +85,12 @@ public class GameController : MonoBehaviour
 			isDefeat = true;
 			CalculateScore();
 		}
-
 	}
 
 	void CalculateScore()
 	{
 		StartCoroutine(WaitAndStopRecording(6f));
+		GamePaused = true;
 
 		int primaryStructureScore = 0;
 

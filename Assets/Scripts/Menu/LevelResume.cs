@@ -9,6 +9,7 @@ public class LevelResume : MonoBehaviour
 	{
 		Time.timeScale = 1f;
 		pauseMenu.SetActive(false);
+		GameController.instance.GamePaused = false;
 		EveryplayController.instance.ResumeRecording();
 	}
 }

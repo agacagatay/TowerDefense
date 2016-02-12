@@ -43,6 +43,7 @@ public class GameController : MonoBehaviour
 	void Start()
 	{
 		initialSecondary = SecondaryStructures.Count;
+		EveryplayController.instance.StartRecording();
 	}
 
 	public void GameWin()
@@ -78,6 +79,8 @@ public class GameController : MonoBehaviour
 
 	void CalculateScore()
 	{
+		StartCoroutine(WaitAndStopRecording(6f));
+
 		int primaryStructureScore = 0;
 
 		if (IsVictory)
@@ -169,5 +172,11 @@ public class GameController : MonoBehaviour
 
 		PlayerPrefs.Save();
 		levelResultsObject.SetActive(true);
+	}
+
+	IEnumerator WaitAndStopRecording(float waitTime)
+	{
+		yield return new WaitForSeconds(waitTime);
+		EveryplayController.instance.StopRecording();
 	}
 }

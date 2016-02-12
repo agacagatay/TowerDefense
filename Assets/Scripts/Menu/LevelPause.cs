@@ -7,6 +7,7 @@ public class LevelPause : MonoBehaviour
 
 	void OnClick()
 	{
+		EveryplayController.instance.PauseRecording();
 		pauseMenu.SetActive(true);
 		Time.timeScale = 0f;
 	}

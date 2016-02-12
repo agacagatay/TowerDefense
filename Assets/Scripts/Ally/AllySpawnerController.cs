@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public class AllySpawnerController : MonoBehaviour
 {
-	[SerializeField] UIWidget uiWidget;
+	[SerializeField] UIWidget turretSpawnMenu;
 	[SerializeField] GameObject spawnTimer;
 	[SerializeField] int artillaryQuota;
 	[SerializeField] float artillarySpawnTime;
@@ -34,6 +34,7 @@ public class AllySpawnerController : MonoBehaviour
 	AllyDestroyTurret destroyTurretTab;
 	List<GameObject> spawnBranchOptions = new List<GameObject>();
 	List<GameObject> spawnBranchObjects = new List<GameObject>();
+	public UIWidget TurretSpawnMenu { get { return turretSpawnMenu; }}
 	public AllySpawnerPosition SelectedSpawnerPosition { get { return selectedSpawnerPosition; }}
 	public AllyStructureController StructureController { get { return structureController; }}
 	public int ArtillaryQuota { get { return artillaryQuota; } set { artillaryQuota = value; }}
@@ -72,7 +73,7 @@ public class AllySpawnerController : MonoBehaviour
 		EasyTouch.On_SimpleTap -= On_SimpleTap;	
 	}
 
-	private void On_SimpleTap(Gesture gesture)
+	void On_SimpleTap(Gesture gesture)
 	{
 		if (gesture.pickedObject != null)
 		{
@@ -106,7 +107,7 @@ public class AllySpawnerController : MonoBehaviour
 		spawnerDisplayEnabled = true;
 
 		selectedSpawnerPosition = allySpawnerPosition;
-		uiWidget.SetAnchor(allySpawnerPosition.transform);
+		turretSpawnMenu.SetAnchor(allySpawnerPosition.transform);
 
 		int spawnBranches = allySpawnerPosition.SpawnOptions.Length;
 		float angle = 360f/spawnBranches;
@@ -171,8 +172,8 @@ public class AllySpawnerController : MonoBehaviour
 		foreach (GameObject spawnBranch in spawnBranchOptions)
 		{
 			Quaternion branchRotation = Quaternion.Euler(0f, 0f, (-angle * branchNumber) + offset);
-			GameObject branchClone = (GameObject)Instantiate(spawnBranch, uiWidget.transform.position, branchRotation);
-			branchClone.transform.parent = uiWidget.transform;
+			GameObject branchClone = (GameObject)Instantiate(spawnBranch, turretSpawnMenu.transform.position, branchRotation);
+			branchClone.transform.parent = turretSpawnMenu.transform;
 			branchClone.transform.localScale = new Vector3(1f, 1f, 1f);
 
 			AllySpawnerTab allySpawnerTab = branchClone.GetComponent<AllySpawnerTab>();
@@ -265,7 +266,7 @@ public class AllySpawnerController : MonoBehaviour
 		AllySpawnerPosition spawnPosition = selectedSpawnerPosition;
 
 		GameObject timerClone = (GameObject)Instantiate(spawnTimer, transform.position, transform.rotation);
-		timerClone.transform.parent = uiWidget.transform;
+		timerClone.transform.parent = turretSpawnMenu.transform;
 		timerClone.transform.localScale = new Vector3(0.2f, 0.5f, 0.2f);
 
 		UIWidget timerWidget = timerClone.GetComponent<UIWidget>();

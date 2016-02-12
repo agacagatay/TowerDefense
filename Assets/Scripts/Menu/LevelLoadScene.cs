@@ -12,21 +12,26 @@ public class LevelLoadScene : MonoBehaviour
 	void OnClick()
 	{
 		Time.timeScale = 1f;
-		float totalPlayTime = EncryptedPlayerPrefs.GetFloat("TotalPlayTime", 0f) + GameController.instance.SessionPlayTime;
 
-		if (totalPlayTime >= 300f)
+		if (EncryptedPlayerPrefs.GetInt("AdsDisabled", 0) == 0)
 		{
-			EncryptedPlayerPrefs.SetFloat("TotalPlayTime", 0f);
+			float totalPlayTime = EncryptedPlayerPrefs.GetFloat("TotalPlayTime", 0f) + GameController.instance.SessionPlayTime;
 
-			if (Advertisement.isSupported && Advertisement.IsReady())
-				Advertisement.Show();
-		}
-		else
-		{
-			EncryptedPlayerPrefs.SetFloat("TotalPlayTime", totalPlayTime);
+			if (totalPlayTime >= 300f)
+			{
+				EncryptedPlayerPrefs.SetFloat("TotalPlayTime", 0f);
+
+				if (Advertisement.isSupported && Advertisement.IsReady())
+					Advertisement.Show();
+			}
+			else
+			{
+				EncryptedPlayerPrefs.SetFloat("TotalPlayTime", totalPlayTime);
+			}
+
+			PlayerPrefs.Save();
 		}
 
-		PlayerPrefs.Save();
 		StartCoroutine(WaitAndLoadMenu());
 	}
 

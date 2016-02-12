@@ -82,8 +82,10 @@ public class InAppPurchaseController : MonoBehaviour
 		}
 
 		EncryptedPlayerPrefs.SetInt("TotalMedals", totalMedals);
-		MenuMedalsCounter.instance.UpdateMedalsCount();
+		EncryptedPlayerPrefs.SetInt("AdsDisabled", 1);
 		PlayerPrefs.Save();
+
+		MenuMedalsCounter.instance.UpdateMedalsCount();
 	}
 
 	static void OnTransactionComplete(IOSStoreKitResult result)

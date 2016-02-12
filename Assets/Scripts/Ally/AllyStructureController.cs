@@ -82,10 +82,16 @@ public class AllyStructureController : MonoBehaviour
 					}
 				}
 
+				bool triggerVibrate = false;
+
 				if (isPrimaryStructure)
+				{
+					triggerVibrate = true;
 					GameController.instance.GameLose();
+				}
 				else if (isSecondaryStructure)
 				{
+					triggerVibrate = true;
 					GameController.instance.SecondaryStructures.Remove(gameObject);
 				}
 				else if (IsTurret)
@@ -96,7 +102,10 @@ public class AllyStructureController : MonoBehaviour
 					TargetAreaSphere.instance.DestroyAreaSphere(gameObject);
 				}
 				else if (!IsTurret)
+				{
+					triggerVibrate = true;
 					GameController.instance.BarrierStructures.Remove(gameObject);
+				}
 
 				if (isPrimaryStructure || isSecondaryStructure)
 					HUDController.instance.UpdateBaseDisplay();
@@ -106,14 +115,14 @@ public class AllyStructureController : MonoBehaviour
 				if (deathExplosion != null)
 					Instantiate(deathExplosion, transform.position, transform.rotation);
 
-				StartCoroutine(WaitAndDestroy(0.5f));
+				StartCoroutine(WaitAndDestroy(0.5f, triggerVibrate));
 			}
 			else if (isPrimaryStructure || isSecondaryStructure)
 				HUDController.instance.UpdateBaseDisplay();
 		}
 	}
 
-	IEnumerator WaitAndDestroy(float waitTime)
+	IEnumerator WaitAndDestroy(float waitTime, bool triggerVibrate)
 	{
 		yield return new WaitForSeconds(waitTime);
 
@@ -125,6 +134,9 @@ public class AllyStructureController : MonoBehaviour
 			AllySpawnerPosition allySpawnerPosition = turretSpawnObject.GetComponent<AllySpawnerPosition>();
 			allySpawnerPosition.EnableSpawnerPosition();
 		}
+
+		if (triggerVibrate && EncryptedPlayerPrefs.GetInt("VibrationMode", 1) == 1)
+			Handheld.Vibrate();
 
 		Destroy(gameObject);
 	}

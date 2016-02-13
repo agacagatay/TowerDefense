@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ResetPlayerPrefs : MonoBehaviour
 {
-	void Start()
+	void Awake()
 	{
 		PlayerPrefs.DeleteAll();
 		GameCenterManager.ResetAchievements();

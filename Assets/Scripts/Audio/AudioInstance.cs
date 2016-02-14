@@ -8,11 +8,13 @@ public class AudioInstance : MonoBehaviour
 	FMOD.Studio.EventInstance eventInstance;
 	FMOD.Studio.EventDescription eventDescription;
 	FMOD.Studio.ParameterInstance parameterInstance;
+	string instanceName;
 	bool instanceAssigned = false;
 	bool is3D;
 
-	public void AssignEventInstance(GameObject anchorObject, string eventPath)
+	public void AssignEventInstance(GameObject anchorObject, string eventName, string eventPath)
 	{
+		instanceName = eventName;
 		positionAnchor = anchorObject;
 		eventInstance = FMODUnity.RuntimeManager.CreateInstance(eventPath);
 		eventInstance.getDescription(out eventDescription);
@@ -78,7 +80,7 @@ public class AudioInstance : MonoBehaviour
 		{
 			eventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 			eventInstance.release();
-			AudioController.instance.audioInstances.Remove(this);
+			AudioController.instance.audioInstances.Remove(instanceName);
 			Destroy(gameObject);
 		}
 		else

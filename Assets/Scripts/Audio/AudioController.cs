@@ -5,7 +5,8 @@ using System.Collections.Generic;
 public class AudioController : MonoBehaviour
 {
 	[SerializeField] GameObject audioInstancePrefab;
-	public List<AudioInstance> audioInstances = new List<AudioInstance>();
+	AudioInstance audioInstance;
+	public Dictionary<string, AudioInstance> audioInstances = new Dictionary<string, AudioInstance>();
 
 	public static AudioController instance;
 
@@ -25,10 +26,10 @@ public class AudioController : MonoBehaviour
 		audioInstanceClone.name = eventName;
 
 		AudioInstance audioInstance = audioInstanceClone.GetComponent<AudioInstance>();
-		audioInstance.AssignEventInstance(anchorObject, "event:/" + eventName);
+		audioInstance.AssignEventInstance(anchorObject, eventName, "event:/" + eventName);
 		audioInstance.Play();
 
-		audioInstances.Add(audioInstance);
+		audioInstances.Add(audioInstanceClone.name, audioInstance);
 	}
 
 	public void PlayOneshot(GameObject anchorObject, string eventName)
@@ -38,37 +39,41 @@ public class AudioController : MonoBehaviour
 
 	public void Pause(string eventName)
 	{
-		AudioInstance audioInstance = AudioController.instance.audioInstances.Find(item => item.name == eventName);
-		audioInstance.Pause();
+		AudioController.instance.audioInstances.TryGetValue(eventName, out audioInstance);
+
+		if (audioInstance != null)
+			audioInstance.Pause();
 	}
 
 	public void Resume(string eventName)
 	{
-		AudioInstance audioInstance = AudioController.instance.audioInstances.Find(item => item.name == eventName);
-		audioInstance.Resume();
+		AudioController.instance.audioInstances.TryGetValue(eventName, out audioInstance);
+
+		if (audioInstance != null)
+			audioInstance.Resume();
 	}
 
 	public void SetVolume(string eventName, float volume)
 	{
-		AudioInstance audioInstance = AudioController.instance.audioInstances.Find(item => item.name == eventName);
-		audioInstance.SetVolume(volume);
+		AudioController.instance.audioInstances.TryGetValue(eventName, out audioInstance);
+
+		if (audioInstance != null)
+			audioInstance.SetVolume(volume);
 	}
 
-	public void SetVolume(string eventName, string paramName, float value)
+	public void SetParameter(string eventName, string paramName, float value)
 	{
-		AudioInstance audioInstance = AudioController.instance.audioInstances.Find(item => item.name == eventName);
-		audioInstance.SetParameterValue(paramName, value);
+		AudioController.instance.audioInstances.TryGetValue(eventName, out audioInstance);
+
+		if (audioInstance != null)
+			audioInstance.SetParameterValue(paramName, value);
 	}
 
 	public void Stop(string eventName)
 	{
-		AudioInstance audioInstance = AudioController.instance.audioInstances.Find(item => item.name == eventName);
-		audioInstance.Stop();
-	}
+		AudioController.instance.audioInstances.TryGetValue(eventName, out audioInstance);
 
-	public AudioInstance GetAudioInstance(string instanceName)
-	{
-		AudioInstance audioInstance = AudioController.instance.audioInstances.Find(item => item.name == instanceName);
-		return audioInstance;
+		if (audioInstance != null)
+			audioInstance.Stop();
 	}
 }

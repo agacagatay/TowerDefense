@@ -3,15 +3,15 @@ using System.Collections;
 
 public class AudioControllerSpawner : MonoBehaviour
 {
-	[SerializeField] GameObject musicControllerPrefab;
+	[SerializeField] GameObject audioControllerPrefab;
 
 	void Awake()
 	{
-		GameObject musicControllerObject = GameObject.FindGameObjectWithTag("MusicController");
+		GameObject audioControllerObject = GameObject.FindGameObjectWithTag("AudioController");
 
-		if (musicControllerObject == null)
+		if (audioControllerObject == null)
 		{
-			GameObject musicControllerClone = (GameObject)Instantiate(musicControllerPrefab, transform.position, transform.rotation);
+			GameObject musicControllerClone = (GameObject)Instantiate(audioControllerPrefab, transform.position, transform.rotation);
 			musicControllerClone.name = "Audio Controller";
 		}
 	}

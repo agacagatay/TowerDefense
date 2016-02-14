@@ -35,4 +35,40 @@ public class AudioController : MonoBehaviour
 	{
 		FMODUnity.RuntimeManager.PlayOneShot("event:/" + eventName, anchorObject.transform.position);
 	}
+
+	public void Pause(string eventName)
+	{
+		AudioInstance audioInstance = AudioController.instance.audioInstances.Find(item => item.name == eventName);
+		audioInstance.Pause();
+	}
+
+	public void Resume(string eventName)
+	{
+		AudioInstance audioInstance = AudioController.instance.audioInstances.Find(item => item.name == eventName);
+		audioInstance.Resume();
+	}
+
+	public void SetVolume(string eventName, float volume)
+	{
+		AudioInstance audioInstance = AudioController.instance.audioInstances.Find(item => item.name == eventName);
+		audioInstance.SetVolume(volume);
+	}
+
+	public void SetVolume(string eventName, string paramName, float value)
+	{
+		AudioInstance audioInstance = AudioController.instance.audioInstances.Find(item => item.name == eventName);
+		audioInstance.SetParameterValue(paramName, value);
+	}
+
+	public void Stop(string eventName)
+	{
+		AudioInstance audioInstance = AudioController.instance.audioInstances.Find(item => item.name == eventName);
+		audioInstance.Stop();
+	}
+
+	public AudioInstance GetAudioInstance(string instanceName)
+	{
+		AudioInstance audioInstance = AudioController.instance.audioInstances.Find(item => item.name == instanceName);
+		return audioInstance;
+	}
 }

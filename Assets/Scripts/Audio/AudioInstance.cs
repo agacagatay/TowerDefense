@@ -11,11 +11,6 @@ public class AudioInstance : MonoBehaviour
 	bool instanceAssigned = false;
 	bool is3D;
 
-//	void Start()
-//	{
-//		DontDestroyOnLoad(gameObject);
-//	}
-
 	public void AssignEventInstance(GameObject anchorObject, string eventPath)
 	{
 		positionAnchor = anchorObject;
@@ -23,12 +18,6 @@ public class AudioInstance : MonoBehaviour
 		eventInstance.getDescription(out eventDescription);
 		eventDescription.is3D(out is3D);
 		instanceAssigned = true;
-	}
-
-	public void SetParameterValue(string paramName, float value)
-	{
-		eventInstance.getParameter(paramName, out parameterInstance);
-		parameterInstance.setValue(value);
 	}
 
 	public void Play()
@@ -77,15 +66,17 @@ public class AudioInstance : MonoBehaviour
 			Debug.LogError("Event Instance Never Assigned");
 	}
 
-	public void Stop(bool stopImmediately)
+	public void SetParameterValue(string paramName, float value)
+	{
+		eventInstance.getParameter(paramName, out parameterInstance);
+		parameterInstance.setValue(value);
+	}
+
+	public void Stop()
 	{
 		if (instanceAssigned)
 		{
-			if (stopImmediately)
-				eventInstance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-			else
-				eventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-
+			eventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 			eventInstance.release();
 			AudioController.instance.audioInstances.Remove(this);
 			Destroy(gameObject);
@@ -98,5 +89,10 @@ public class AudioInstance : MonoBehaviour
 	{
 		if (instanceAssigned && is3D)
 			eventInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(positionAnchor));
+	}
+
+	void OnDestroy()
+	{
+		Stop();
 	}
 }

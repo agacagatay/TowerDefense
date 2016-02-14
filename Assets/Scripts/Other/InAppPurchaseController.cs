@@ -19,7 +19,7 @@ public class InAppPurchaseController : MonoBehaviour
 	void Awake()
 	{
 		instance = this;
-		DontDestroyOnLoad(this);
+		DontDestroyOnLoad(gameObject);
 
 		if (!IsInitialized)
 		{

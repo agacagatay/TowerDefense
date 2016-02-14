@@ -26,7 +26,7 @@ public class GameCenterController : MonoBehaviour
 	void Awake()
 	{
 		instance = this;
-		DontDestroyOnLoad(this);
+		DontDestroyOnLoad(gameObject);
 
 		if (!IsInitialized)
 		{

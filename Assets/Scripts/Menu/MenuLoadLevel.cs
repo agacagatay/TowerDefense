@@ -9,7 +9,7 @@ public class MenuLoadLevel : MonoBehaviour
 
 	public void LoadLevel(int levelToLoad)
 	{
-		AudioController.instance.Stop("Music/Music_Main_Menu");
+		AudioController.instance.Stop("Music/Music_Main_Menu", AudioController.instance.gameObject);
 		StartCoroutine(WaitAndLoadLevel(levelToLoad));
 	}
 

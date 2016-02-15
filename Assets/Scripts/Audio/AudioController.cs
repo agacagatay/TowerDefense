@@ -1,12 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections;
-using System.Collections.Generic;
 
 public class AudioController : MonoBehaviour
 {
 	[SerializeField] GameObject audioInstancePrefab;
-	AudioInstance audioInstance;
-	public Dictionary<string, AudioInstance> audioInstances = new Dictionary<string, AudioInstance>();
+	AudioInstance[] objectAudioInstances;
 
 	public static AudioController instance;
 
@@ -16,20 +14,17 @@ public class AudioController : MonoBehaviour
 		DontDestroyOnLoad(gameObject);
 	}
 
-	public void Play(GameObject anchorObject, string eventName)
+	public void Play(string eventName, GameObject anchorObject)
 	{
-		Vector3 vectorZero = new Vector3(0f, 0f, 0f);
-		Quaternion quaternionZero = Quaternion.Euler(0f, 0f, 0f);
+		GameObject audioInstanceClone = (GameObject)Instantiate(audioInstancePrefab, anchorObject.transform.position, 
+			anchorObject.transform.rotation);
 
-		GameObject audioInstanceClone = (GameObject)Instantiate(audioInstancePrefab, vectorZero, quaternionZero);
-		audioInstanceClone.transform.parent = transform;
+		audioInstanceClone.transform.parent = anchorObject.transform;
 		audioInstanceClone.name = eventName;
 
 		AudioInstance audioInstance = audioInstanceClone.GetComponent<AudioInstance>();
-		audioInstance.AssignEventInstance(anchorObject, eventName, "event:/" + eventName);
+		audioInstance.AssignEventInstance("event:/" + eventName);
 		audioInstance.Play();
-
-		audioInstances.Add(audioInstanceClone.name, audioInstance);
 	}
 
 	public void PlayOneshot(GameObject anchorObject, string eventName)
@@ -37,43 +32,77 @@ public class AudioController : MonoBehaviour
 		FMODUnity.RuntimeManager.PlayOneShot("event:/" + eventName, anchorObject.transform.position);
 	}
 
-	public void Pause(string eventName)
+	public void Pause(string eventName, GameObject anchorObject)
 	{
-		AudioController.instance.audioInstances.TryGetValue(eventName, out audioInstance);
+		PopulateObjectAudioInstances(anchorObject);
 
-		if (audioInstance != null)
-			audioInstance.Pause();
+		foreach(AudioInstance objectAudioInstance in objectAudioInstances)
+		{
+			if (objectAudioInstance.gameObject.name == eventName)
+				objectAudioInstance.Pause();
+		}
 	}
 
-	public void Resume(string eventName)
+	public void Resume(string eventName, GameObject anchorObject)
 	{
-		AudioController.instance.audioInstances.TryGetValue(eventName, out audioInstance);
+		PopulateObjectAudioInstances(anchorObject);
 
-		if (audioInstance != null)
-			audioInstance.Resume();
+		foreach(AudioInstance objectAudioInstance in objectAudioInstances)
+		{
+			if (objectAudioInstance.gameObject.name == eventName)
+				objectAudioInstance.Resume();
+		}
 	}
 
-	public void SetVolume(string eventName, float volume)
+	public void SetVolume(string eventName, GameObject anchorObject, float volume)
 	{
-		AudioController.instance.audioInstances.TryGetValue(eventName, out audioInstance);
+		PopulateObjectAudioInstances(anchorObject);
 
-		if (audioInstance != null)
-			audioInstance.SetVolume(volume);
+		foreach(AudioInstance objectAudioInstance in objectAudioInstances)
+		{
+			if (objectAudioInstance.gameObject.name == eventName)
+				objectAudioInstance.SetVolume(volume);
+		}
 	}
 
-	public void SetParameter(string eventName, string paramName, float value)
+	public void SetParameter(string eventName, GameObject anchorObject, string paramName, float value)
 	{
-		AudioController.instance.audioInstances.TryGetValue(eventName, out audioInstance);
+		PopulateObjectAudioInstances(anchorObject);
 
-		if (audioInstance != null)
-			audioInstance.SetParameterValue(paramName, value);
+		foreach(AudioInstance objectAudioInstance in objectAudioInstances)
+		{
+			if (objectAudioInstance.gameObject.name == eventName)
+				objectAudioInstance.SetParameter(paramName, value);
+		}
 	}
 
-	public void Stop(string eventName)
+	public void Stop(string eventName, GameObject anchorObject)
 	{
-		AudioController.instance.audioInstances.TryGetValue(eventName, out audioInstance);
+		PopulateObjectAudioInstances(anchorObject);
 
-		if (audioInstance != null)
-			audioInstance.Stop();
+		foreach(AudioInstance objectAudioInstance in objectAudioInstances)
+		{
+			if (objectAudioInstance.gameObject.name == eventName)
+				objectAudioInstance.Stop();
+		}
+	}
+
+	public void StopAllMusic()
+	{
+		FMOD.Studio.Bus musicBus;
+		FMODUnity.RuntimeManager.StudioSystem.getBus("bus:/Music", out musicBus);
+		musicBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+	}
+
+	public void StopAllSFX()
+	{
+		FMOD.Studio.Bus sfxBus;
+		FMODUnity.RuntimeManager.StudioSystem.getBus("bus:/SFX", out sfxBus);
+		sfxBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+	}
+
+	void PopulateObjectAudioInstances(GameObject anchorObject)
+	{
+		objectAudioInstances = anchorObject.GetComponentsInChildren<AudioInstance>();
 	}
 }

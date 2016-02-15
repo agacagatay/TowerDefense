@@ -4,18 +4,14 @@ using System.Collections.Generic;
 
 public class AudioInstance : MonoBehaviour
 {
-	GameObject positionAnchor;
 	FMOD.Studio.EventInstance eventInstance;
 	FMOD.Studio.EventDescription eventDescription;
 	FMOD.Studio.ParameterInstance parameterInstance;
-	string instanceName;
 	bool instanceAssigned = false;
 	bool is3D;
 
-	public void AssignEventInstance(GameObject anchorObject, string eventName, string eventPath)
+	public void AssignEventInstance(string eventPath)
 	{
-		instanceName = eventName;
-		positionAnchor = anchorObject;
 		eventInstance = FMODUnity.RuntimeManager.CreateInstance(eventPath);
 		eventInstance.getDescription(out eventDescription);
 		eventDescription.is3D(out is3D);
@@ -68,7 +64,7 @@ public class AudioInstance : MonoBehaviour
 			Debug.LogError("Event Instance Never Assigned");
 	}
 
-	public void SetParameterValue(string paramName, float value)
+	public void SetParameter(string paramName, float value)
 	{
 		eventInstance.getParameter(paramName, out parameterInstance);
 		parameterInstance.setValue(value);
@@ -80,7 +76,6 @@ public class AudioInstance : MonoBehaviour
 		{
 			eventInstance.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 			eventInstance.release();
-			AudioController.instance.audioInstances.Remove(instanceName);
 			Destroy(gameObject);
 		}
 		else
@@ -90,7 +85,7 @@ public class AudioInstance : MonoBehaviour
 	void Update()
 	{
 		if (instanceAssigned && is3D)
-			eventInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(positionAnchor));
+			eventInstance.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(gameObject));
 	}
 
 	void OnDestroy()

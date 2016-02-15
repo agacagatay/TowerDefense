@@ -14,7 +14,7 @@ public class AudioController : MonoBehaviour
 		DontDestroyOnLoad(gameObject);
 	}
 
-	public void Play(string eventName, GameObject anchorObject)
+	public void CreateInstance(string eventName, GameObject anchorObject)
 	{
 		GameObject audioInstanceClone = (GameObject)Instantiate(audioInstancePrefab, anchorObject.transform.position, 
 			anchorObject.transform.rotation);
@@ -24,7 +24,17 @@ public class AudioController : MonoBehaviour
 
 		AudioInstance audioInstance = audioInstanceClone.GetComponent<AudioInstance>();
 		audioInstance.AssignEventInstance("event:/" + eventName);
-		audioInstance.Play();
+	}
+
+	public void Play(string eventName, GameObject anchorObject)
+	{
+		PopulateObjectAudioInstances(anchorObject);
+
+		foreach(AudioInstance objectAudioInstance in objectAudioInstances)
+		{
+			if (objectAudioInstance.gameObject.name == eventName)
+				objectAudioInstance.Play();
+		}
 	}
 
 	public void PlayOneshot(GameObject anchorObject, string eventName)

@@ -203,6 +203,13 @@ public class AllyTurretController : MonoBehaviour
 
 	IEnumerator FireWeapon()
 	{
+		switch(towerType)
+		{
+		case "Turret":
+			AudioController.instance.PlayOneshot("SFX/Tower_Turret", gameObject);
+			break;
+		}
+
 		canFire = false;
 		GameObject ordinanceClone;
 

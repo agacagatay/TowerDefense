@@ -37,7 +37,7 @@ public class AudioController : MonoBehaviour
 		}
 	}
 
-	public void PlayOneshot(GameObject anchorObject, string eventName)
+	public void PlayOneshot(string eventName, GameObject anchorObject)
 	{
 		FMODUnity.RuntimeManager.PlayOneShot("event:/" + eventName, anchorObject.transform.position);
 	}

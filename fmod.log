@@ -8,7 +8,6 @@
 [LOG] OutputCoreAudio::enumerate               : Enumerating...
 [LOG] OutputCoreAudio::enumerate               : Found output driver: "Built-in Output".
 [LOG] OutputCoreAudio::enumerate               : Found output driver: "HDMI".
-[LOG] OutputCoreAudio::enumerate               : Found output driver: "Scarlett 18i20 USB".
 [LOG] OutputCoreAudio::enumerate               : Found output driver: "ComputerAudio".
 [LOG] OutputCoreAudio::enumerate               : Done.
 [LOG] OutputCoreAudio::init                    : Output running 2 channels at 44100Hz sample rate.
@@ -40,15 +39,15 @@
 [LOG] Thread::initThread                       : Initializing FMOD nonblocking thread (0).  priority 1
 [LOG] Thread::initThread                       : - Stacksize 81920.  Stack pointer 0x0 : usesemaphore = 1 : sleeptime = 0
 [LOG] Thread::callback                         : * FMOD nonblocking thread (0) started
-[LOG] SystemI::createSound                     : setdata soundi = 0x12321bf48 : node = 0x12321c100
-[LOG] SystemI::createSound                     : add node to async list : head = 0x12321c390.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x12321bf48
+[LOG] SystemI::createSound                     : setdata soundi = 0x12e7102b8 : node = 0x12e7f5860
+[LOG] SystemI::createSound                     : add node to async list : head = 0x12e7f5af0.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x12e7102b8
 [LOG] SystemI::createSoundInternal             :     filename = Assets/Audio Banks/Mobile/Compressed.bank : mode 0a010082
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 6599776
 [LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 1792
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x12321c208
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x12e7f5968
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -57,7 +56,7 @@
 [LOG] System::createSoundInternal              :     decode buffersize = 19200 : blocksize = 256 : format = 2
 [LOG] SystemI::createSample                    :     mode 0a010082 length 19200 samples, lengthbytes 6598528
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x12303b5a8
+[LOG] SystemI::createSample                    :     output = 0x124997f98
 [LOG] OutputSoftware::createSample             :     lengthpcm 19200, lengthbytes 6598528, channels 2, format 2, freq 48000, mode 0a01008a
 [LOG] System::createSoundInternal              :     1 subsounds detected.
 [LOG] System::createSoundInternal              :     Seek stream to start
@@ -69,14 +68,14 @@
 [LOG] Thread::callback                         :         * FMOD file thread started
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x12321bf48
-[LOG] SoundI::getSubSound                      : sound 0x12321bf48.  Subsound index 0 / 1
-[LOG] SoundI::release                          : (null) (0x12321bf48)
-[LOG] SoundI::release                          : remove stream samples. (0x12321bf48)
-[LOG] SoundI::release                          :     (null) (0x12321c648)
-[LOG] SoundI::release                          : release subsounds. (0x12321bf48)
-[LOG] SoundI::release                          :     (null) (0x11d0a9e38)
-[LOG] SoundI::release                          : release codec. (0x12321bf48)
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x12e7102b8
+[LOG] SoundI::getSubSound                      : sound 0x12e7102b8.  Subsound index 0 / 1
+[LOG] SoundI::release                          : (null) (0x12e7102b8)
+[LOG] SoundI::release                          : remove stream samples. (0x12e7102b8)
+[LOG] SoundI::release                          :     (null) (0x12e7f3fb8)
+[LOG] SoundI::release                          : release subsounds. (0x12e7102b8)
+[LOG] SoundI::release                          :     (null) (0x12e7f4258)
+[LOG] SoundI::release                          : release codec. (0x12e7102b8)
 [LOG] Thread::callback                         : * FMOD Studio update thread finished
 [LOG] Thread::close                            : FMOD Studio update thread thread destroyed
 [LOG] Thread::callback                         : * FMOD Studio load thread finished

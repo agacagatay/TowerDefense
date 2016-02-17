@@ -14,7 +14,7 @@
             <value>$(AUDIO_BIN_DIR)/bayonnet_2 {e5d9c24c-0fcf-4997-8aaa-2ea4cf2cee42}.wav</value>
         </property>
         <relationship name="container">
-            <destination>{90fa3b1b-b956-4728-b2ce-fc3a4588bd34}</destination>
+            <destination>{35f6e3b0-0b27-4124-bce1-6c9c6935fb28}</destination>
         </relationship>
     </object>
 </objects>

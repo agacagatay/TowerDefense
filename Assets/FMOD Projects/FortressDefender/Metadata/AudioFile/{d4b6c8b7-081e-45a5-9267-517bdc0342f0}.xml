@@ -14,7 +14,7 @@
             <value>$(AUDIO_BIN_DIR)/anti_tank_1 {5afb51aa-6393-43ae-b06e-b00612dc69b2}.wav</value>
         </property>
         <relationship name="container">
-            <destination>{90fa3b1b-b956-4728-b2ce-fc3a4588bd34}</destination>
+            <destination>{8f89a482-921b-4171-ab9c-4cfb819c87ab}</destination>
         </relationship>
     </object>
 </objects>

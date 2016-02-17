@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="AudioFile" id="{2beeaea0-df36-463c-ab0a-1359c16c30c6}">
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>0.97081632653061223</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/machine_gun_1 {1a263cd1-4901-489b-97ed-a3e07b589b99}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{21b2c831-adfa-4ef2-914c-9fe504445593}</destination>
+        </relationship>
+    </object>
+</objects>

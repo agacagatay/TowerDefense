@@ -14,7 +14,7 @@
             <value>$(AUDIO_BIN_DIR)/cannon_artillery_1 {fbb41e98-dfdf-4504-a34f-31c8d0ccd3c3}.wav</value>
         </property>
         <relationship name="container">
-            <destination>{90fa3b1b-b956-4728-b2ce-fc3a4588bd34}</destination>
+            <destination>{92e94fef-09e4-46a7-9da7-3dd7c9aeb2b3}</destination>
         </relationship>
     </object>
 </objects>

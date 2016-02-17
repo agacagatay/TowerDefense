@@ -14,7 +14,7 @@
             <value>$(AUDIO_BIN_DIR)/bullet_impact_6 {1aa3e262-7658-414f-8871-683ca8aa1487}.wav</value>
         </property>
         <relationship name="container">
-            <destination>{90fa3b1b-b956-4728-b2ce-fc3a4588bd34}</destination>
+            <destination>{1f0ee9e9-6a79-489c-b13b-ce3d99eea720}</destination>
         </relationship>
     </object>
 </objects>

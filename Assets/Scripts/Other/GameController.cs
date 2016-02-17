@@ -42,6 +42,9 @@ public class GameController : MonoBehaviour
 	void Awake()
 	{
 		instance = this;
+
+		AudioController.instance.CreateInstance("Music/Music_Gameplay", AudioController.instance.gameObject);
+		AudioController.instance.Play("Music/Music_Gameplay", AudioController.instance.gameObject);
 	}
 
 	void Start()

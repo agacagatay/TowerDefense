@@ -42,6 +42,8 @@ public class LevelLoadScene : MonoBehaviour
 			yield return null;
 		}
 
+		AudioController.instance.Stop("Music/Music_Gameplay", AudioController.instance.gameObject);
+
 		foreach(GameObject objectToActivate in objectsToActivate)
 		{
 			objectToActivate.SetActive(true);

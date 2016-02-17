@@ -47,60 +47,63 @@ public class OrdinanceController : MonoBehaviour
 
 	void OnTriggerEnter(Collider other)
 	{
-		if (allyOrdinance && (other.gameObject.tag == "EnemyGround" || other.gameObject.tag == "EnemyAir"))
+		if (!GameController.instance.GameOver)
 		{
-			if (OverrideDamage != 0)
-				damage = OverrideDamage;
-
-			if (!splashDamage)
+			if (allyOrdinance && (other.gameObject.tag == "EnemyGround" || other.gameObject.tag == "EnemyAir"))
 			{
-				EnemyUnitVariables enemyUnitVariables = other.GetComponent<EnemyUnitVariables>();
+				if (OverrideDamage != 0)
+					damage = OverrideDamage;
 
-				if (OverdriveActive)
-					enemyUnitVariables.DamageUnit(damage * 2);
-				else
-					enemyUnitVariables.DamageUnit(damage);
-			}
-			else
-			{
-				Collider[] hitColliders = Physics.OverlapSphere(transform.position, splashDamageRange);
-
-				foreach (Collider hitCollider in hitColliders)
+				if (!splashDamage)
 				{
-					if ((other.gameObject.tag == "EnemyGround" || other.gameObject.tag == "EnemyAir"))
-					{
-						EnemyUnitVariables enemyUnitVariables = hitCollider.GetComponent<EnemyUnitVariables>();
+					EnemyUnitVariables enemyUnitVariables = other.GetComponent<EnemyUnitVariables>();
 
-						if (enemyUnitVariables != null)
+					if (OverdriveActive)
+						enemyUnitVariables.DamageUnit(damage * 2);
+					else
+						enemyUnitVariables.DamageUnit(damage);
+				}
+				else
+				{
+					Collider[] hitColliders = Physics.OverlapSphere(transform.position, splashDamageRange);
+
+					foreach (Collider hitCollider in hitColliders)
+					{
+						if ((other.gameObject.tag == "EnemyGround" || other.gameObject.tag == "EnemyAir"))
 						{
-							if (OverdriveActive)
-								enemyUnitVariables.DamageUnit(damage * 2);
-							else
-								enemyUnitVariables.DamageUnit(damage);
+							EnemyUnitVariables enemyUnitVariables = hitCollider.GetComponent<EnemyUnitVariables>();
+
+							if (enemyUnitVariables != null)
+							{
+								if (OverdriveActive)
+									enemyUnitVariables.DamageUnit(damage * 2);
+								else
+									enemyUnitVariables.DamageUnit(damage);
+							}
 						}
 					}
 				}
 			}
-		}
-		else if (!allyOrdinance && (other.gameObject.tag == "Ally" || other.gameObject.tag == "PrimaryStructure"))
-		{
-			if (!splashDamage)
+			else if (!allyOrdinance && (other.gameObject.tag == "Ally" || other.gameObject.tag == "PrimaryStructure"))
 			{
-				AllyStructureController allyStructureController = other.GetComponent<AllyStructureController>();
-				allyStructureController.DamageStructure(damage);
-			}
-			else
-			{
-				Collider[] hitColliders = Physics.OverlapSphere(transform.position, splashDamageRange);
-
-				foreach (Collider hitCollider in hitColliders)
+				if (!splashDamage)
 				{
-					if (hitCollider.gameObject.tag == "Ally")
-					{
-						AllyStructureController allyStructureController = hitCollider.GetComponent<AllyStructureController>();
+					AllyStructureController allyStructureController = other.GetComponent<AllyStructureController>();
+					allyStructureController.DamageStructure(damage);
+				}
+				else
+				{
+					Collider[] hitColliders = Physics.OverlapSphere(transform.position, splashDamageRange);
 
-						if (allyStructureController != null)
-							allyStructureController.DamageStructure(damage);
+					foreach (Collider hitCollider in hitColliders)
+					{
+						if (hitCollider.gameObject.tag == "Ally")
+						{
+							AllyStructureController allyStructureController = hitCollider.GetComponent<AllyStructureController>();
+
+							if (allyStructureController != null)
+								allyStructureController.DamageStructure(damage);
+						}
 					}
 				}
 			}

@@ -203,42 +203,46 @@ public class AllyTurretController : MonoBehaviour
 
 	IEnumerator FireWeapon()
 	{
-		switch(towerType)
-		{
-		case "Turret":
-			AudioController.instance.PlayOneshot("SFX/Tower_Turret", gameObject);
-			break;
-		}
-
 		canFire = false;
-		GameObject ordinanceClone;
 
-		if (fireSequentially)
+		if (!GameController.instance.GameOver)
 		{
-			ordinanceClone = (GameObject)Instantiate(ordinancePrefab, ordinanceSpawnTransforms[sequenceVal].position, ordinanceSpawnTransforms[sequenceVal].rotation);
-			sequenceVal++;
+			switch(towerType)
+			{
+			case "Turret":
+				AudioController.instance.PlayOneshot("SFX/Tower_Turret", gameObject);
+				break;
+			}
 
-			if (sequenceVal >= ordinanceSpawnTransforms.Length)
-				sequenceVal = 0;
+			GameObject ordinanceClone;
+
+			if (fireSequentially)
+			{
+				ordinanceClone = (GameObject)Instantiate(ordinancePrefab, ordinanceSpawnTransforms[sequenceVal].position, ordinanceSpawnTransforms[sequenceVal].rotation);
+				sequenceVal++;
+
+				if (sequenceVal >= ordinanceSpawnTransforms.Length)
+					sequenceVal = 0;
+			}
+			else
+			{
+				int randomTransform = Random.Range(0, ordinanceSpawnTransforms.Length);
+				ordinanceClone = (GameObject)Instantiate(ordinancePrefab, ordinanceSpawnTransforms[randomTransform].position, ordinanceSpawnTransforms[randomTransform].rotation);
+			}
+
+			OrdinanceController ordinanceController = ordinanceClone.GetComponent<OrdinanceController>();
+			ordinanceController.TargetTransform = targetTransform;
+			ordinanceController.OverrideDamage = ordinanceDamage;
+
+			if (OverdriveActive)
+			{
+				ordinanceController.OverdriveActive = true;
+				yield return new WaitForSeconds(fireRate * 0.5f);
+			}
+			else
+				yield return new WaitForSeconds(fireRate);
+
+			canFire = true;
 		}
-		else
-		{
-			int randomTransform = Random.Range(0, ordinanceSpawnTransforms.Length);
-			ordinanceClone = (GameObject)Instantiate(ordinancePrefab, ordinanceSpawnTransforms[randomTransform].position, ordinanceSpawnTransforms[randomTransform].rotation);
-		}
-
-		OrdinanceController ordinanceController = ordinanceClone.GetComponent<OrdinanceController>();
-		ordinanceController.TargetTransform = targetTransform;
-		ordinanceController.OverrideDamage = ordinanceDamage;
-
-		if (OverdriveActive)
-		{
-			ordinanceController.OverdriveActive = true;
-			yield return new WaitForSeconds(fireRate * 0.5f);
-		}
-		else
-			yield return new WaitForSeconds(fireRate);
-
-		canFire = true;
 	}
 }

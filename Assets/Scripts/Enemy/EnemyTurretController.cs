@@ -121,27 +121,31 @@ public class EnemyTurretController : MonoBehaviour
 	IEnumerator FireWeapon()
 	{
 		canFire = false;
-		GameObject ordinanceClone;
 
-		if (fireSequentially)
+		if (!GameController.instance.GameOver)
 		{
-			ordinanceClone = (GameObject)Instantiate(ordinancePrefab, ordinanceSpawnTransforms[sequenceVal].position, ordinanceSpawnTransforms[sequenceVal].rotation);
-			sequenceVal++;
+			GameObject ordinanceClone;
 
-			if (sequenceVal >= ordinanceSpawnTransforms.Length)
-				sequenceVal = 0;
+			if (fireSequentially)
+			{
+				ordinanceClone = (GameObject)Instantiate(ordinancePrefab, ordinanceSpawnTransforms[sequenceVal].position, ordinanceSpawnTransforms[sequenceVal].rotation);
+				sequenceVal++;
+
+				if (sequenceVal >= ordinanceSpawnTransforms.Length)
+					sequenceVal = 0;
+			}
+			else
+			{
+				int randomTransform = Random.Range(0, ordinanceSpawnTransforms.Length);
+				ordinanceClone = (GameObject)Instantiate(ordinancePrefab, ordinanceSpawnTransforms[randomTransform].position, ordinanceSpawnTransforms[randomTransform].rotation);
+			}
+
+			OrdinanceController ordinanceController = ordinanceClone.GetComponent<OrdinanceController>();
+			ordinanceController.TargetTransform = targetTransform;
+
+			yield return new WaitForSeconds(fireRate);
+
+			canFire = true;
 		}
-		else
-		{
-			int randomTransform = Random.Range(0, ordinanceSpawnTransforms.Length);
-			ordinanceClone = (GameObject)Instantiate(ordinancePrefab, ordinanceSpawnTransforms[randomTransform].position, ordinanceSpawnTransforms[randomTransform].rotation);
-		}
-
-		OrdinanceController ordinanceController = ordinanceClone.GetComponent<OrdinanceController>();
-		ordinanceController.TargetTransform = targetTransform;
-
-		yield return new WaitForSeconds(fireRate);
-
-		canFire = true;
 	}
 }

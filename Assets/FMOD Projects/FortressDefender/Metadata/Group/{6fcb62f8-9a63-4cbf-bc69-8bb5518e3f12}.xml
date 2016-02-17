@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="MixerGroup" id="{6fcb62f8-9a63-4cbf-bc69-8bb5518e3f12}">
+        <property name="name">
+            <value>Music</value>
+        </property>
+        <relationship name="effectChain">
+            <destination>{036ff337-4907-4c13-91eb-1dddd237df03}</destination>
+        </relationship>
+        <relationship name="panner">
+            <destination>{07e2c960-452f-4e85-acff-f1bccfeea0df}</destination>
+        </relationship>
+        <relationship name="output">
+            <destination>{5f67e8cb-3a38-470f-9c01-f724938f91b4}</destination>
+        </relationship>
+    </object>
+    <object class="MixerBusEffectChain" id="{036ff337-4907-4c13-91eb-1dddd237df03}">
+        <relationship name="effects">
+            <destination>{2f713963-fb8a-405f-b0c0-0f470a7936d2}</destination>
+            <destination>{a1fd9311-cbdd-4a3f-91f8-48b533bdb141}</destination>
+            <destination>{f674904d-b05f-4b8f-b1d1-f0f0b5616985}</destination>
+        </relationship>
+    </object>
+    <object class="MixerBusPanner" id="{07e2c960-452f-4e85-acff-f1bccfeea0df}"/>
+    <object class="MixerBusFader" id="{2f713963-fb8a-405f-b0c0-0f470a7936d2}"/>
+    <object class="LoudnessMeter" id="{a1fd9311-cbdd-4a3f-91f8-48b533bdb141}"/>
+    <object class="CompressorEffect" id="{f674904d-b05f-4b8f-b1d1-f0f0b5616985}">
+        <property name="threshold">
+            <value>-35</value>
+        </property>
+        <property name="ratio">
+            <value>1.99999988</value>
+        </property>
+        <property name="attackTime">
+            <value>0.100000001</value>
+        </property>
+        <property name="releaseTime">
+            <value>1000</value>
+        </property>
+        <property name="sidechainEnabled">
+            <value>true</value>
+        </property>
+    </object>
+</objects>

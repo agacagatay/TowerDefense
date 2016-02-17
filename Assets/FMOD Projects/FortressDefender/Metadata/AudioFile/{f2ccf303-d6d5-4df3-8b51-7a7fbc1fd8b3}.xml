@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="AudioFile" id="{f2ccf303-d6d5-4df3-8b51-7a7fbc1fd8b3}">
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>3.0721088435374151</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/cannon_artillery_2 {d6e1ff86-dcc9-41a4-9275-6d6cd115a909}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{90fa3b1b-b956-4728-b2ce-fc3a4588bd34}</destination>
+        </relationship>
+    </object>
+</objects>

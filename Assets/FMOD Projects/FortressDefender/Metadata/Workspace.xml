@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="Workspace" id="{6df6847f-9e50-40ca-8a3a-322a6c7683f1}">
+        <property name="builtBanksOutputDirectory">
+            <value>/Users/kevinsalchert/Documents/Repositories/Tower Defense/Assets/Audio Banks/</value>
+        </property>
+        <property name="outputFormat">
+            <value>3</value>
+        </property>
+        <relationship name="masterEventFolder">
+            <destination>{28cd011e-c343-4be6-b16f-3462f6f7ea06}</destination>
+        </relationship>
+        <relationship name="masterTagFolder">
+            <destination>{a2852ebb-41ef-4a32-8c96-506835b3ac83}</destination>
+        </relationship>
+        <relationship name="masterBankFolder">
+            <destination>{cd66136a-47cf-4c1b-a78b-e807fbf1a5ff}</destination>
+        </relationship>
+        <relationship name="audioBinManager">
+            <destination>{740fe3fd-7432-4119-b532-a8a79ef95f1f}</destination>
+        </relationship>
+        <relationship name="mixer">
+            <destination>{1043940f-a767-4640-8bbe-c420dfd3845d}</destination>
+        </relationship>
+    </object>
+    <object class="AudioBinManager" id="{740fe3fd-7432-4119-b532-a8a79ef95f1f}">
+        <relationship name="masterAudioBinFolder">
+            <destination>{877b6aaf-de72-4982-a773-8e1e3d86a7d9}</destination>
+        </relationship>
+    </object>
+</objects>

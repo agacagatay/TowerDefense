@@ -1,9 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.01.07.00">
     <object class="Workspace" id="{6df6847f-9e50-40ca-8a3a-322a6c7683f1}">
-        <property name="builtBanksOutputDirectory">
-            <value>/Users/kevinsalchert/Documents/Repositories/Tower Defense/Assets/FMOD Projects/FortressDefender/Build/</value>
-        </property>
+        <property name="builtBanksOutputDirectory"/>
         <property name="outputFormat">
             <value>3</value>
         </property>

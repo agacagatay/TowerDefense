@@ -421,7 +421,7 @@
     <object class="MixerBusFader" id="{93e86df3-b944-427b-b667-55a2c4fd7ed3}"/>
     <object class="FlangerEffect" id="{39ba43c9-f48c-4c4b-823c-125b78089cf9}">
         <property name="rate">
-            <value>0.600000024</value>
+            <value>0.200000003</value>
         </property>
         <relationship name="modulators">
             <destination>{8f120f3e-7d38-4bea-8ba3-d2dc8d2efd29}</destination>

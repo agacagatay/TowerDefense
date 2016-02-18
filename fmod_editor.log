@@ -9,7 +9,6 @@
 [LOG] OutputCoreAudio::enumerate               : Enumerating...
 [LOG] OutputCoreAudio::enumerate               : Found output driver: "Built-in Output".
 [LOG] OutputCoreAudio::enumerate               : Found output driver: "HDMI".
-[LOG] OutputCoreAudio::enumerate               : Found output driver: "Scarlett 18i20 USB".
 [LOG] OutputCoreAudio::enumerate               : Found output driver: "ComputerAudio".
 [LOG] OutputCoreAudio::enumerate               : Done.
 [LOG] OutputCoreAudio::init                    : Output running 2 channels at 44100Hz sample rate.

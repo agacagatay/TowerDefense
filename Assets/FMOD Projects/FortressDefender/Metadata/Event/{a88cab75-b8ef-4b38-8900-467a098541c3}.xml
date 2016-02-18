@@ -60,6 +60,9 @@
         <property name="maxVoices">
             <value>1</value>
         </property>
+        <property name="priority">
+            <value>4</value>
+        </property>
     </object>
     <object class="MarkerTrack" id="{9c5715f0-2baf-488f-b611-88f6c67d3857}"/>
     <object class="GroupTrack" id="{66b96a99-059c-4acc-8e2a-315cbab7bf4e}">

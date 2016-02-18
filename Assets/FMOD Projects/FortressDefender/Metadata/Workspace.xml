@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.07.00">
     <object class="Workspace" id="{6df6847f-9e50-40ca-8a3a-322a6c7683f1}">
         <property name="builtBanksOutputDirectory">
-            <value>/Users/kevinsalchert/Documents/Repositories/Tower Defense/Assets/Audio Banks/</value>
+            <value>/Volumes/LaCie/Repositories/Tower Defense/Assets/Audio Banks/</value>
         </property>
         <property name="outputFormat">
             <value>3</value>

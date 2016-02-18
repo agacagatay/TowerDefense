@@ -32,9 +32,11 @@ public class AllySpawnerController : MonoBehaviour
 	AllyStructureController structureController;
 	UIWidget turretSelectWidget;
 	AllyDestroyTurret destroyTurretTab;
+	GameObject growIconObject;
 	List<GameObject> spawnBranchOptions = new List<GameObject>();
 	List<GameObject> spawnBranchObjects = new List<GameObject>();
 	public UIWidget TurretSpawnMenu { get { return turretSpawnMenu; }}
+	public GameObject GrowIconObject { get { return growIconObject; } set { growIconObject = value; }}
 	public AllySpawnerPosition SelectedSpawnerPosition { get { return selectedSpawnerPosition; }}
 	public AllyStructureController StructureController { get { return structureController; }}
 	public int ArtilleryQuota { get { return artilleryQuota; } set { artilleryQuota = value; }}
@@ -105,6 +107,9 @@ public class AllySpawnerController : MonoBehaviour
 	void ShowSpawnerOptions(AllySpawnerPosition allySpawnerPosition)
 	{
 		spawnerDisplayEnabled = true;
+
+		if (GrowIconObject != null)
+			Destroy(GrowIconObject);
 
 		selectedSpawnerPosition = allySpawnerPosition;
 		turretSpawnMenu.SetAnchor(allySpawnerPosition.transform);

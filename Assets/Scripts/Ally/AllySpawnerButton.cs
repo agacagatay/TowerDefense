@@ -65,6 +65,7 @@ public class AllySpawnerButton : MonoBehaviour
 			GameObject branchGrowClone = (GameObject)Instantiate(buttonGrowPrefab, transform.parent.transform.position, transform.parent.transform.rotation);
 			branchGrowClone.transform.parent = AllySpawnerController.instance.TurretSpawnMenu.transform;
 			branchGrowClone.transform.localScale = new Vector3(1f, 1f, 1f);
+			AllySpawnerController.instance.GrowIconObject = branchGrowClone;
 		}
 	}
 }

@@ -111,7 +111,7 @@ public class OrdinanceController : MonoBehaviour
 
 		if (other.gameObject.tag != "Turret" && other.gameObject.tag != "Ordinance" && other.gameObject.tag != "SpawnPosition" && other.gameObject.tag != "Ignore")
 		{
-			if ((allyOrdinance && other.gameObject.tag != "Ally") || ((!allyOrdinance && other.gameObject.tag != "EnemyGround") && (!allyOrdinance && other.gameObject.tag != "EnemyAir")))
+			if (allyOrdinance && other.gameObject.tag != "Ally")
 			{
 				if (isMissile)
 				{
@@ -119,6 +119,18 @@ public class OrdinanceController : MonoBehaviour
 					missileVFXDestroy.DisableEmmision();
 				}
 
+				if (explosionPrefab != null)
+				{
+					if (explosionPrefab.name == "Explosion Bullet Big")
+						AudioController.instance.PlayOneshot("SFX/Ally_Ordinance_Big", gameObject);
+
+					Instantiate(explosionPrefab, transform.position, transform.rotation);
+				}
+
+				Destroy(gameObject);
+			}
+			else if (!allyOrdinance && other.gameObject.tag != "EnemyGround" && other.gameObject.tag != "EnemyAir")
+			{
 				if (explosionPrefab != null)
 					Instantiate(explosionPrefab, transform.position, transform.rotation);
 

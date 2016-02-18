@@ -9,15 +9,15 @@ public class AllySpawnerButton : MonoBehaviour
 	{
 		switch(gameObject.tag)
 		{
-		case "TabArtillary":
-			if (AllySpawnerController.instance.ArtillaryQuota > 0)
+		case "TabArtillery":
+			if (AllySpawnerController.instance.ArtilleryQuota > 0)
 			{
 				SpawnButtonGrow();
-				--AllySpawnerController.instance.ArtillaryQuota;
-				AllySpawnerController.instance.SpawnTurret("Artillary");
+				--AllySpawnerController.instance.ArtilleryQuota;
+				AllySpawnerController.instance.SpawnTurret("Artillery");
 			}
 			else
-				Debug.Log("Artillary Limit Reached");
+				Debug.Log("Artillery Limit Reached");
 
 			break;
 		case "TabMinigun":

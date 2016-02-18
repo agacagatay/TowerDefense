@@ -209,6 +209,9 @@ public class AllyTurretController : MonoBehaviour
 		{
 			switch(towerType)
 			{
+			case "Artillery":
+				AudioController.instance.PlayOneshot("SFX/Tower_Artillery", gameObject);
+				break;
 			case "Minigun":
 				AudioController.instance.PlayOneshot("SFX/Tower_Minigun", gameObject);
 				break;

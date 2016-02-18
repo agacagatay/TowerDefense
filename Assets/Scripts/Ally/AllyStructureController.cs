@@ -12,7 +12,6 @@ public class AllyStructureController : MonoBehaviour
 	[SerializeField] bool hasPerimeter = false;
 	[SerializeField] bool isPrimaryStructure = false;
 	[SerializeField] bool isSecondaryStructure = false;
-	[SerializeField] string structureName;
 	[SerializeField] GameObject deathExplosion;
 	int structureHealth;
 	bool structureDead = false;
@@ -24,7 +23,7 @@ public class AllyStructureController : MonoBehaviour
 	public GameObject TurretSpawnObject { get { return turretSpawnObject; } set { turretSpawnObject = value; }}
 	public bool IsPrimaryStructure { get { return isPrimaryStructure; }}
 	public bool IsSecondaryStructure { get { return isSecondaryStructure; }}
-	public string StructureName { get { return structureName; }}
+	public string StructureName { get { return turretType; }}
 
 	void Start()
 	{
@@ -57,8 +56,8 @@ public class AllyStructureController : MonoBehaviour
 
 				if (isTurret)
 				{
-					if (turretType == "Artillary")
-						++AllySpawnerController.instance.ArtillaryQuota;
+					if (turretType == "Artillery")
+						++AllySpawnerController.instance.ArtilleryQuota;
 					else if (turretType == "Minigun")
 						++AllySpawnerController.instance.MinigunQuota;
 					else if (turretType == "Turret")

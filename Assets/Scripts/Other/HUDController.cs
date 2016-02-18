@@ -5,7 +5,7 @@ public class HUDController : MonoBehaviour
 {
 	[SerializeField] UISprite primaryStructureHealth;
 	[SerializeField] UISprite secondaryStructureHealth;
-	[SerializeField] UILabel artillaryText;
+	[SerializeField] UILabel artilleryText;
 	[SerializeField] UILabel minigunText;
 	[SerializeField] UILabel turretText;
 	[SerializeField] UILabel missileBatteryText;
@@ -72,7 +72,7 @@ public class HUDController : MonoBehaviour
 
 	public void UpdateResources()
 	{
-		artillaryText.text = AllySpawnerController.instance.ArtillaryQuota.ToString("N0");
+		artilleryText.text = AllySpawnerController.instance.ArtilleryQuota.ToString("N0");
 		minigunText.text = AllySpawnerController.instance.MinigunQuota.ToString("N0");
 		turretText.text = AllySpawnerController.instance.TurretQuota.ToString("N0");
 		missileBatteryText.text = AllySpawnerController.instance.MissileBatteryQuota.ToString("N0");

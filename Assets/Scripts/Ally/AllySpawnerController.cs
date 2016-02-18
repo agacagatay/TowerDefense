@@ -6,10 +6,10 @@ public class AllySpawnerController : MonoBehaviour
 {
 	[SerializeField] UIWidget turretSpawnMenu;
 	[SerializeField] GameObject spawnTimer;
-	[SerializeField] int artillaryQuota;
-	[SerializeField] float artillarySpawnTime;
-	[SerializeField] GameObject artillaryPrefab;
-	[SerializeField] GameObject artillaryBranch;
+	[SerializeField] int artilleryQuota;
+	[SerializeField] float artillerySpawnTime;
+	[SerializeField] GameObject artilleryPrefab;
+	[SerializeField] GameObject artilleryBranch;
 	[SerializeField] int minigunQuota;
 	[SerializeField] float minigunSpawnTime;
 	[SerializeField] GameObject minigunPrefab;
@@ -37,7 +37,7 @@ public class AllySpawnerController : MonoBehaviour
 	public UIWidget TurretSpawnMenu { get { return turretSpawnMenu; }}
 	public AllySpawnerPosition SelectedSpawnerPosition { get { return selectedSpawnerPosition; }}
 	public AllyStructureController StructureController { get { return structureController; }}
-	public int ArtillaryQuota { get { return artillaryQuota; } set { artillaryQuota = value; }}
+	public int ArtilleryQuota { get { return artilleryQuota; } set { artilleryQuota = value; }}
 	public int MinigunQuota { get { return minigunQuota; } set { minigunQuota = value; }}
 	public int TurretQuota { get { return turretQuota; } set { turretQuota = value; }}
 	public int MissileBatteryQuota { get { return missileBatteryQuota; } set { missileBatteryQuota = value; }}
@@ -117,16 +117,16 @@ public class AllySpawnerController : MonoBehaviour
 		{
 			switch(spawnOption)
 			{
-			case "Artillary":
-				GameObject artillaryBranchClone = artillaryBranch as GameObject;
-				UITexture artillarySprite = artillaryBranchClone.GetComponentInChildren<UITexture>();
+			case "Artillery":
+				GameObject artilleryBranchClone = artilleryBranch as GameObject;
+				UITexture artillerySprite = artilleryBranchClone.GetComponentInChildren<UITexture>();
 
-				if (AllySpawnerController.instance.ArtillaryQuota > 0)
-					artillarySprite.alpha = 1f;
+				if (AllySpawnerController.instance.ArtilleryQuota > 0)
+					artillerySprite.alpha = 1f;
 				else
-					artillarySprite.alpha = 0.3f;
+					artillerySprite.alpha = 0.3f;
 
-				spawnBranchOptions.Add(artillaryBranchClone);
+				spawnBranchOptions.Add(artilleryBranchClone);
 				break;
 			case "Minigun":
 				GameObject minigunBranchClone = minigunBranch as GameObject;
@@ -215,9 +215,9 @@ public class AllySpawnerController : MonoBehaviour
 	{
 		switch(prefabName)
 		{
-		case "Artillary":
+		case "Artillery":
 			ToggleSpawnEffect(4);
-			StartCoroutine(ToggleTurretSpawn("Artillary", artillarySpawnTime));
+			StartCoroutine(ToggleTurretSpawn("Artillery", artillerySpawnTime));
 			break;
 		case "Minigun":
 			ToggleSpawnEffect(3);
@@ -289,8 +289,8 @@ public class AllySpawnerController : MonoBehaviour
 
 		switch(prefabName)
 		{
-		case "Artillary":
-			turretClone = (GameObject)Instantiate(artillaryPrefab, 
+		case "Artillery":
+			turretClone = (GameObject)Instantiate(artilleryPrefab, 
 				spawnPosition.SpawnTransform.position, spawnPosition.SpawnTransform.rotation);
 
 			allyStructureVariables = turretClone.GetComponent<AllyStructureController>();

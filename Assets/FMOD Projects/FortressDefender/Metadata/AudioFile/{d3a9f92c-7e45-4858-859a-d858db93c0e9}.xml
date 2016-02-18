@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="AudioFile" id="{d3a9f92c-7e45-4858-859a-d858db93c0e9}">
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>2.8774603174603173</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/missile_explosion_3 {204a652c-cfb9-49fb-bb34-8a09d5769375}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{b65bbefb-4b85-413e-8b86-0a50927113ce}</destination>
+        </relationship>
+    </object>
+</objects>

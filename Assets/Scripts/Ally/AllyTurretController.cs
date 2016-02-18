@@ -218,6 +218,9 @@ public class AllyTurretController : MonoBehaviour
 			case "Turret":
 				AudioController.instance.PlayOneshot("SFX/Tower_Turret", gameObject);
 				break;
+			case "Missile Battery":
+				AudioController.instance.PlayOneshot("SFX/Tower_Missile_Battery", gameObject);
+				break;
 			}
 
 			GameObject ordinanceClone;

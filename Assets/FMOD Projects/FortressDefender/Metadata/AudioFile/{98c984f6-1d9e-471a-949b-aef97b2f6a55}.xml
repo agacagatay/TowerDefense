@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="AudioFile" id="{98c984f6-1d9e-471a-949b-aef97b2f6a55}">
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>1.2355555555555555</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/missile_launch_5 {5f89f1bc-6e15-4a48-944b-84102d9d1c37}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{745af9a4-805f-43c4-9f1c-15343a030adc}</destination>
+        </relationship>
+    </object>
+</objects>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="AudioFile" id="{ed4b2df2-6a20-4119-86df-3f47136b48d9}">
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>4</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/missile_booster_3 {54bc0011-209c-4975-a98b-3a523a882957}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{f68f3f6a-ed8c-4c99-86df-cb3fb70176b4}</destination>
+        </relationship>
+    </object>
+</objects>

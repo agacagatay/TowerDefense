@@ -64,10 +64,7 @@
     </object>
     <object class="EventAutomatableProperties" id="{2e1dddef-c403-401c-904e-13ca1908d00b}">
         <property name="maxVoices">
-            <value>6</value>
-        </property>
-        <property name="voiceStealing">
-            <value>2</value>
+            <value>3</value>
         </property>
         <property name="priority">
             <value>0</value>
@@ -527,7 +524,6 @@
         <property name="name">
             <value>Level</value>
         </property>
-        <property name="units"/>
         <property name="curve">
             <value>LinearCurveStrategy{(0.000000,0.000000)(1.000000,1.000000)}</value>
         </property>

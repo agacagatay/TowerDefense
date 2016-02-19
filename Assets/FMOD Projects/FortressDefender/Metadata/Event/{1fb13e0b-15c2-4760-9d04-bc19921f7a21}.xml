@@ -60,9 +60,6 @@
         </relationship>
     </object>
     <object class="EventAutomatableProperties" id="{ef1b1a1c-bc83-479e-8f50-0e169e970257}">
-        <property name="maxVoices">
-            <value>4</value>
-        </property>
         <property name="voiceStealing">
             <value>2</value>
         </property>
@@ -429,7 +426,7 @@
     </object>
     <object class="SpatialiserEffect" id="{5bcc5ead-d1f7-4f00-b953-10315ca6debe}">
         <property name="minimumDistance">
-            <value>50</value>
+            <value>80</value>
         </property>
         <property name="maximumDistance">
             <value>250</value>

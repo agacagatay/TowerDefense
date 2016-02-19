@@ -9,10 +9,12 @@ public class LevelLoadScene : MonoBehaviour
 	[SerializeField] GameObject[] objectsToActivate;
 	[SerializeField] float waitBeforeSceneLoad;
 	FMOD.Studio.Bus musicBus;
+	FMOD.Studio.Bus sfxBus;
 
 	void Start()
 	{
 		FMODUnity.RuntimeManager.StudioSystem.getBus("bus:/Music", out musicBus);
+		FMODUnity.RuntimeManager.StudioSystem.getBus("bus:/SFX", out sfxBus);
 	}
 
 	void OnClick()
@@ -58,6 +60,7 @@ public class LevelLoadScene : MonoBehaviour
 		}
 
 		yield return new WaitForSeconds(waitBeforeSceneLoad);
+		sfxBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
 
 		if (replayLevel)
 			SceneManager.LoadSceneAsync(GameController.instance.LevelNumberInt);

@@ -130,6 +130,9 @@ public class AllyStructureController : MonoBehaviour
 
 	IEnumerator WaitAndDestroy(float waitTime, bool triggerVibrate)
 	{
+		if (triggerVibrate && EncryptedPlayerPrefs.GetInt("VibrationMode", 1) == 1)
+			Handheld.Vibrate();
+
 		yield return new WaitForSeconds(waitTime);
 
 		if (HealthBarController.instance.StructureController == this)
@@ -140,9 +143,6 @@ public class AllyStructureController : MonoBehaviour
 			AllySpawnerPosition allySpawnerPosition = turretSpawnObject.GetComponent<AllySpawnerPosition>();
 			allySpawnerPosition.EnableSpawnerPosition();
 		}
-
-		if (triggerVibrate && EncryptedPlayerPrefs.GetInt("VibrationMode", 1) == 1)
-			Handheld.Vibrate();
 
 		Destroy(gameObject);
 	}

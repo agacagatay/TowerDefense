@@ -27,9 +27,6 @@ public class BoostController : MonoBehaviour
 			Instantiate(boostContainers[EnabledBoost].BoostPrefab, boostContainers[EnabledBoost].BoostSpawnTransform.position,
 				boostContainers[EnabledBoost].BoostSpawnTransform.rotation);
 
-			if (EncryptedPlayerPrefs.GetInt("VibrationMode", 1) == 1)
-				Handheld.Vibrate();
-
 			GameCenterManager.SubmitAchievement(100f, "achievement_activate_boost", true);
 		}
 	}

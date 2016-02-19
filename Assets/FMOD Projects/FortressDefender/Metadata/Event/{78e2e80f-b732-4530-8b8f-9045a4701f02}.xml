@@ -63,7 +63,7 @@
             <value>6</value>
         </property>
         <property name="priority">
-            <value>1</value>
+            <value>0</value>
         </property>
     </object>
     <object class="MarkerTrack" id="{54176be8-1d90-4116-a259-97dc174f5c77}"/>
@@ -100,7 +100,7 @@
     </object>
     <object class="EventMixerMaster" id="{62335647-9de4-46c6-b061-ac4215aa889a}">
         <property name="volume">
-            <value>-28</value>
+            <value>-24</value>
         </property>
         <relationship name="effectChain">
             <destination>{7e36c537-05fc-4308-9004-d2de51b9b21e}</destination>

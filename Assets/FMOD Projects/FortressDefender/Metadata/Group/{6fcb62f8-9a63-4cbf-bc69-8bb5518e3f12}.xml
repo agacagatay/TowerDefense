@@ -26,7 +26,7 @@
     <object class="LoudnessMeter" id="{a1fd9311-cbdd-4a3f-91f8-48b533bdb141}"/>
     <object class="CompressorEffect" id="{f674904d-b05f-4b8f-b1d1-f0f0b5616985}">
         <property name="threshold">
-            <value>-25</value>
+            <value>-20</value>
         </property>
         <property name="ratio">
             <value>1.99999988</value>

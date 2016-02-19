@@ -364,6 +364,9 @@
         <property name="maximumDistance">
             <value>250</value>
         </property>
+        <property name="extentMode">
+            <value>2</value>
+        </property>
     </object>
     <object class="MixerBusFader" id="{ccbad3e5-f373-4bc6-b9f8-28a7b9bf576a}"/>
     <object class="PluginEffect" id="{209ffcdb-87c1-4056-9c18-416f145d37d9}">

@@ -238,6 +238,9 @@
         <property name="maximumDistance">
             <value>250</value>
         </property>
+        <property name="extentMode">
+            <value>2</value>
+        </property>
     </object>
     <object class="MixerBusFader" id="{0c66aaeb-b9db-4db8-80bd-22a6b96d0cbe}"/>
     <object class="FlangerEffect" id="{950653c5-a12a-471c-a384-314e10b8d0f5}">

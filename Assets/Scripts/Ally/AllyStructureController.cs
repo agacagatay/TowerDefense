@@ -112,7 +112,14 @@ public class AllyStructureController : MonoBehaviour
 				SpawnedAllyDictionary.instance.spawnedAllyDictionary.Remove(gameObject);
 
 				if (deathExplosion != null)
+				{
 					Instantiate(deathExplosion, transform.position, transform.rotation);
+
+					if (isPrimaryStructure || isSecondaryStructure)
+						AudioController.instance.PlayOneshot("SFX/Explosion_Big", gameObject);
+					else
+						AudioController.instance.PlayOneshot("SFX/Explosion_Normal", gameObject);
+				}
 
 				StartCoroutine(WaitAndDestroy(0.5f, triggerVibrate));
 			}

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="AudioFile" id="{207ff5ea-4bdb-4180-abcd-a6c61dade916}">
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>3.3764172335600908</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/explosion_whiz_1 {5110f375-b975-41ea-ad3e-56760fa780bd}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{0b533cd5-b67c-40c4-8b06-4f02f5ebc5f9}</destination>
+        </relationship>
+    </object>
+</objects>

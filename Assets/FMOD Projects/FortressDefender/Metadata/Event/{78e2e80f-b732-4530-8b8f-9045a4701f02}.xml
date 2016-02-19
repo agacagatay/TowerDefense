@@ -165,7 +165,7 @@
             <value>0.01</value>
         </property>
         <property name="pitch">
-            <value>-3</value>
+            <value>-12</value>
         </property>
         <relationship name="modulators">
             <destination>{e2723740-9362-444d-b78a-946b558edfdb}</destination>
@@ -343,7 +343,7 @@
     <object class="MixerBusFader" id="{1c0b499e-9a1e-4e27-8ab3-d1ebf5ef9deb}"/>
     <object class="FlangerEffect" id="{5d8f39ff-7d3b-41f8-8817-9e2cb3b54829}">
         <property name="rate">
-            <value>0.200000003</value>
+            <value>0.600000024</value>
         </property>
         <relationship name="modulators">
             <destination>{ffa6a3c3-8cfc-4374-a6f1-f5d99be2e7d1}</destination>

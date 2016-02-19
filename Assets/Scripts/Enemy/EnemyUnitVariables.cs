@@ -43,7 +43,10 @@ public class EnemyUnitVariables : MonoBehaviour
 				EnemySpawnerController.instance.SpawnNextEnemyWave();
 
 			if (deathExplosion != null)
+			{
+				AudioController.instance.PlayOneshot("SFX/Explosion_Normal", gameObject);
 				deathExplosionObject = (GameObject)Instantiate(deathExplosion, transform.position, transform.rotation);
+			}
 
 			StartCoroutine(WaitAndDestroy(0.5f));
 		}

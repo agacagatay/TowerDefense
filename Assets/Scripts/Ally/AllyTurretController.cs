@@ -33,10 +33,24 @@ public class AllyTurretController : MonoBehaviour
 
 	void Start()
 	{
-		InvokeRepeating("FindEnemiesInRange", 0, 0.5f);
-
 		AllyStructureController allyStructureController = gameObject.GetComponent<AllyStructureController>();
 		towerType = allyStructureController.StructureName;
+
+		switch(towerType)
+		{
+		case "Artillery":
+			AudioController.instance.CreateInstance("SFX/Tower_Artillery", gameObject);
+			break;
+		case "Minigun":
+			AudioController.instance.CreateInstance("SFX/Tower_Minigun", gameObject);
+			break;
+		case "Turret":
+			AudioController.instance.CreateInstance("SFX/Tower_Turret", gameObject);
+			break;
+		case "Missile Battery":
+			AudioController.instance.CreateInstance("SFX/Tower_Missile_Battery", gameObject);
+			break;
+		}
 
 		fireRate = EncryptedPlayerPrefs.GetFloat(towerType + " Attack Speed", 0f);
 		ordinanceDamage = EncryptedPlayerPrefs.GetInt(towerType + " Damage", 0);
@@ -54,6 +68,8 @@ public class AllyTurretController : MonoBehaviour
 
 		if (BoostController.instance.TurretOverdriveEnabled)
 			OverdriveActive = true;
+
+		InvokeRepeating("FindEnemiesInRange", 0, 0.5f);
 	}
 
 	void Update()
@@ -210,16 +226,16 @@ public class AllyTurretController : MonoBehaviour
 			switch(towerType)
 			{
 			case "Artillery":
-				AudioController.instance.PlayOneshot("SFX/Tower_Artillery", gameObject);
+				AudioController.instance.Play("SFX/Tower_Artillery", gameObject);
 				break;
 			case "Minigun":
-				AudioController.instance.PlayOneshot("SFX/Tower_Minigun", gameObject);
+				AudioController.instance.Play("SFX/Tower_Minigun", gameObject);
 				break;
 			case "Turret":
-				AudioController.instance.PlayOneshot("SFX/Tower_Turret", gameObject);
+				AudioController.instance.Play("SFX/Tower_Turret", gameObject);
 				break;
 			case "Missile Battery":
-				AudioController.instance.PlayOneshot("SFX/Tower_Missile_Battery", gameObject);
+				AudioController.instance.Play("SFX/Tower_Missile_Battery", gameObject);
 				break;
 			}
 
@@ -252,6 +268,25 @@ public class AllyTurretController : MonoBehaviour
 				yield return new WaitForSeconds(fireRate);
 
 			canFire = true;
+		}
+	}
+
+	void OnDestroy()
+	{
+		switch(towerType)
+		{
+		case "Artillery":
+			AudioController.instance.Stop("SFX/Tower_Artillery", gameObject);
+			break;
+		case "Minigun":
+			AudioController.instance.Stop("SFX/Tower_Minigun", gameObject);
+			break;
+		case "Turret":
+			AudioController.instance.Stop("SFX/Tower_Turret", gameObject);
+			break;
+		case "Missile Battery":
+			AudioController.instance.Stop("SFX/Tower_Missile_Battery", gameObject);
+			break;
 		}
 	}
 }

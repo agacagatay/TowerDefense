@@ -29,11 +29,20 @@
 [LOG] Thread::callback                         : * FMOD Studio load thread started
 [LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
 [LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
-[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {6fcb62f8-9a63-4cbf-bc69-8bb5518e3f12}
-[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {6fcb62f8-9a63-4cbf-bc69-8bb5518e3f12}
 [LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {6fcb62f8-9a63-4cbf-bc69-8bb5518e3f12}
+[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {6fcb62f8-9a63-4cbf-bc69-8bb5518e3f12}
+[LOG] SoundI::release                          : (null) (0x12b45b0c8)
+[LOG] SoundI::release                          : remove stream samples. (0x12b45b0c8)
+[LOG] SoundI::release                          :     (null) (0x124f983f8)
+[LOG] SoundI::release                          : release subsounds. (0x12b45b0c8)
+[LOG] SoundI::release                          :     (null) (0x124f98668)
+[LOG] SoundI::release                          : release codec. (0x12b45b0c8)
+[LOG] Thread::callback                         : * FMOD Studio update thread finished
+[LOG] Thread::close                            : FMOD Studio update thread thread destroyed
 [LOG] Thread::callback                         : * FMOD Studio load thread finished
 [LOG] Thread::close                            : FMOD Studio load thread thread destroyed
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] LiveUpdate::release                      : 
 [LOG] SystemI::close                           : 
 [LOG] SystemI::close                           : Stop all sounds
@@ -49,8 +58,5 @@
 [LOG] SystemI::close                           : Free emulated output.
 [LOG] SystemI::close                           : Free channel pool.
 [LOG] SystemI::close                           : Remove miscllaneous DSP stuff.
-[LOG] Global::decRef                           : Shut down streamer and FMOD_NONBLOCKING and FileSystem thread.
-[LOG] Global::decRef                           : Shut down file system.
 [LOG] SystemI::close                           : done.
 
-[LOG] System::create                           : Header version = 1.07.06. Current version = 1.07.06.

@@ -39,15 +39,15 @@
 [LOG] Thread::initThread                       : Initializing FMOD nonblocking thread (0).  priority 1
 [LOG] Thread::initThread                       : - Stacksize 81920.  Stack pointer 0x0 : usesemaphore = 1 : sleeptime = 0
 [LOG] Thread::callback                         : * FMOD nonblocking thread (0) started
-[LOG] SystemI::createSound                     : setdata soundi = 0x1238d12b8 : node = 0x1238d1470
-[LOG] SystemI::createSound                     : add node to async list : head = 0x1238d1700.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1238d12b8
+[LOG] SystemI::createSound                     : setdata soundi = 0x123d23138 : node = 0x1363332a0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x123d33510.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123d23138
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Compressed.bank : mode 0a010082
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 7008032
 [LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 2752
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1238d1578
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1363333a8
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -56,7 +56,7 @@
 [LOG] System::createSoundInternal              :     decode buffersize = 19200 : blocksize = 256 : format = 2
 [LOG] SystemI::createSample                    :     mode 0a010082 length 19200 samples, lengthbytes 3264768
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x11fc9a828
+[LOG] SystemI::createSample                    :     output = 0x125079938
 [LOG] OutputSoftware::createSample             :     lengthpcm 19200, lengthbytes 3264768, channels 2, format 2, freq 48000, mode 0a01008a
 [LOG] System::createSoundInternal              :     1 subsounds detected.
 [LOG] System::createSoundInternal              :     Seek stream to start
@@ -68,14 +68,14 @@
 [LOG] Thread::callback                         :         * FMOD file thread started
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1238d12b8
-[LOG] SoundI::getSubSound                      : sound 0x1238d12b8.  Subsound index 0 / 1
-[LOG] SoundI::release                          : (null) (0x1238d12b8)
-[LOG] SoundI::release                          : remove stream samples. (0x1238d12b8)
-[LOG] SoundI::release                          :     (null) (0x1238c5f08)
-[LOG] SoundI::release                          : release subsounds. (0x1238d12b8)
-[LOG] SoundI::release                          :     (null) (0x122f84018)
-[LOG] SoundI::release                          : release codec. (0x1238d12b8)
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123d23138
+[LOG] SoundI::getSubSound                      : sound 0x123d23138.  Subsound index 0 / 1
+[LOG] SoundI::release                          : (null) (0x123d23138)
+[LOG] SoundI::release                          : remove stream samples. (0x123d23138)
+[LOG] SoundI::release                          :     (null) (0x1221e0b18)
+[LOG] SoundI::release                          : release subsounds. (0x123d23138)
+[LOG] SoundI::release                          :     (null) (0x1221d4158)
+[LOG] SoundI::release                          : release codec. (0x123d23138)
 [LOG] Thread::callback                         : * FMOD Studio update thread finished
 [LOG] Thread::close                            : FMOD Studio update thread thread destroyed
 [LOG] Thread::callback                         : * FMOD Studio load thread finished

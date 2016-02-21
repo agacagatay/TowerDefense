@@ -20,14 +20,16 @@ public class BoostPrecisionStrike : MonoBehaviour
 
 	IEnumerator FireOrdinance()
 	{
-		if (ordinanceNumber == 0)
+		if (ordinanceNumber == 1)
+		{
 			yield return new WaitForSeconds(initialWait);
+		}
 		else if (ordinanceNumber >= totalOrdinancePackage)
 			Destroy(gameObject);
 
 		enemyUnits.Clear();
 
-		if (SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Count > 0)
+		if (!GameController.instance.GameOver && SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Count > 0)
 		{
 			foreach(KeyValuePair<GameObject, int> enemyKeyValuePair in SpawnedEnemyDictionary.instance.spawnedEnemyDictionary)
 			{

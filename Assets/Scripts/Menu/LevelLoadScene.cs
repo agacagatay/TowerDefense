@@ -60,7 +60,7 @@ public class LevelLoadScene : MonoBehaviour
 		}
 
 		yield return new WaitForSeconds(waitBeforeSceneLoad);
-		sfxBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+		sfxBus.stopAllEvents(FMOD.Studio.STOP_MODE.IMMEDIATE);
 
 		if (replayLevel)
 			SceneManager.LoadSceneAsync(GameController.instance.LevelNumberInt);

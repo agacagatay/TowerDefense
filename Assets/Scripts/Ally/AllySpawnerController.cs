@@ -39,6 +39,7 @@ public class AllySpawnerController : MonoBehaviour
 	public GameObject GrowIconObject { get { return growIconObject; } set { growIconObject = value; }}
 	public AllySpawnerPosition SelectedSpawnerPosition { get { return selectedSpawnerPosition; }}
 	public AllyStructureController StructureController { get { return structureController; }}
+	public bool SpawnerDisplayEnabled { get { return spawnerDisplayEnabled; }}
 	public int ArtilleryQuota { get { return artilleryQuota; } set { artilleryQuota = value; }}
 	public int MinigunQuota { get { return minigunQuota; } set { minigunQuota = value; }}
 	public int TurretQuota { get { return turretQuota; } set { turretQuota = value; }}
@@ -87,8 +88,8 @@ public class AllySpawnerController : MonoBehaviour
 
 			if (gesture.pickedObject.tag == "SpawnPosition")
 			{
-				AllySpawnerPosition allySpawnerPosition = gesture.pickedObject.GetComponent<AllySpawnerPosition>();
-				ShowSpawnerOptions(allySpawnerPosition);
+				selectedSpawnerPosition = gesture.pickedObject.GetComponent<AllySpawnerPosition>();
+				ShowSpawnerOptions(selectedSpawnerPosition);
 			}
 			if (gesture.pickedObject.tag == "Ally")
 			{
@@ -104,21 +105,20 @@ public class AllySpawnerController : MonoBehaviour
 		}
 	}
 
-	void ShowSpawnerOptions(AllySpawnerPosition allySpawnerPosition)
+	public void ShowSpawnerOptions(AllySpawnerPosition allySpawnerPosition)
 	{
 		spawnerDisplayEnabled = true;
 
 		if (GrowIconObject != null)
 			Destroy(GrowIconObject);
 
-		selectedSpawnerPosition = allySpawnerPosition;
-		turretSpawnMenu.SetAnchor(allySpawnerPosition.transform);
+		turretSpawnMenu.SetAnchor(selectedSpawnerPosition.transform);
 
-		int spawnBranches = allySpawnerPosition.SpawnOptions.Length;
+		int spawnBranches = selectedSpawnerPosition.SpawnOptions.Length;
 		float angle = 360f/spawnBranches;
 		float offset = angle/2f;
 
-		foreach(string spawnOption in allySpawnerPosition.SpawnOptions)
+		foreach(string spawnOption in selectedSpawnerPosition.SpawnOptions)
 		{
 			switch(spawnOption)
 			{
@@ -192,7 +192,7 @@ public class AllySpawnerController : MonoBehaviour
 		}
 	}
 
-	void HideSpawnerOptions()
+	public void HideSpawnerOptions()
 	{
 		foreach (GameObject spawnBranch in spawnBranchObjects)
 		{

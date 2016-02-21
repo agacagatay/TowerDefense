@@ -68,6 +68,12 @@ public class AllyStructureController : MonoBehaviour
 						Debug.LogError("Invalid turret type specified");
 
 					HUDController.instance.UpdateResources();
+
+					if (AllySpawnerController.instance.SpawnerDisplayEnabled)
+					{
+						AllySpawnerController.instance.HideSpawnerOptions();
+						AllySpawnerController.instance.ShowSpawnerOptions(AllySpawnerController.instance.SelectedSpawnerPosition);
+					}
 				}
 
 				if (hasPerimeter)
@@ -117,7 +123,7 @@ public class AllyStructureController : MonoBehaviour
 
 					if (isPrimaryStructure || isSecondaryStructure)
 						AudioController.instance.PlayOneshot("SFX/Explosion_Big", gameObject);
-					else
+					else if (!GameController.instance.GameOver)
 						AudioController.instance.PlayOneshot("SFX/Explosion_Normal", gameObject);
 				}
 

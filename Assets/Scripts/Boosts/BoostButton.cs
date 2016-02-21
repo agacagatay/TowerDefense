@@ -6,6 +6,7 @@ public class BoostButton : MonoBehaviour
 	[SerializeField] string boostName;
 	[SerializeField] UISprite boostIcon;
 	[SerializeField] UISprite boostDarkIcon;
+	[SerializeField] UISprite borderSprite;
 	[SerializeField] UISprite overlaySprite;
 
 	void OnClick()
@@ -53,6 +54,7 @@ public class BoostButton : MonoBehaviour
 				boostIcon.enabled = true;
 			}
 
+			borderSprite.fillAmount = boostDarkIcon.fillAmount;
 			overlaySprite.fillAmount = boostDarkIcon.fillAmount;
 			yield return null;
 		}

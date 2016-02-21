@@ -69,7 +69,7 @@
             <value>2</value>
         </property>
         <property name="priority">
-            <value>0</value>
+            <value>1</value>
         </property>
         <property name="dopplerEnabled">
             <value>true</value>

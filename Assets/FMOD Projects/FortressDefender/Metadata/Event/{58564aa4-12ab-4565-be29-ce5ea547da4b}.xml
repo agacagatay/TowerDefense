@@ -119,7 +119,7 @@
     </object>
     <object class="DistanceParameter" id="{a7085e96-270f-4dce-8465-31f1eada560d}">
         <property name="maximum">
-            <value>300</value>
+            <value>250</value>
         </property>
         <relationship name="automationCurves">
             <destination>{fc6be1cd-4790-40bf-b2ed-15d3aeba4ad4}</destination>
@@ -408,7 +408,7 @@
     </object>
     <object class="AutomationPoint" id="{1bbb458d-63f4-46e0-9c30-dfe2ed3447b8}">
         <property name="position">
-            <value>300</value>
+            <value>250</value>
         </property>
         <property name="value">
             <value>10</value>
@@ -416,10 +416,13 @@
     </object>
     <object class="AutomationPoint" id="{c18e4369-c711-4dfd-a0d2-656d8753b668}">
         <property name="position">
-            <value>80</value>
+            <value>66.666666666666671</value>
         </property>
         <property name="value">
             <value>22000</value>
+        </property>
+        <property name="curveShape">
+            <value>1</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{9f74b229-e868-4ee5-85e9-a37c7e0b2bfb}"/>
@@ -431,7 +434,7 @@
     <object class="LowpassEffect" id="{0dca4f1a-91fd-4354-82f2-9d01e92c726f}"/>
     <object class="MixerSend" id="{12a7d333-fa4b-46b5-ae9c-0f3b085cf012}">
         <property name="level">
-            <value>-8</value>
+            <value>0</value>
         </property>
         <property name="inputFormat">
             <value>1</value>
@@ -445,10 +448,7 @@
             <value>80</value>
         </property>
         <property name="maximumDistance">
-            <value>300</value>
-        </property>
-        <property name="extentMode">
-            <value>2</value>
+            <value>250</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{a0602950-229d-456f-b41d-685c92e28171}">

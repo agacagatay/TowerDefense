@@ -111,7 +111,7 @@
     </object>
     <object class="DistanceParameter" id="{c7fa349b-ddf7-4704-a55a-3e8785f001fc}">
         <property name="maximum">
-            <value>300</value>
+            <value>250</value>
         </property>
         <relationship name="automationCurves">
             <destination>{7a52f389-f0d5-4c94-9c91-a681cddb6bea}</destination>
@@ -120,6 +120,9 @@
     <object class="EventMixerMaster" id="{62335647-9de4-46c6-b061-ac4215aa889a}">
         <property name="volume">
             <value>-24</value>
+        </property>
+        <property name="pitch">
+            <value>-5</value>
         </property>
         <relationship name="effectChain">
             <destination>{7e36c537-05fc-4308-9004-d2de51b9b21e}</destination>
@@ -397,7 +400,7 @@
     <object class="MixerBusPanner" id="{d98ab9f5-f6c3-4509-9f40-c58db8d8ea72}"/>
     <object class="AutomationPoint" id="{57cfb738-ceaf-4574-8a5a-ea0408fd7750}">
         <property name="position">
-            <value>300</value>
+            <value>250</value>
         </property>
         <property name="value">
             <value>10</value>
@@ -405,10 +408,13 @@
     </object>
     <object class="AutomationPoint" id="{e214f0c3-4d87-4e26-84a5-53e9ac779d16}">
         <property name="position">
-            <value>50</value>
+            <value>41.666666666666664</value>
         </property>
         <property name="value">
             <value>22000</value>
+        </property>
+        <property name="curveShape">
+            <value>1</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{1c0b499e-9a1e-4e27-8ab3-d1ebf5ef9deb}"/>
@@ -423,7 +429,7 @@
     <object class="LowpassEffect" id="{4d5db8c1-cfc6-440a-b366-d00442c5083b}"/>
     <object class="MixerSend" id="{d0de41fd-a786-468a-96ee-1d71c452506a}">
         <property name="level">
-            <value>-8</value>
+            <value>0</value>
         </property>
         <property name="inputFormat">
             <value>1</value>
@@ -437,10 +443,7 @@
             <value>50</value>
         </property>
         <property name="maximumDistance">
-            <value>300</value>
-        </property>
-        <property name="extentMode">
-            <value>2</value>
+            <value>250</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{bf1c8c1d-3655-4f6f-af24-7aa650a0dfd7}"/>

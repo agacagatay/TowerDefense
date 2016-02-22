@@ -149,7 +149,7 @@
     </object>
     <object class="DistanceParameter" id="{fe085584-bdbc-4004-ba41-4e934caa3df8}">
         <property name="maximum">
-            <value>300</value>
+            <value>250</value>
         </property>
         <relationship name="automationCurves">
             <destination>{df18de74-77f9-47dc-88d4-10d7b8f1325d}</destination>
@@ -635,7 +635,7 @@
     <object class="MixerBusPanner" id="{dcbca564-06b7-4730-ab64-98f39cb8970e}"/>
     <object class="AutomationPoint" id="{2167b0e7-0445-46a4-b016-ab81549199ef}">
         <property name="position">
-            <value>300</value>
+            <value>250</value>
         </property>
         <property name="value">
             <value>10</value>
@@ -643,17 +643,20 @@
     </object>
     <object class="AutomationPoint" id="{083118a1-52e5-4cb7-9bc9-a50193521a56}">
         <property name="position">
-            <value>120</value>
+            <value>100</value>
         </property>
         <property name="value">
             <value>22000</value>
+        </property>
+        <property name="curveShape">
+            <value>1</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{e00b209e-a6d0-4166-8345-71e62a7de6b2}"/>
     <object class="LowpassEffect" id="{0630fc88-30aa-4569-b8f6-9fc777211c62}"/>
     <object class="MixerSend" id="{b5ea0c61-83d3-4191-af95-ca2b222976c6}">
         <property name="level">
-            <value>-8</value>
+            <value>0</value>
         </property>
         <property name="inputFormat">
             <value>1</value>
@@ -664,13 +667,10 @@
     </object>
     <object class="SpatialiserEffect" id="{ebe50331-83c4-42f8-83d0-fbc1c67d40c3}">
         <property name="minimumDistance">
-            <value>120</value>
+            <value>100</value>
         </property>
         <property name="maximumDistance">
-            <value>300</value>
-        </property>
-        <property name="extentMode">
-            <value>2</value>
+            <value>250</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{b9e52b28-6ead-4655-b66d-4d98cb2863cb}">

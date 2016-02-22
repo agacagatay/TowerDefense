@@ -109,7 +109,7 @@
     </object>
     <object class="DistanceParameter" id="{cccb56fe-82de-4f73-b286-be91a271ad0d}">
         <property name="maximum">
-            <value>300</value>
+            <value>250</value>
         </property>
         <relationship name="automationCurves">
             <destination>{8fe530ee-e0ec-42e7-860b-e2d390f87d41}</destination>
@@ -394,7 +394,7 @@
     <object class="MixerBusPanner" id="{e1984393-997d-41f1-9772-6b9b82533b73}"/>
     <object class="AutomationPoint" id="{bef5e686-1df8-4e2a-a38d-fce859e47373}">
         <property name="position">
-            <value>300</value>
+            <value>250</value>
         </property>
         <property name="value">
             <value>10</value>
@@ -402,17 +402,20 @@
     </object>
     <object class="AutomationPoint" id="{ebb273c6-c38c-42be-b446-d9e5d9295869}">
         <property name="position">
-            <value>100</value>
+            <value>83.333333333333329</value>
         </property>
         <property name="value">
             <value>22000</value>
+        </property>
+        <property name="curveShape">
+            <value>1</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{b018181f-867c-497d-b9a9-ce6942932325}"/>
     <object class="LowpassEffect" id="{a5465731-7f36-48a4-8503-cc2dfd01d1fb}"/>
     <object class="MixerSend" id="{eeb7ae14-909c-4bbe-86d8-dcbef8f4295f}">
         <property name="level">
-            <value>-8</value>
+            <value>0</value>
         </property>
         <property name="inputFormat">
             <value>1</value>
@@ -426,10 +429,7 @@
             <value>100</value>
         </property>
         <property name="maximumDistance">
-            <value>300</value>
-        </property>
-        <property name="extentMode">
-            <value>2</value>
+            <value>250</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{ccbad3e5-f373-4bc6-b9f8-28a7b9bf576a}"/>

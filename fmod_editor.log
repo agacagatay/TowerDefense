@@ -30,12 +30,6 @@
 [LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
 [LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
 [LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
-[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
-[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {6fcb62f8-9a63-4cbf-bc69-8bb5518e3f12}
-[WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {6fcb62f8-9a63-4cbf-bc69-8bb5518e3f12}
-[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
-[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
-[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
 [WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {6fcb62f8-9a63-4cbf-bc69-8bb5518e3f12}
 [WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {6fcb62f8-9a63-4cbf-bc69-8bb5518e3f12}
 [LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)

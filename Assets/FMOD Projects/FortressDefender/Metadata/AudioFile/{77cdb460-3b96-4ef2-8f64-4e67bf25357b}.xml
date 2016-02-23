@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="AudioFile" id="{77cdb460-3b96-4ef2-8f64-4e67bf25357b}">
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>0.80430839002267573</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/door_hatch_2 {8380411d-4bff-4e46-846b-f5429913f9dd}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{24eed67b-9ebe-4f7a-abff-ec677de752b3}</destination>
+        </relationship>
+    </object>
+</objects>

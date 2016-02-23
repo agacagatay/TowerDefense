@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<objects serializationModel="Studio.01.07.00">
+    <object class="AudioFile" id="{270c22a9-8900-4c04-9be3-a4d7dcf5d920}">
+        <property name="frequencyInKHz">
+            <value>44.0999985</value>
+        </property>
+        <property name="channelCount">
+            <value>2</value>
+        </property>
+        <property name="length">
+            <value>2.9459637188208618</value>
+        </property>
+        <property name="audioFilePath">
+            <value>$(AUDIO_BIN_DIR)/tank_idle {02530d4e-ee91-4cc7-87c0-797c5d517733}.wav</value>
+        </property>
+        <relationship name="container">
+            <destination>{24eed67b-9ebe-4f7a-abff-ec677de752b3}</destination>
+        </relationship>
+    </object>
+</objects>

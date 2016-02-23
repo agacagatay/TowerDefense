@@ -8,13 +8,13 @@
 
 [LOG] OutputCoreAudio::enumerate               : Enumerating...
 [LOG] OutputCoreAudio::enumerate               : Found output driver: "Built-in Output".
-[LOG] OutputCoreAudio::enumerate               : Found output driver: "Quartet".
+[LOG] OutputCoreAudio::enumerate               : Found output driver: "HDMI".
+[LOG] OutputCoreAudio::enumerate               : Found output driver: "Scarlett 18i20 USB".
+[LOG] OutputCoreAudio::enumerate               : Found output driver: "ComputerAudio".
 [LOG] OutputCoreAudio::enumerate               : Done.
-[LOG] OutputCoreAudio::init                    : Output running 6 channels at 44100Hz sample rate.
+[LOG] OutputCoreAudio::init                    : Output running 2 channels at 44100Hz sample rate.
 [LOG] OutputCoreAudio::init                    : Maximum hardware read size: 1024 samples, Software buffer size: 512 samples, Number of software buffers: 4.
 [WRN] SystemI::init                            : Output requires a sample rate of 44100Hz, resampling will occur.
-[LOG] DownMix::init                            : dspbuffersize: 512  rate: 48000. output speaker mode: 6, input speaker mode 3
-[LOG] DownMix::init                            : done.
 [LOG] Thread::initThread                       : Initializing FMOD mixer thread.  priority 3
 [LOG] Thread::initThread                       : - Stacksize 49152.  Stack pointer 0x0 : usesemaphore = 1 : sleeptime = 0
 [LOG] Thread::callback                         : * FMOD mixer thread started
@@ -32,200 +32,399 @@
 [LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
 [WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {6fcb62f8-9a63-4cbf-bc69-8bb5518e3f12}
 [WRN] ObjectLookup::get                        : Lookup failed for BusWithInputs: {6fcb62f8-9a63-4cbf-bc69-8bb5518e3f12}
-[LOG] SoundI::release                          : (null) (0x12a0cde68)
-[LOG] SoundI::release                          : remove stream samples. (0x12a0cde68)
-[LOG] SoundI::release                          :     (null) (0x128ff1d48)
-[LOG] SoundI::release                          : release subsounds. (0x12a0cde68)
-[LOG] SoundI::release                          :     (null) (0x128f75468)
-[LOG] SoundI::release                          : release codec. (0x12a0cde68)
-[LOG] SoundI::release                          : (null) (0x1292ebd48)
-[LOG] SoundI::release                          : release subsounds. (0x1292ebd48)
-[LOG] SoundI::release                          :     (null) (0x174e04ee8)
-[LOG] SoundI::release                          : release codec. (0x1292ebd48)
-[LOG] SoundI::release                          : (null) (0x1535b22e8)
-[LOG] SoundI::release                          : release subsounds. (0x1535b22e8)
-[LOG] SoundI::release                          :     (null) (0x132f35bf8)
-[LOG] SoundI::release                          : release codec. (0x1535b22e8)
-[LOG] SoundI::release                          : (null) (0x132fc1418)
-[LOG] SoundI::release                          : release subsounds. (0x132fc1418)
-[LOG] SoundI::release                          :     (null) (0x1375d1cf8)
-[LOG] SoundI::release                          : release codec. (0x132fc1418)
-[LOG] SoundI::release                          : (null) (0x132fa6bd8)
-[LOG] SoundI::release                          : release subsounds. (0x132fa6bd8)
-[LOG] SoundI::release                          :     (null) (0x1375c93c8)
-[LOG] SoundI::release                          : release codec. (0x132fa6bd8)
-[LOG] SoundI::release                          : (null) (0x1292ed828)
-[LOG] SoundI::release                          : release subsounds. (0x1292ed828)
-[LOG] SoundI::release                          :     (null) (0x174e5c5b8)
-[LOG] SoundI::release                          : release codec. (0x1292ed828)
-[LOG] SoundI::release                          : (null) (0x15356a8c8)
-[LOG] SoundI::release                          : release subsounds. (0x15356a8c8)
-[LOG] SoundI::release                          :     (null) (0x132f9ef48)
-[LOG] SoundI::release                          : release codec. (0x15356a8c8)
-[LOG] SoundI::release                          : (null) (0x137506218)
-[LOG] SoundI::release                          : release subsounds. (0x137506218)
-[LOG] SoundI::release                          :     (null) (0x128fd0288)
-[LOG] SoundI::release                          : release codec. (0x137506218)
-[LOG] SoundI::release                          : (null) (0x1375aa028)
-[LOG] SoundI::release                          : release subsounds. (0x1375aa028)
-[LOG] SoundI::release                          :     (null) (0x128fc0fd8)
-[LOG] SoundI::release                          : release codec. (0x1375aa028)
-[LOG] SoundI::release                          : (null) (0x132f163a8)
-[LOG] SoundI::release                          : release subsounds. (0x132f163a8)
-[LOG] SoundI::release                          :     (null) (0x174e5d038)
-[LOG] SoundI::release                          : release codec. (0x132f163a8)
-[LOG] SoundI::release                          : (null) (0x132fb7b68)
-[LOG] SoundI::release                          : release subsounds. (0x132fb7b68)
-[LOG] SoundI::release                          :     (null) (0x128f78de8)
-[LOG] SoundI::release                          : release codec. (0x132fb7b68)
-[LOG] SoundI::release                          : (null) (0x1292eb338)
-[LOG] SoundI::release                          : release subsounds. (0x1292eb338)
-[LOG] SoundI::release                          :     (null) (0x128f6cf68)
-[LOG] SoundI::release                          : release codec. (0x1292eb338)
-[LOG] SoundI::release                          : (null) (0x132fc4c28)
-[LOG] SoundI::release                          : release subsounds. (0x132fc4c28)
-[LOG] SoundI::release                          :     (null) (0x1292f0068)
-[LOG] SoundI::release                          : release codec. (0x132fc4c28)
-[LOG] SoundI::release                          : (null) (0x1292eb808)
-[LOG] SoundI::release                          : release subsounds. (0x1292eb808)
-[LOG] SoundI::release                          :     (null) (0x174e04b48)
-[LOG] SoundI::release                          : release codec. (0x1292eb808)
-[LOG] SoundI::release                          : (null) (0x132f5e5c8)
-[LOG] SoundI::release                          : release subsounds. (0x132f5e5c8)
-[LOG] SoundI::release                          :     (null) (0x1375ea3c8)
-[LOG] SoundI::release                          : release codec. (0x132f5e5c8)
-[LOG] SoundI::release                          : (null) (0x132f5ff28)
-[LOG] SoundI::release                          : release subsounds. (0x132f5ff28)
-[LOG] SoundI::release                          :     (null) (0x1375ecda8)
-[LOG] SoundI::release                          : release codec. (0x132f5ff28)
-[LOG] SoundI::release                          : (null) (0x1292ec058)
-[LOG] SoundI::release                          : release subsounds. (0x1292ec058)
-[LOG] SoundI::release                          :     (null) (0x1375d9568)
-[LOG] SoundI::release                          : release codec. (0x1292ec058)
-[LOG] SoundI::release                          : (null) (0x153585318)
-[LOG] SoundI::release                          : release subsounds. (0x153585318)
-[LOG] SoundI::release                          :     (null) (0x128f6b418)
-[LOG] SoundI::release                          : release codec. (0x153585318)
-[LOG] SoundI::release                          : (null) (0x132f70478)
-[LOG] SoundI::release                          : release subsounds. (0x132f70478)
-[LOG] SoundI::release                          :     (null) (0x174e3c118)
-[LOG] SoundI::release                          : release codec. (0x132f70478)
-[LOG] SoundI::release                          : (null) (0x1292ed3e8)
-[LOG] SoundI::release                          : release subsounds. (0x1292ed3e8)
-[LOG] SoundI::release                          :     (null) (0x174e5c428)
-[LOG] SoundI::release                          : release codec. (0x1292ed3e8)
-[LOG] SoundI::release                          : (null) (0x132f9ac68)
-[LOG] SoundI::release                          : release subsounds. (0x132f9ac68)
-[LOG] SoundI::release                          :     (null) (0x174e4e958)
-[LOG] SoundI::release                          : release codec. (0x132f9ac68)
-[LOG] SoundI::release                          : (null) (0x132fa2c28)
-[LOG] SoundI::release                          : release subsounds. (0x132fa2c28)
-[LOG] SoundI::release                          :     (null) (0x174e3c6c8)
-[LOG] SoundI::release                          : release codec. (0x132fa2c28)
-[LOG] SoundI::release                          : (null) (0x128feb358)
-[LOG] SoundI::release                          : release subsounds. (0x128feb358)
-[LOG] SoundI::release                          :     (null) (0x1375eb2c8)
-[LOG] SoundI::release                          : release codec. (0x128feb358)
-[LOG] SoundI::release                          : (null) (0x1292ecb58)
-[LOG] SoundI::release                          : release subsounds. (0x1292ecb58)
-[LOG] SoundI::release                          :     (null) (0x128f534a8)
-[LOG] SoundI::release                          : release codec. (0x1292ecb58)
-[LOG] SoundI::release                          : (null) (0x132f6e6f8)
-[LOG] SoundI::release                          : release subsounds. (0x132f6e6f8)
-[LOG] SoundI::release                          :     (null) (0x174e63e48)
-[LOG] SoundI::release                          : release codec. (0x132f6e6f8)
-[LOG] SoundI::release                          : (null) (0x1375b1cf8)
-[LOG] SoundI::release                          : release subsounds. (0x1375b1cf8)
-[LOG] SoundI::release                          :     (null) (0x1375c2668)
-[LOG] SoundI::release                          : release codec. (0x1375b1cf8)
-[LOG] SoundI::release                          : (null) (0x132f8c498)
-[LOG] SoundI::release                          : release subsounds. (0x132f8c498)
-[LOG] SoundI::release                          :     (null) (0x10a9b1928)
-[LOG] SoundI::release                          : release codec. (0x132f8c498)
-[LOG] SoundI::release                          : (null) (0x132fb8928)
-[LOG] SoundI::release                          : release subsounds. (0x132fb8928)
-[LOG] SoundI::release                          :     (null) (0x1292f3268)
-[LOG] SoundI::release                          : release codec. (0x132fb8928)
-[LOG] SoundI::release                          : (null) (0x1375b67c8)
-[LOG] SoundI::release                          : release subsounds. (0x1375b67c8)
-[LOG] SoundI::release                          :     (null) (0x128f84e18)
-[LOG] SoundI::release                          : release codec. (0x1375b67c8)
-[LOG] SoundI::release                          : (null) (0x1375c37e8)
-[LOG] SoundI::release                          : release subsounds. (0x1375c37e8)
-[LOG] SoundI::release                          :     (null) (0x13759f948)
-[LOG] SoundI::release                          : release codec. (0x1375c37e8)
-[LOG] SoundI::release                          : (null) (0x1292ea1d8)
-[LOG] SoundI::release                          : release subsounds. (0x1292ea1d8)
-[LOG] SoundI::release                          :     (null) (0x1375e0ed8)
-[LOG] SoundI::release                          : release codec. (0x1292ea1d8)
-[LOG] SoundI::release                          : (null) (0x1535ed878)
-[LOG] SoundI::release                          : release subsounds. (0x1535ed878)
-[LOG] SoundI::release                          :     (null) (0x1292eec48)
-[LOG] SoundI::release                          : release codec. (0x1535ed878)
-[LOG] SoundI::release                          : (null) (0x132fcffe8)
-[LOG] SoundI::release                          : release subsounds. (0x132fcffe8)
-[LOG] SoundI::release                          :     (null) (0x128f7a418)
-[LOG] SoundI::release                          : release codec. (0x132fcffe8)
-[LOG] SoundI::release                          : (null) (0x132fd4cd8)
-[LOG] SoundI::release                          : release subsounds. (0x132fd4cd8)
-[LOG] SoundI::release                          :     (null) (0x128f7e618)
-[LOG] SoundI::release                          : release codec. (0x132fd4cd8)
-[LOG] SoundI::release                          : (null) (0x1292ede58)
-[LOG] SoundI::release                          : release subsounds. (0x1292ede58)
-[LOG] SoundI::release                          :     (null) (0x128f2ebb8)
-[LOG] SoundI::release                          : release codec. (0x1292ede58)
-[LOG] SoundI::release                          : (null) (0x132f92658)
-[LOG] SoundI::release                          : release subsounds. (0x132f92658)
-[LOG] SoundI::release                          :     (null) (0x1292f2208)
-[LOG] SoundI::release                          : release codec. (0x132f92658)
-[LOG] SoundI::release                          : (null) (0x1292e9bd8)
-[LOG] SoundI::release                          : release subsounds. (0x1292e9bd8)
-[LOG] SoundI::release                          :     (null) (0x153586db8)
-[LOG] SoundI::release                          : release codec. (0x1292e9bd8)
-[LOG] SoundI::release                          : (null) (0x1292e9068)
-[LOG] SoundI::release                          : release subsounds. (0x1292e9068)
-[LOG] SoundI::release                          :     (null) (0x132f70778)
-[LOG] SoundI::release                          : release codec. (0x1292e9068)
-[LOG] SoundI::release                          : (null) (0x1535ec9d8)
-[LOG] SoundI::release                          : release subsounds. (0x1535ec9d8)
-[LOG] SoundI::release                          :     (null) (0x132f11b28)
-[LOG] SoundI::release                          : release codec. (0x1535ec9d8)
-[LOG] SoundI::release                          : (null) (0x1292eaa48)
-[LOG] SoundI::release                          : release subsounds. (0x1292eaa48)
-[LOG] SoundI::release                          :     (null) (0x153584e68)
-[LOG] SoundI::release                          : release codec. (0x1292eaa48)
-[LOG] SoundI::release                          : (null) (0x132f1c518)
-[LOG] SoundI::release                          : release subsounds. (0x132f1c518)
-[LOG] SoundI::release                          :     (null) (0x132f216e8)
-[LOG] SoundI::release                          : release codec. (0x132f1c518)
-[LOG] SoundI::release                          : (null) (0x132f0aef8)
-[LOG] SoundI::release                          : release subsounds. (0x132f0aef8)
-[LOG] SoundI::release                          :     (null) (0x132f83bc8)
-[LOG] SoundI::release                          : release codec. (0x132f0aef8)
-[LOG] SoundI::release                          : (null) (0x128f802c8)
-[LOG] SoundI::release                          : release subsounds. (0x128f802c8)
-[LOG] SoundI::release                          :     (null) (0x1292f2078)
-[LOG] SoundI::release                          : release codec. (0x128f802c8)
-[LOG] SoundI::release                          : (null) (0x1292e8758)
-[LOG] SoundI::release                          : release subsounds. (0x1292e8758)
-[LOG] SoundI::release                          :     (null) (0x1292e9ee8)
-[LOG] SoundI::release                          : release codec. (0x1292e8758)
-[LOG] SoundI::release                          : (null) (0x1292e8d58)
-[LOG] SoundI::release                          : release subsounds. (0x1292e8d58)
-[LOG] SoundI::release                          :     (null) (0x1292ead08)
-[LOG] SoundI::release                          : release codec. (0x1292e8d58)
-[LOG] SoundI::release                          : (null) (0x132f3e6d8)
-[LOG] SoundI::release                          : release subsounds. (0x132f3e6d8)
-[LOG] SoundI::release                          :     (null) (0x1292eb1a8)
-[LOG] SoundI::release                          : release codec. (0x132f3e6d8)
-[LOG] SoundI::release                          : (null) (0x132f2c488)
-[LOG] SoundI::release                          : release subsounds. (0x132f2c488)
-[LOG] SoundI::release                          :     (null) (0x1292eb648)
-[LOG] SoundI::release                          : release codec. (0x132f2c488)
-[LOG] SoundI::release                          : (null) (0x132fd5e48)
-[LOG] SoundI::release                          : release subsounds. (0x132fd5e48)
-[LOG] SoundI::release                          :     (null) (0x137591898)
-[LOG] SoundI::release                          : release codec. (0x132fd5e48)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Compressed.bank : mode 0a010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x12a9ac8a8 : node = 0x12a940440
+[LOG] SystemI::createSound                     : add node to async list : head = 0x1238e7e60.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x12a9ac8a8
+[LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Compressed.bank : mode 0a010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 7008032
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 2752
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x12a940548
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESTREAM
+[LOG] System::createSoundInternal              :     decode buffersize = 19200 : blocksize = 256 : format = 2
+[LOG] SystemI::createSample                    :     mode 0a010082 length 19200 samples, lengthbytes 3740896
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0x145c30bd8
+[LOG] OutputSoftware::createSample             :     lengthpcm 19200, lengthbytes 3740896, channels 2, format 2, freq 48000, mode 0a01008a
+[LOG] System::createSoundInternal              :     1 subsounds detected.
+[LOG] System::createSoundInternal              :     Seek stream to start
+[LOG] System::createSoundInternal              :     flush stream buffer
+[LOG] System::createSoundInternal              :     flush successful.
+[LOG] System::createSoundInternal              :     switch file handle from small blocking single buffered to large nonblocking doublebuffered.
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x12a9ac8a8
+[LOG] SoundI::getSubSound                      : sound 0x12a9ac8a8.  Subsound index 0 / 1
+[LOG] SoundI::release                          : (null) (0x17e5dd0e8)
+[LOG] SoundI::release                          : remove stream samples. (0x17e5dd0e8)
+[LOG] SoundI::release                          :     (null) (0x13d77a1b8)
+[LOG] SoundI::release                          : release subsounds. (0x17e5dd0e8)
+[LOG] SoundI::release                          :     (null) (0x17c6d4928)
+[LOG] SoundI::release                          : release codec. (0x17e5dd0e8)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Compressed.bank : mode 0a010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x12eaa6ba8 : node = 0x130cb8460
+[LOG] SystemI::createSound                     : add node to async list : head = 0x1238e7e60.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x12eaa6ba8
+[LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Compressed.bank : mode 0a010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 7008032
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 2752
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x130cb8568
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESTREAM
+[LOG] System::createSoundInternal              :     decode buffersize = 19200 : blocksize = 256 : format = 2
+[LOG] SystemI::createSample                    :     mode 0a010082 length 19200 samples, lengthbytes 3740896
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0x145c30bd8
+[LOG] OutputSoftware::createSample             :     lengthpcm 19200, lengthbytes 3740896, channels 2, format 2, freq 48000, mode 0a01008a
+[LOG] System::createSoundInternal              :     1 subsounds detected.
+[LOG] System::createSoundInternal              :     Seek stream to start
+[LOG] System::createSoundInternal              :     flush stream buffer
+[LOG] System::createSoundInternal              :     flush successful.
+[LOG] System::createSoundInternal              :     switch file handle from small blocking single buffered to large nonblocking doublebuffered.
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x12eaa6ba8
+[LOG] SoundI::getSubSound                      : sound 0x12eaa6ba8.  Subsound index 0 / 1
+[LOG] SoundI::release                          : (null) (0x12a9ac8a8)
+[LOG] SoundI::release                          : remove stream samples. (0x12a9ac8a8)
+[LOG] SoundI::release                          :     (null) (0x12a98cbe8)
+[LOG] SoundI::release                          : release subsounds. (0x12a9ac8a8)
+[LOG] SoundI::release                          :     (null) (0x17e5b4978)
+[LOG] SoundI::release                          : release codec. (0x12a9ac8a8)
+[LOG] Thread::callback                         : * FMOD Studio load thread finished
+[LOG] Thread::close                            : FMOD Studio load thread thread destroyed
+[LOG] LiveUpdate::release                      : 
+[LOG] SystemI::close                           : 
+[LOG] SystemI::close                           : Stop all sounds
+[LOG] Thread::callback                         : * FMOD stream thread finished
+[LOG] Thread::close                            : FMOD stream thread thread destroyed
+[LOG] SystemI::close                           : Stream thread destroyed
+[LOG] SystemI::close                           : Shut down output.
+[LOG] Thread::callback                         : * FMOD mixer thread finished
+[LOG] Thread::close                            : FMOD mixer thread thread destroyed
+[LOG] SystemI::close                           : Free master channel group.
+[LOG] SystemI::close                           : Remove 'master' sound group.
+[LOG] SystemI::close                           : Free software output.
+[LOG] SystemI::close                           : Free emulated output.
+[LOG] SystemI::close                           : Free channel pool.
+[LOG] SystemI::close                           : Remove miscllaneous DSP stuff.
+[LOG] SystemI::close                           : done.
+
+[LOG] SystemI::createSound                     : filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Compressed.bank : mode 0a010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x178fb4e38 : node = 0x178f00530
+[LOG] SystemI::createSound                     : add node to async list : head = 0x1238e7e60.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x178fb4e38
+[LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Compressed.bank : mode 0a010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 7008032
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 2752
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x178f00638
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESTREAM
+[LOG] System::createSoundInternal              :     decode buffersize = 19200 : blocksize = 256 : format = 2
+[LOG] SystemI::createSample                    :     mode 0a010082 length 19200 samples, lengthbytes 3740896
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0x145c30bd8
+[LOG] OutputSoftware::createSample             :     lengthpcm 19200, lengthbytes 3740896, channels 2, format 2, freq 48000, mode 0a01008a
+[LOG] System::createSoundInternal              :     1 subsounds detected.
+[LOG] System::createSoundInternal              :     Seek stream to start
+[LOG] System::createSoundInternal              :     flush stream buffer
+[LOG] System::createSoundInternal              :     flush successful.
+[LOG] System::createSoundInternal              :     switch file handle from small blocking single buffered to large nonblocking doublebuffered.
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x178fb4e38
+[LOG] SoundI::getSubSound                      : sound 0x178fb4e38.  Subsound index 0 / 1
+[LOG] SoundI::release                          : (null) (0x12eaa6ba8)
+[LOG] SoundI::release                          : remove stream samples. (0x12eaa6ba8)
+[LOG] SoundI::release                          :     (null) (0x12318cce8)
+[LOG] SoundI::release                          : release subsounds. (0x12eaa6ba8)
+[LOG] SoundI::release                          :     (null) (0x1973cfbd8)
+[LOG] SoundI::release                          : release codec. (0x12eaa6ba8)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Compressed.bank : mode 0a010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x1973396e8 : node = 0x197339510
+[LOG] SystemI::createSound                     : add node to async list : head = 0x1238e7e60.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1973396e8
+[LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Compressed.bank : mode 0a010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 7008032
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 2752
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x197339618
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESTREAM
+[LOG] System::createSoundInternal              :     decode buffersize = 19200 : blocksize = 256 : format = 2
+[LOG] SystemI::createSample                    :     mode 0a010082 length 19200 samples, lengthbytes 3740896
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0x145c30bd8
+[LOG] OutputSoftware::createSample             :     lengthpcm 19200, lengthbytes 3740896, channels 2, format 2, freq 48000, mode 0a01008a
+[LOG] System::createSoundInternal              :     1 subsounds detected.
+[LOG] System::createSoundInternal              :     Seek stream to start
+[LOG] System::createSoundInternal              :     flush stream buffer
+[LOG] System::createSoundInternal              :     flush successful.
+[LOG] System::createSoundInternal              :     switch file handle from small blocking single buffered to large nonblocking doublebuffered.
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1973396e8
+[LOG] SoundI::getSubSound                      : sound 0x1973396e8.  Subsound index 0 / 1
+[LOG] SoundI::release                          : (null) (0x178fb4e38)
+[LOG] SoundI::release                          : remove stream samples. (0x178fb4e38)
+[LOG] SoundI::release                          :     (null) (0x17ac44cc8)
+[LOG] SoundI::release                          : release subsounds. (0x178fb4e38)
+[LOG] SoundI::release                          :     (null) (0x178d4e0e8)
+[LOG] SoundI::release                          : release codec. (0x178fb4e38)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Compressed.bank : mode 0a010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x125f62bc8 : node = 0x131d43240
+[LOG] SystemI::createSound                     : add node to async list : head = 0x1238e7e60.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x125f62bc8
+[LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Compressed.bank : mode 0a010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 7008032
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 2752
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x131d43348
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESTREAM
+[LOG] System::createSoundInternal              :     decode buffersize = 19200 : blocksize = 256 : format = 2
+[LOG] SystemI::createSample                    :     mode 0a010082 length 19200 samples, lengthbytes 3264768
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0x145c30bd8
+[LOG] OutputSoftware::createSample             :     lengthpcm 19200, lengthbytes 3264768, channels 2, format 2, freq 48000, mode 0a01008a
+[LOG] System::createSoundInternal              :     1 subsounds detected.
+[LOG] System::createSoundInternal              :     Seek stream to start
+[LOG] System::createSoundInternal              :     flush stream buffer
+[LOG] System::createSoundInternal              :     flush successful.
+[LOG] System::createSoundInternal              :     switch file handle from small blocking single buffered to large nonblocking doublebuffered.
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x125f62bc8
+[LOG] SoundI::getSubSound                      : sound 0x125f62bc8.  Subsound index 0 / 1
+[LOG] SoundI::release                          : (null) (0x1973396e8)
+[LOG] SoundI::release                          : remove stream samples. (0x1973396e8)
+[LOG] SoundI::release                          :     (null) (0x178d94598)
+[LOG] SoundI::release                          : release subsounds. (0x1973396e8)
+[LOG] SoundI::release                          :     (null) (0x178db42c8)
+[LOG] SoundI::release                          : release codec. (0x1973396e8)
+[LOG] SoundI::release                          : (null) (0x125f62bc8)
+[LOG] SoundI::release                          : remove stream samples. (0x125f62bc8)
+[LOG] SoundI::release                          :     (null) (0x17ac08708)
+[LOG] SoundI::release                          : release subsounds. (0x125f62bc8)
+[LOG] SoundI::release                          :     (null) (0x19733c8f8)
+[LOG] SoundI::release                          : release codec. (0x125f62bc8)
+[LOG] SoundI::release                          : (null) (0x17e6c45e8)
+[LOG] SoundI::release                          : release subsounds. (0x17e6c45e8)
+[LOG] SoundI::release                          :     (null) (0x17f6c09e8)
+[LOG] SoundI::release                          : release codec. (0x17e6c45e8)
+[LOG] SoundI::release                          : (null) (0x17e6a5ae8)
+[LOG] SoundI::release                          : release subsounds. (0x17e6a5ae8)
+[LOG] SoundI::release                          :     (null) (0x17f6b8738)
+[LOG] SoundI::release                          : release codec. (0x17e6a5ae8)
+[LOG] SoundI::release                          : (null) (0x17c637868)
+[LOG] SoundI::release                          : release subsounds. (0x17c637868)
+[LOG] SoundI::release                          :     (null) (0x13d7e80d8)
+[LOG] SoundI::release                          : release codec. (0x17c637868)
+[LOG] SoundI::release                          : (null) (0x17e6ed518)
+[LOG] SoundI::release                          : release subsounds. (0x17e6ed518)
+[LOG] SoundI::release                          :     (null) (0x17e669538)
+[LOG] SoundI::release                          : release codec. (0x17e6ed518)
+[LOG] SoundI::release                          : (null) (0x17c60da28)
+[LOG] SoundI::release                          : release subsounds. (0x17c60da28)
+[LOG] SoundI::release                          :     (null) (0x17e6258e8)
+[LOG] SoundI::release                          : release codec. (0x17c60da28)
+[LOG] SoundI::release                          : (null) (0x17e6e2848)
+[LOG] SoundI::release                          : release subsounds. (0x17e6e2848)
+[LOG] SoundI::release                          :     (null) (0x17e618738)
+[LOG] SoundI::release                          : release codec. (0x17e6e2848)
+[LOG] SoundI::release                          : (null) (0x17e6cd278)
+[LOG] SoundI::release                          : release subsounds. (0x17e6cd278)
+[LOG] SoundI::release                          :     (null) (0x13d7d73d8)
+[LOG] SoundI::release                          : release codec. (0x17e6cd278)
+[LOG] SoundI::release                          : (null) (0x17f60b8b8)
+[LOG] SoundI::release                          : release subsounds. (0x17f60b8b8)
+[LOG] SoundI::release                          :     (null) (0x12e114308)
+[LOG] SoundI::release                          : release codec. (0x17f60b8b8)
+[LOG] SoundI::release                          : (null) (0x17e6b7db8)
+[LOG] SoundI::release                          : release subsounds. (0x17e6b7db8)
+[LOG] SoundI::release                          :     (null) (0x13d7d4ee8)
+[LOG] SoundI::release                          : release codec. (0x17e6b7db8)
+[LOG] SoundI::release                          : (null) (0x17c6e3818)
+[LOG] SoundI::release                          : release subsounds. (0x17c6e3818)
+[LOG] SoundI::release                          :     (null) (0x17c6b2598)
+[LOG] SoundI::release                          : release codec. (0x17c6e3818)
+[LOG] SoundI::release                          : (null) (0x17e5fb668)
+[LOG] SoundI::release                          : release subsounds. (0x17e5fb668)
+[LOG] SoundI::release                          :     (null) (0x17c691188)
+[LOG] SoundI::release                          : release codec. (0x17e5fb668)
+[LOG] SoundI::release                          : (null) (0x17e5d0fa8)
+[LOG] SoundI::release                          : release subsounds. (0x17e5d0fa8)
+[LOG] SoundI::release                          :     (null) (0x17c67a198)
+[LOG] SoundI::release                          : release codec. (0x17e5d0fa8)
+[LOG] SoundI::release                          : (null) (0x17c6c6098)
+[LOG] SoundI::release                          : release subsounds. (0x17c6c6098)
+[LOG] SoundI::release                          :     (null) (0x17c667878)
+[LOG] SoundI::release                          : release codec. (0x17c6c6098)
+[LOG] SoundI::release                          : (null) (0x17e528fd8)
+[LOG] SoundI::release                          : release subsounds. (0x17e528fd8)
+[LOG] SoundI::release                          :     (null) (0x17f6c0e28)
+[LOG] SoundI::release                          : release codec. (0x17e528fd8)
+[LOG] SoundI::release                          : (null) (0x17e5158e8)
+[LOG] SoundI::release                          : release subsounds. (0x17e5158e8)
+[LOG] SoundI::release                          :     (null) (0x17f6eceb8)
+[LOG] SoundI::release                          : release codec. (0x17e5158e8)
+[LOG] SoundI::release                          : (null) (0x17e508df8)
+[LOG] SoundI::release                          : release subsounds. (0x17e508df8)
+[LOG] SoundI::release                          :     (null) (0x17e673288)
+[LOG] SoundI::release                          : release codec. (0x17e508df8)
+[LOG] SoundI::release                          : (null) (0x17c65c708)
+[LOG] SoundI::release                          : release subsounds. (0x17c65c708)
+[LOG] SoundI::release                          :     (null) (0x17e670958)
+[LOG] SoundI::release                          : release codec. (0x17c65c708)
+[LOG] SoundI::release                          : (null) (0x17e6a1168)
+[LOG] SoundI::release                          : release subsounds. (0x17e6a1168)
+[LOG] SoundI::release                          :     (null) (0x17f688248)
+[LOG] SoundI::release                          : release codec. (0x17e6a1168)
+[LOG] SoundI::release                          : (null) (0x17e671248)
+[LOG] SoundI::release                          : release subsounds. (0x17e671248)
+[LOG] SoundI::release                          :     (null) (0x17f687e08)
+[LOG] SoundI::release                          : release codec. (0x17e671248)
+[LOG] SoundI::release                          : (null) (0x17e609ab8)
+[LOG] SoundI::release                          : release subsounds. (0x17e609ab8)
+[LOG] SoundI::release                          :     (null) (0x17f63d398)
+[LOG] SoundI::release                          : release codec. (0x17e609ab8)
+[LOG] SoundI::release                          : (null) (0x145c94ed8)
+[LOG] SoundI::release                          : release subsounds. (0x145c94ed8)
+[LOG] SoundI::release                          :     (null) (0x17f604738)
+[LOG] SoundI::release                          : release codec. (0x145c94ed8)
+[LOG] SoundI::release                          : (null) (0x145cc8618)
+[LOG] SoundI::release                          : release subsounds. (0x145cc8618)
+[LOG] SoundI::release                          :     (null) (0x13d794ff8)
+[LOG] SoundI::release                          : release codec. (0x145cc8618)
+[LOG] SoundI::release                          : (null) (0x17c652448)
+[LOG] SoundI::release                          : release subsounds. (0x17c652448)
+[LOG] SoundI::release                          :     (null) (0x17e66ac98)
+[LOG] SoundI::release                          : release codec. (0x17c652448)
+[LOG] SoundI::release                          : (null) (0x17e667458)
+[LOG] SoundI::release                          : release subsounds. (0x17e667458)
+[LOG] SoundI::release                          :     (null) (0x17f6765c8)
+[LOG] SoundI::release                          : release codec. (0x17e667458)
+[LOG] SoundI::release                          : (null) (0x17e651148)
+[LOG] SoundI::release                          : release subsounds. (0x17e651148)
+[LOG] SoundI::release                          :     (null) (0x17f65d9b8)
+[LOG] SoundI::release                          : release codec. (0x17e651148)
+[LOG] SoundI::release                          : (null) (0x17c6562c8)
+[LOG] SoundI::release                          : release subsounds. (0x17c6562c8)
+[LOG] SoundI::release                          :     (null) (0x17f653488)
+[LOG] SoundI::release                          : release codec. (0x17c6562c8)
+[LOG] SoundI::release                          : (null) (0x17e5bc378)
+[LOG] SoundI::release                          : release subsounds. (0x17e5bc378)
+[LOG] SoundI::release                          :     (null) (0x17e631de8)
+[LOG] SoundI::release                          : release codec. (0x17e5bc378)
+[LOG] SoundI::release                          : (null) (0x17e6b4f68)
+[LOG] SoundI::release                          : release subsounds. (0x17e6b4f68)
+[LOG] SoundI::release                          :     (null) (0x13d7b06c8)
+[LOG] SoundI::release                          : release codec. (0x17e6b4f68)
+[LOG] SoundI::release                          : (null) (0x17e6a3538)
+[LOG] SoundI::release                          : release subsounds. (0x17e6a3538)
+[LOG] SoundI::release                          :     (null) (0x13d78f658)
+[LOG] SoundI::release                          : release codec. (0x17e6a3538)
+[LOG] SoundI::release                          : (null) (0x17e5b0178)
+[LOG] SoundI::release                          : release subsounds. (0x17e5b0178)
+[LOG] SoundI::release                          :     (null) (0x13d79f408)
+[LOG] SoundI::release                          : release codec. (0x17e5b0178)
+[LOG] SoundI::release                          : (null) (0x17e531b58)
+[LOG] SoundI::release                          : release subsounds. (0x17e531b58)
+[LOG] SoundI::release                          :     (null) (0x17e65e658)
+[LOG] SoundI::release                          : release codec. (0x17e531b58)
+[LOG] SoundI::release                          : (null) (0x17c649ec8)
+[LOG] SoundI::release                          : release subsounds. (0x17c649ec8)
+[LOG] SoundI::release                          :     (null) (0x17e661568)
+[LOG] SoundI::release                          : release codec. (0x17c649ec8)
+[LOG] SoundI::release                          : (null) (0x17e6ef528)
+[LOG] SoundI::release                          : release subsounds. (0x17e6ef528)
+[LOG] SoundI::release                          :     (null) (0x13d7df4a8)
+[LOG] SoundI::release                          : release codec. (0x17e6ef528)
+[LOG] SoundI::release                          : (null) (0x17c68cd08)
+[LOG] SoundI::release                          : release subsounds. (0x17c68cd08)
+[LOG] SoundI::release                          :     (null) (0x17f62f348)
+[LOG] SoundI::release                          : release codec. (0x17c68cd08)
+[LOG] SoundI::release                          : (null) (0x17e558c18)
+[LOG] SoundI::release                          : release subsounds. (0x17e558c18)
+[LOG] SoundI::release                          :     (null) (0x17f6a6a38)
+[LOG] SoundI::release                          : release codec. (0x17e558c18)
+[LOG] SoundI::release                          : (null) (0x17c6698e8)
+[LOG] SoundI::release                          : release subsounds. (0x17c6698e8)
+[LOG] SoundI::release                          :     (null) (0x17f6ac8d8)
+[LOG] SoundI::release                          : release codec. (0x17c6698e8)
+[LOG] SoundI::release                          : (null) (0x17f6a27f8)
+[LOG] SoundI::release                          : release subsounds. (0x17f6a27f8)
+[LOG] SoundI::release                          :     (null) (0x145cbeb88)
+[LOG] SoundI::release                          : release codec. (0x17f6a27f8)
+[LOG] SoundI::release                          : (null) (0x17e69d858)
+[LOG] SoundI::release                          : release subsounds. (0x17e69d858)
+[LOG] SoundI::release                          :     (null) (0x13d789268)
+[LOG] SoundI::release                          : release codec. (0x17e69d858)
+[LOG] SoundI::release                          : (null) (0x17e68aa48)
+[LOG] SoundI::release                          : release subsounds. (0x17e68aa48)
+[LOG] SoundI::release                          :     (null) (0x13d781458)
+[LOG] SoundI::release                          : release codec. (0x17e68aa48)
+[LOG] SoundI::release                          : (null) (0x17e5ca748)
+[LOG] SoundI::release                          : release subsounds. (0x17e5ca748)
+[LOG] SoundI::release                          :     (null) (0x17c658a68)
+[LOG] SoundI::release                          : release codec. (0x17e5ca748)
+[LOG] SoundI::release                          : (null) (0x17e5b61e8)
+[LOG] SoundI::release                          : release subsounds. (0x17e5b61e8)
+[LOG] SoundI::release                          :     (null) (0x17e641458)
+[LOG] SoundI::release                          : release codec. (0x17e5b61e8)
+[LOG] SoundI::release                          : (null) (0x17e589008)
+[LOG] SoundI::release                          : release subsounds. (0x17e589008)
+[LOG] SoundI::release                          :     (null) (0x17e5f0c68)
+[LOG] SoundI::release                          : release codec. (0x17e589008)
+[LOG] SoundI::release                          : (null) (0x17e56ebf8)
+[LOG] SoundI::release                          : release subsounds. (0x17e56ebf8)
+[LOG] SoundI::release                          :     (null) (0x17e516648)
+[LOG] SoundI::release                          : release codec. (0x17e56ebf8)
+[LOG] SoundI::release                          : (null) (0x17e56d1d8)
+[LOG] SoundI::release                          : release subsounds. (0x17e56d1d8)
+[LOG] SoundI::release                          :     (null) (0x17c61e8d8)
+[LOG] SoundI::release                          : release codec. (0x17e56d1d8)
+[LOG] SoundI::release                          : (null) (0x17e563468)
+[LOG] SoundI::release                          : release subsounds. (0x17e563468)
+[LOG] SoundI::release                          :     (null) (0x17f6206c8)
+[LOG] SoundI::release                          : release codec. (0x17e563468)
+[LOG] SoundI::release                          : (null) (0x17e6b4328)
+[LOG] SoundI::release                          : release subsounds. (0x17e6b4328)
+[LOG] SoundI::release                          :     (null) (0x145c709c8)
+[LOG] SoundI::release                          : release codec. (0x17e6b4328)
+[LOG] SoundI::release                          : (null) (0x17e681f88)
+[LOG] SoundI::release                          : release subsounds. (0x17e681f88)
+[LOG] SoundI::release                          :     (null) (0x145cd2d58)
+[LOG] SoundI::release                          : release codec. (0x17e681f88)
 [LOG] Thread::callback                         : * FMOD Studio update thread finished
 [LOG] Thread::close                            : FMOD Studio update thread thread destroyed
 [LOG] Thread::callback                         : * FMOD Studio load thread finished
@@ -248,24 +447,3 @@
 [LOG] SystemI::close                           : Remove miscllaneous DSP stuff.
 [LOG] SystemI::close                           : done.
 
-[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
-[LOG] Thread::callback                         : * FMOD Studio load thread finished
-[LOG] Thread::close                            : FMOD Studio load thread thread destroyed
-[LOG] LiveUpdate::release                      : 
-[LOG] SystemI::close                           : 
-[LOG] SystemI::close                           : Stop all sounds
-[LOG] Thread::callback                         : * FMOD stream thread finished
-[LOG] Thread::close                            : FMOD stream thread thread destroyed
-[LOG] SystemI::close                           : Stream thread destroyed
-[LOG] SystemI::close                           : Shut down output.
-[LOG] Thread::callback                         : * FMOD mixer thread finished
-[LOG] Thread::close                            : FMOD mixer thread thread destroyed
-[LOG] SystemI::close                           : Free master channel group.
-[LOG] SystemI::close                           : Remove 'master' sound group.
-[LOG] SystemI::close                           : Free software output.
-[LOG] SystemI::close                           : Free emulated output.
-[LOG] SystemI::close                           : Free channel pool.
-[LOG] SystemI::close                           : Remove miscllaneous DSP stuff.
-[LOG] SystemI::close                           : done.
-
-[LOG] System::create                           : Header version = 1.07.06. Current version = 1.07.06.

@@ -144,7 +144,12 @@ public class OrdinanceController : MonoBehaviour
 			else if (!allyOrdinance && other.gameObject.tag != "EnemyGround" && other.gameObject.tag != "EnemyAir")
 			{
 				if (explosionPrefab != null)
+				{
+					if (explosionPrefab.name == "Explosion Bullet Big")
+						AudioController.instance.PlayOneshot("SFX/Ally_Ordinance_Big", gameObject);
+
 					Instantiate(explosionPrefab, transform.position, transform.rotation);
+				}
 
 				Destroy(gameObject);
 			}

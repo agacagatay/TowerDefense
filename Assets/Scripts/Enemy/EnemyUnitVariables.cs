@@ -17,7 +17,10 @@ public class EnemyUnitVariables : MonoBehaviour
 	void Start()
 	{
 		if (spawnEffect != null)
+		{
+			AudioController.instance.PlayOneshot("SFX/Enemy_Teleport", gameObject);
 			Instantiate(spawnEffect, transform.position, transform.rotation);
+		}
 
 		SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Add(gameObject, priorityValue);
 		initialHealth = UnitHealth;

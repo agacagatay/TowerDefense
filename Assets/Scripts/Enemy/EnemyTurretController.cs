@@ -18,11 +18,22 @@ public class EnemyTurretController : MonoBehaviour
 	bool canFire = true;
 	bool turretReset = true;
 	int sequenceVal = 0;
+	string unitType;
 	List<GameObject> potentialTargets = new List<GameObject>();
 	List<GameObject> highestPriorityTargets = new List<GameObject>();
 
 	void Start()
 	{
+		EnemyUnitVariables enemyUnitVariables = gameObject.GetComponent<EnemyUnitVariables>();
+		unitType = enemyUnitVariables.UnitName;
+
+		switch(unitType)
+		{
+		case "Enemy Light Tank":
+			AudioController.instance.CreateInstance("SFX/Enemy_Light_Tank", gameObject);
+			break;
+		}
+
 		InvokeRepeating("FindTargetsInRange", 0, 0.5f);
 	}
 
@@ -124,6 +135,13 @@ public class EnemyTurretController : MonoBehaviour
 
 		if (!GameController.instance.GameOver)
 		{
+			switch(unitType)
+			{
+			case "Enemy Light Tank":
+				AudioController.instance.Play("SFX/Enemy_Light_Tank", gameObject);
+				break;
+			}
+
 			GameObject ordinanceClone;
 
 			if (fireSequentially)

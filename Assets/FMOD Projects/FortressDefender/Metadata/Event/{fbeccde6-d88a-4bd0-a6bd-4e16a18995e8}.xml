@@ -123,6 +123,9 @@
         <property name="volume">
             <value>-28</value>
         </property>
+        <property name="pitch">
+            <value>2</value>
+        </property>
         <relationship name="effectChain">
             <destination>{6c238ff0-1444-4195-9d9d-950f29cf6027}</destination>
         </relationship>

@@ -269,6 +269,8 @@ public class AllySpawnerController : MonoBehaviour
 	IEnumerator ToggleTurretSpawn(string prefabName, float spawnTime)
 	{
 		AllySpawnerPosition spawnPosition = selectedSpawnerPosition;
+		AudioController.instance.CreateInstance("SFX/Tower_Teleport", spawnPosition.gameObject);
+		AudioController.instance.Play("SFX/Tower_Teleport", spawnPosition.gameObject);
 
 		GameObject timerClone = (GameObject)Instantiate(spawnTimer, transform.position, transform.rotation);
 		timerClone.transform.parent = turretSpawnMenu.transform;
@@ -288,6 +290,8 @@ public class AllySpawnerController : MonoBehaviour
 		}
 
 		Destroy(timerClone);
+		AudioController.instance.Stop("SFX/Tower_Teleport", spawnPosition.gameObject);
+		AudioController.instance.PlayOneshot("SFX/Tower_Teleport_End", spawnPosition.gameObject);
 
 		GameObject turretClone;
 		AllyStructureController allyStructureVariables;

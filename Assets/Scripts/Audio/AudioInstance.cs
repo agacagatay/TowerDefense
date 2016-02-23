@@ -7,6 +7,7 @@ public class AudioInstance : MonoBehaviour
 	FMOD.Studio.EventInstance eventInstance;
 	FMOD.Studio.EventDescription eventDescription;
 	FMOD.Studio.ParameterInstance parameterInstance;
+	FMOD.Studio.CueInstance cueInstance;
 	bool instanceAssigned = false;
 	bool is3D;
 
@@ -68,6 +69,22 @@ public class AudioInstance : MonoBehaviour
 	{
 		eventInstance.getParameter(paramName, out parameterInstance);
 		parameterInstance.setValue(value);
+	}
+
+	public void TriggerCue()
+	{
+		eventInstance.getCue("KeyOFF", out cueInstance);
+		cueInstance.trigger();
+	}
+
+	public void Release()
+	{
+		if (instanceAssigned)
+		{
+			eventInstance.release();
+		}
+		else
+			Debug.LogError("Event Instance Never Assigned");
 	}
 
 	public void Stop()

@@ -86,6 +86,28 @@ public class AudioController : MonoBehaviour
 		}
 	}
 
+	public void TriggerCue(string eventName, GameObject anchorObject)
+	{
+		PopulateObjectAudioInstances(anchorObject);
+
+		foreach(AudioInstance objectAudioInstance in objectAudioInstances)
+		{
+			if (objectAudioInstance.gameObject.name == eventName)
+				objectAudioInstance.TriggerCue();
+		}
+	}
+
+	public void Release(string eventName, GameObject anchorObject)
+	{
+		PopulateObjectAudioInstances(anchorObject);
+
+		foreach(AudioInstance objectAudioInstance in objectAudioInstances)
+		{
+			if (objectAudioInstance.gameObject.name == eventName)
+				objectAudioInstance.Release();
+		}
+	}
+
 	public void Stop(string eventName, GameObject anchorObject)
 	{
 		PopulateObjectAudioInstances(anchorObject);

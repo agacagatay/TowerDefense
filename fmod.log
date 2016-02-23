@@ -7,13 +7,13 @@
 
 [LOG] OutputCoreAudio::enumerate               : Enumerating...
 [LOG] OutputCoreAudio::enumerate               : Found output driver: "Built-in Output".
-[LOG] OutputCoreAudio::enumerate               : Found output driver: "HDMI".
-[LOG] OutputCoreAudio::enumerate               : Found output driver: "Scarlett 18i20 USB".
-[LOG] OutputCoreAudio::enumerate               : Found output driver: "ComputerAudio".
+[LOG] OutputCoreAudio::enumerate               : Found output driver: "Quartet".
 [LOG] OutputCoreAudio::enumerate               : Done.
-[LOG] OutputCoreAudio::init                    : Output running 2 channels at 44100Hz sample rate.
+[LOG] OutputCoreAudio::init                    : Output running 6 channels at 44100Hz sample rate.
 [LOG] OutputCoreAudio::init                    : Maximum hardware read size: 1024 samples, Software buffer size: 512 samples, Number of software buffers: 4.
 [WRN] SystemI::init                            : Output requires a sample rate of 44100Hz, resampling will occur.
+[LOG] DownMix::init                            : dspbuffersize: 512  rate: 48000. output speaker mode: 6, input speaker mode 3
+[LOG] DownMix::init                            : done.
 [LOG] Thread::initThread                       : Initializing FMOD mixer thread.  priority 3
 [LOG] Thread::initThread                       : - Stacksize 49152.  Stack pointer 0x0 : usesemaphore = 1 : sleeptime = 0
 [LOG] Thread::callback                         : * FMOD mixer thread started
@@ -36,491 +36,498 @@
 [LOG] SystemI::createSound                     : filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] Thread::initThread                       : Initializing FMOD nonblocking thread (0).  priority 1
-[LOG] Thread::initThread                       : - Stacksize 81920.  Stack pointer 0x0 : usesemaphore = 1 : sleeptime = 0
-[LOG] Thread::callback                         : * FMOD nonblocking thread (0) started
-[LOG] SystemI::createSound                     : setdata soundi = 0x12304e7b8 : node = 0x1230d4400
-[LOG] SystemI::createSound                     : add node to async list : head = 0x1230f6c90.  list count = 0
+[LOG] SystemI::createSound                     : setdata soundi = 0x13144d288 : node = 0x13143f7d0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x12a446130.  list count = 0
 [LOG] SystemI::createSound                     : filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x12304e7b8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x13144d288
 [LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123045a68 : node = 0x1230ca230
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 0
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1230d4508
+[LOG] SystemI::createSound                     :     setdata soundi = 0x13144bc68 : node = 0x13144be10
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 0
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x13143f8d8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSound                     :     setdata soundi = 0x13144f358 : node = 0x13144f500
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSound                     :     setdata soundi = 0x1865eb328 : node = 0x1865f1230
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 1
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 1
 [LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSample                    :     mode 0a010002 length 143700 samples, lengthbytes 574880
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123a27978 : node = 0x1865d5b50
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128c92cf8 : node = 0x128c93c10
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 2
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] OutputSoftware::createSample             :     lengthpcm 143700, lengthbytes 574880, channels 2, format 2, freq 44100, mode 0a01000a
-[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123a286e8 : node = 0x186565540
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 3
-[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSound                     :     setdata soundi = 0x131439728 : node = 0x1314398d0
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 3
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x12304e7b8
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x13144d288
 [LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123045a68
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x13144bc68
 [LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123a7e778 : node = 0x18653f6d0
+[LOG] SystemI::createSound                     :     setdata soundi = 0x1249b3618 : node = 0x1249b37c0
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 3
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 3
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1230ca338
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x13144bf18
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     :     setdata soundi = 0x131439c08 : node = 0x13143a830
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSound                     :     setdata soundi = 0x12300aa08 : node = 0x1230beb20
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 4
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 4
-[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
-[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSound                     :     setdata soundi = 0x13143b3b8 : node = 0x13143b560
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 5
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSample                    :     mode 0a010002 length 136670 samples, lengthbytes 546752
-[LOG] SystemI::createSound                     :     setdata soundi = 0x1230014c8 : node = 0x1230a8a00
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 5
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
 [LOG] OutputSoftware::createSample             :     lengthpcm 136670, lengthbytes 546752, channels 2, format 2, freq 44100, mode 0a01000a
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128c934a8 : node = 0x128c93040
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 6
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSound                     :     setdata soundi = 0x1230f6d58 : node = 0x12305b990
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 6
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123045a68
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1865eb328
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x13144bc68
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x13144f358
+[LOG] SystemI::createSound                     : setdata soundi = 0x128c92458 : node = 0x128c91c20
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 6
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123a95c28 : node = 0x186532f40
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 6
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1865f1338
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x13144f608
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128c8f8a8 : node = 0x128c8fa50
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 7
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123ac9e78 : node = 0x1865231e0
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 7
-[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
-[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128f9cc08 : node = 0x128f45a70
 [LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 8
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSample                    :     mode 0a010002 length 157910 samples, lengthbytes 631712
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123afb7f8 : node = 0x18651b690
-[LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 8
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] OutputSoftware::createSample             :     lengthpcm 157910, lengthbytes 631712, channels 2, format 2, freq 44100, mode 0a01000a
+[LOG] SystemI::createSample                    :     mode 0a010002 length 157910 samples, lengthbytes 631712
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSample                    :     channels = 2
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSound                     :     setdata soundi = 0x1230f1898 : node = 0x12303b150
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 9
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128fd4ed8 : node = 0x128f99860
+[LOG] OutputSoftware::createSample             :     lengthpcm 157910, lengthbytes 631712, channels 2, format 2, freq 44100, mode 0a01000a
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 9
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1865eb328
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123a27978
-[LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x13144f358
+[LOG] SystemI::createSound                     : setdata soundi = 0x13143ab48 : node = 0x13144d790
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128c92cf8
+[LOG] SystemI::createSound                     : add node to async list : head = 0x12a446130.  list count = 9
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSound                     :     setdata soundi = 0x1230c6188 : node = 0x1230322d0
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 9
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128114028 : node = 0x1281141d0
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1865d5c58
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123a7f6b8 : node = 0x123a0c9e0
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 10
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 10
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128c93d18
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     setdata soundi = 0x13144d8a8 : node = 0x13144da50
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 11
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123a79078 : node = 0x123a0e9e0
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 135480 samples, lengthbytes 541984
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 11
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
-[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] OutputSoftware::createSample             :     lengthpcm 135480, lengthbytes 541984, channels 2, format 2, freq 44100, mode 0a01000a
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSound                     :     setdata soundi = 0x1230b95d8 : node = 0x1230158b0
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 12
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
+[LOG] SystemI::createSound                     :     setdata soundi = 0x1281538f8 : node = 0x128153aa0
+[LOG] OutputSoftware::createSample             :     lengthpcm 135480, lengthbytes 541984, channels 2, format 2, freq 44100, mode 0a01000a
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 12
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123a27978
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123a286e8
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128c92cf8
+[LOG] SystemI::createSound                     : setdata soundi = 0x1249a93e8 : node = 0x1250a9a50
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x131439728
+[LOG] SystemI::createSound                     : add node to async list : head = 0x12a446130.  list count = 12
+[LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSound                     :     setdata soundi = 0x1230aeaf8 : node = 0x1230ddbb0
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 12
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
+[LOG] SystemI::createSound                     :     setdata soundi = 0x131431f88 : node = 0x131432130
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x186565648
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 13
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1314399d8
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123a66858 : node = 0x123a85a70
+[LOG] SystemI::createSound                     :     setdata soundi = 0x13142bab8 : node = 0x13142bc60
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 14
 [LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSound                     :     setdata soundi = 0x13142bd78 : node = 0x13142bf20
 [LOG] SystemI::createSample                    :     mode 0a010002 length 77850 samples, lengthbytes 311488
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 13
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 15
 [LOG] SystemI::createSample                    :     channels = 2
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] OutputSoftware::createSample             :     lengthpcm 77850, lengthbytes 311488, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123093768 : node = 0x1230bd170
+[LOG] SystemI::createSound                     :     setdata soundi = 0x10ae07ce8 : node = 0x10ae07e90
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 16
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 14
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123a286e8
-[LOG] SystemI::createSound                     : filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123a7e778
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x131439728
 [LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1249b3618
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123a38248 : node = 0x123aa17f0
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 14
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128c8ea58 : node = 0x128c8ec00
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 16
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x18653f7d8
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1249b38c8
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128c8c548 : node = 0x128c8c6f0
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSound                     :     setdata soundi = 0x12306c418 : node = 0x1230a9e80
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 17
 [LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 15
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
-[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSample                    :     mode 0a010002 length 122110 samples, lengthbytes 488512
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSample                    :     mode 0a010002 length 122110 samples, lengthbytes 488512
+[LOG] SystemI::createSound                     :     setdata soundi = 0x117841758 : node = 0x1178408d0
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
-[LOG] OutputSoftware::createSample             :     lengthpcm 122110, lengthbytes 488512, channels 2, format 2, freq 44100, mode 0a01000a
-[LOG] SystemI::createSound                     :     setdata soundi = 0x1230698a8 : node = 0x1230a1e30
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 16
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 18
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] OutputSoftware::createSample             :     lengthpcm 122110, lengthbytes 488512, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128c8ab78 : node = 0x128c8ad20
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 19
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123a7e778
-[LOG] SystemI::createSound                     : setdata soundi = 0x123a2dc98 : node = 0x123ad6440
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x12300aa08
-[LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 16
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1249b3618
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x131439c08
+[LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSound                     :     setdata soundi = 0x131423c38 : node = 0x13141e650
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 19
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x13143a938
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1230bec28
-[LOG] SystemI::createSound                     :     setdata soundi = 0x12304bf38 : node = 0x123082be0
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 17
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128c8b2e8 : node = 0x128c8b490
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 20
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123033518 : node = 0x123033040
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128c89ac8 : node = 0x128c8a9a0
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 18
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 21
 [LOG] SystemI::createSample                    :     mode 0a010002 length 86670 samples, lengthbytes 346752
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSample                    :     channels = 2
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
 [LOG] OutputSoftware::createSample             :     lengthpcm 86670, lengthbytes 346752, channels 2, format 2, freq 44100, mode 0a01000a
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123011b08 : node = 0x12302d1e0
+[LOG] SystemI::createSound                     :     setdata soundi = 0x124cbab08 : node = 0x12500f6d0
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 22
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 19
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x12300aa08
-[LOG] SystemI::createSound                     : filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1230014c8
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSound                     :     setdata soundi = 0x12300abe8 : node = 0x1230f0f40
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 19
-[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1230a8b08
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSound                     :     setdata soundi = 0x1230e25d8 : node = 0x1230e0e60
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 20
-[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
-[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
-[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSample                    :     mode 0a010002 length 162890 samples, lengthbytes 651648
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123a02ad8 : node = 0x123aef790
-[LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 21
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
-[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] OutputSoftware::createSample             :     lengthpcm 162890, lengthbytes 651648, channels 2, format 2, freq 44100, mode 0a01000a
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSound                     :     setdata soundi = 0x1230cc608 : node = 0x1230c1160
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 22
-[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
-
-[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1230014c8
-[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1230f6d58
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x131439c08
 [LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x13143b3b8
+[LOG] SystemI::createSound                     : setdata soundi = 0x128c8a778 : node = 0x128c88d60
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSound                     :     setdata soundi = 0x1230bdf28 : node = 0x1230a16f0
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 22
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 22
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x12305ba98
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123097a98 : node = 0x123034380
-[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 23
-[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x13143b668
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128feb6f8 : node = 0x128fbc740
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 23
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128103508 : node = 0x128160b00
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 24
+[LOG] SystemI::createSample                    :     mode 0a010002 length 162890 samples, lengthbytes 651648
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] OutputSoftware::createSample             :     lengthpcm 162890, lengthbytes 651648, channels 2, format 2, freq 44100, mode 0a01000a
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128feb358 : node = 0x128fd3840
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 25
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128c88e78 : node = 0x128c88640
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x13143b3b8
+[LOG] SystemI::createSound                     : add node to async list : head = 0x12a446130.  list count = 26
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128c934a8
+[LOG] SystemI::createSound                     : filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128c87c08 : node = 0x128c87db0
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 26
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128c93148
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128c87ec8 : node = 0x128c87530
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 27
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 170200 samples, lengthbytes 680864
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123027908 : node = 0x12301ff80
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128c877e8 : node = 0x128c85630
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 28
 [LOG] OutputSoftware::createSample             :     lengthpcm 170200, lengthbytes 680864, channels 2, format 2, freq 44100, mode 0a01000a
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 24
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128197c88 : node = 0x128197e30
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 29
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] SystemI::createSound                     :     setdata soundi = 0x1865a02e8 : node = 0x123ae0300
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1230f6d58
-[LOG] SystemI::createSound                     : add node to async list : head = 0x1230f6c90.  list count = 25
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123a95c28
-[LOG] SystemI::createSound                     : filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128c934a8
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128c92458
+[LOG] OutputSoftware::createSample             : lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128c85a78 : node = 0x128c85c20
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 29
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
-[LOG] SystemI::createSound                     :     setdata soundi = 0x1230f89a8 : node = 0x1230f3a20
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 25
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x186533048
-[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128c91d28
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
-[LOG] SystemI::createSound                     :     setdata soundi = 0x1230c57b8 : node = 0x1230ac450
-[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 26
-[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSound                     :     setdata soundi = 0x10ae0b248 : node = 0x10ae0b3f0
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 30
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSound                     :     setdata soundi = 0x13141e988 : node = 0x13141eb30
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 31
 [LOG] SystemI::createSample                    :     mode 0a010002 length 170000 samples, lengthbytes 680064
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSound                     :     setdata soundi = 0x1230aa838 : node = 0x123082f00
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
 [LOG] OutputSoftware::createSample             :     lengthpcm 170000, lengthbytes 680064, channels 2, format 2, freq 44100, mode 0a01000a
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 27
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128c82cc8 : node = 0x128c82e70
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 32
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123a95c28
-[LOG] SystemI::createSound                     : setdata soundi = 0x123a47598 : node = 0x123ae2df0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123ac9e78
-[LOG] SystemI::createSound                     : add node to async list : head = 0x1230f6c90.  list count = 27
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128c92458
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128c8f8a8
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSound                     :     setdata soundi = 0x12491f898 : node = 0x13458ba10
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 32
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
-[LOG] SystemI::createSound                     :     setdata soundi = 0x1230827a8 : node = 0x1230825c0
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 28
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1865232e8
-[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128c8fb58
+[LOG] SystemI::createSound                     :     setdata soundi = 0x13141edd8 : node = 0x13141ef80
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 33
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123026938 : node = 0x12301ca30
-[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 29
-[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSound                     :     setdata soundi = 0x13141f248 : node = 0x13141f3f0
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 34
 [LOG] SystemI::createSample                    :     mode 0a010002 length 42010 samples, lengthbytes 168128
-[LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123a76618 : node = 0x123ad7250
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 30
-[LOG] OutputSoftware::createSample             :     lengthpcm 42010, lengthbytes 168128, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] OutputSoftware::createSample             :     lengthpcm 42010, lengthbytes 168128, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
+[LOG] SystemI::createSound                     :     setdata soundi = 0x128c82308 : node = 0x128c824b0
+[LOG] SystemI::createSound                     :     add node to async list : head = 0x12a446130.  list count = 35
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] SystemI::createSound                     :     setdata soundi = 0x123aeaa88 : node = 0x123ad4390
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123ac9e78
-[LOG] SystemI::createSound                     : add node to async list : head = 0x1230f6c90.  list count = 31
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123afb7f8
-[LOG] SystemI::createSound                     : filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128c8f8a8
+[LOG] Manager::readBank                        : fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128f9cc08
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSound                     :     setdata soundi = 0x1230ba2e8 : node = 0x1230a23d0
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 31
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x18651b798
-[LOG] SystemI::createSound                     :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128f45b78
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSound                     :     FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
-[LOG] OutputSoftware::createSample             :     lengthpcm 0, lengthbytes 0, channels 0, format 0, freq 0, mode 00000000
 [LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
-[LOG] SystemI::createSound                     :     setdata soundi = 0x1230805f8 : node = 0x1230652f0
 [LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
-[LOG] SystemI::createSound                     :     add node to async list : head = 0x1230f6c90.  list count = 32
 [LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
-[LOG] Manager::readBank                        :     fileversion = 68, compatVersion = 68 (oldest = 44, newest = 68)
 [LOG] SystemI::createSample                    :     mode 0a010002 length 41300 samples, lengthbytes 165280
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 41300, lengthbytes 165280, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123afb7f8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1230f1898
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128f9cc08
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128fd4ed8
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x12303b258
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128f99968
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -530,18 +537,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 34860 samples, lengthbytes 139520
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 34860, lengthbytes 139520, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1230f1898
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1230c6188
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128fd4ed8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x13143ab48
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1230323d8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x13144d898
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -551,18 +558,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 126390 samples, lengthbytes 505632
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 126390, lengthbytes 505632, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1230c6188
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123a7f6b8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x13143ab48
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128114028
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x123a0cae8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1281142d8
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -572,18 +579,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 126180 samples, lengthbytes 504800
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 126180, lengthbytes 504800, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123a7f6b8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123a79078
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128114028
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x13144d8a8
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x123a0eae8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x13144db58
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -593,18 +600,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 126896 samples, lengthbytes 507648
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 126896, lengthbytes 507648, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123a79078
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1230b95d8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x13144d8a8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1281538f8
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1230159b8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128153ba8
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -614,18 +621,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 127470 samples, lengthbytes 509952
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 127470, lengthbytes 509952, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1230b95d8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1230aeaf8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1281538f8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1249a93e8
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1230ddcb8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1250a9b58
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -635,18 +642,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 148900 samples, lengthbytes 595680
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 148900, lengthbytes 595680, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1230aeaf8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123a66858
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1249a93e8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x131431f88
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x123a85b78
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x131432238
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -656,18 +663,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 134670 samples, lengthbytes 538752
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 134670, lengthbytes 538752, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123a66858
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123093768
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x131431f88
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x13142bab8
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1230bd278
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x13142bd68
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -677,18 +684,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 276950 samples, lengthbytes 1107872
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 276950, lengthbytes 1107872, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123093768
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123a38248
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x13142bab8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x13142bd78
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x123aa18f8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x13142c028
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -698,18 +705,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 278270 samples, lengthbytes 1113152
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 278270, lengthbytes 1113152, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123a38248
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x12306c418
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x13142bd78
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x10ae07ce8
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1230a9f88
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x10ae07f98
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -719,18 +726,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 163148 samples, lengthbytes 652672
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 163148, lengthbytes 652672, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x12306c418
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1230698a8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x10ae07ce8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128c8ea58
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1230a1f38
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128c8ed08
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -740,18 +747,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 106312 samples, lengthbytes 425312
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 106312, lengthbytes 425312, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1230698a8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123a2dc98
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128c8ea58
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128c8c548
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x123ad6548
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128c8c7f8
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -761,18 +768,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 67274 samples, lengthbytes 269184
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 67274, lengthbytes 269184, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123a2dc98
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x12304bf38
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128c8c548
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x117841758
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x123082ce8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1178409d8
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -782,18 +789,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 126190 samples, lengthbytes 504832
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 126190, lengthbytes 504832, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x12304bf38
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123033518
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x117841758
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128c8ab78
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x123033148
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128c8ae28
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -803,18 +810,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 243424 samples, lengthbytes 973760
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 243424, lengthbytes 973760, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123033518
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123011b08
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128c8ab78
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x131423c38
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x12302d2e8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x13141e758
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -824,18 +831,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 86812 samples, lengthbytes 347328
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 86812, lengthbytes 347328, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123011b08
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x12300abe8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x131423c38
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128c8b2e8
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1230f1048
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128c8b598
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -845,18 +852,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 93522 samples, lengthbytes 374176
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 93522, lengthbytes 374176, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x12300abe8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1230e25d8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128c8b2e8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128c89ac8
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1230e0f68
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128c8aaa8
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -866,18 +873,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 663918 samples, lengthbytes 2655744
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 663918, lengthbytes 2655744, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1230e25d8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123a02ad8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128c89ac8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x124cbab08
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x123aef898
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x12500f7d8
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -887,18 +894,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 78859 samples, lengthbytes 315520
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 78859, lengthbytes 315520, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123a02ad8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1230cc608
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x124cbab08
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128c8a778
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1230c1268
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128c88e68
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -908,18 +915,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 67189 samples, lengthbytes 268832
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 67189, lengthbytes 268832, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1230cc608
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1230bdf28
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128c8a778
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128feb6f8
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1230a17f8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128fbc848
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -929,18 +936,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 79386 samples, lengthbytes 317632
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 79386, lengthbytes 317632, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1230bdf28
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123097a98
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128feb6f8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128103508
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x123034488
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128160c08
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -950,18 +957,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 76574 samples, lengthbytes 306368
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 76574, lengthbytes 306368, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123097a98
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123027908
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128103508
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128feb358
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x123020088
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128fd3948
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -971,18 +978,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 54488 samples, lengthbytes 218016
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 54488, lengthbytes 218016, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123027908
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1865a02e8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128feb358
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128c88e78
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x123ae0408
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128c88748
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -992,18 +999,39 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 45943 samples, lengthbytes 183840
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 45943, lengthbytes 183840, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1865a02e8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1230f89a8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128c88e78
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128c87c08
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1230f3b28
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128c87eb8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSample                    :     mode 0a010002 length 121371 samples, lengthbytes 485568
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
+[LOG] OutputSoftware::createSample             :     lengthpcm 121371, lengthbytes 485568, channels 2, format 2, freq 44100, mode 0a01000a
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128c87c08
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128c87ec8
+[LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128c87638
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -1013,18 +1041,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 176400 samples, lengthbytes 705664
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 176400, lengthbytes 705664, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1230f89a8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1230c57b8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128c87ec8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128c877e8
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1230ac558
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128c85738
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -1034,18 +1062,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 357376 samples, lengthbytes 1429568
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 357376, lengthbytes 1429568, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1230c57b8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1230aa838
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128c877e8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128197c88
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x123083008
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128197f38
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -1055,18 +1083,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 176400 samples, lengthbytes 705664
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 176400, lengthbytes 705664, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1230aa838
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123a47598
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128197c88
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128c85a78
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x123ae2ef8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128c85d28
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -1076,18 +1104,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 42810 samples, lengthbytes 171328
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 42810, lengthbytes 171328, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123a47598
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1230827a8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128c85a78
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x10ae0b248
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1230826c8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x10ae0b4f8
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -1097,18 +1125,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 38580 samples, lengthbytes 154400
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 38580, lengthbytes 154400, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1230827a8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123026938
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x10ae0b248
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x13141e988
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x12301cb38
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x13141ec38
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -1118,18 +1146,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 22200 samples, lengthbytes 88864
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 22200, lengthbytes 88864, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123026938
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123a76618
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x13141e988
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128c82cc8
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x123ad7358
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128c82f78
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -1139,18 +1167,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 33400 samples, lengthbytes 133664
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 33400, lengthbytes 133664, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123a76618
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x123aeaa88
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128c82cc8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x12491f898
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x123ad4498
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x13458bb18
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -1160,18 +1188,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 42813 samples, lengthbytes 171328
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 42813, lengthbytes 171328, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x123aeaa88
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1230ba2e8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x12491f898
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x13141edd8
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1230a24d8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x13141f088
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -1181,18 +1209,18 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 42075 samples, lengthbytes 168384
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 42075, lengthbytes 168384, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1230ba2e8
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1230805f8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x13141edd8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x13141f248
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
-[LOG] SystemI::createSoundInternal             :     exinfo->length             = 23013248
-[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 62848
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1230653f8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x13141f4f8
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -1202,22 +1230,43 @@
 [LOG] SystemI::createSoundInternal             :     creating subsound 0/1
 [LOG] SystemI::createSample                    :     mode 0a010002 length 39140 samples, lengthbytes 156640
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 39140, lengthbytes 156640, channels 2, format 2, freq 44100, mode 0a01000a
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1230805f8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x13141f248
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x128c82308
+[LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Uncompressed.bank : mode 0a010202
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 24369888
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 70784
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x128c825b8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             :     Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             :     creating subsound 0/1
+[LOG] SystemI::createSample                    :     mode 0a010002 length 217710 samples, lengthbytes 870912
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
+[LOG] OutputSoftware::createSample             :     lengthpcm 217710, lengthbytes 870912, channels 2, format 2, freq 44100, mode 0a01000a
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x128c82308
 [LOG] SystemI::createSound                     : filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Compressed.bank : mode 0a010082
 [LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
-[LOG] SystemI::createSound                     : setdata soundi = 0x12303f718 : node = 0x123003670
-[LOG] SystemI::createSound                     : add node to async list : head = 0x1230f6c90.  list count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x12303f718
+[LOG] SystemI::createSound                     : setdata soundi = 0x132ffa2b8 : node = 0x132fe7140
+[LOG] SystemI::createSound                     : add node to async list : head = 0x12a446130.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x132ffa2b8
 [LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Compressed.bank : mode 0a010082
 [LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
 [LOG] SystemI::createSoundInternal             :     exinfo->length             = 7008032
 [LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 2752
 [LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x123003778
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x132fe7248
 [LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
 [LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
@@ -1226,23 +1275,338 @@
 [LOG] System::createSoundInternal              :     decode buffersize = 19200 : blocksize = 256 : format = 2
 [LOG] SystemI::createSample                    :     mode 0a010082 length 19200 samples, lengthbytes 3264768
 [LOG] SystemI::createSample                    :     channels = 2
-[LOG] SystemI::createSample                    :     output = 0x123ac5758
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
 [LOG] OutputSoftware::createSample             :     lengthpcm 19200, lengthbytes 3264768, channels 2, format 2, freq 48000, mode 0a01008a
 [LOG] System::createSoundInternal              :     1 subsounds detected.
 [LOG] System::createSoundInternal              :     Seek stream to start
 [LOG] System::createSoundInternal              :     flush stream buffer
 [LOG] System::createSoundInternal              :     flush successful.
 [LOG] System::createSoundInternal              :     switch file handle from small blocking single buffered to large nonblocking doublebuffered.
-[LOG] Thread::initThread                       :         Initializing FMOD file thread.  priority 1
-[LOG] Thread::initThread                       :         - Stacksize 16384.  Stack pointer 0x0 : usesemaphore = 0 : sleeptime = 10
-[LOG] Thread::callback                         :         * FMOD file thread started
 [LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x12303f718
-[LOG] SoundI::getSubSound                      : sound 0x12303f718.  Subsound index 0 / 1
-[LOG] LiveUpdate::clientConnected              : client = 0x139237408
-[LOG] Manager::sendConnectTimeHash             : 
-[LOG] LiveUpdate::sendConnectTimeHash          : 
-[LOG] Manager::finishSync                      : 
-[LOG] LiveUpdate::transitionToConnected        : 
-[LOG] LiveUpdate::update                       : Established connection
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x132ffa2b8
+[LOG] SoundI::getSubSound                      : sound 0x132ffa2b8.  Subsound index 0 / 1
+[LOG] SystemI::createSound                     : filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Compressed.bank : mode 0a010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x174540ab8 : node = 0x174526f30
+[LOG] SystemI::createSound                     : add node to async list : head = 0x12a446130.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x174540ab8
+[LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Compressed.bank : mode 0a010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 7008032
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 2752
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x174527038
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESTREAM
+[LOG] System::createSoundInternal              :     decode buffersize = 19200 : blocksize = 256 : format = 2
+[LOG] SystemI::createSample                    :     mode 0a010082 length 19200 samples, lengthbytes 3740896
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
+[LOG] OutputSoftware::createSample             :     lengthpcm 19200, lengthbytes 3740896, channels 2, format 2, freq 48000, mode 0a01008a
+[LOG] System::createSoundInternal              :     1 subsounds detected.
+[LOG] System::createSoundInternal              :     Seek stream to start
+[LOG] System::createSoundInternal              :     flush stream buffer
+[LOG] System::createSoundInternal              :     flush successful.
+[LOG] System::createSoundInternal              :     switch file handle from small blocking single buffered to large nonblocking doublebuffered.
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x174540ab8
+[LOG] SoundI::getSubSound                      : sound 0x174540ab8.  Subsound index 0 / 1
+[LOG] SoundI::release                          : (null) (0x132ffa2b8)
+[LOG] SoundI::release                          : remove stream samples. (0x132ffa2b8)
+[LOG] SoundI::release                          :     (null) (0x132f80878)
+[LOG] SoundI::release                          : release subsounds. (0x132ffa2b8)
+[LOG] SoundI::release                          :     (null) (0x132fe08e8)
+[LOG] SoundI::release                          : release codec. (0x132ffa2b8)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Compressed.bank : mode 0a010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x1817279a8 : node = 0x1292875f0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x12a446130.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x1817279a8
+[LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Compressed.bank : mode 0a010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 7008032
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 2752
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1292876f8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESTREAM
+[LOG] System::createSoundInternal              :     decode buffersize = 19200 : blocksize = 256 : format = 2
+[LOG] SystemI::createSample                    :     mode 0a010082 length 19200 samples, lengthbytes 3740896
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
+[LOG] OutputSoftware::createSample             :     lengthpcm 19200, lengthbytes 3740896, channels 2, format 2, freq 48000, mode 0a01008a
+[LOG] System::createSoundInternal              :     1 subsounds detected.
+[LOG] System::createSoundInternal              :     Seek stream to start
+[LOG] System::createSoundInternal              :     flush stream buffer
+[LOG] System::createSoundInternal              :     flush successful.
+[LOG] System::createSoundInternal              :     switch file handle from small blocking single buffered to large nonblocking doublebuffered.
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x1817279a8
+[LOG] SoundI::getSubSound                      : sound 0x1817279a8.  Subsound index 0 / 1
+[LOG] SoundI::release                          : (null) (0x174540ab8)
+[LOG] SoundI::release                          : remove stream samples. (0x174540ab8)
+[LOG] SoundI::release                          :     (null) (0x12a4f7178)
+[LOG] SoundI::release                          : release subsounds. (0x174540ab8)
+[LOG] SoundI::release                          :     (null) (0x12a4f9718)
+[LOG] SoundI::release                          : release codec. (0x174540ab8)
+[LOG] SystemI::createSound                     : filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Compressed.bank : mode 0a010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0x12924f908 : node = 0x1292b57a0
+[LOG] SystemI::createSound                     : add node to async list : head = 0x12a446130.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0x12924f908
+[LOG] SystemI::createSoundInternal             :     filename = Assets/FMOD Projects/FortressDefender/Build/Mobile/Compressed.bank : mode 0a010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 216
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 7008032
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 2752
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0x1292b58a8
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             :     Create as FMOD_CREATESTREAM
+[LOG] System::createSoundInternal              :     decode buffersize = 19200 : blocksize = 256 : format = 2
+[LOG] SystemI::createSample                    :     mode 0a010082 length 19200 samples, lengthbytes 3264768
+[LOG] SystemI::createSample                    :     channels = 2
+[LOG] SystemI::createSample                    :     output = 0x1330e6fe8
+[LOG] OutputSoftware::createSample             :     lengthpcm 19200, lengthbytes 3264768, channels 2, format 2, freq 48000, mode 0a01008a
+[LOG] System::createSoundInternal              :     1 subsounds detected.
+[LOG] System::createSoundInternal              :     Seek stream to start
+[LOG] System::createSoundInternal              :     flush stream buffer
+[LOG] System::createSoundInternal              :     flush successful.
+[LOG] System::createSoundInternal              :     switch file handle from small blocking single buffered to large nonblocking doublebuffered.
+[LOG] SystemI::createSoundInternal             :     done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0x12924f908
+[LOG] SoundI::getSubSound                      : sound 0x12924f908.  Subsound index 0 / 1
+[LOG] SoundI::release                          : (null) (0x1817279a8)
+[LOG] SoundI::release                          : remove stream samples. (0x1817279a8)
+[LOG] SoundI::release                          :     (null) (0x174520338)
+[LOG] SoundI::release                          : release subsounds. (0x1817279a8)
+[LOG] SoundI::release                          :     (null) (0x128f6aae8)
+[LOG] SoundI::release                          : release codec. (0x1817279a8)
+[LOG] SoundI::release                          : (null) (0x12924f908)
+[LOG] SoundI::release                          : remove stream samples. (0x12924f908)
+[LOG] SoundI::release                          :     (null) (0x181707df8)
+[LOG] SoundI::release                          : release subsounds. (0x12924f908)
+[LOG] SoundI::release                          :     (null) (0x174545a58)
+[LOG] SoundI::release                          : release codec. (0x12924f908)
+[LOG] SoundI::release                          : (null) (0x1249a93e8)
+[LOG] SoundI::release                          : release subsounds. (0x1249a93e8)
+[LOG] SoundI::release                          :     (null) (0x131419e48)
+[LOG] SoundI::release                          : release codec. (0x1249a93e8)
+[LOG] SoundI::release                          : (null) (0x131431f88)
+[LOG] SoundI::release                          : release subsounds. (0x131431f88)
+[LOG] SoundI::release                          :     (null) (0x1249cd268)
+[LOG] SoundI::release                          : release codec. (0x131431f88)
+[LOG] SoundI::release                          : (null) (0x124cbab08)
+[LOG] SoundI::release                          : release subsounds. (0x124cbab08)
+[LOG] SoundI::release                          :     (null) (0x132fec5b8)
+[LOG] SoundI::release                          : release codec. (0x124cbab08)
+[LOG] SoundI::release                          : (null) (0x128c8a778)
+[LOG] SoundI::release                          : release subsounds. (0x128c8a778)
+[LOG] SoundI::release                          :     (null) (0x132fdc468)
+[LOG] SoundI::release                          : release codec. (0x128c8a778)
+[LOG] SoundI::release                          : (null) (0x128feb6f8)
+[LOG] SoundI::release                          : release subsounds. (0x128feb6f8)
+[LOG] SoundI::release                          :     (null) (0x125c48968)
+[LOG] SoundI::release                          : release codec. (0x128feb6f8)
+[LOG] SoundI::release                          : (null) (0x128103508)
+[LOG] SoundI::release                          : release subsounds. (0x128103508)
+[LOG] SoundI::release                          :     (null) (0x132fd8508)
+[LOG] SoundI::release                          : release codec. (0x128103508)
+[LOG] SoundI::release                          : (null) (0x128feb358)
+[LOG] SoundI::release                          : release subsounds. (0x128feb358)
+[LOG] SoundI::release                          :     (null) (0x12a028f18)
+[LOG] SoundI::release                          : release codec. (0x128feb358)
+[LOG] SoundI::release                          : (null) (0x128c88e78)
+[LOG] SoundI::release                          : release subsounds. (0x128c88e78)
+[LOG] SoundI::release                          :     (null) (0x128f2ffd8)
+[LOG] SoundI::release                          : release codec. (0x128c88e78)
+[LOG] SoundI::release                          : (null) (0x128c87c08)
+[LOG] SoundI::release                          : release subsounds. (0x128c87c08)
+[LOG] SoundI::release                          :     (null) (0x128f534a8)
+[LOG] SoundI::release                          : release codec. (0x128c87c08)
+[LOG] SoundI::release                          : (null) (0x13143ab48)
+[LOG] SoundI::release                          : release subsounds. (0x13143ab48)
+[LOG] SoundI::release                          :     (null) (0x12813d358)
+[LOG] SoundI::release                          : release codec. (0x13143ab48)
+[LOG] SoundI::release                          : (null) (0x128114028)
+[LOG] SoundI::release                          : release subsounds. (0x128114028)
+[LOG] SoundI::release                          :     (null) (0x131420148)
+[LOG] SoundI::release                          : release codec. (0x128114028)
+[LOG] SoundI::release                          : (null) (0x13144d8a8)
+[LOG] SoundI::release                          : release subsounds. (0x13144d8a8)
+[LOG] SoundI::release                          :     (null) (0x13141ba48)
+[LOG] SoundI::release                          : release codec. (0x13144d8a8)
+[LOG] SoundI::release                          : (null) (0x1281538f8)
+[LOG] SoundI::release                          : release subsounds. (0x1281538f8)
+[LOG] SoundI::release                          :     (null) (0x128124f68)
+[LOG] SoundI::release                          : release codec. (0x1281538f8)
+[LOG] SoundI::release                          : (null) (0x13142bab8)
+[LOG] SoundI::release                          : release subsounds. (0x13142bab8)
+[LOG] SoundI::release                          :     (null) (0x128f81f98)
+[LOG] SoundI::release                          : release codec. (0x13142bab8)
+[LOG] SoundI::release                          : (null) (0x13142bd78)
+[LOG] SoundI::release                          : release subsounds. (0x13142bd78)
+[LOG] SoundI::release                          :     (null) (0x131403da8)
+[LOG] SoundI::release                          : release codec. (0x13142bd78)
+[LOG] SoundI::release                          : (null) (0x117841758)
+[LOG] SoundI::release                          : release subsounds. (0x117841758)
+[LOG] SoundI::release                          :     (null) (0x1314051d8)
+[LOG] SoundI::release                          : release codec. (0x117841758)
+[LOG] SoundI::release                          : (null) (0x128c8ab78)
+[LOG] SoundI::release                          : release subsounds. (0x128c8ab78)
+[LOG] SoundI::release                          :     (null) (0x128f7a418)
+[LOG] SoundI::release                          : release codec. (0x128c8ab78)
+[LOG] SoundI::release                          : (null) (0x131423c38)
+[LOG] SoundI::release                          : release subsounds. (0x131423c38)
+[LOG] SoundI::release                          :     (null) (0x12e198868)
+[LOG] SoundI::release                          : release codec. (0x131423c38)
+[LOG] SoundI::release                          : (null) (0x128c8b2e8)
+[LOG] SoundI::release                          : release subsounds. (0x128c8b2e8)
+[LOG] SoundI::release                          :     (null) (0x128f78de8)
+[LOG] SoundI::release                          : release codec. (0x128c8b2e8)
+[LOG] SoundI::release                          : (null) (0x10ae07ce8)
+[LOG] SoundI::release                          : release subsounds. (0x10ae07ce8)
+[LOG] SoundI::release                          :     (null) (0x1314152a8)
+[LOG] SoundI::release                          : release codec. (0x10ae07ce8)
+[LOG] SoundI::release                          : (null) (0x128c8ea58)
+[LOG] SoundI::release                          : release subsounds. (0x128c8ea58)
+[LOG] SoundI::release                          :     (null) (0x1249d8b88)
+[LOG] SoundI::release                          : release codec. (0x128c8ea58)
+[LOG] SoundI::release                          : (null) (0x128c8c548)
+[LOG] SoundI::release                          : release subsounds. (0x128c8c548)
+[LOG] SoundI::release                          :     (null) (0x1249b11c8)
+[LOG] SoundI::release                          : release codec. (0x128c8c548)
+[LOG] SoundI::release                          : (null) (0x128c89ac8)
+[LOG] SoundI::release                          : release subsounds. (0x128c89ac8)
+[LOG] SoundI::release                          :     (null) (0x128f6b418)
+[LOG] SoundI::release                          : release codec. (0x128c89ac8)
+[LOG] SoundI::release                          : (null) (0x128c87ec8)
+[LOG] SoundI::release                          : release subsounds. (0x128c87ec8)
+[LOG] SoundI::release                          :     (null) (0x12810fc48)
+[LOG] SoundI::release                          : release codec. (0x128c87ec8)
+[LOG] SoundI::release                          : (null) (0x128197c88)
+[LOG] SoundI::release                          : release subsounds. (0x128197c88)
+[LOG] SoundI::release                          :     (null) (0x132f8a6c8)
+[LOG] SoundI::release                          : release codec. (0x128197c88)
+[LOG] SoundI::release                          : (null) (0x128c85a78)
+[LOG] SoundI::release                          : release subsounds. (0x128c85a78)
+[LOG] SoundI::release                          :     (null) (0x132fab458)
+[LOG] SoundI::release                          : release codec. (0x128c85a78)
+[LOG] SoundI::release                          : (null) (0x10ae0b248)
+[LOG] SoundI::release                          : release subsounds. (0x10ae0b248)
+[LOG] SoundI::release                          :     (null) (0x125037d18)
+[LOG] SoundI::release                          : release codec. (0x10ae0b248)
+[LOG] SoundI::release                          : (null) (0x13141e988)
+[LOG] SoundI::release                          : release subsounds. (0x13141e988)
+[LOG] SoundI::release                          :     (null) (0x132fac5f8)
+[LOG] SoundI::release                          : release codec. (0x13141e988)
+[LOG] SoundI::release                          : (null) (0x128c82cc8)
+[LOG] SoundI::release                          : release subsounds. (0x128c82cc8)
+[LOG] SoundI::release                          :     (null) (0x12e1a1478)
+[LOG] SoundI::release                          : release codec. (0x128c82cc8)
+[LOG] SoundI::release                          : (null) (0x128c8f8a8)
+[LOG] SoundI::release                          : release subsounds. (0x128c8f8a8)
+[LOG] SoundI::release                          :     (null) (0x128fd0c18)
+[LOG] SoundI::release                          : release codec. (0x128c8f8a8)
+[LOG] SoundI::release                          : (null) (0x128f9cc08)
+[LOG] SoundI::release                          : release subsounds. (0x128f9cc08)
+[LOG] SoundI::release                          :     (null) (0x124921b48)
+[LOG] SoundI::release                          : release codec. (0x128f9cc08)
+[LOG] SoundI::release                          : (null) (0x128fd4ed8)
+[LOG] SoundI::release                          : release subsounds. (0x128fd4ed8)
+[LOG] SoundI::release                          :     (null) (0x128fb6708)
+[LOG] SoundI::release                          : release codec. (0x128fd4ed8)
+[LOG] SoundI::release                          : (null) (0x12491f898)
+[LOG] SoundI::release                          : release subsounds. (0x12491f898)
+[LOG] SoundI::release                          :     (null) (0x12a06ddf8)
+[LOG] SoundI::release                          : release codec. (0x12491f898)
+[LOG] SoundI::release                          : (null) (0x13141edd8)
+[LOG] SoundI::release                          : release subsounds. (0x13141edd8)
+[LOG] SoundI::release                          :     (null) (0x132fce2e8)
+[LOG] SoundI::release                          : release codec. (0x13141edd8)
+[LOG] SoundI::release                          : (null) (0x13141f248)
+[LOG] SoundI::release                          : release subsounds. (0x13141f248)
+[LOG] SoundI::release                          :     (null) (0x134581de8)
+[LOG] SoundI::release                          : release codec. (0x13141f248)
+[LOG] SoundI::release                          : (null) (0x131439728)
+[LOG] SoundI::release                          : release subsounds. (0x131439728)
+[LOG] SoundI::release                          :     (null) (0x128c8e8c8)
+[LOG] SoundI::release                          : release codec. (0x131439728)
+[LOG] SoundI::release                          : (null) (0x1249b3618)
+[LOG] SoundI::release                          : release subsounds. (0x1249b3618)
+[LOG] SoundI::release                          :     (null) (0x124cba978)
+[LOG] SoundI::release                          : release codec. (0x1249b3618)
+[LOG] SoundI::release                          : (null) (0x131439c08)
+[LOG] SoundI::release                          : release subsounds. (0x131439c08)
+[LOG] SoundI::release                          :     (null) (0x128c88bb8)
+[LOG] SoundI::release                          : release codec. (0x131439c08)
+[LOG] SoundI::release                          : (null) (0x13143b3b8)
+[LOG] SoundI::release                          : release subsounds. (0x13143b3b8)
+[LOG] SoundI::release                          :     (null) (0x128c87a78)
+[LOG] SoundI::release                          : release codec. (0x13143b3b8)
+[LOG] SoundI::release                          : (null) (0x128c934a8)
+[LOG] SoundI::release                          : release subsounds. (0x128c934a8)
+[LOG] SoundI::release                          :     (null) (0x128c858e8)
+[LOG] SoundI::release                          : release codec. (0x128c934a8)
+[LOG] SoundI::release                          : (null) (0x128c92458)
+[LOG] SoundI::release                          : release subsounds. (0x128c92458)
+[LOG] SoundI::release                          :     (null) (0x13141ec48)
+[LOG] SoundI::release                          : release codec. (0x128c92458)
+[LOG] SoundI::release                          : (null) (0x128c877e8)
+[LOG] SoundI::release                          : release subsounds. (0x128c877e8)
+[LOG] SoundI::release                          :     (null) (0x128c5b0e8)
+[LOG] SoundI::release                          : release codec. (0x128c877e8)
+[LOG] SoundI::release                          : (null) (0x13144d288)
+[LOG] SoundI::release                          : release subsounds. (0x13144d288)
+[LOG] SoundI::release                          :     (null) (0x1281a42d8)
+[LOG] SoundI::release                          : release codec. (0x13144d288)
+[LOG] SoundI::release                          : (null) (0x13144bc68)
+[LOG] SoundI::release                          : release subsounds. (0x13144bc68)
+[LOG] SoundI::release                          :     (null) (0x134558288)
+[LOG] SoundI::release                          : release codec. (0x13144bc68)
+[LOG] SoundI::release                          : (null) (0x13144f358)
+[LOG] SoundI::release                          : release subsounds. (0x13144f358)
+[LOG] SoundI::release                          :     (null) (0x124963bd8)
+[LOG] SoundI::release                          : release codec. (0x13144f358)
+[LOG] SoundI::release                          : (null) (0x128c92cf8)
+[LOG] SoundI::release                          : release subsounds. (0x128c92cf8)
+[LOG] SoundI::release                          :     (null) (0x13144dbb8)
+[LOG] SoundI::release                          : release codec. (0x128c92cf8)
+[LOG] SoundI::release                          : (null) (0x128c82308)
+[LOG] SoundI::release                          : release subsounds. (0x128c82308)
+[LOG] SoundI::release                          :     (null) (0x12504c378)
+[LOG] SoundI::release                          : release codec. (0x128c82308)
+[LOG] Thread::callback                         : * FMOD Studio update thread finished
+[LOG] Thread::close                            : FMOD Studio update thread thread destroyed
+[LOG] Thread::callback                         : * FMOD Studio load thread finished
+[LOG] Thread::close                            : FMOD Studio load thread thread destroyed
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] LiveUpdate::release                      : 
+[LOG] SystemI::close                           : 
+[LOG] SystemI::close                           : Stop all sounds
+[LOG] Thread::callback                         : * FMOD stream thread finished
+[LOG] Thread::close                            : FMOD stream thread thread destroyed
+[LOG] SystemI::close                           : Stream thread destroyed
+[LOG] SystemI::close                           : Shut down output.
+[LOG] Thread::callback                         : * FMOD mixer thread finished
+[LOG] Thread::close                            : FMOD mixer thread thread destroyed
+[LOG] SystemI::close                           : Free master channel group.
+[LOG] SystemI::close                           : Remove 'master' sound group.
+[LOG] SystemI::close                           : Free software output.
+[LOG] SystemI::close                           : Free emulated output.
+[LOG] SystemI::close                           : Free channel pool.
+[LOG] SystemI::close                           : Remove miscllaneous DSP stuff.
+[LOG] SystemI::close                           : done.
+

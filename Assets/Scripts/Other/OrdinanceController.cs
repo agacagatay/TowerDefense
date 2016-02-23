@@ -24,7 +24,7 @@ public class OrdinanceController : MonoBehaviour
 	{
 		Destroy(gameObject, 4f);
 
-		if (isMissile)
+		if (isMissile && !GameController.instance.GameOver)
 		{
 			AudioController.instance.CreateInstance("SFX/Ally_Ordinance_Missile_Booster", gameObject);
 			AudioController.instance.Play("SFX/Ally_Ordinance_Missile_Booster", gameObject);
@@ -125,15 +125,15 @@ public class OrdinanceController : MonoBehaviour
 
 				if (explosionPrefab != null)
 				{
+					if (explosionPrefab.name == "Explosion Missile")
+						AudioController.instance.Stop("SFX/Ally_Ordinance_Missile_Booster", gameObject);
+
 					if (!GameController.instance.GameOver)
 					{
 						if (explosionPrefab.name == "Explosion Bullet Big")
 							AudioController.instance.PlayOneshot("SFX/Ally_Ordinance_Big", gameObject);
 						if (explosionPrefab.name == "Explosion Missile")
-						{
-							AudioController.instance.Stop("SFX/Ally_Ordinance_Missile_Booster", gameObject);
 							AudioController.instance.PlayOneshot("SFX/Ally_Ordinance_Missile_Explosion", gameObject);
-						}
 					}
 
 					Instantiate(explosionPrefab, transform.position, transform.rotation);

@@ -32,6 +32,12 @@ public class EnemyTurretController : MonoBehaviour
 		case "Enemy Light Tank":
 			AudioController.instance.CreateInstance("SFX/Enemy_Light_Tank", gameObject);
 			break;
+		case "Enemy Heavy Tank":
+			AudioController.instance.CreateInstance("SFX/Enemy_Heavy_Tank", gameObject);
+			break;
+		case "Enemy Fighter":
+			AudioController.instance.CreateInstance("SFX/Enemy_Aircraft", gameObject);
+			break;
 		}
 
 		InvokeRepeating("FindTargetsInRange", 0, 0.5f);
@@ -139,6 +145,12 @@ public class EnemyTurretController : MonoBehaviour
 			{
 			case "Enemy Light Tank":
 				AudioController.instance.Play("SFX/Enemy_Light_Tank", gameObject);
+				break;
+			case "Enemy Heavy Tank":
+				AudioController.instance.Play("SFX/Enemy_Heavy_Tank", gameObject);
+				break;
+			case "Enemy Fighter":
+				AudioController.instance.Play("SFX/Enemy_Aircraft", gameObject);
 				break;
 			}
 

@@ -29,6 +29,7 @@ public class LevelLoadScene : MonoBehaviour
 			{
 				EncryptedPlayerPrefs.SetFloat("TotalPlayTime", 0f);
 				musicBus.setPaused(true);
+				AudioController.instance.Pause("SFX/Ambience", AudioController.instance.gameObject);
 
 				if (Advertisement.isSupported && Advertisement.IsReady())
 					Advertisement.Show();
@@ -53,6 +54,8 @@ public class LevelLoadScene : MonoBehaviour
 
 		musicBus.setPaused(false);
 		musicBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+		AudioController.instance.Resume("SFX/Ambience", AudioController.instance.gameObject);
+		AudioController.instance.Stop("SFX/Ambience", AudioController.instance.gameObject);
 
 		foreach(GameObject objectToActivate in objectsToActivate)
 		{

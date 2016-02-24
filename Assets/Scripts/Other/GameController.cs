@@ -52,6 +52,8 @@ public class GameController : MonoBehaviour
 		sessionPlayTime = 0f;
 		initialSecondary = SecondaryStructures.Count;
 		EveryplayController.instance.StartRecording();
+		AudioController.instance.CreateInstance("SFX/Ambience", AudioController.instance.gameObject);
+		AudioController.instance.Play("SFX/Ambience", AudioController.instance.gameObject);
 	}
 
 	void Update()
@@ -92,6 +94,7 @@ public class GameController : MonoBehaviour
 
 	void CalculateScore()
 	{
+		AudioController.instance.StopAllSFX();
 		StartCoroutine(WaitAndStopRecording(6f));
 		GamePaused = true;
 

@@ -22,6 +22,26 @@ public class EnemyUnitVariables : MonoBehaviour
 			Instantiate(spawnEffect, transform.position, transform.rotation);
 		}
 
+		switch (UnitName)
+		{
+		case "Enemy Light Tank":
+			AudioController.instance.CreateInstance("SFX/Enemy_Unit_Light_Tank", gameObject);
+			AudioController.instance.Play("SFX/Enemy_Unit_Light_Tank", gameObject);
+			break;
+		case "Enemy Heavy Tank":
+			AudioController.instance.CreateInstance("SFX/Enemy_Unit_Heavy_Tank", gameObject);
+			AudioController.instance.Play("SFX/Enemy_Unit_Heavy_Tank", gameObject);
+			break;
+//		case "Enemy Fighter":
+//			AudioController.instance.CreateInstance("SFX/Enemy_Unit_Light_Tank", gameObject);
+//			AudioController.instance.Play("SFX/Enemy_Unit_Light_Tank", gameObject);
+//			break;
+//		case "Enemy Dropship":
+//			AudioController.instance.CreateInstance("SFX/Enemy_Unit_Light_Tank", gameObject);
+//			AudioController.instance.Play("SFX/Enemy_Unit_Light_Tank", gameObject);
+//			break;
+		}
+
 		SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Add(gameObject, priorityValue);
 		initialHealth = UnitHealth;
 	}
@@ -60,6 +80,23 @@ public class EnemyUnitVariables : MonoBehaviour
 		yield return new WaitForSeconds(waitTime);
 
 		HealthBarController.instance.DisableEnemyHealthBar(gameObject);
+
+		switch (UnitName)
+		{
+		case "Enemy Light Tank":
+			AudioController.instance.Stop("SFX/Enemy_Unit_Light_Tank", gameObject);
+			break;
+		case "Enemy Heavy Tank":
+			AudioController.instance.Stop("SFX/Enemy_Unit_Heavy_Tank", gameObject);
+			break;
+//		case "Enemy Fighter":
+//			AudioController.instance.Stop("SFX/Enemy_Unit_Light_Tank", gameObject);
+//			break;
+//		case "Enemy Dropship":
+//			AudioController.instance.Stop("SFX/Enemy_Unit_Light_Tank", gameObject);
+//			break;
+		}
+
 		Destroy(gameObject);
 	}
 }

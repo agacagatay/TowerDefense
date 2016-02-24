@@ -38,6 +38,7 @@ public class EnemyDropshipController : MonoBehaviour
 
 	void DeployUnits()
 	{
+		AudioController.instance.PlayOneshot("SFX/Enemy_Drop_Unit", gameObject);
 		Instantiate(dropUnitPrefab, unitSpawnTransform.position, unitSpawnTransform.rotation);
 	}
 }

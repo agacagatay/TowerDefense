@@ -32,14 +32,14 @@ public class EnemyUnitVariables : MonoBehaviour
 			AudioController.instance.CreateInstance("SFX/Enemy_Unit_Heavy_Tank", gameObject);
 			AudioController.instance.Play("SFX/Enemy_Unit_Heavy_Tank", gameObject);
 			break;
-//		case "Enemy Fighter":
-//			AudioController.instance.CreateInstance("SFX/Enemy_Unit_Light_Tank", gameObject);
-//			AudioController.instance.Play("SFX/Enemy_Unit_Light_Tank", gameObject);
-//			break;
-//		case "Enemy Dropship":
-//			AudioController.instance.CreateInstance("SFX/Enemy_Unit_Light_Tank", gameObject);
-//			AudioController.instance.Play("SFX/Enemy_Unit_Light_Tank", gameObject);
-//			break;
+		case "Enemy Fighter":
+			AudioController.instance.CreateInstance("SFX/Enemy_Unit_Fighter", gameObject);
+			AudioController.instance.Play("SFX/Enemy_Unit_Fighter", gameObject);
+			break;
+		case "Enemy Dropship":
+			AudioController.instance.CreateInstance("SFX/Enemy_Unit_Dropship", gameObject);
+			AudioController.instance.Play("SFX/Enemy_Unit_Dropship", gameObject);
+			break;
 		}
 
 		SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Add(gameObject, priorityValue);
@@ -89,12 +89,12 @@ public class EnemyUnitVariables : MonoBehaviour
 		case "Enemy Heavy Tank":
 			AudioController.instance.Stop("SFX/Enemy_Unit_Heavy_Tank", gameObject);
 			break;
-//		case "Enemy Fighter":
-//			AudioController.instance.Stop("SFX/Enemy_Unit_Light_Tank", gameObject);
-//			break;
-//		case "Enemy Dropship":
-//			AudioController.instance.Stop("SFX/Enemy_Unit_Light_Tank", gameObject);
-//			break;
+		case "Enemy Fighter":
+			AudioController.instance.Stop("SFX/Enemy_Unit_Fighter", gameObject);
+			break;
+		case "Enemy Dropship":
+			AudioController.instance.Stop("SFX/Enemy_Unit_Dropship", gameObject);
+			break;
 		}
 
 		Destroy(gameObject);

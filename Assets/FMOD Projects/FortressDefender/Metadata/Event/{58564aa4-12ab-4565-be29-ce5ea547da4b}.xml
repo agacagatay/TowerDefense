@@ -119,10 +119,10 @@
     </object>
     <object class="DistanceParameter" id="{a7085e96-270f-4dce-8465-31f1eada560d}">
         <property name="maximum">
-            <value>250</value>
+            <value>300</value>
         </property>
         <relationship name="automationCurves">
-            <destination>{fc6be1cd-4790-40bf-b2ed-15d3aeba4ad4}</destination>
+            <destination>{7713abd4-b18c-4971-9fdb-06663e269578}</destination>
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{2dd4b0a7-d8ca-4efc-b9e7-e34481dfc4f9}">
@@ -158,7 +158,7 @@
             <value>cutoff</value>
         </property>
         <relationship name="automationCurves">
-            <destination>{fc6be1cd-4790-40bf-b2ed-15d3aeba4ad4}</destination>
+            <destination>{7713abd4-b18c-4971-9fdb-06663e269578}</destination>
         </relationship>
         <relationship name="objectBeingAutomated">
             <destination>{0dca4f1a-91fd-4354-82f2-9d01e92c726f}</destination>
@@ -272,10 +272,10 @@
             <destination>{8d2fd573-0187-4194-a0f5-c30117110064}</destination>
         </relationship>
     </object>
-    <object class="AutomationCurve" id="{fc6be1cd-4790-40bf-b2ed-15d3aeba4ad4}">
+    <object class="AutomationCurve" id="{7713abd4-b18c-4971-9fdb-06663e269578}">
         <relationship name="automationPoints">
-            <destination>{1bbb458d-63f4-46e0-9c30-dfe2ed3447b8}</destination>
-            <destination>{c18e4369-c711-4dfd-a0d2-656d8753b668}</destination>
+            <destination>{308af9c8-aced-44e3-9e97-55e940ec1c0e}</destination>
+            <destination>{82ce7f57-69a8-4ef7-a919-a8fab7da0ad7}</destination>
         </relationship>
     </object>
     <object class="ADSRModulator" id="{8885eb79-660c-435f-a931-e06d8a8d12f1}">
@@ -406,23 +406,23 @@
             <value>24</value>
         </property>
     </object>
-    <object class="AutomationPoint" id="{1bbb458d-63f4-46e0-9c30-dfe2ed3447b8}">
+    <object class="AutomationPoint" id="{308af9c8-aced-44e3-9e97-55e940ec1c0e}">
         <property name="position">
-            <value>250</value>
+            <value>300</value>
         </property>
         <property name="value">
             <value>10</value>
         </property>
     </object>
-    <object class="AutomationPoint" id="{c18e4369-c711-4dfd-a0d2-656d8753b668}">
+    <object class="AutomationPoint" id="{82ce7f57-69a8-4ef7-a919-a8fab7da0ad7}">
         <property name="position">
-            <value>66.666666666666671</value>
+            <value>50</value>
         </property>
         <property name="value">
             <value>22000</value>
         </property>
         <property name="curveShape">
-            <value>1</value>
+            <value>0.267989576</value>
         </property>
     </object>
     <object class="MixerBusFader" id="{9f74b229-e868-4ee5-85e9-a37c7e0b2bfb}"/>
@@ -448,7 +448,7 @@
             <value>80</value>
         </property>
         <property name="maximumDistance">
-            <value>250</value>
+            <value>300</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{a0602950-229d-456f-b41d-685c92e28171}">

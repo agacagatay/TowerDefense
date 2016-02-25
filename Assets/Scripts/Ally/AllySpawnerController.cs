@@ -107,6 +107,8 @@ public class AllySpawnerController : MonoBehaviour
 
 	public void ShowSpawnerOptions(AllySpawnerPosition allySpawnerPosition)
 	{
+		AudioController.instance.PlayOneshot("SFX/Menu_Spawn_Menu", AudioController.instance.gameObject);
+
 		spawnerDisplayEnabled = true;
 
 		if (GrowIconObject != null)
@@ -194,6 +196,8 @@ public class AllySpawnerController : MonoBehaviour
 
 	public void HideSpawnerOptions()
 	{
+		AudioController.instance.PlayOneshot("SFX/Menu_Close", AudioController.instance.gameObject);
+
 		foreach (GameObject spawnBranch in spawnBranchObjects)
 		{
 			Destroy(spawnBranch);
@@ -206,18 +210,22 @@ public class AllySpawnerController : MonoBehaviour
 
 	void ShowTurretSelectTab()
 	{
+		AudioController.instance.PlayOneshot("SFX/Menu_Open", AudioController.instance.gameObject);
 		turretSelectDisplayEnabled = true;
 		turretSelectMenu.SetActive(true);
 	}
 
 	public void HideTurretSelectTab()
 	{
+		AudioController.instance.PlayOneshot("SFX/Menu_Close", AudioController.instance.gameObject);
 		turretSelectMenu.SetActive(false);
 		turretSelectDisplayEnabled = false;
 	}
 
 	public void SpawnTurret(string prefabName)
 	{
+		AudioController.instance.PlayOneshot("SFX/Menu_Trigger_Spawn", AudioController.instance.gameObject);
+
 		switch(prefabName)
 		{
 		case "Artillery":

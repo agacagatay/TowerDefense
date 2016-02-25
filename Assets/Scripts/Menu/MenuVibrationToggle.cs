@@ -27,10 +27,12 @@ public class MenuVibrationToggle : MonoBehaviour
 
 		if (vibrationMode == 1)
 		{
+			AudioController.instance.PlayOneshot("SFX/Menu_Close", AudioController.instance.gameObject);
 			SetStateDisabled();
 		}
 		else
 		{
+			AudioController.instance.PlayOneshot("SFX/Menu_Activate", AudioController.instance.gameObject);
 			SetStateEnabled(true);
 		}
 	}

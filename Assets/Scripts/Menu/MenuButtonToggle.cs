@@ -19,6 +19,9 @@ public class MenuButtonToggle : MonoBehaviour
 		}
 
 		if (objectToEnable != null)
+		{
+			AudioController.instance.PlayOneshot("SFX/Menu_Open", AudioController.instance.gameObject);
 			objectToEnable.SetActive(true);
+		}
 	}
 }

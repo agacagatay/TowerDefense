@@ -43,6 +43,16 @@ public class GameController : MonoBehaviour
 	{
 		instance = this;
 
+		AudioController.instance.PlayOneshot("SFX/Menu_Transition", AudioController.instance.gameObject);
+		AudioController.instance.CreateInstance("SFX/Ambience", AudioController.instance.gameObject);
+		AudioController.instance.Play("SFX/Ambience", AudioController.instance.gameObject);
+
+		StartCoroutine(StartMusic());
+	}
+
+	IEnumerator StartMusic()
+	{
+		yield return new WaitForSeconds(0.18f);
 		AudioController.instance.CreateInstance("Music/Music_Gameplay", AudioController.instance.gameObject);
 		AudioController.instance.Play("Music/Music_Gameplay", AudioController.instance.gameObject);
 	}
@@ -52,8 +62,6 @@ public class GameController : MonoBehaviour
 		sessionPlayTime = 0f;
 		initialSecondary = SecondaryStructures.Count;
 		EveryplayController.instance.StartRecording();
-		AudioController.instance.CreateInstance("SFX/Ambience", AudioController.instance.gameObject);
-		AudioController.instance.Play("SFX/Ambience", AudioController.instance.gameObject);
 	}
 
 	void Update()

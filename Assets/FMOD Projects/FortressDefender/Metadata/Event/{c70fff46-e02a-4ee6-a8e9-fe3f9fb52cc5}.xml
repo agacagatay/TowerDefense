@@ -101,7 +101,7 @@
     </object>
     <object class="EventMixerMaster" id="{0edf7cb7-f69d-407d-b77b-a919c1f9c29e}">
         <property name="volume">
-            <value>-18</value>
+            <value>-15</value>
         </property>
         <property name="pitch">
             <value>-12</value>
@@ -276,7 +276,7 @@
     <object class="LowpassEffect" id="{0b9b9c53-5ad8-473d-90e6-d18106d4fe0b}"/>
     <object class="MixerSend" id="{1b14f22c-68af-4aa5-9e83-336253e4217c}">
         <property name="level">
-            <value>0</value>
+            <value>-10</value>
         </property>
         <property name="inputFormat">
             <value>1</value>

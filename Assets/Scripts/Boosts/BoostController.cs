@@ -20,6 +20,8 @@ public class BoostController : MonoBehaviour
 
 	public void ActivateBoost()
 	{
+		AudioController.instance.PlayOneshot("SFX/Menu_Boost", AudioController.instance.gameObject);
+
 		if (!boostContainers[EnabledBoost].BoostActive)
 		{
 			boostCooldown = boostContainers[EnabledBoost].BoostCooldown;

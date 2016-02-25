@@ -7,6 +7,7 @@ public class MenuIAP : MonoBehaviour
 
 	void OnClick()
 	{
+		AudioController.instance.PlayOneshot("SFX/Menu_Activate", AudioController.instance.gameObject);
 		InAppPurchaseController.instance.BuyItem(productID);
 	}
 }

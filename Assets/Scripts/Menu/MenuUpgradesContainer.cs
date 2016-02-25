@@ -34,6 +34,7 @@ public class MenuUpgradesContainer : MonoBehaviour
 
 	public void IncreaseTowerArrayPos()
 	{
+		AudioController.instance.PlayOneshot("SFX/Menu_Cycle", AudioController.instance.gameObject);
 		currentTowerArrayPos++;
 
 		if (currentTowerArrayPos >= towerMeshes.Length)
@@ -44,6 +45,7 @@ public class MenuUpgradesContainer : MonoBehaviour
 
 	public void DecreaseTowerArrayPos()
 	{
+		AudioController.instance.PlayOneshot("SFX/Menu_Cycle", AudioController.instance.gameObject);
 		currentTowerArrayPos--;
 
 		if (currentTowerArrayPos < 0)
@@ -88,6 +90,7 @@ public class MenuUpgradesContainer : MonoBehaviour
 
 		if (totalMedals >= towerInformation[currentTowerArrayPos].TowerUpgradeCost && currentTowerTier < towerInformation[currentTowerArrayPos].TowerUpgradeLength)
 		{
+			AudioController.instance.PlayOneshot("SFX/Menu_Activate", AudioController.instance.gameObject);
 			GameCenterManager.SubmitAchievement(100f, "achievement_tower_upgrade", true);
 
 			totalMedals -= towerInformation[currentTowerArrayPos].TowerUpgradeCost;
@@ -123,6 +126,7 @@ public class MenuUpgradesContainer : MonoBehaviour
 		}
 		else if (currentTowerTier < towerInformation[currentTowerArrayPos].TowerUpgradeLength)
 		{
+			AudioController.instance.PlayOneshot("SFX/Menu_Open", AudioController.instance.gameObject);
 			storeMenuToggle.ToggleMenu();
 		}
 	}

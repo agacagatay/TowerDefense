@@ -7,6 +7,10 @@ public class MenuButtonClose : MonoBehaviour
 
 	void OnClick()
 	{
-		objectToDisable.SetActive(false);
+		if (objectToDisable != null)
+		{
+			AudioController.instance.PlayOneshot("SFX/Menu_Close", AudioController.instance.gameObject);
+			objectToDisable.SetActive(false);
+		}
 	}
 }

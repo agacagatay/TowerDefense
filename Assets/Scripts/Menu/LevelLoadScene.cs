@@ -20,6 +20,7 @@ public class LevelLoadScene : MonoBehaviour
 	void OnClick()
 	{
 		Time.timeScale = 1f;
+		AudioController.instance.PlayOneshot("SFX/Menu_Activate", AudioController.instance.gameObject);
 
 		if (EncryptedPlayerPrefs.GetInt("AdsDisabled", 0) == 0)
 		{

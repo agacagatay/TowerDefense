@@ -9,6 +9,8 @@ public class MenuLoadLevel : MonoBehaviour
 
 	public void LoadLevel(int levelToLoad)
 	{
+		AudioController.instance.PlayOneshot("SFX/Menu_Activate", AudioController.instance.gameObject);
+		AudioController.instance.PlayOneshot("SFX/Menu_Trigger_Spawn", AudioController.instance.gameObject);
 		AudioController.instance.Stop("Music/Music_Main_Menu", AudioController.instance.gameObject);
 		StartCoroutine(WaitAndLoadLevel(levelToLoad));
 	}

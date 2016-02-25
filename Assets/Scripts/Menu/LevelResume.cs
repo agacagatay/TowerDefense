@@ -11,5 +11,6 @@ public class LevelResume : MonoBehaviour
 		pauseMenu.SetActive(false);
 		GameController.instance.GamePaused = false;
 		EveryplayController.instance.ResumeRecording();
+		AudioController.instance.PlayOneshot("SFX/Menu_Close", AudioController.instance.gameObject);
 	}
 }

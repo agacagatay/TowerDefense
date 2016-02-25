@@ -55,8 +55,6 @@ public class LevelLoadScene : MonoBehaviour
 
 		musicBus.setPaused(false);
 		musicBus.stopAllEvents(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-		AudioController.instance.Resume("SFX/Ambience", AudioController.instance.gameObject);
-		AudioController.instance.Stop("SFX/Ambience", AudioController.instance.gameObject);
 
 		foreach(GameObject objectToActivate in objectsToActivate)
 		{

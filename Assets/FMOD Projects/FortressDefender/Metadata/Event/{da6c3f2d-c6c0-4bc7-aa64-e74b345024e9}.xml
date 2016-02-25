@@ -97,7 +97,7 @@
             <value>-28</value>
         </property>
         <property name="pitch">
-            <value>-6</value>
+            <value>-2</value>
         </property>
         <relationship name="effectChain">
             <destination>{347ef645-ef2d-4d57-8454-acb2b98bc259}</destination>

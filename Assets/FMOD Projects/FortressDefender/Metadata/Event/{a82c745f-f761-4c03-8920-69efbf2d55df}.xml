@@ -66,6 +66,9 @@
         <property name="voiceStealing">
             <value>2</value>
         </property>
+        <property name="priority">
+            <value>4</value>
+        </property>
     </object>
     <object class="MarkerTrack" id="{bbb1d4b2-a8b0-4b6e-8da3-57712383307b}"/>
     <object class="GroupTrack" id="{ee0b56e5-3b14-43fb-8b84-5748a2d41a57}">

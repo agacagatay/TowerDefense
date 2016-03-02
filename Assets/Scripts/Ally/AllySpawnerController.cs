@@ -53,6 +53,10 @@ public class AllySpawnerController : MonoBehaviour
 
 		turretSelectWidget = turretSelectMenu.GetComponent<UIWidget>();
 		destroyTurretTab = turretSelectMenu.GetComponentInChildren<AllyDestroyTurret>();
+	}
+
+	void Start()
+	{
 		HideTurretSelectTab();
 	}
 

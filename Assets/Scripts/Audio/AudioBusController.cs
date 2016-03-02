@@ -14,11 +14,15 @@ public class AudioBusController : MonoBehaviour
 	{
 		FMODUnity.RuntimeManager.StudioSystem.getBus("bus:/Music", out musicBus);
 		musicBus.setFaderLevel(EncryptedPlayerPrefs.GetFloat("MusicVolume", 1f));
-		musicSlider.value = EncryptedPlayerPrefs.GetFloat("MusicVolume", 1f);
+
+		if (musicSlider != null)
+			musicSlider.value = EncryptedPlayerPrefs.GetFloat("MusicVolume", 1f);
 
 		FMODUnity.RuntimeManager.StudioSystem.getBus("bus:/SFX", out sfxBus);
 		sfxBus.setFaderLevel(EncryptedPlayerPrefs.GetFloat("SFXVolume", 1f));
-		sfxSlider.value = EncryptedPlayerPrefs.GetFloat("SFXVolume", 1f);
+
+		if (sfxSlider != null)
+			sfxSlider.value = EncryptedPlayerPrefs.GetFloat("SFXVolume", 1f);
 	}
 
 	public void SetMusicBusVolume(float busVolume)

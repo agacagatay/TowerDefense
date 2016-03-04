@@ -18,7 +18,9 @@ public class EnemyUnitVariables : MonoBehaviour
 	{
 		if (spawnEffect != null)
 		{
-			AudioController.instance.PlayOneshot("SFX/Enemy_Teleport", gameObject);
+			if (!GameController.instance.GameOver)
+				AudioController.instance.PlayOneshot("SFX/Enemy_Teleport", gameObject);
+
 			Instantiate(spawnEffect, transform.position, transform.rotation);
 		}
 

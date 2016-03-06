@@ -14,6 +14,12 @@ public class MenuLevelSelectContainer : MonoBehaviour
 
 	void Awake()
 	{
+		if (EncryptedPlayerPrefs.GetInt("MissionStatusTUTORIAL", 0) == 0)
+		{
+			EncryptedPlayerPrefs.SetInt("MissionStatusTUTORIAL", 1);
+			PlayerPrefs.Save();
+		}
+
 		if (EncryptedPlayerPrefs.GetInt("MissionStatus01", 0) == 0)
 		{
 			EncryptedPlayerPrefs.SetInt("MissionStatus01", 1);
@@ -38,7 +44,10 @@ public class MenuLevelSelectContainer : MonoBehaviour
 			missionStatusLabel.text = "Mission Status: Completed";
 		}
 
-		levelNameLabel.text = "LEVEL " + levelNumberString;
+		if (levelNumberString == "TUTORIAL")
+			levelNameLabel.text = levelNumberString;
+		else
+			levelNameLabel.text = "LEVEL " + levelNumberString;
 
 		int highScore = EncryptedPlayerPrefs.GetInt("HighScore" + levelNumberString, 0);
 		highScoreLabel.text = "High Score: " + highScore.ToString("N0");

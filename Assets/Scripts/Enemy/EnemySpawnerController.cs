@@ -22,19 +22,22 @@ public class EnemySpawnerController : MonoBehaviour
 
 	IEnumerator SpawnFirstWave()
 	{
-		HUDController.instance.DisplayTwoString("Level Begin", "Enemies Spawn In " + enemySpawnerWaves[enemyWaveNumber].WaveInitialWait.ToString("N0") + 
-			" Seconds", 4f, 2f);
-		HUDController.instance.ToggleEnemySpawnTimer(enemySpawnerWaves[enemyWaveNumber].WaveInitialWait);
+		if (GameController.instance.LevelNumberInt != 1)
+		{
+			HUDController.instance.DisplayTwoString("Level Begin", "Enemies Spawn In " + enemySpawnerWaves[enemyWaveNumber].WaveInitialWait.ToString("N0") + 
+				" Seconds", 4f, 2f);
+			HUDController.instance.ToggleEnemySpawnTimer(enemySpawnerWaves[enemyWaveNumber].WaveInitialWait);
 
-		yield return new WaitForSeconds(enemySpawnerWaves[enemyWaveNumber].WaveInitialWait);
-
-		HUDController.instance.DisplayTwoString("Enemy Wave Incoming", "Wave " + (1 + enemyWaveNumber).ToString("N0") + 
-			" of " + enemySpawnerWaves.Length.ToString("N0"), 2f, 2f);
-
-		HUDController.instance.SetEnemyWaveLabel("Enemy Wave " + (EnemyWaveNumber + 1).ToString("N0") + " of " +
-			TotalEnemyWaves.ToString("N0"));
-
-		enemySpawnerWaves[enemyWaveNumber].TriggerEnemyWave(enemyWaveNumber);
+			yield return new WaitForSeconds(enemySpawnerWaves[enemyWaveNumber].WaveInitialWait);
+			
+			HUDController.instance.DisplayTwoString("Enemy Wave Incoming", "Wave " + (1 + enemyWaveNumber).ToString("N0") + 
+				" of " + enemySpawnerWaves.Length.ToString("N0"), 2f, 2f);
+			
+			HUDController.instance.SetEnemyWaveLabel("Enemy Wave " + (EnemyWaveNumber + 1).ToString("N0") + " of " +
+				TotalEnemyWaves.ToString("N0"));
+			
+			enemySpawnerWaves[enemyWaveNumber].TriggerEnemyWave(enemyWaveNumber);
+		}
 	}
 
 	public bool SpawnWaveComplete()

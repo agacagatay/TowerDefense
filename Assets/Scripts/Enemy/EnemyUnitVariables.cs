@@ -65,7 +65,12 @@ public class EnemyUnitVariables : MonoBehaviour
 			SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Remove(gameObject);
 
 			if (SpawnedEnemyDictionary.instance.spawnedEnemyDictionary.Count == 0 && EnemySpawnerController.instance.SpawnWaveComplete())
+			{
 				EnemySpawnerController.instance.SpawnNextEnemyWave();
+			
+				if (TutorialController.instance.TutorialActive && TutorialController.instance.CurrentTutorialScreen == 19)
+					TutorialController.instance.NextTutorialScreen();
+			}
 
 			if (deathExplosion != null)
 			{

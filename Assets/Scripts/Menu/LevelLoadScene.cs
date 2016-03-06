@@ -6,6 +6,7 @@ using UnityEngine.Advertisements;
 public class LevelLoadScene : MonoBehaviour
 {
 	[SerializeField] bool replayLevel;
+	[SerializeField] bool nextLevel;
 	[SerializeField] GameObject[] objectsToActivate;
 	[SerializeField] float waitBeforeSceneLoad;
 	FMOD.Studio.Bus musicBus;
@@ -66,6 +67,8 @@ public class LevelLoadScene : MonoBehaviour
 
 		if (replayLevel)
 			SceneManager.LoadSceneAsync(GameController.instance.LevelNumberInt);
+		else if (nextLevel)
+			SceneManager.LoadSceneAsync(GameController.instance.LevelNumberInt + 1);
 		else
 			SceneManager.LoadSceneAsync(0);
 	}

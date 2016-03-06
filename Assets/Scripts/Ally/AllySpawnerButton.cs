@@ -16,8 +16,6 @@ public class AllySpawnerButton : MonoBehaviour
 				--AllySpawnerController.instance.ArtilleryQuota;
 				AllySpawnerController.instance.SpawnTurret("Artillery");
 			}
-			else
-				Debug.Log("Artillery Limit Reached");
 
 			break;
 		case "TabMinigun":
@@ -27,8 +25,6 @@ public class AllySpawnerButton : MonoBehaviour
 				--AllySpawnerController.instance.MinigunQuota;
 				AllySpawnerController.instance.SpawnTurret("Minigun");
 			}
-			else
-				Debug.Log("Minigun Limit Reached");
 
 			break;
 		case "TabTurret":
@@ -38,8 +34,6 @@ public class AllySpawnerButton : MonoBehaviour
 				--AllySpawnerController.instance.TurretQuota;
 				AllySpawnerController.instance.SpawnTurret("Turret");
 			}
-			else
-				Debug.Log("Turret Limit Reached");
 			
 			break;
 		case "TabMissileBattery":
@@ -49,8 +43,6 @@ public class AllySpawnerButton : MonoBehaviour
 				--AllySpawnerController.instance.MissileBatteryQuota;
 				AllySpawnerController.instance.SpawnTurret("Missile Battery");
 			}
-			else
-				Debug.Log("Missile Battery Limit Reached");
 			
 			break;
 		}

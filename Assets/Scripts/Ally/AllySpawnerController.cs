@@ -239,6 +239,12 @@ public class AllySpawnerController : MonoBehaviour
 		case "Minigun":
 			ToggleSpawnEffect(3);
 			StartCoroutine(ToggleTurretSpawn("Minigun", minigunSpawnTime));
+
+			if (TutorialController.instance.gameObject != null && TutorialController.instance.CurrentTutorialScreen == 11)
+			{
+				TutorialController.instance.NextTutorialScreen();
+			}
+
 			break;
 		case "Turret":
 			ToggleSpawnEffect(2);

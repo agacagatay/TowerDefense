@@ -6,6 +6,7 @@ public class TutorialController : MonoBehaviour
 	[SerializeField] GameObject[] tutorialScreens;
 	int currentTutorialScreen = 0;
 	public GameObject[] TutorialScreens { get { return tutorialScreens; }}
+	public int CurrentTutorialScreen { get { return currentTutorialScreen; }}
 
 	public static TutorialController instance;
 

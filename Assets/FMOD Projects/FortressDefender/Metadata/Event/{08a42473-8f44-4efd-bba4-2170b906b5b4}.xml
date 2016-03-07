@@ -60,6 +60,9 @@
         <property name="maxVoices">
             <value>1</value>
         </property>
+        <property name="priority">
+            <value>4</value>
+        </property>
     </object>
     <object class="MarkerTrack" id="{f52863e7-72ef-4cf6-a2a0-1840396922da}"/>
     <object class="GroupTrack" id="{c10c90a1-d75f-40a4-aae8-c00ff3d1f82e}">
@@ -157,7 +160,7 @@
     <object class="MixerBusPanner" id="{a59a40b4-4e74-441e-b00e-64b1ee71fa46}"/>
     <object class="MixerSend" id="{9a6f13c7-063d-4e44-b797-8371472aadaa}">
         <property name="level">
-            <value>-12</value>
+            <value>-10</value>
         </property>
         <property name="inputFormat">
             <value>1</value>

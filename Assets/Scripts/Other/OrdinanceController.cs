@@ -66,6 +66,14 @@ public class OrdinanceController : MonoBehaviour
 						enemyUnitVariables.DamageUnit(damage * 2);
 					else
 						enemyUnitVariables.DamageUnit(damage);
+
+					if (explosionPrefab != null && !GameController.instance.GameOver)
+					{
+						if (explosionPrefab.name == "Explosion Bullet Big")
+							AudioController.instance.PlayOneshot("SFX/Ally_Ordinance_Big", gameObject);
+						else if (explosionPrefab.name == "Explosion Missile")
+							AudioController.instance.PlayOneshot("SFX/Ally_Ordinance_Missile_Explosion", gameObject);
+					}
 				}
 				else
 				{
@@ -83,6 +91,14 @@ public class OrdinanceController : MonoBehaviour
 									enemyUnitVariables.DamageUnit(damage * 2);
 								else
 									enemyUnitVariables.DamageUnit(damage);
+
+								if (explosionPrefab != null && !GameController.instance.GameOver)
+								{
+									if (explosionPrefab.name == "Explosion Bullet Big")
+										AudioController.instance.PlayOneshot("SFX/Ally_Ordinance_Big", gameObject);
+									else if (explosionPrefab.name == "Explosion Missile")
+										AudioController.instance.PlayOneshot("SFX/Ally_Ordinance_Missile_Explosion", gameObject);
+								}
 							}
 						}
 					}
@@ -106,7 +122,12 @@ public class OrdinanceController : MonoBehaviour
 							AllyStructureController allyStructureController = hitCollider.GetComponent<AllyStructureController>();
 
 							if (allyStructureController != null)
+							{
 								allyStructureController.DamageStructure(damage);
+
+								if (explosionPrefab != null && explosionPrefab.name == "Explosion Bullet Big")
+									AudioController.instance.PlayOneshot("SFX/Ally_Ordinance_Big", gameObject);
+							}
 						}
 					}
 				}
@@ -128,14 +149,6 @@ public class OrdinanceController : MonoBehaviour
 					if (explosionPrefab.name == "Explosion Missile")
 						AudioController.instance.Stop("SFX/Ally_Ordinance_Missile_Booster", gameObject);
 
-					if (!GameController.instance.GameOver)
-					{
-						if (explosionPrefab.name == "Explosion Bullet Big")
-							AudioController.instance.PlayOneshot("SFX/Ally_Ordinance_Big", gameObject);
-						if (explosionPrefab.name == "Explosion Missile")
-							AudioController.instance.PlayOneshot("SFX/Ally_Ordinance_Missile_Explosion", gameObject);
-					}
-
 					Instantiate(explosionPrefab, transform.position, transform.rotation);
 				}
 
@@ -145,9 +158,6 @@ public class OrdinanceController : MonoBehaviour
 			{
 				if (explosionPrefab != null)
 				{
-					if (explosionPrefab.name == "Explosion Bullet Big")
-						AudioController.instance.PlayOneshot("SFX/Ally_Ordinance_Big", gameObject);
-
 					Instantiate(explosionPrefab, transform.position, transform.rotation);
 				}
 

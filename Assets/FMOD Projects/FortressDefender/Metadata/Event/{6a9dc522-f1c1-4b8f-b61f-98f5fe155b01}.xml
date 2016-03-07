@@ -70,7 +70,7 @@
             <value>2</value>
         </property>
         <property name="priority">
-            <value>1</value>
+            <value>0</value>
         </property>
     </object>
     <object class="MarkerTrack" id="{8e244dd2-c982-4381-a515-b6a8ea59ee21}"/>

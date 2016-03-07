@@ -67,9 +67,6 @@
         <property name="maxVoices">
             <value>4</value>
         </property>
-        <property name="voiceStealing">
-            <value>2</value>
-        </property>
     </object>
     <object class="MarkerTrack" id="{ecc91d46-7f99-4176-902c-e170c4d202e7}"/>
     <object class="GroupTrack" id="{e91fb744-d419-4503-8e74-605245399ede}">
@@ -332,6 +329,12 @@
         </property>
         <property name="value">
             <value>1</value>
+        </property>
+        <property name="curveShape">
+            <value>0.5</value>
+        </property>
+        <property name="isSCurve">
+            <value>true</value>
         </property>
     </object>
     <object class="AutomationPoint" id="{0fbc433c-edbb-40cd-84c3-816160298ed4}">

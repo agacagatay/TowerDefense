@@ -13,6 +13,7 @@ public class TutorialScreen : MonoBehaviour
 
 	public void TutorialScreenComplete()
 	{
+		AudioController.instance.PlayOneshot("SFX/Menu_Open", AudioController.instance.gameObject);
 		TutorialController.instance.NextTutorialScreen();
 	}
 }

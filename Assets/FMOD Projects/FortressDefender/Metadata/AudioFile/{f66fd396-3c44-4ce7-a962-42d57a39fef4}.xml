@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="AudioFile" id="{f66fd396-3c44-4ce7-a962-42d57a39fef4}">
+        <property name="assetPath">
+            <value>SFX/Explosion/explosion_whiz_2.wav</value>
+        </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>
         </property>
@@ -10,11 +13,8 @@
         <property name="length">
             <value>3.0537414965986396</value>
         </property>
-        <property name="audioFilePath">
-            <value>$(AUDIO_BIN_DIR)/explosion_whiz_2 {c670a7a0-be91-48fd-a547-be1d0ecd54da}.wav</value>
-        </property>
-        <relationship name="container">
-            <destination>{0b533cd5-b67c-40c4-8b06-4f02f5ebc5f9}</destination>
+        <relationship name="masterAssetFolder">
+            <destination>{877b6aaf-de72-4982-a773-8e1e3d86a7d9}</destination>
         </relationship>
     </object>
 </objects>

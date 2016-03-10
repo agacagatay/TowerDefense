@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="Event" id="{10cb70d2-75f9-4bcd-b125-617896409aa2}">
         <property name="name">
             <value>Nested Event</value>
@@ -75,8 +75,8 @@
     </object>
     <object class="Timeline" id="{eab0090d-bb10-48c6-91c2-c9b8613b968e}">
         <relationship name="modules">
-            <destination>{e1784bec-afad-4bc7-9c70-7370bfd66fa7}</destination>
             <destination>{afe17a5f-9d84-4d6b-b8ae-53b1fb00f388}</destination>
+            <destination>{e1784bec-afad-4bc7-9c70-7370bfd66fa7}</destination>
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{a2585f00-3767-4506-8496-a67d11ec3ff4}">

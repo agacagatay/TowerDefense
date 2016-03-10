@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="AudioFile" id="{215bdd39-1ee9-437a-bb37-5c7c02f0bc6c}">
+        <property name="assetPath">
+            <value>SFX/Cannon/cannon_artillery_3.wav</value>
+        </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>
         </property>
@@ -10,11 +13,8 @@
         <property name="length">
             <value>3.2585034013605441</value>
         </property>
-        <property name="audioFilePath">
-            <value>$(AUDIO_BIN_DIR)/cannon_artillery_3 {eecd3ffd-e6d7-493d-998e-88d70845239b}.wav</value>
-        </property>
-        <relationship name="container">
-            <destination>{92e94fef-09e4-46a7-9da7-3dd7c9aeb2b3}</destination>
+        <relationship name="masterAssetFolder">
+            <destination>{877b6aaf-de72-4982-a773-8e1e3d86a7d9}</destination>
         </relationship>
     </object>
 </objects>

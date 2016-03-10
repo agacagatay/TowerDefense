@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="AudioFile" id="{e8a85abe-3b00-4694-acb2-525ffaee4bbb}">
+        <property name="assetPath">
+            <value>SFX/Interface/button_big_3.wav</value>
+        </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>
         </property>
@@ -10,11 +13,8 @@
         <property name="length">
             <value>3.0481405895691611</value>
         </property>
-        <property name="audioFilePath">
-            <value>$(AUDIO_BIN_DIR)/button_big_3 {d5a0a433-bcaf-408c-9de4-66d9eb49cd4c}.wav</value>
-        </property>
-        <relationship name="container">
-            <destination>{70fce12c-254a-4a2c-9d95-c66b94a6f206}</destination>
+        <relationship name="masterAssetFolder">
+            <destination>{877b6aaf-de72-4982-a773-8e1e3d86a7d9}</destination>
         </relationship>
     </object>
 </objects>

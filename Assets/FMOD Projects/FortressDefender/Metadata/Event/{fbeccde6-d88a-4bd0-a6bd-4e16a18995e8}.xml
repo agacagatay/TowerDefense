@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="Event" id="{fbeccde6-d88a-4bd0-a6bd-4e16a18995e8}">
         <property name="name">
             <value>Tower_Minigun</value>
         </property>
         <property name="outputFormat">
-            <value>1</value>
+            <value>2</value>
         </property>
         <relationship name="mixer">
             <destination>{a8ad1746-167a-465f-86ed-3c3b005f4141}</destination>

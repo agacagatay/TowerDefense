@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="AudioFile" id="{69ca0a10-e40b-49b9-a4c5-f1b94583aa4a}">
+        <property name="assetPath">
+            <value>SFX/Explosion/explosion_thud_2.wav</value>
+        </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>
         </property>
@@ -10,11 +13,8 @@
         <property name="length">
             <value>5.5198185941043088</value>
         </property>
-        <property name="audioFilePath">
-            <value>$(AUDIO_BIN_DIR)/explosion_thud_2 {1d9f155d-aa67-4285-958b-4c9bf5c8ecb8}.wav</value>
-        </property>
-        <relationship name="container">
-            <destination>{0b533cd5-b67c-40c4-8b06-4f02f5ebc5f9}</destination>
+        <relationship name="masterAssetFolder">
+            <destination>{877b6aaf-de72-4982-a773-8e1e3d86a7d9}</destination>
         </relationship>
     </object>
 </objects>

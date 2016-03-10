@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="Event" id="{c2d8a2ad-5e5f-45f4-985a-6ee91b52fe3c}">
         <property name="name">
             <value>Menu_Spawn_Menu</value>
@@ -86,9 +86,9 @@
     </object>
     <object class="Timeline" id="{55db1c79-2b72-433d-ba56-7bffa8b3ff9a}">
         <relationship name="modules">
+            <destination>{db7e6d51-f676-431a-a89a-bb858eec8c65}</destination>
             <destination>{12059950-09ec-4d34-88ed-922b51179964}</destination>
             <destination>{e8823a38-4618-4d24-86d1-22bf6f44654c}</destination>
-            <destination>{db7e6d51-f676-431a-a89a-bb858eec8c65}</destination>
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{8085c90a-7328-4b6e-b2b2-16003799acff}">

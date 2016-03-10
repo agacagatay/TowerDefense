@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="AudioFile" id="{8b2fcf99-15c9-48f6-91de-64a22fe8645e}">
+        <property name="assetPath">
+            <value>SFX/Bullet Impact/bullet_impact_1.wav</value>
+        </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>
         </property>
@@ -10,11 +13,8 @@
         <property name="length">
             <value>3.8548752834467122</value>
         </property>
-        <property name="audioFilePath">
-            <value>$(AUDIO_BIN_DIR)/bullet_impact_1 {fc50815a-c6b0-4074-8cc4-9757883c218f}.wav</value>
-        </property>
-        <relationship name="container">
-            <destination>{1f0ee9e9-6a79-489c-b13b-ce3d99eea720}</destination>
+        <relationship name="masterAssetFolder">
+            <destination>{877b6aaf-de72-4982-a773-8e1e3d86a7d9}</destination>
         </relationship>
     </object>
 </objects>

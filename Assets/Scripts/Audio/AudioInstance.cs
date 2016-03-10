@@ -7,7 +7,6 @@ public class AudioInstance : MonoBehaviour
 	FMOD.Studio.EventInstance eventInstance;
 	FMOD.Studio.EventDescription eventDescription;
 	FMOD.Studio.ParameterInstance parameterInstance;
-	FMOD.Studio.CueInstance cueInstance;
 	bool instanceAssigned = false;
 	bool is3D;
 
@@ -73,8 +72,7 @@ public class AudioInstance : MonoBehaviour
 
 	public void TriggerCue()
 	{
-		eventInstance.getCue("KeyOFF", out cueInstance);
-		cueInstance.trigger();
+		eventInstance.triggerCue();
 	}
 
 	public void Release()

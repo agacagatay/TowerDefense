@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="AudioFile" id="{2504888a-6d38-4073-8689-31bb2de8d54f}">
+        <property name="assetPath">
+            <value>SFX/Missile Launch/missile_launch_1.wav</value>
+        </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>
         </property>
@@ -10,11 +13,8 @@
         <property name="length">
             <value>1.7881859410430838</value>
         </property>
-        <property name="audioFilePath">
-            <value>$(AUDIO_BIN_DIR)/missile_launch_1 {c70989f7-cdf2-489f-b468-895f006dc49a}.wav</value>
-        </property>
-        <relationship name="container">
-            <destination>{745af9a4-805f-43c4-9f1c-15343a030adc}</destination>
+        <relationship name="masterAssetFolder">
+            <destination>{877b6aaf-de72-4982-a773-8e1e3d86a7d9}</destination>
         </relationship>
     </object>
 </objects>

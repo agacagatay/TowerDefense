@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="AudioFile" id="{3fb5a800-0dac-4725-a475-38b7518be089}">
+        <property name="assetPath">
+            <value>SFX/Teleport/teleport_beam_2.wav</value>
+        </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>
         </property>
@@ -10,11 +13,8 @@
         <property name="length">
             <value>4.9367346938775514</value>
         </property>
-        <property name="audioFilePath">
-            <value>$(AUDIO_BIN_DIR)/teleport_beam_2 {c1ea2a20-82f5-4336-92d3-4c5ac80a2e52}.wav</value>
-        </property>
-        <relationship name="container">
-            <destination>{850d3d02-7ede-4a33-a530-42f3ea7bd2b3}</destination>
+        <relationship name="masterAssetFolder">
+            <destination>{877b6aaf-de72-4982-a773-8e1e3d86a7d9}</destination>
         </relationship>
     </object>
 </objects>

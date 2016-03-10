@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="AudioFile" id="{b3ec7d1f-512d-48c6-8294-6b8397b9dc6f}">
+        <property name="assetPath">
+            <value>SFX/Bayonnet/bayonnet_1.wav</value>
+        </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>
         </property>
@@ -10,11 +13,8 @@
         <property name="length">
             <value>0.97074829931972784</value>
         </property>
-        <property name="audioFilePath">
-            <value>$(AUDIO_BIN_DIR)/bayonnet_1 {d5833dad-8661-4aa5-9479-7d4759698fcb}.wav</value>
-        </property>
-        <relationship name="container">
-            <destination>{35f6e3b0-0b27-4124-bce1-6c9c6935fb28}</destination>
+        <relationship name="masterAssetFolder">
+            <destination>{877b6aaf-de72-4982-a773-8e1e3d86a7d9}</destination>
         </relationship>
     </object>
 </objects>

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="Event" id="{d82374a2-8c36-4f69-9d63-553e421778ce}">
         <property name="name">
             <value>Enemy_Heavy_Tank</value>
         </property>
         <property name="outputFormat">
-            <value>1</value>
+            <value>2</value>
         </property>
         <relationship name="mixer">
             <destination>{42fd9b33-91f6-4b6b-8148-7408fc1eba3e}</destination>

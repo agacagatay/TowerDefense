@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="Event" id="{c1bd0888-3634-45b0-b565-cf8533516d08}">
         <property name="name">
             <value>Menu_Activate</value>

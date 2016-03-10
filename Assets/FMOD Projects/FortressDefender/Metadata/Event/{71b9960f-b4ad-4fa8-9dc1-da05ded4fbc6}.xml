@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="Event" id="{71b9960f-b4ad-4fa8-9dc1-da05ded4fbc6}">
         <property name="name">
             <value>Explosion_Big</value>
         </property>
         <property name="outputFormat">
-            <value>1</value>
+            <value>2</value>
         </property>
         <relationship name="mixer">
             <destination>{e967824b-e7d8-4305-a2f6-116b7a807f02}</destination>
@@ -135,13 +135,13 @@
     </object>
     <object class="Timeline" id="{ec326c88-2eac-42a0-bc48-a0ad139ae0e8}">
         <relationship name="modules">
+            <destination>{aad34490-ecde-44eb-bd45-1388f6f13cb6}</destination>
             <destination>{bb370845-cf80-4508-91e2-6c12eb3506cc}</destination>
             <destination>{1276d4cd-a61d-4d92-acdb-d68367e09f69}</destination>
-            <destination>{aad34490-ecde-44eb-bd45-1388f6f13cb6}</destination>
             <destination>{70ee226a-f230-45cb-b6ab-c1b2c59ed0dc}</destination>
-            <destination>{51b74b89-3b68-4a6f-b488-d150e916198d}</destination>
             <destination>{9c5e4227-eda8-4fa9-99f9-17b011520858}</destination>
             <destination>{a955d9e5-b1fb-4137-84b5-79111b41480a}</destination>
+            <destination>{51b74b89-3b68-4a6f-b488-d150e916198d}</destination>
         </relationship>
     </object>
     <object class="DistanceParameter" id="{fe085584-bdbc-4004-ba41-4e934caa3df8}">

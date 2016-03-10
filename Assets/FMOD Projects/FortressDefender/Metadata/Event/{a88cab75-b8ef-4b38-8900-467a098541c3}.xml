@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="Event" id="{a88cab75-b8ef-4b38-8900-467a098541c3}">
         <property name="name">
             <value>Music_Main_Menu</value>

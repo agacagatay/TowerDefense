@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="Event" id="{c70fff46-e02a-4ee6-a8e9-fe3f9fb52cc5}">
         <property name="name">
             <value>Enemy_Teleport</value>
         </property>
         <property name="outputFormat">
-            <value>1</value>
+            <value>2</value>
         </property>
         <relationship name="mixer">
             <destination>{fb30b440-1c4c-4f4b-a550-2db68feee101}</destination>

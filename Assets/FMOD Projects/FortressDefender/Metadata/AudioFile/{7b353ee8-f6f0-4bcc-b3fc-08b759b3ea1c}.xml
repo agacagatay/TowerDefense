@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="AudioFile" id="{7b353ee8-f6f0-4bcc-b3fc-08b759b3ea1c}">
+        <property name="assetPath">
+            <value>SFX/Teleport/teleport_start.wav</value>
+        </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>
         </property>
@@ -10,11 +13,8 @@
         <property name="length">
             <value>2.7521768707482992</value>
         </property>
-        <property name="audioFilePath">
-            <value>$(AUDIO_BIN_DIR)/teleport_start {ca4e1f6d-80ac-4be0-8ce4-1fe44788cd16}.wav</value>
-        </property>
-        <relationship name="container">
-            <destination>{850d3d02-7ede-4a33-a530-42f3ea7bd2b3}</destination>
+        <relationship name="masterAssetFolder">
+            <destination>{877b6aaf-de72-4982-a773-8e1e3d86a7d9}</destination>
         </relationship>
     </object>
 </objects>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="Event" id="{bb978df3-b9bc-489d-94f9-f43fccd9aa2e}">
         <property name="name">
             <value>Nested Event</value>

@@ -1,45 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="Bank" id="{d6774dea-ac8d-496c-9383-8e9636e5cb97}">
         <property name="name">
             <value>Compressed</value>
         </property>
-        <relationship name="buildSettings">
-            <destination>{41cc90e2-34d7-4c8d-a133-6f7a983b9480}</destination>
-        </relationship>
         <relationship name="folder">
             <destination>{cd66136a-47cf-4c1b-a78b-e807fbf1a5ff}</destination>
         </relationship>
-    </object>
-    <object class="MobileBuildSetting" id="{41cc90e2-34d7-4c8d-a133-6f7a983b9480}">
-        <relationship name="compressionSettings">
-            <destination>{d607b822-3095-43ea-b170-9b98c15f32ce}</destination>
-            <destination>{75dde26c-b161-4c20-bb64-a9a771ab44ff}</destination>
-            <destination>{fc990b3d-8aa0-471a-84f1-1f53233272f5}</destination>
-        </relationship>
-        <relationship name="activeCompressionSetting">
-            <destination>{75dde26c-b161-4c20-bb64-a9a771ab44ff}</destination>
-        </relationship>
-    </object>
-    <object class="PCMCompressionSetting" id="{d607b822-3095-43ea-b170-9b98c15f32ce}">
-        <property name="type">
-            <value>ADPCM</value>
-        </property>
-        <property name="sampleRate">
-            <value>24000</value>
-        </property>
-    </object>
-    <object class="LossyCompressionSetting" id="{75dde26c-b161-4c20-bb64-a9a771ab44ff}">
-        <property name="type">
-            <value>Vorbis</value>
-        </property>
-    </object>
-    <object class="PCMCompressionSetting" id="{fc990b3d-8aa0-471a-84f1-1f53233272f5}">
-        <property name="type">
-            <value>PCM</value>
-        </property>
-        <property name="sampleRate">
-            <value>24000</value>
-        </property>
     </object>
 </objects>

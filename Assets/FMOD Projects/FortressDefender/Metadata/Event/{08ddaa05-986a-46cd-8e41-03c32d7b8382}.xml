@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="Event" id="{08ddaa05-986a-46cd-8e41-03c32d7b8382}">
         <property name="name">
             <value>Ally_Ordinance_Big</value>
         </property>
         <property name="outputFormat">
-            <value>1</value>
+            <value>2</value>
         </property>
         <relationship name="mixer">
             <destination>{1ed5c7cb-a527-4eca-a6da-01723bf669a8}</destination>

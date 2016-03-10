@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="Event" id="{120eff91-9af4-4883-9983-acf9f1cb483a}">
         <property name="name">
             <value>Menu_Boost</value>
@@ -116,9 +116,9 @@
             <destination>{8898b634-2f76-4d19-a33c-ae383e68e3a1}</destination>
             <destination>{b5a1e3ef-a441-4299-9946-f6794e57295a}</destination>
             <destination>{5841259f-a728-448f-8760-4916859d21bf}</destination>
+            <destination>{cd6fd429-4940-46f3-90f5-db55d55efcf1}</destination>
             <destination>{93eb28ec-bf98-434c-ac55-ce4fb5538f8f}</destination>
             <destination>{1fcc7007-0f20-45a4-bc34-117ae7d0ea53}</destination>
-            <destination>{cd6fd429-4940-46f3-90f5-db55d55efcf1}</destination>
         </relationship>
     </object>
     <object class="EventMixerMaster" id="{033667dc-8e28-4dfa-b9b9-9b77830ab290}">

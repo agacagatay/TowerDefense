@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="Event" id="{06669699-58c4-4641-8e91-920d17657f43}">
         <property name="name">
             <value>Explosion_Normal</value>
         </property>
         <property name="outputFormat">
-            <value>1</value>
+            <value>2</value>
         </property>
         <relationship name="mixer">
             <destination>{3c88e26f-2699-4e44-b226-fefa021a85bf}</destination>
@@ -108,8 +108,8 @@
     </object>
     <object class="Timeline" id="{6418f21e-768f-45fb-a8be-054e2e9f9f3c}">
         <relationship name="modules">
-            <destination>{17194d56-4dc6-498f-8a28-35896c4ba7dc}</destination>
             <destination>{cdf4ba99-5773-40d1-b567-735f34398710}</destination>
+            <destination>{17194d56-4dc6-498f-8a28-35896c4ba7dc}</destination>
             <destination>{5d543e53-3200-4561-aed6-d9cecf428506}</destination>
             <destination>{e73fec41-435e-44a9-987b-93d1c80a4a8b}</destination>
         </relationship>

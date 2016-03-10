@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="Event" id="{18f91c25-5b4b-4eb4-83fd-5abecfe7e55b}">
         <property name="name">
             <value>Menu_Trigger_Spawn</value>

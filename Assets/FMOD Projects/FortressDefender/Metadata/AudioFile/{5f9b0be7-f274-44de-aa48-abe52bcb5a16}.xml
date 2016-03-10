@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="AudioFile" id="{5f9b0be7-f274-44de-aa48-abe52bcb5a16}">
+        <property name="assetPath">
+            <value>SFX/Vehicle/tank_gravel.wav</value>
+        </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>
         </property>
@@ -10,11 +13,8 @@
         <property name="length">
             <value>4.4483673469387757</value>
         </property>
-        <property name="audioFilePath">
-            <value>$(AUDIO_BIN_DIR)/tank_gravel {91a64d3b-c7b4-4633-a62b-9c371ff92ac3}.wav</value>
-        </property>
-        <relationship name="container">
-            <destination>{24eed67b-9ebe-4f7a-abff-ec677de752b3}</destination>
+        <relationship name="masterAssetFolder">
+            <destination>{877b6aaf-de72-4982-a773-8e1e3d86a7d9}</destination>
         </relationship>
     </object>
 </objects>

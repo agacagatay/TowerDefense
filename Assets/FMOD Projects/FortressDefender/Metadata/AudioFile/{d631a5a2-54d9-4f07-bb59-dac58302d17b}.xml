@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="AudioFile" id="{d631a5a2-54d9-4f07-bb59-dac58302d17b}">
+        <property name="assetPath">
+            <value>Music/music_gameplay.wav</value>
+        </property>
+        <property name="isStreaming">
+            <value>true</value>
+        </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>
         </property>
@@ -10,11 +16,8 @@
         <property name="length">
             <value>130.47260770975058</value>
         </property>
-        <property name="audioFilePath">
-            <value>$(AUDIO_BIN_DIR)/music_gameplay {716bd60a-136c-43eb-bb61-2eca8eadfec1}.wav</value>
-        </property>
-        <relationship name="container">
-            <destination>{eb60c126-7b24-4b1f-85dd-bb29f60a6ee3}</destination>
+        <relationship name="masterAssetFolder">
+            <destination>{877b6aaf-de72-4982-a773-8e1e3d86a7d9}</destination>
         </relationship>
     </object>
 </objects>

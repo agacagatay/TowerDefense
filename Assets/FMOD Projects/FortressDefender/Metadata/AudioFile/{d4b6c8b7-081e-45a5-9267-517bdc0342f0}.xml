@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="AudioFile" id="{d4b6c8b7-081e-45a5-9267-517bdc0342f0}">
+        <property name="assetPath">
+            <value>SFX/Anti-Tank/anti_tank_1.wav</value>
+        </property>
         <property name="frequencyInKHz">
             <value>44.0999985</value>
         </property>
@@ -10,11 +13,8 @@
         <property name="length">
             <value>0.95260770975056686</value>
         </property>
-        <property name="audioFilePath">
-            <value>$(AUDIO_BIN_DIR)/anti_tank_1 {5afb51aa-6393-43ae-b06e-b00612dc69b2}.wav</value>
-        </property>
-        <relationship name="container">
-            <destination>{8f89a482-921b-4171-ab9c-4cfb819c87ab}</destination>
+        <relationship name="masterAssetFolder">
+            <destination>{877b6aaf-de72-4982-a773-8e1e3d86a7d9}</destination>
         </relationship>
     </object>
 </objects>

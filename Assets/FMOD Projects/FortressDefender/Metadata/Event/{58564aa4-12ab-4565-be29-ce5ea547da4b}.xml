@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<objects serializationModel="Studio.01.07.00">
+<objects serializationModel="Studio.01.08.00">
     <object class="Event" id="{58564aa4-12ab-4565-be29-ce5ea547da4b}">
         <property name="name">
             <value>Ally_Ordinance_Missile_Booster</value>
         </property>
         <property name="outputFormat">
-            <value>1</value>
+            <value>2</value>
         </property>
         <relationship name="mixer">
             <destination>{e038182e-7930-40f3-8871-88df0653b812}</destination>
